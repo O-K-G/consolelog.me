@@ -3,6 +3,7 @@ import Contact from '@components/Contact';
 import Projects from '@components/Projects';
 import Skills from '@components/Skills';
 import Experience from '@components/Experience';
+import Loader from '@components/Loader';
 
 export default function MainPage() {
   return (
@@ -26,13 +27,15 @@ export default function MainPage() {
         >
           CC BY 4.0
         </a>
-        license. Changes where made to the material from the original version.
+        &nbsp; license. Changes where made to the material from the original
+        version.
       </div>
       <About />
       <Contact />
       <Projects />
       <Skills />
       <Experience />
+      <Loader />
     </div>
   );
 }
