@@ -2,13 +2,19 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, type ReactNode } from 'react';
+import Image from 'next/image';
 
 interface SectionProps {
   children: ReactNode;
-  currentSection: 'about' | 'contact' | 'projects' | 'skills';
+  currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
+  backgroundClassName?: string;
 }
 
-export default function Section({ children, currentSection }: SectionProps) {
+export default function Section({
+  children,
+  currentSection,
+  backgroundClassName,
+}: SectionProps) {
   const pathname = usePathname();
   const sectionRef = useRef(null);
 
@@ -30,8 +36,16 @@ export default function Section({ children, currentSection }: SectionProps) {
   return (
     <section
       ref={sectionRef}
-      className='snap-start flex items-center justify-center border border-red-500 h-svh w-full overflow-hidden'
+      className='relative snap-start flex items-center justify-center h-svh w-full overflow-hidden'
     >
+      <Image
+        src={`/${currentSection}-background.svg`}
+        fill
+        alt={`${currentSection} background`}
+        className={`-z-10 absolute top-0 left-0 object-cover ${
+          backgroundClassName ?? 'object-center'
+        }`}
+      />
       {children}
     </section>
   );
