@@ -19,16 +19,16 @@ function ImageComponent({
   backgroundClassName,
 }: ImageComponentProps) {
   const { isTailwindMobile } = useVpSize();
-  const [fileType, setFileType] = useState<null | 'svg' | 'jpg'>(null);
+  const [fileType, setFileType] = useState<null | 'svg' | 'webp'>(null);
 
   /** It was found in early tests that multiple SVG files as background images,
    * cause problems when scrolling in Android browsers.
-   * Switching to JPG files in mobile resolutions solves the problem. */
+   * Switching to WEBP files in mobile resolutions solves the problem. */
 
   useEffect(() => {
     if (!fileType) {
       if (isTailwindMobile) {
-        return setFileType('jpg');
+        return setFileType('webp');
       }
       return setFileType('svg');
     }
