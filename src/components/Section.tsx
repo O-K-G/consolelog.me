@@ -39,6 +39,7 @@ function ImageComponent({
       <Image
         src={`/${currentSection}-background.${fileType}`}
         fill
+        loading='eager'
         alt={`${currentSection} background`}
         className={`-z-10 absolute top-0 left-0 object-cover ${
           backgroundClassName ?? 'object-center'
