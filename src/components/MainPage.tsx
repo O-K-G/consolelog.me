@@ -7,7 +7,7 @@ import Experience from '@components/Experience';
 
 export default function MainPage() {
   return (
-    <div className='snap-y snap-mandatory max-h-svh overflow-y-auto'>
+    <>
       <div className='fixed top-0 left-0 text-xs text-white z-10'>
         TODO: Move this attribution elsewhere. Design based on Jayendra
         Awasthi&apos;s &apos;Space themed portfolio&apos; free community Figma
@@ -38,6 +38,6 @@ export default function MainPage() {
 
       {/* TODO: Change Loader behavior. */}
       {/* <Loader /> */}
-    </div>
+    </>
   );
 }

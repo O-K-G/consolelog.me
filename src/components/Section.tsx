@@ -2,51 +2,12 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import Image from 'next/image';
 import useVpSize from '@hooks/useVpSize';
 
-interface ImageComponentProps {
+interface SectionProps {
+  children: ReactNode;
   currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
   backgroundClassName?: string;
-}
-
-interface SectionProps extends ImageComponentProps {
-  children: ReactNode;
-}
-
-function ImageComponent({
-  currentSection,
-  backgroundClassName,
-}: ImageComponentProps) {
-  const { isTailwindMobile } = useVpSize();
-  const [fileType, setFileType] = useState<null | 'svg' | 'webp'>(null);
-
-  /** It was found in early tests that multiple SVG files as background images,
-   * cause problems when scrolling in Android browsers.
-   * Switching to WEBP files in mobile resolutions solves the problem. */
-
-  useEffect(() => {
-    if (!fileType) {
-      if (isTailwindMobile) {
-        return setFileType('webp');
-      }
-      return setFileType('svg');
-    }
-  }, [currentSection, isTailwindMobile, fileType]);
-
-  if (fileType) {
-    return (
-      <Image
-        src={`/${currentSection}-background.${fileType}`}
-        fill
-        loading='eager'
-        alt={`${currentSection} background`}
-        className={`-z-10 absolute top-0 left-0 object-cover ${
-          backgroundClassName ?? 'object-center'
-        }`}
-      />
-    );
-  }
 }
 
 export default function Section({
@@ -72,15 +33,40 @@ export default function Section({
     }
   }, [currentSection, pathname]);
 
+  const { isTailwindMobile } = useVpSize();
+  const [fileType, setFileType] = useState<null | 'svg' | 'webp'>(null);
+
+  /** Ensures that large screens will get the SVG backgrounds and not the WEBP ones,
+   *  event if they're more resource intensive.
+   *  The screen size check is done only initially, changing the screen size
+   *  will not cause the other file types to download, as it's a redundant network use
+   *  for most cases.
+   */
+
+  useEffect(() => {
+    if (!fileType) {
+      if (isTailwindMobile) {
+        return setFileType('webp');
+      }
+      return setFileType('svg');
+    }
+  }, [currentSection, isTailwindMobile, fileType]);
+
+  const backgroundImage = {
+    about: `bg-about-background-${fileType}`,
+    contact: `bg-contact-background-${fileType}`,
+    skills: `bg-skills-background-${fileType}`,
+    projects: `bg-projects-background-${fileType}`,
+    experience: `bg-experience-background-${fileType}`,
+  };
+
+  const currentBackgroundImage = backgroundImage[currentSection] || '';
+
   return (
     <section
       ref={sectionRef}
-      className='relative snap-start flex items-center justify-center h-svh w-full overflow-hidden'
+      className={`relative flex items-center justify-center h-svh w-full overflow-hidden bg-cover ${currentBackgroundImage} ${backgroundClassName}`}
     >
-      <ImageComponent
-        currentSection={currentSection}
-        backgroundClassName={backgroundClassName}
-      />
       {children}
     </section>
   );
