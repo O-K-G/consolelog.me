@@ -3,7 +3,7 @@ import Contact from '@components/Contact';
 import Projects from '@components/Projects';
 import Skills from '@components/Skills';
 import Experience from '@components/Experience';
-import Loader from '@components/Loader';
+// import Loader from '@components/Loader';
 
 export default function MainPage() {
   return (
@@ -35,7 +35,9 @@ export default function MainPage() {
       <Projects />
       <Skills />
       <Experience />
-      <Loader />
+
+      {/* TODO: Change Loader behavior. */}
+      {/* <Loader /> */}
     </div>
   );
 }
