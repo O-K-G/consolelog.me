@@ -43,21 +43,21 @@ export default function Section({
    *  for most cases.
    */
 
-  useEffect(() => {
-    if (!fileType) {
-      if (isTailwindMobile) {
-        return setFileType('webp');
-      }
-      return setFileType('svg');
-    }
-  }, [currentSection, isTailwindMobile, fileType]);
+  // useEffect(() => {
+  //   if (!fileType) {
+  //     if (isTailwindMobile) {
+  //       return setFileType('webp');
+  //     }
+  //     return setFileType('svg');
+  //   }
+  // }, [currentSection, isTailwindMobile, fileType]);
 
   const backgroundImage = {
-    about: `bg-about-background-${fileType}`,
-    contact: `bg-contact-background-${fileType}`,
-    skills: `bg-skills-background-${fileType}`,
-    projects: `bg-projects-background-${fileType}`,
-    experience: `bg-experience-background-${fileType}`,
+    about: 'bg-about-background-webp',
+    contact: 'bg-contact-background-webp',
+    skills: 'bg-skills-background-webp',
+    projects: 'bg-projects-background-webp',
+    experience: 'bg-experience-background-webp',
   };
 
   const currentBackgroundImage = backgroundImage[currentSection] || '';
