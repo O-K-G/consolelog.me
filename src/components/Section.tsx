@@ -4,7 +4,6 @@ import { AppContext as appContext } from '@components/AppContext';
 import { type SectionProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
 import { useContext, useEffect, useRef } from 'react';
-import { CACHE_VERSION } from '@root/tailwind.config';
 
 const BACKGROUND_IMAGES_CLASSNAMES = {
   about: 'bg-about-background',
@@ -14,23 +13,14 @@ const BACKGROUND_IMAGES_CLASSNAMES = {
   experience: 'bg-experience-background',
 } as const;
 
-const ROTATION_CLASSNAMES_BY_SECTION = {
-  contact: 'rotate-90',
-  projects: 'rotate-180',
-  skills: '-rotate-90',
-  experience: '-rotate-180',
-} as const;
-
 export default function Section({
   children,
   currentSection,
   backgroundClassName,
-  displayPlanetImage,
 }: SectionProps) {
   const pathname = usePathname();
   const sectionRef = useRef(null);
-  const { onChange: setCurrentTopSection, currentTopSection } =
-    useContext(appContext);
+  const { onChange: setCurrentTopSection } = useContext(appContext);
 
   useEffect(() => {
     if (currentSection === pathname?.substring(1)) {
@@ -71,23 +61,6 @@ export default function Section({
   const currentBackgroundImage =
     BACKGROUND_IMAGES_CLASSNAMES[currentSection] || '';
 
-  const rotationClasses =
-    ROTATION_CLASSNAMES_BY_SECTION[
-      currentTopSection as keyof typeof ROTATION_CLASSNAMES_BY_SECTION
-    ];
-
-  const planetImage = (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={`/planet.webp?cacheVersion=${CACHE_VERSION}`}
-      alt='planet with astronauts'
-      loading='eager'
-      className={`fixed z-10 translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto w-full md:w-3/4 transition-all duration-1000 ease-in-out md:ease-in ${
-        rotationClasses || ''
-      }`}
-    />
-  );
-
   return (
     <section
       ref={sectionRef}
@@ -95,7 +68,6 @@ export default function Section({
         backgroundClassName ?? ''
       }`}
     >
-      {displayPlanetImage && planetImage}
       {children}
     </section>
   );
