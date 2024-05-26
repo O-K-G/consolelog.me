@@ -1,11 +1,38 @@
+'use client';
+
 import About from '@components/About';
 import Contact from '@components/Contact';
 import Projects from '@components/Projects';
 import Skills from '@components/Skills';
 import Experience from '@components/Experience';
 import { CACHE_VERSION } from '@root/tailwind.config';
+import {
+  type Dispatch,
+  type SetStateAction,
+  createContext,
+  useMemo,
+  useState,
+} from 'react';
+
+export const AppContext = createContext({
+  currentTopSection: 'about',
+  onChange: () => null,
+} as {
+  currentTopSection: string;
+  onChange: Dispatch<SetStateAction<string>>;
+});
 
 export default function Home() {
+  const [currentTopSection, setCurrentTopSection] = useState('about');
+
+  const AppContextData = useMemo(
+    () => ({
+      currentTopSection,
+      onChange: setCurrentTopSection,
+    }),
+    [currentTopSection]
+  );
+
   const planetImage = (
     // eslint-disable-next-line @next/next/no-img-element
     <img
@@ -40,12 +67,14 @@ export default function Home() {
         &nbsp; license. Changes where made to the material from the original
         version.
       </div>
-      <About />
-      <Contact />
-      <Projects />
-      <Skills />
-      <Experience />
-      {planetImage}
+      <AppContext.Provider value={AppContextData}>
+        <About />
+        <Contact />
+        <Projects />
+        <Skills />
+        <Experience />
+        {planetImage}
+      </AppContext.Provider>
 
       {/* TODO: Change Loader behavior. */}
       {/* <Loader /> */}

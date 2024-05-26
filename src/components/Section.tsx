@@ -1,8 +1,7 @@
-'use client';
-
+import { AppContext as appContext } from '@/app/page';
 import { type SectionProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 
 const BACKGROUND_IMAGES_CLASSNAMES = {
   about: 'bg-about-background',
@@ -19,6 +18,10 @@ export default function Section({
 }: SectionProps) {
   const pathname = usePathname();
   const sectionRef = useRef(null);
+  const { currentTopSection, onChange: setCurrentTopSection } =
+    useContext(appContext);
+
+  console.log(currentTopSection, setCurrentTopSection);
 
   useEffect(() => {
     if (currentSection === pathname?.substring(1)) {
