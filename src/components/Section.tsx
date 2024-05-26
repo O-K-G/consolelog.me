@@ -1,13 +1,16 @@
 'use client';
 
+import { type SectionProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef } from 'react';
 
-interface SectionProps {
-  children: ReactNode;
-  currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
-  backgroundClassName?: string;
-}
+const BACKGROUND_IMAGES_CLASSNAMES = {
+  about: 'bg-about-background',
+  contact: 'bg-contact-background',
+  skills: 'bg-skills-background',
+  projects: 'bg-projects-background',
+  experience: 'bg-experience-background',
+} as const;
 
 export default function Section({
   children,
@@ -32,20 +35,15 @@ export default function Section({
     }
   }, [currentSection, pathname]);
 
-  const backgroundImage = {
-    about: 'bg-about-background',
-    contact: 'bg-contact-background',
-    skills: 'bg-skills-background',
-    projects: 'bg-projects-background',
-    experience: 'bg-experience-background',
-  };
-
-  const currentBackgroundImage = backgroundImage[currentSection] || '';
+  const currentBackgroundImage =
+    BACKGROUND_IMAGES_CLASSNAMES[currentSection] || '';
 
   return (
     <section
       ref={sectionRef}
-      className={`relative flex items-center justify-center h-svh w-full overflow-hidden bg-cover ${currentBackgroundImage} ${backgroundClassName}`}
+      className={`relative flex items-center justify-center h-svh w-full overflow-hidden bg-cover ${currentBackgroundImage} ${
+        backgroundClassName ?? ''
+      }`}
     >
       {children}
     </section>
