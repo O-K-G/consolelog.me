@@ -1,5 +1,9 @@
 import Section from '@components/Section';
 
 export default function Contact() {
-  return <Section currentSection='contact'>contact</Section>;
+  return (
+    <Section backgroundClassName='bg-center' currentSection='contact'>
+      contact
+    </Section>
+  );
 }

@@ -1,5 +1,9 @@
 import Section from '@components/Section';
 
 export default function Projects() {
-  return <Section currentSection='projects'>Projects</Section>;
+  return (
+    <Section backgroundClassName='bg-center' currentSection='projects'>
+      Projects
+    </Section>
+  );
 }
