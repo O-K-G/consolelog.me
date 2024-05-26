@@ -78,6 +78,7 @@ export default function Home() {
         <Projects />
         <Skills />
         <Experience />
+        {/* FIXME: Planet's "atmosphere" isn't transparent enough. */}
         {planetImage}
       </AppContext.Provider>
 
