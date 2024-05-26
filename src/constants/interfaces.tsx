@@ -8,5 +8,4 @@ export interface SectionProps {
   children: ReactNode;
   currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
   backgroundClassName?: string;
-  displayPlanetImage?: boolean;
 }
