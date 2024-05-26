@@ -3,6 +3,7 @@ import Contact from '@components/Contact';
 import Projects from '@components/Projects';
 import Skills from '@components/Skills';
 import Experience from '@components/Experience';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -34,6 +35,10 @@ export default function Home() {
       <Projects />
       <Skills />
       <Experience />
+
+      <div className='fixed -bottom-[50svh] left-0 right-0 mx-auto size-3/4'>
+        <Image src='/planet.svg' fill alt='Picture of the author' />
+      </div>
 
       {/* TODO: Change Loader behavior. */}
       {/* <Loader /> */}
