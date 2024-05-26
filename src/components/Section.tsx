@@ -79,7 +79,7 @@ export default function Section({
   const planetImage = (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={`/planet.svg?cacheVersion=${CACHE_VERSION}`}
+      src={`/planet.webp?cacheVersion=${CACHE_VERSION}`}
       alt='planet with astronauts'
       loading='eager'
       className={`fixed z-10 translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto w-full md:w-3/4 transition-all duration-1000 ease-in-out md:ease-in ${
