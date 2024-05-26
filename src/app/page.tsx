@@ -6,13 +6,8 @@ import Projects from '@components/Projects';
 import Skills from '@components/Skills';
 import Experience from '@components/Experience';
 import { CACHE_VERSION } from '@root/tailwind.config';
-import {
-  type Dispatch,
-  type SetStateAction,
-  createContext,
-  useMemo,
-  useState,
-} from 'react';
+import { useMemo, useState } from 'react';
+import { AppContext } from '@components/AppContext';
 
 const ROTATION_CLASSNAMES_BY_SECTION = {
   contact: 'rotate-90',
@@ -20,12 +15,6 @@ const ROTATION_CLASSNAMES_BY_SECTION = {
   skills: '-rotate-90',
   experience: '-rotate-180',
 } as const;
-
-export const AppContext = createContext({
-  onChange: () => null,
-} as {
-  onChange: Dispatch<SetStateAction<string>>;
-});
 
 export default function Home() {
   const [currentTopSection, setCurrentTopSection] = useState('about');

@@ -1,4 +1,4 @@
-import { AppContext as appContext } from '@/app/page';
+import { AppContext as appContext } from '@components/AppContext';
 import { type SectionProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
 import { useContext, useEffect, useRef } from 'react';
