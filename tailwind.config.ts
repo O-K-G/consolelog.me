@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-const CACHE_VERSION = 1;
+export const CACHE_VERSION = 1;
 
 const config: Config = {
   content: [

@@ -3,8 +3,19 @@ import Contact from '@components/Contact';
 import Projects from '@components/Projects';
 import Skills from '@components/Skills';
 import Experience from '@components/Experience';
+import { CACHE_VERSION } from '@root/tailwind.config';
 
 export default function Home() {
+  const planetImage = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={`/planet.svg?cacheVersion=${CACHE_VERSION}`}
+      alt='planet with astronauts'
+      loading='eager'
+      className='fixed translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto w-full md:w-3/4'
+    />
+  );
+
   return (
     <main className='min-h-screen overflow-hidden'>
       <div className='fixed top-0 left-0 text-xs text-white z-10'>
@@ -34,6 +45,7 @@ export default function Home() {
       <Projects />
       <Skills />
       <Experience />
+      {planetImage}
 
       {/* TODO: Change Loader behavior. */}
       {/* <Loader /> */}
