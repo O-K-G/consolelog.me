@@ -95,7 +95,6 @@ export default function Section({
         backgroundClassName ?? ''
       }`}
     >
-      {/* FIXME: Planet's "atmosphere" isn't transparent enough. */}
       {displayPlanetImage && planetImage}
       {children}
     </section>
