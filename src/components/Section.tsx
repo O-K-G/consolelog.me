@@ -1,13 +1,9 @@
 'use client';
 
+import { BACKGROUND_IMAGES_CLASSNAMES } from '@constants/staticConsts';
+import { type SectionProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, type ReactNode } from 'react';
-
-interface SectionProps {
-  children: ReactNode;
-  currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
-  backgroundClassName?: string;
-}
+import { useEffect, useRef } from 'react';
 
 export default function Section({
   children,
@@ -32,15 +28,8 @@ export default function Section({
     }
   }, [currentSection, pathname]);
 
-  const backgroundImage = {
-    about: 'bg-about-background',
-    contact: 'bg-contact-background',
-    skills: 'bg-skills-background',
-    projects: 'bg-projects-background',
-    experience: 'bg-experience-background',
-  };
-
-  const currentBackgroundImage = backgroundImage[currentSection] || '';
+  const currentBackgroundImage =
+    BACKGROUND_IMAGES_CLASSNAMES[currentSection] || '';
 
   return (
     <section
