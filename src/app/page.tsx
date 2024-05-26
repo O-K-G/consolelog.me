@@ -6,6 +6,7 @@ import Projects from '@components/Projects';
 import Skills from '@components/Skills';
 import Experience from '@components/Experience';
 import { CACHE_VERSION } from '@root/tailwind.config';
+import { ROTATION_CLASSNAMES_BY_SECTION } from '@constants/staticConstants';
 import {
   type Dispatch,
   type SetStateAction,
@@ -29,14 +30,21 @@ export default function Home() {
     }),
     []
   );
-  console.log(currentTopSection);
+
+  const rotationClasses =
+    ROTATION_CLASSNAMES_BY_SECTION[
+      currentTopSection as keyof typeof ROTATION_CLASSNAMES_BY_SECTION
+    ];
+
   const planetImage = (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={`/planet.svg?cacheVersion=${CACHE_VERSION}`}
       alt='planet with astronauts'
       loading='eager'
-      className='fixed translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto w-full md:w-3/4'
+      className={`fixed translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto w-full md:w-3/4 transition-all duration-300 ease-in-out md:ease-in ${
+        rotationClasses || ''
+      }`}
     />
   );
 
