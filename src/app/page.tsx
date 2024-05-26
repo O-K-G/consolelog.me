@@ -15,10 +15,8 @@ import {
 } from 'react';
 
 export const AppContext = createContext({
-  currentTopSection: 'about',
   onChange: () => null,
 } as {
-  currentTopSection: string;
   onChange: Dispatch<SetStateAction<string>>;
 });
 
@@ -27,12 +25,11 @@ export default function Home() {
 
   const AppContextData = useMemo(
     () => ({
-      currentTopSection,
       onChange: setCurrentTopSection,
     }),
-    [currentTopSection]
+    []
   );
-
+  console.log(currentTopSection);
   const planetImage = (
     // eslint-disable-next-line @next/next/no-img-element
     <img

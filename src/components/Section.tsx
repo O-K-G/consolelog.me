@@ -18,10 +18,7 @@ export default function Section({
 }: SectionProps) {
   const pathname = usePathname();
   const sectionRef = useRef(null);
-  const { currentTopSection, onChange: setCurrentTopSection } =
-    useContext(appContext);
-
-  console.log(currentTopSection, setCurrentTopSection);
+  const { onChange: setCurrentTopSection } = useContext(appContext);
 
   useEffect(() => {
     if (currentSection === pathname?.substring(1)) {
@@ -37,6 +34,27 @@ export default function Section({
       );
     }
   }, [currentSection, pathname]);
+
+  useEffect(() => {
+    const options = {
+      rootMargin: '10px',
+      threshold: 1.0,
+    };
+
+    const handleObserve = (e: IntersectionObserverEntry[]) => {
+      const { isIntersecting } = e[0];
+
+      if (isIntersecting) {
+        setCurrentTopSection(currentSection);
+      }
+    };
+
+    const observer = new IntersectionObserver(handleObserve, options);
+
+    observer.observe(sectionRef.current as unknown as HTMLElement);
+
+    return () => observer.disconnect();
+  }, [currentSection, setCurrentTopSection]);
 
   const currentBackgroundImage =
     BACKGROUND_IMAGES_CLASSNAMES[currentSection] || '';
