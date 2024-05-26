@@ -1,5 +1,5 @@
-import MainPage from '@components/MainPage';
+import Home from '@/app/page';
 
 export default function AboutPage() {
-  return <MainPage />;
+  return <Home />;
 }

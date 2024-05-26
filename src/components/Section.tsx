@@ -1,9 +1,16 @@
 'use client';
 
-import { BACKGROUND_IMAGES_CLASSNAMES } from '@constants/staticConsts';
 import { type SectionProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
+
+const BACKGROUND_IMAGES_CLASSNAMES = {
+  about: 'bg-about-background',
+  contact: 'bg-contact-background',
+  skills: 'bg-skills-background',
+  projects: 'bg-projects-background',
+  experience: 'bg-experience-background',
+} as const;
 
 export default function Section({
   children,

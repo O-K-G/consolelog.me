@@ -1,5 +1,5 @@
-import MainPage from '@components/MainPage';
+import Home from '@/app/page';
 
 export default function SkillsPage() {
-  return <MainPage />;
+  return <Home />;
 }
