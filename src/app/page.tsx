@@ -6,7 +6,6 @@ import Projects from '@components/Projects';
 import Skills from '@components/Skills';
 import Experience from '@components/Experience';
 import { CACHE_VERSION } from '@root/tailwind.config';
-import { ROTATION_CLASSNAMES_BY_SECTION } from '@constants/staticConstants';
 import {
   type Dispatch,
   type SetStateAction,
@@ -14,6 +13,13 @@ import {
   useMemo,
   useState,
 } from 'react';
+
+const ROTATION_CLASSNAMES_BY_SECTION = {
+  contact: 'rotate-90',
+  projects: 'rotate-180',
+  skills: '-rotate-90',
+  experience: '-rotate-180',
+} as const;
 
 export const AppContext = createContext({
   onChange: () => null,
