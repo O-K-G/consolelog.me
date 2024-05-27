@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  width: 'width=device-width',
+  width: 'device-width',
   initialScale: 1,
   interactiveWidget: 'resizes-content',
 };
