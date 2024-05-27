@@ -32,6 +32,7 @@ export default function Planet() {
         loading='eager'
         alt='planet with astronauts'
         priority
+        className='rounded-full overflow-hidden'
       />
     </div>
   );
