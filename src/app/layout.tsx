@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 // import { Inter } from "next/font/google";
 import './globals.css';
+import type { Viewport } from 'next';
 
 // const inter = Inter({ subsets: ["latin"] });
 // className={inter.className}
@@ -10,6 +11,12 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'TBD',
   description: 'TBD',
+};
+
+export const viewport: Viewport = {
+  width: 'width=device-width',
+  initialScale: 1,
+  interactiveWidget: 'resizes-content',
 };
 
 export default function RootLayout({
