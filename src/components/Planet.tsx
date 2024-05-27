@@ -25,7 +25,7 @@ export default function Planet() {
       src={`/planet.webp?cacheVersion=${CACHE_VERSION}`}
       alt='planet with astronauts'
       loading='eager'
-      className={`fixed translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto w-full md:w-3/4 transition-all duration-1000 ease-in-out md:ease-in ${
+      className={`fixed translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto w-full md:w-3/4 transition-all duration-1000 ease-in-out ${
         rotationClasses || ''
       }`}
     />
