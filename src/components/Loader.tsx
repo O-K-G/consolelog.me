@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
 
 export default function Loader() {
@@ -7,9 +9,11 @@ export default function Loader() {
 
   useEffect(() => {
     const { current } = loaderRef;
+    const { readyState } = document;
+    const isPageLoaded = readyState === 'complete';
 
     if (isLoader) {
-      if (document?.readyState === 'complete') {
+      if (isPageLoaded && isLoderVisible) {
         setIsLoderVisible(false);
       }
 
@@ -26,7 +30,7 @@ export default function Loader() {
           handleTransitionEnd
         );
     }
-  }, [isLoader]);
+  }, [isLoader, isLoderVisible]);
 
   if (!isLoader) {
     return null;
