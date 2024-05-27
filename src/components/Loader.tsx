@@ -10,9 +10,17 @@ export default function Loader() {
   useEffect(() => {
     const { current } = loaderRef;
 
-    if (isLoader) {
-      if (window && isLoderVisible) {
+    const onLoad = () => {
+      if (isLoderVisible) {
         setIsLoderVisible(false);
+      }
+    };
+
+    if (isLoader) {
+      if (document.readyState === 'complete') {
+        onLoad();
+      } else {
+        window.addEventListener('load', onLoad);
       }
 
       const handleTransitionEnd = () => setIsLoader(false);
@@ -22,13 +30,32 @@ export default function Loader() {
         handleTransitionEnd
       );
 
-      return () =>
+      return () => {
         (current as unknown as HTMLDivElement)?.removeEventListener(
           'transitionend',
           handleTransitionEnd
         );
+        window.removeEventListener('load', onLoad);
+      };
     }
   }, [isLoader, isLoderVisible]);
+
+  useEffect(() => {
+    // callback function to call when event triggers
+    const onPageLoad = () => {
+      console.log('page loaded');
+      // do something else
+    };
+
+    // Check if the page has already loaded
+    if (document.readyState === 'complete') {
+      onPageLoad();
+    } else {
+      window.addEventListener('load', onPageLoad, false);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener('load', onPageLoad);
+    }
+  }, []);
 
   if (!isLoader) {
     return null;
