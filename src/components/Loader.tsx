@@ -9,11 +9,9 @@ export default function Loader() {
 
   useEffect(() => {
     const { current } = loaderRef;
-    const { readyState } = document;
-    const isPageLoaded = readyState === 'complete';
 
     if (isLoader) {
-      if (isPageLoaded && isLoderVisible) {
+      if (window && isLoderVisible) {
         setIsLoderVisible(false);
       }
 
