@@ -5,12 +5,12 @@ import Skills from '@components/Skills';
 import Experience from '@components/Experience';
 import AppContextComponent from '@components/AppContext';
 import Planet from '@components/Planet';
-import Loader from '@components/Loader';
+// import Loader from '@components/Loader';
 
 export default function Home() {
   return (
     <main className='min-h-[100svh] lg:min-h-[100dvh] overflow-hidden'>
-      <Loader />
+      {/* <Loader /> */}
       <div className='fixed top-0 left-0 text-xs text-white z-10'>
         TODO: Move this attribution elsewhere. Design based on Jayendra
         Awasthi&apos;s &apos;Space themed portfolio&apos; free community Figma
