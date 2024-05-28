@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'just-in-the-firestorm': ['var(--font-just-in-the-firestorm)'],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

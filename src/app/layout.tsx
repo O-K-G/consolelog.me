@@ -1,11 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-// import { Inter } from "next/font/google";
+
 import './globals.css';
+import { JUST_IN_THE_FIRESTORM_REGULAR_FONT } from '@constants/fonts';
 
-// const inter = Inter({ subsets: ["latin"] });
-// className={inter.className}
-
-// TODO: Remove comments and set metadada.
+// TODO: Set metadada.
 
 export const metadata: Metadata = {
   title: 'TBD',
@@ -23,9 +21,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const className = `${JUST_IN_THE_FIRESTORM_REGULAR_FONT.variable}`;
+
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body className={className}>{children}</body>
     </html>
   );
 }
