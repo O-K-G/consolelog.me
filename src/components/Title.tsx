@@ -26,7 +26,7 @@ export default function Title({
   component: Component = 'h2',
   label,
 }: TitleProps) {
-  const charactersArr = label.split('').map((str, index) => ({
+  const charactersArr = label?.split('').map((str, index) => ({
     id: index,
     str,
   }));
@@ -34,7 +34,7 @@ export default function Title({
   return (
     <div className='center-elements flex-wrap px-8 overflow-hidden'>
       <Component className='sr-only'>{label}</Component>
-      {charactersArr.map(({ id, str }) => {
+      {charactersArr?.map(({ id, str }) => {
         const isI = str === 'i' || str === 'I';
 
         return (
