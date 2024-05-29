@@ -8,11 +8,11 @@ export default function Title({
     <div className='relative'>
       <div
         aria-hidden
-        className='select-none pointer-events-none title-text blur-sm title-text-glow'
+        className='select-none pointer-events-none title-text blur-sm title-text-stroke scale-[1.05]'
       >
-        {label}
+        A
       </div>
-      <Component className='title-text title-text-stroke'>{label}</Component>
+      <Component className='title-text title-text-stroke'>A</Component>
     </div>
   );
 }

@@ -30,10 +30,7 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-  .title-text-glow {
-    -webkit-text-stroke: 0.5rem #ceb7ff;
-    text-stroke: 0.5rem #ceb7ff;
-  }
+
   .title-text-stroke {
     -webkit-text-stroke: 0.125rem #ceb7ff;
     text-stroke: 0.125rem #ceb7ff;
