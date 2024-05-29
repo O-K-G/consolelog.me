@@ -4,7 +4,7 @@ import './globals.css';
 import localFont from 'next/font/local';
 
 /** https://www.fontspace.com/just-in-the-firestorm-font-f31017 */
-export const justInTheFirestormRegular = localFont({
+const justInTheFirestormRegular = localFont({
   src: '../../public/fonts/JustInTheFirestormRegular-z291.ttf',
   variable: '--font-just-in-the-firestorm',
 });
