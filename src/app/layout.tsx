@@ -7,7 +7,7 @@ import localFont from 'next/font/local';
 export const JUST_IN_THE_FIRESTORM_REGULAR_FONT = localFont({
   src: [
     {
-      path: './justInTheFirestormRegular-z291.ttf',
+      path: 'justInTheFirestormRegular-z291.ttf',
       weight: '400',
       style: 'normal',
     },
