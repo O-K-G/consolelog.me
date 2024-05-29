@@ -4,7 +4,7 @@ import './globals.css';
 import localFont from 'next/font/local';
 
 /** https://www.fontspace.com/just-in-the-firestorm-font-f31017 */
-export const JUST_IN_THE_FIRESTORM_REGULAR_FONT = localFont({
+export const justInTheFirestormRegular = localFont({
   src: '../../public/fonts/JustInTheFirestormRegular-z291.ttf',
   variable: '--font-just-in-the-firestorm',
 });
@@ -27,7 +27,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const className = `${JUST_IN_THE_FIRESTORM_REGULAR_FONT.variable}`;
+  const className = `${justInTheFirestormRegular.variable}`;
 
   return (
     <html lang='en'>
