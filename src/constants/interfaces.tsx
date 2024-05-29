@@ -9,3 +9,8 @@ export interface SectionProps {
   currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
   backgroundClassName?: string;
 }
+
+export interface TitleProps {
+  label: string;
+  component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+}

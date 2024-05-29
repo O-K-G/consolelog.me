@@ -1,11 +1,15 @@
 import type { Metadata, Viewport } from 'next';
-// import { Inter } from "next/font/google";
+
 import './globals.css';
+import localFont from 'next/font/local';
 
-// const inter = Inter({ subsets: ["latin"] });
-// className={inter.className}
+/** https://www.fontspace.com/just-in-the-firestorm-font-f31017 */
+const justInTheFirestormRegular = localFont({
+  src: '../../public/fonts/JustInTheFirestormRegular-z291.ttf',
+  variable: '--font-just-in-the-firestorm',
+});
 
-// TODO: Remove comments and set metadada.
+// TODO: Set metadada.
 
 export const metadata: Metadata = {
   title: 'TBD',
@@ -23,9 +27,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const className = `${justInTheFirestormRegular.variable}`;
+
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body className={className}>{children}</body>
     </html>
   );
 }
