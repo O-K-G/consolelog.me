@@ -7,15 +7,16 @@ interface CharacterProps {
 
 function Character({ character, widthClassName }: CharacterProps) {
   return (
-    <div className={`relative ${widthClassName}`}>
-      <div
-        aria-hidden
-        className='select-none pointer-events-none title-character blur-sm scale-[1.05]'
-      >
-        {character}
+    <div className={`relative min-h-28 ${widthClassName}`}>
+      <div className='select-none pointer-events-none title-character blur-sm scale-[1.05]'>
+        <div aria-hidden className='center-elements size-full'>
+          {character}
+        </div>
       </div>
-      <div aria-hidden className='title-character'>
-        {character}
+      <div className='title-character'>
+        <div aria-hidden className='center-elements size-full'>
+          {character}
+        </div>
       </div>
     </div>
   );
@@ -31,7 +32,7 @@ export default function Title({
   }));
 
   return (
-    <div className='flex items-center justify-center'>
+    <div className='center-elements flex-wrap px-8 overflow-hidden'>
       <Component className='sr-only'>{label}</Component>
       {charactersArr.map(({ id, str }) => {
         const isI = str === 'i' || str === 'I';
