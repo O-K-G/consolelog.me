@@ -28,7 +28,7 @@ function Character({ character, widthClassName }: CharacterProps) {
 
   return (
     <div className={`relative min-h-9 lg:min-h-16 lowercase ${widthClassName}`}>
-      <div className='select-none pointer-events-none title-character blur-sm scale-[1.05]'>
+      <div className='select-none pointer-events-none title-character blur-[2px] lg:blur-sm scale-[1.05]'>
         <div aria-hidden className='center-elements size-full'>
           {character}
         </div>
