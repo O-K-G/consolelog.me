@@ -13,12 +13,12 @@ function TitleBorder({ leftLabel, rightLabel, className }: TitleBorderProps) {
     <div
       className={`text-title-purple uppercase text-base lg:text-xl font-star-date-81316 whitespace-nowrap center-elements gap-2 w-full ${className}`}
     >
-      {leftLabel && <span className='leading-none'>{leftLabel}</span>}
+      {leftLabel && <span className='leading-none pt-0.5'>{leftLabel}</span>}
       <div className='center-elements relative w-full h-3 lg:h-3.5'>
         <div className={`${titleBorderClassName} blur-sm border-[1.5px]`} />
         <div className={titleBorderClassName} />
       </div>
-      {rightLabel && <span className='leading-none'>{rightLabel}</span>}
+      {rightLabel && <span className='leading-none pt-0.5'>{rightLabel}</span>}
     </div>
   );
 }
@@ -56,7 +56,7 @@ export default function Title({
   const paddingClassName = 'px-2 lg:px-8';
 
   return (
-    <div className='flex-col center-elements  mt-28'>
+    <div className='flex-col center-elements mt-4 lg:mt-28'>
       <TitleBorder rightLabel={rightLabel} className={paddingClassName} />
       <div
         className={`center-elements mt-1 flex-wrap overflow-hidden ${paddingClassName}`}
