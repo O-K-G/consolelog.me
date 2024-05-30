@@ -10,8 +10,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: { 'title-purple': '#ceb7ff' },
       fontFamily: {
         'just-in-the-firestorm': ['var(--font-just-in-the-firestorm)'],
+        'star-date-81316': ['var(--font-star-date-81316)'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
