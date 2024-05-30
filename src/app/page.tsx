@@ -30,7 +30,7 @@ export default function Home() {
         >
           CC BY 4.0
         </a>
-        &nbsp; license. Changes where made to the material from the original
+        &nbsp; license. Changes were made to the material from the original
         version.
       </div>
       <AppContextComponent>

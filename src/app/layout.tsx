@@ -9,6 +9,12 @@ const justInTheFirestormRegular = localFont({
   variable: '--font-just-in-the-firestorm',
 });
 
+/** https://www.fontspace.com/stardate-81316-font-f28430  */
+const starDate81316 = localFont({
+  src: '../../public/fonts/Stardate81316-aolE.ttf',
+  variable: '--font-star-date-81316',
+});
+
 // TODO: Set metadada.
 
 export const metadata: Metadata = {
@@ -27,7 +33,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const className = `${justInTheFirestormRegular.variable}`;
+  const className = `${justInTheFirestormRegular.variable} ${starDate81316.variable}`;
 
   return (
     <html lang='en'>
