@@ -39,7 +39,7 @@ body {
 
 @layer components {
   .title-character {
-    @apply absolute top-0 bottom-0 left-0 right-0 m-auto size-full title-text-stroke font-just-in-the-firestorm text-transparent text-4xl;
+    @apply absolute top-0 bottom-0 left-0 right-0 m-auto size-full title-text-stroke font-just-in-the-firestorm text-transparent text-xl lg:text-4xl;
   }
 
   .center-elements {

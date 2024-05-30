@@ -6,9 +6,9 @@ export default function About() {
     <Section backgroundClassName='bg-left-top' currentSection='about'>
       <Title
         component='h1'
-        label='about'
-        leftLabel='SFVGDG SFGFD SGREHGAEHGA'
-        rightLabel='SG VSFGSFH SZFBDGHB'
+        label='lorem ipsum dolor'
+        leftLabel='LOREM IPSUM DOLOR SIT CONSECTETUR'
+        rightLabel='LOREM IPSUM DOLOR SIT'
       />
     </Section>
   );
