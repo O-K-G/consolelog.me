@@ -23,3 +23,17 @@ export interface TitleProps extends TitleLabels {
 export interface TitleBorderProps extends TitleLabels {
   className: string;
 }
+
+export interface OldschoolButtonProps {
+  label: string;
+  onClick: () => void;
+}
+
+export interface NoDialogProps {
+  open: boolean;
+  onClick: () => void;
+}
+
+export interface OldProps {
+  onClick: () => void;
+}
