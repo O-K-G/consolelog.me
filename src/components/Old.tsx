@@ -31,7 +31,7 @@ function NoDialog({ open, onClick }: NoDialogProps) {
   return (
     <dialog
       open={open}
-      className='hidden open:center-elements flex-col fixed top-0 bottom-0 left-0 right-0 m-auto border-2 border-l-white border-t-white border-r-gray-500 border-b-gray-500 w-11/12 md:w-3/12 h-[50svh] lg:h-[25dvh] bg-[#b4b3b3] font-bold text-xl text-black'
+      className='hidden open:center-elements border border-black shadow-md shadow-gray-500 flex-col fixed top-0 bottom-0 left-0 right-0 m-auto w-11/12 md:w-3/12 h-[50svh] lg:h-[25dvh] bg-[#b4b3b3] font-bold text-xl text-black'
     >
       <div className='bg-gray-500 py-4 pl-4 pr-0.5 flex items-center justify-between w-full h-4 absolute top-0 right-0'>
         <span className='text-white text-base'>
