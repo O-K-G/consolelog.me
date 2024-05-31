@@ -65,7 +65,13 @@ export default function Old({ onClick }: OldProps) {
         <div className='center-elements gap-2'>
           <OldschoolButton
             disabled={open}
-            onClick={() => setOpen(true)}
+            onClick={() => {
+              const date = new Date();
+              setOpen(true);
+              console.warn(
+                `${date.toLocaleDateString()} ${date.toLocaleTimeString()}: Error (418): I'm a teapot. Just saying. :)`
+              );
+            }}
             label='OK'
           />
           <OldschoolButton
