@@ -27,6 +27,7 @@ export interface TitleBorderProps extends TitleLabels {
 export interface OldschoolButtonProps {
   label: string;
   onClick: () => void;
+  disabled: boolean;
 }
 
 export interface NoDialogProps {
