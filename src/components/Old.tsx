@@ -15,10 +15,10 @@ function OldschoolButton({ label, onClick, disabled }: OldschoolButtonProps) {
     <button
       disabled={disabled}
       onClick={onClick}
-      className={`shadow-sm border border-black shadow-black outline-none center-elements p-4 hover:bg-white active:bg-white focus:bg-white mt-10 ${
+      className={`shadow-sm border border-black shadow-black outline-none center-elements p-4 mt-10 ${
         disabled
-          ? 'cursor-not-allowed bg-[#6e6e6e] hover:bg-[#6e6e6e] active:bg-[#6e6e6e] focus:bg-[#6e6e6e]'
-          : ''
+          ? 'cursor-not-allowed'
+          : 'hover:bg-white active:bg-white focus:bg-white'
       }`}
       type='button'
     >
