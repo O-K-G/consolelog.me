@@ -10,15 +10,15 @@ export default function About() {
 
   const handleOld = (val: boolean) => {
     const bodyClassList = document.getElementsByTagName('body')[0].classList;
-    if (val) {
-      return ['h-[100svh]', 'lg:h-[100dvh]', 'overflow-hidden'].forEach((str) =>
-        bodyClassList.add(str)
-      );
-    }
+    const classNameArr = ['h-[100svh]', 'lg:h-[100dvh]', 'overflow-hidden'];
 
-    return ['h-[100svh]', 'lg:h-[100dvh]', 'overflow-hidden'].forEach((str) =>
-      bodyClassList.remove(str)
-    );
+    classNameArr.forEach((str) => {
+      if (val) {
+        bodyClassList.add(str);
+      } else {
+        bodyClassList.remove(str);
+      }
+    });
   };
 
   return (
