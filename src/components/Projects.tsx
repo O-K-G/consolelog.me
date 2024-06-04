@@ -4,7 +4,7 @@ import Title from '@components/Title';
 export default function Projects() {
   return (
     <Section backgroundClassName='bg-center' currentSection='projects'>
-      <Title label='projects' />
+      <Title label='projects' labelGlowText='projects' />
     </Section>
   );
 }

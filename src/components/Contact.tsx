@@ -4,7 +4,7 @@ import Title from '@components/Title';
 export default function Contact() {
   return (
     <Section backgroundClassName='bg-center' currentSection='contact'>
-      <Title label='contact' />
+      <Title label='contact' labelGlowText='contact' />
     </Section>
   );
 }
