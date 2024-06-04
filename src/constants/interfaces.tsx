@@ -11,8 +11,8 @@ export interface SectionProps {
 }
 
 interface TitleLabels {
-  leftLabel?: string;
-  rightLabel?: string;
+  topLabel?: string;
+  bottomLabel?: string;
 }
 
 export interface TitleProps extends TitleLabels {
@@ -27,6 +27,7 @@ export interface TitleProps extends TitleLabels {
    */
   labelGlowText: string;
   className?: string;
+  border?: boolean;
 }
 
 export interface OldschoolButtonProps {

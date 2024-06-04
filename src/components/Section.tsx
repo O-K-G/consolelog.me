@@ -64,7 +64,7 @@ export default function Section({
   return (
     <section
       ref={sectionRef}
-      className={`relative flex flex-col items-center justify-start h-svh w-full overflow-hidden bg-cover ${currentBackgroundImage} ${
+      className={`relative flex flex-col gap-24 items-center justify-start h-svh w-full overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
       }`}
     >

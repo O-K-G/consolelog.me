@@ -34,6 +34,8 @@ export default function About() {
               label: 'lorem ipsum dolor',
               labelGlowText: "before:content-['lorem_ipsum_dolor']",
               className: 'w-full h-24 lg:w-2/4 lg:h-36',
+              topLabel: 'lorem ipsum dolor',
+              bottomLabel: 'lorem ipsum dolor',
             },
             {
               id: 1,
@@ -50,6 +52,7 @@ export default function About() {
               isButton: true,
               open: isTitleButtonOpen,
               onClick: () => setIsTitleButtonOpen((prevValue) => !prevValue),
+              border: false,
             },
           ] as TitleProps[]
         ).map(({ id, ...rest }) => (
