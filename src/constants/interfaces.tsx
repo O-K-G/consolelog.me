@@ -16,6 +16,7 @@ interface TitleLabels {
 }
 
 export interface TitleProps extends TitleLabels {
+  id?: number;
   open?: boolean;
   onClick?: () => void;
   component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

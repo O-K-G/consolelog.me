@@ -4,6 +4,7 @@ import Section from '@components/Section';
 import Title from '@components/Title';
 import Old from '@components/Old';
 import { useState } from 'react';
+import type { TitleProps } from '@constants/interfaces';
 
 export default function About() {
   const [open, setOpen] = useState(false);
@@ -25,24 +26,35 @@ export default function About() {
   return (
     <>
       <Section backgroundClassName='bg-left-top' currentSection='about'>
-        <Title
-          component='h1'
-          label='lorem ipsum dolor'
-          labelGlowText="before:content-['lorem_ipsum_dolor']"
-        />
-        <Title
-          component='h2'
-          label='lorem ipsum dolor'
-          labelGlowText="before:content-['lorem_ipsum_dolor']"
-        />
-        <Title
-          component='h1'
-          label='lorem ipsum dolor'
-          labelGlowText="before:content-['lorem_ipsum_dolor']"
-          isButton
-          open={isTitleButtonOpen}
-          onClick={() => setIsTitleButtonOpen((prevValue) => !prevValue)}
-        />
+        {(
+          [
+            {
+              id: 0,
+              component: 'h1',
+              label: 'lorem ipsum dolor',
+              labelGlowText: "before:content-['lorem_ipsum_dolor']",
+              className: 'w-2/4 h-36',
+            },
+            {
+              id: 1,
+              component: 'h2',
+              label: 'lorem ipsum dolor',
+              labelGlowText: "before:content-['lorem_ipsum_dolor']",
+              className: 'w-2/4 h-36',
+            },
+            {
+              id: 2,
+              label: 'lorem ipsum dolor',
+              labelGlowText: "before:content-['lorem_ipsum_dolor']",
+              className: 'w-2/4 h-36',
+              isButton: true,
+              open: isTitleButtonOpen,
+              onClick: () => setIsTitleButtonOpen((prevValue) => !prevValue),
+            },
+          ] as TitleProps[]
+        ).map(({ id, ...rest }) => (
+          <Title key={`about-title-${id}`} {...rest} />
+        ))}
 
         <button
           type='button'
