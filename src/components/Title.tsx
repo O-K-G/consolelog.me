@@ -58,8 +58,11 @@ export default function Title({
   return (
     <div
       data-open={open}
-      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
+      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements ${containerClassName} ${className}`}
     >
+      {isButton && (
+        <div className='size-4 bg-red-500 absolute -top-5 -left-5' />
+      )}
       {border && <Border top label={topLabel} />}
       {!isButton ? (
         <Component className={sharedClassName}>{label}</Component>
@@ -69,6 +72,9 @@ export default function Title({
         </button>
       )}
       {border && <Border bottom label={bottomLabel} />}
+      {isButton && (
+        <div className='size-4 bg-red-500 absolute -bottom-5 -right-5' />
+      )}
     </div>
   );
 }
