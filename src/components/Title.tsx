@@ -24,7 +24,7 @@ function Border({ top, bottom, label }: BorderProps) {
           <span className='before:absolute before:border-2 before:border-title-purple size-full before:size-full before:blur-sm border-2 border-title-purple absolute top-0 left-0' />
         </span>
         {label && (
-          <span className='text-base lg:text-[1.5rem] lg:leading-7 pt-0.5 font-star-date-81316 uppercase whitespace-nowrap'>
+          <span className='text-base z-10 lg:text-[1.5rem] lg:leading-7 pt-0.5 font-star-date-81316 uppercase whitespace-nowrap'>
             {label}
           </span>
         )}
