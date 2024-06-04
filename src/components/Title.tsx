@@ -24,7 +24,7 @@ function Border({ top, bottom, label }: BorderProps) {
           <span className='before:absolute before:border-2 before:border-title-purple size-full before:size-full before:blur-sm border-2 border-title-purple absolute top-0 left-0' />
         </span>
         {label && (
-          <span className='text-base z-10 lg:text-[1.5rem] lg:leading-7 pt-0.5 font-star-date-81316 uppercase whitespace-nowrap'>
+          <span className='text-base z-10 lg:text-[1.5rem] lg:leading-7 pt-[0.120rem] font-star-date-81316 uppercase whitespace-nowrap'>
             {label}
           </span>
         )}
@@ -47,7 +47,7 @@ export default function Title({
 }: TitleProps) {
   const containerClassName = !isButton
     ? ''
-    : 'border-transparent data-[open=true]:h-[40svh] data-[open=true]:lg:h-1/3 data-[open=true]:max-w-[50%] data-[open=true]:w-full border-[0.188rem] data-[open=true]:border-title-purple data-[open=true]:bg-black/30 z-10 transition-all duration-1000 ease-in-out';
+    : 'border-transparent z-10 transition-all duration-1000 ease-in-out';
 
   const componentClassName = !isButton
     ? 'title-text-stroke-purple before:title-text-stroke-purple'
@@ -58,8 +58,11 @@ export default function Title({
   return (
     <div
       data-open={open}
-      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
+      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements ${containerClassName} ${className}`}
     >
+      {isButton && (
+        <div className='size-4 bg-red-500 absolute -top-5 -left-5' />
+      )}
       {border && <Border top label={topLabel} />}
       {!isButton ? (
         <Component className={sharedClassName}>{label}</Component>
@@ -69,6 +72,9 @@ export default function Title({
         </button>
       )}
       {border && <Border bottom label={bottomLabel} />}
+      {isButton && (
+        <div className='size-4 bg-red-500 absolute -bottom-5 -right-5' />
+      )}
     </div>
   );
 }

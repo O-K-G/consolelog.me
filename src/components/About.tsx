@@ -51,7 +51,7 @@ export default function About() {
               open: isTitleButtonOpen,
               onClick: () => setIsTitleButtonOpen((prevValue) => !prevValue),
               className:
-                'w-full max-w-[10rem] sm:max-w-[11rem] h-20 sm:h-24 md:h-28 lg:h-36 lg:max-w-[17rem]',
+                'w-[11rem] data-[open=true]:w-full data-[open=true]:sm:w-3/4 lg:w-1/4 h-1/6 data-[open=true]:h-[40%] sm:h-1/5 lg:h-1/5 data-[open=true]:lg:h-1/3 border-[0.188rem] data-[open=true]:border-title-purple data-[open=true]:bg-black/30',
             },
           ] as TitleProps[]
         ).map(({ id, ...rest }) => (
