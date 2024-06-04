@@ -11,9 +11,9 @@ interface BorderProps {
 function Border({ top, bottom, label }: BorderProps) {
   return (
     <div
-      className={`absolute left-0 h-4 w-full my-2 ${top ? 'top-0' : ''} ${
-        bottom ? 'bottom-0' : ''
-      }`}
+      className={`absolute left-0 h-3 lg:h-4 w-full my-2 ${
+        top ? 'top-0' : ''
+      } ${bottom ? 'bottom-0' : ''}`}
     >
       <span
         className={`text-title-purple relative size-full flex items-center gap-4 justify-between ${
@@ -24,7 +24,7 @@ function Border({ top, bottom, label }: BorderProps) {
           <span className='before:absolute before:border-2 before:border-title-purple size-full before:size-full before:blur-sm border-2 border-title-purple absolute top-0 left-0' />
         </span>
         {label && (
-          <span className='text-[1.5rem] leading-7 font-star-date-81316 uppercase whitespace-nowrap'>
+          <span className='text-base lg:text-[1.5rem] lg:leading-7 pt-0.5 font-star-date-81316 uppercase whitespace-nowrap'>
             {label}
           </span>
         )}
@@ -40,10 +40,10 @@ export default function Title({
   isButton,
   label,
   labelGlowText,
-  className = 'lg:w-2/4 lg:h-32',
+  className = 'w-full h-20 lg:h-36 lg:w-2/4',
   topLabel,
   bottomLabel,
-  border = true,
+  border = false,
 }: TitleProps) {
   const containerClassName = !isButton
     ? ''
@@ -58,7 +58,7 @@ export default function Title({
   return (
     <div
       data-open={open}
-      className={`lowercase font-just-in-the-firestorm text-2xl lg:text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
+      className={`lowercase shrink-0 font-just-in-the-firestorm text-2xl lg:text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
     >
       {border && <Border top label={topLabel} />}
       {!isButton ? (
