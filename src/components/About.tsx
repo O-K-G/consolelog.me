@@ -29,6 +29,16 @@ export default function About() {
           component='h1'
           label='lorem ipsum dolor'
           labelGlowText="before:content-['lorem_ipsum_dolor']"
+        />
+        <Title
+          component='h2'
+          label='lorem ipsum dolor'
+          labelGlowText="before:content-['lorem_ipsum_dolor']"
+        />
+        <Title
+          component='h1'
+          label='lorem ipsum dolor'
+          labelGlowText="before:content-['lorem_ipsum_dolor']"
           isButton
           open={isTitleButtonOpen}
           onClick={() => setIsTitleButtonOpen((prevValue) => !prevValue)}

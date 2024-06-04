@@ -9,10 +9,11 @@ export default function Title({
   isButton,
   label,
   labelGlowText,
+  className = 'w-2/4 h-36',
 }: TitleProps) {
   const containerClassName = !isButton
     ? ''
-    : 'w-96 h-36 border border-red-500 data-[open=true]:size-1/2 data-[open=true]:border-[0.188rem] border-title-purple data-[open=true]:bg-black/30 z-10 transition-all duration-1000 ease-in-out';
+    : 'border-transparent data-[open=true]:size-1/2 border-[0.188rem] data-[open=true]:border-title-purple data-[open=true]:bg-black/30 z-10 transition-all duration-1000 ease-in-out';
 
   const componentClassName = !isButton
     ? 'title-text-stroke-purple before:title-text-stroke-purple'
@@ -23,7 +24,7 @@ export default function Title({
   return (
     <div
       data-open={open}
-      className={`font-just-in-the-firestorm text-4xl relative center-elements overflow-hidden ${containerClassName}`}
+      className={`font-just-in-the-firestorm text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
     >
       {!isButton ? (
         <Component className={sharedClassName}>{label}</Component>
