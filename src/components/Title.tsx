@@ -40,7 +40,7 @@ export default function Title({
   isButton,
   label,
   labelGlowText,
-  className = 'w-full h-20 lg:h-36 lg:w-2/4',
+  className = 'w-full max-w-96 h-20 lg:h-36 lg:max-w-[32rem]',
   topLabel,
   bottomLabel,
   border = false,
