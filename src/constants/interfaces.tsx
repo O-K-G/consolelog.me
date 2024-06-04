@@ -16,12 +16,15 @@ interface TitleLabels {
 }
 
 export interface TitleProps extends TitleLabels {
-  label: string;
+  open?: boolean;
+  onClick?: () => void;
   component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-}
-
-export interface TitleBorderProps extends TitleLabels {
-  className: string;
+  isButton?: boolean;
+  label: string;
+  /** Must be in the following format: ' ... before:content-['some_string'] ',
+   * as JIT mode can't handle template literals.
+   */
+  labelGlowText: string;
 }
 
 export interface OldschoolButtonProps {

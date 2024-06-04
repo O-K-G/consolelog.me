@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 export default function About() {
   const [open, setOpen] = useState(false);
+  const [isTitleButtonOpen, setIsTitleButtonOpen] = useState(false);
 
   const handleOld = (val: boolean) => {
     const bodyClassList = document.getElementsByTagName('body')[0].classList;
@@ -27,9 +28,12 @@ export default function About() {
         <Title
           component='h1'
           label='lorem ipsum dolor'
-          leftLabel='LOREM IPSUM DOLOR SIT CONSECTETUR'
-          rightLabel='LOREM IPSUM DOLOR SIT'
+          labelGlowText="before:content-['lorem_ipsum_dolor']"
+          isButton
+          open={isTitleButtonOpen}
+          onClick={() => setIsTitleButtonOpen((prevValue) => !prevValue)}
         />
+
         <button
           type='button'
           onClick={() => {
