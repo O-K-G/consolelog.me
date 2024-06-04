@@ -47,7 +47,7 @@ export default function Title({
 }: TitleProps) {
   const containerClassName = !isButton
     ? ''
-    : 'border-transparent data-[open=true]:h-[40svh] data-[open=true]:lg:h-1/3 data-[open=true]:max-w-[50%] data-[open=true]:w-full border-[0.188rem] data-[open=true]:border-title-purple data-[open=true]:bg-black/30 z-10 transition-all duration-1000 ease-in-out';
+    : 'border-transparent z-10 transition-all duration-1000 ease-in-out';
 
   const componentClassName = !isButton
     ? 'title-text-stroke-purple before:title-text-stroke-purple'
