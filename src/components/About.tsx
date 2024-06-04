@@ -50,6 +50,8 @@ export default function About() {
               isButton: true,
               open: isTitleButtonOpen,
               onClick: () => setIsTitleButtonOpen((prevValue) => !prevValue),
+              className:
+                'w-full max-w-[10rem] sm:max-w-[11rem] h-20 sm:h-24 md:h-28 lg:h-36 lg:max-w-[17rem]',
             },
           ] as TitleProps[]
         ).map(({ id, ...rest }) => (
