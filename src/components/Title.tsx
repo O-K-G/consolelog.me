@@ -40,7 +40,7 @@ export default function Title({
   isButton,
   label,
   labelGlowText,
-  className = 'w-full max-w-96 h-20 lg:h-36 lg:max-w-[32rem]',
+  className = 'w-full max-w-[18rem] sm:max-w-[21rem] h-20 lg:h-36 lg:max-w-[32rem]',
   topLabel,
   bottomLabel,
   border = false,
@@ -58,7 +58,7 @@ export default function Title({
   return (
     <div
       data-open={open}
-      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-2xl lg:text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
+      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
     >
       {border && <Border top label={topLabel} />}
       {!isButton ? (
