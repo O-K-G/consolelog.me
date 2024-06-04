@@ -31,17 +31,18 @@ body {
     text-wrap: balance;
   }
 
-  .title-text-stroke {
+  .title-text-stroke-purple {
     -webkit-text-stroke: 0.125rem #ceb7ff;
     text-stroke: 0.125rem #ceb7ff;
+  }
+
+  .title-text-stroke-white {
+    -webkit-text-stroke: 0.125rem #ffffff;
+    text-stroke: 0.125rem #ffffff;
   }
 }
 
 @layer components {
-  .title-character {
-    @apply absolute top-0 bottom-0 left-0 right-0 m-auto size-full title-text-stroke font-just-in-the-firestorm text-transparent text-lg lg:text-4xl;
-  }
-
   .center-elements {
     @apply flex items-center justify-center;
   }

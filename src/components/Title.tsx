@@ -1,84 +1,74 @@
-import type { TitleBorderProps, TitleProps } from '@constants/interfaces';
+/* eslint-disable multiline-ternary */
 
-interface CharacterProps {
-  character: string | number;
-  widthClassName: string;
+import type { TitleProps } from '@constants/interfaces';
+
+interface BorderProps {
+  top?: boolean;
+  bottom?: boolean;
+  label?: string;
 }
 
-function TitleBorder({ leftLabel, rightLabel, className }: TitleBorderProps) {
-  const titleBorderClassName =
-    'absolute top-0 left-0 size-full border-2 border-title-purple';
-
+function Border({ top, bottom, label }: BorderProps) {
   return (
     <div
-      className={`text-title-purple uppercase text-base lg:text-xl font-star-date-81316 whitespace-nowrap center-elements gap-2 w-full ${className}`}
+      className={`absolute left-0 h-3 lg:h-4 w-full my-2 ${
+        top ? 'top-0' : ''
+      } ${bottom ? 'bottom-0' : ''}`}
     >
-      {leftLabel && (
-        <span className='leading-none pt-[0.06rem]'>{leftLabel}</span>
-      )}
-      <div className='center-elements relative w-full h-[0.64rem] lg:h-3.5'>
-        <div className={`${titleBorderClassName} blur-sm border-[1.5px]`} />
-        <div className={titleBorderClassName} />
-      </div>
-      {rightLabel && (
-        <span className='leading-none pt-[0.06rem]'>{rightLabel}</span>
-      )}
-    </div>
-  );
-}
-
-function Character({ character, widthClassName }: CharacterProps) {
-  // TODO: Check if aria-hidden should move to the parent div instead of the two children.
-
-  return (
-    <div className={`relative min-h-8 lg:min-h-16 lowercase ${widthClassName}`}>
-      <div className='select-none pointer-events-none title-character blur-[2px] lg:blur-sm scale-[1.05]'>
-        <div aria-hidden className='center-elements size-full'>
-          {character}
-        </div>
-      </div>
-      <div className='title-character'>
-        <div aria-hidden className='center-elements size-full'>
-          {character}
-        </div>
-      </div>
+      <span
+        className={`text-title-purple relative size-full flex items-center gap-4 justify-between ${
+          bottom ? 'flex-row-reverse' : ''
+        }`}
+      >
+        <span className='relative size-full'>
+          <span className='before:absolute before:border-2 before:border-title-purple size-full before:size-full before:blur-sm border-2 border-title-purple absolute top-0 left-0' />
+        </span>
+        {label && (
+          <span className='text-base z-10 lg:text-[1.5rem] lg:leading-7 pt-0.5 font-star-date-81316 uppercase whitespace-nowrap'>
+            {label}
+          </span>
+        )}
+      </span>
     </div>
   );
 }
 
 export default function Title({
+  open,
+  onClick,
   component: Component = 'h2',
+  isButton,
   label,
-  leftLabel,
-  rightLabel,
+  labelGlowText,
+  className = 'w-full max-w-[18rem] sm:max-w-[21rem] h-20 lg:h-36 lg:max-w-[32rem]',
+  topLabel,
+  bottomLabel,
+  border = false,
 }: TitleProps) {
-  const charactersArr = label?.split('').map((str, index) => ({
-    id: index,
-    str,
-  }));
+  const containerClassName = !isButton
+    ? ''
+    : 'border-transparent data-[open=true]:h-[40svh] data-[open=true]:lg:h-1/3 data-[open=true]:max-w-[50%] data-[open=true]:w-full border-[0.188rem] data-[open=true]:border-title-purple data-[open=true]:bg-black/30 z-10 transition-all duration-1000 ease-in-out';
 
-  const paddingClassName = 'px-2 lg:px-8';
+  const componentClassName = !isButton
+    ? 'title-text-stroke-purple before:title-text-stroke-purple'
+    : 'title-text-stroke-white before:title-text-stroke-white';
+
+  const sharedClassName = `before:absolute before:top-0 before:left-0 before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-sm before:text-transparent center-elements flex-wrap text-transparent absolute top-0 left-0 size-full ${componentClassName} ${labelGlowText}`;
 
   return (
-    <div className='flex-col center-elements mt-4 lg:mt-28'>
-      <TitleBorder rightLabel={rightLabel} className={paddingClassName} />
-      <div
-        className={`center-elements mt-1 flex-wrap overflow-hidden ${paddingClassName}`}
-      >
-        <Component className='sr-only'>{label}</Component>
-        {charactersArr?.map(({ id, str }) => {
-          const isI = str === 'i' || str === 'I';
-
-          return (
-            <Character
-              widthClassName={isI ? 'w-3 lg:w-4' : 'w-4 lg:w-8'}
-              key={`character-${label}-${str}-${id}`}
-              character={str}
-            />
-          );
-        })}
-      </div>
-      <TitleBorder leftLabel={leftLabel} className={paddingClassName} />
+    <div
+      data-open={open}
+      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
+    >
+      {border && <Border top label={topLabel} />}
+      {!isButton ? (
+        <Component className={sharedClassName}>{label}</Component>
+      ) : (
+        <button onClick={onClick} type='button' className={sharedClassName}>
+          {label}
+        </button>
+      )}
+      {border && <Border bottom label={bottomLabel} />}
     </div>
   );
 }

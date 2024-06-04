@@ -11,17 +11,23 @@ export interface SectionProps {
 }
 
 interface TitleLabels {
-  leftLabel?: string;
-  rightLabel?: string;
+  topLabel?: string;
+  bottomLabel?: string;
 }
 
 export interface TitleProps extends TitleLabels {
-  label: string;
+  id?: number;
+  open?: boolean;
+  onClick?: () => void;
   component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-}
-
-export interface TitleBorderProps extends TitleLabels {
-  className: string;
+  isButton?: boolean;
+  label: string;
+  /** Must be in the following format: ' ... before:content-['some_string'] ',
+   * as JIT mode can't handle template literals.
+   */
+  labelGlowText: string;
+  className?: string;
+  border?: boolean;
 }
 
 export interface OldschoolButtonProps {
