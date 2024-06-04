@@ -53,12 +53,12 @@ export default function Title({
     ? 'title-text-stroke-purple before:title-text-stroke-purple'
     : 'title-text-stroke-white before:title-text-stroke-white';
 
-  const sharedClassName = `before:absolute before:top-0 before:left-0 before:size-full before:center-elements before:flex-wrap before:blur-sm before:text-transparent center-elements flex-wrap text-transparent absolute top-0 left-0 size-full ${componentClassName} ${labelGlowText}`;
+  const sharedClassName = `before:absolute before:top-0 before:left-0 before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-sm before:text-transparent center-elements flex-wrap text-transparent absolute top-0 left-0 size-full ${componentClassName} ${labelGlowText}`;
 
   return (
     <div
       data-open={open}
-      className={`lowercase shrink-0 font-just-in-the-firestorm text-2xl lg:text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
+      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-2xl lg:text-4xl relative center-elements overflow-hidden ${containerClassName} ${className}`}
     >
       {border && <Border top label={topLabel} />}
       {!isButton ? (
