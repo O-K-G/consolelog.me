@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className='min-h-[100svh] lg:min-h-[100dvh] overflow-hidden'>
       <Loader />
-      {/* <div className='fixed top-40 left-0 text-xs text-white z-10'>
+      <div className='fixed top-40 left-0 text-xs text-white z-10'>
         TODO: Move this attribution elsewhere. Design based on Jayendra
         Awasthi&apos;s &apos;Space themed portfolio&apos; free community Figma
         template at&nbsp;
@@ -32,7 +32,7 @@ export default function Home() {
         </a>
         &nbsp; license. Changes were made to the material from the original
         version.
-      </div> */}
+      </div>
       <AppContextComponent>
         <About />
         <Contact />
