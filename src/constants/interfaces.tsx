@@ -55,3 +55,16 @@ export interface AboutTargetIconProps {
   open: boolean;
   bottom?: boolean;
 }
+
+export interface AttributionDialogProps {
+  open: boolean;
+  onClick: () => void;
+}
+
+export interface AlternatingButtonsProps {
+  sharedClassName?: string;
+  open?: boolean;
+  onClick?: () => void;
+  label?: string;
+  alternativeLabel?: string;
+}
