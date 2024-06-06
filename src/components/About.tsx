@@ -47,6 +47,7 @@ export default function About() {
               id: 2,
               label: 'click to open',
               labelGlowText: "before:content-['click_to_open']",
+              alternativeLabel: 'Todo Todo',
               isButton: true,
               open: isTitleButtonOpen,
               onClick: () => setIsTitleButtonOpen((prevValue) => !prevValue),

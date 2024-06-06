@@ -45,29 +45,46 @@ export default function Title({
   topLabel,
   bottomLabel,
   border = false,
+  alternativeLabel,
 }: TitleProps) {
   const containerClassName = !isButton
     ? ''
-    : 'border-transparent z-10 transition-all duration-1000 ease-in-out';
+    : 'border-transparent z-10 standard-transition';
 
   const componentClassName = !isButton
     ? 'title-text-stroke-purple'
     : 'title-text-stroke-white';
 
-  const sharedClassName = `before:absolute before:top-0 before:left-0 before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-sm before:text-transparent center-elements flex-wrap text-transparent absolute top-0 left-0 size-full before:title-text-stroke-purple ${componentClassName} ${labelGlowText}`;
+  const sharedClassName = `lowercase before:lowercase before:absolute before:top-0 before:left-0 before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-sm before:text-transparent center-elements flex-wrap text-transparent absolute top-0 left-0 size-full before:title-text-stroke-purple ${componentClassName} ${labelGlowText}`;
 
   return (
     <div
       data-open={open}
-      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements ${containerClassName} ${className}`}
+      className={`shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements ${containerClassName} ${className}`}
     >
       {isButton && <AboutTargetIcon open={!!open} />}
       {border && <Border top label={topLabel} />}
       {!isButton ? (
         <Component className={sharedClassName}>{label}</Component>
       ) : (
-        <button onClick={onClick} type='button' className={sharedClassName}>
-          {label}
+        <button onClick={onClick} type='button'>
+          {/* TODO: Consider an event listener for the transition, to remove/return the element from/to the DOM completely. */}
+          <div
+            aria-hidden={open}
+            className={`standard-transition ${
+              !open ? '' : 'opacity-0'
+            } ${sharedClassName}`}
+          >
+            {label}
+          </div>
+          <div
+            aria-hidden={!open}
+            className={`standard-transition text-base ${
+              !open ? 'opacity-0' : ''
+            } `}
+          >
+            {alternativeLabel}
+          </div>
         </button>
       )}
       {border && <Border bottom label={bottomLabel} />}

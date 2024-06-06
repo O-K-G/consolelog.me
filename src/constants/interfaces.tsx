@@ -26,6 +26,7 @@ export interface TitleProps extends TitleLabels {
    * as JIT mode can't handle template literals.
    */
   labelGlowText: string;
+  alternativeLabel?: string;
   className?: string;
   border?: boolean;
 }
