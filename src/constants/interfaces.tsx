@@ -55,3 +55,8 @@ export interface AboutTargetIconProps {
   open: boolean;
   bottom?: boolean;
 }
+
+export interface AttributionDialogProps {
+  open: boolean;
+  onClick: () => void;
+}

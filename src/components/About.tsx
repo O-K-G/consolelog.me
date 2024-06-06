@@ -5,6 +5,7 @@ import Title from '@components/Title';
 import Old from '@components/Old';
 import { useState } from 'react';
 import type { TitleProps } from '@constants/interfaces';
+import Attribution from '@components/Attribution';
 
 export default function About() {
   const [open, setOpen] = useState(false);
@@ -69,6 +70,7 @@ export default function About() {
         >
           TBD
         </button>
+        <Attribution />
       </Section>
       {open && (
         <Old
