@@ -55,7 +55,7 @@ export default function Title({
     ? 'title-text-stroke-purple'
     : 'title-text-stroke-white';
 
-  const sharedClassName = `lowercase before:lowercase before:absolute before:top-0 before:left-0 before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-[0.125rem] before:text-transparent center-elements flex-wrap text-transparent absolute top-0 left-0 size-full before:title-text-stroke-purple ${componentClassName} ${labelGlowText}`;
+  const sharedClassName = `uppercase before:uppercase before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-[0.09rem] lg:before:blur-[0.125rem] before:text-transparent center-elements flex-wrap text-transparent size-full before:title-text-stroke-purple ${componentClassName} ${labelGlowText}`;
 
   return (
     <div
@@ -65,27 +65,36 @@ export default function Title({
       {isButton && <AboutTargetIcon open={!!open} />}
       {border && <Border top label={topLabel} />}
       {!isButton ? (
-        <Component className={sharedClassName}>{label}</Component>
+        <Component className={`relative ${sharedClassName}`}>{label}</Component>
       ) : (
-        <button onClick={onClick} type='button'>
-          {/* TODO: Consider an event listener for the transition, to remove/return the element from/to the DOM completely. */}
-          <div
-            aria-hidden={open}
-            className={`standard-transition ${
-              !open ? '' : 'opacity-0'
+        <>
+          <button
+            className={`standard-transition size-full absolute top-0 bottom-0 left-0 right-0 my-auto ${
+              !open
+                ? 'delay-1000'
+                : 'opacity-0 pointer-events-none select-none -z-50 absolute h-0 border-y border-white overflow-hidden'
             } ${sharedClassName}`}
+            disabled={open}
+            aria-hidden={open}
+            type='button'
+            onClick={onClick}
           >
             {label}
-          </div>
-          <div
+          </button>
+          <button
+            className={`standard-transition size-full absolute top-0 bottom-0 left-0 right-0 my-auto ${
+              open
+                ? 'delay-1000 bg-black/30'
+                : 'opacity-0 pointer-events-none select-none -z-50 absolute h-0 border-y border-white overflow-hidden'
+            }`}
+            disabled={!open}
             aria-hidden={!open}
-            className={`standard-transition text-base ${
-              !open ? 'opacity-0' : ''
-            } `}
+            type='button'
+            onClick={onClick}
           >
             {alternativeLabel}
-          </div>
-        </button>
+          </button>
+        </>
       )}
       {border && <Border bottom label={bottomLabel} />}
       {isButton && <AboutTargetIcon bottom open={!!open} />}
