@@ -26,6 +26,7 @@ export interface TitleProps extends TitleLabels {
    * as JIT mode can't handle template literals.
    */
   labelGlowText: string;
+  alternativeLabel?: string;
   className?: string;
   border?: boolean;
 }
@@ -43,4 +44,14 @@ export interface NoDialogProps {
 
 export interface OldProps {
   onClick: () => void;
+}
+
+export interface SVG90DegreesProps {
+  className: string;
+  pathClassName: string;
+}
+
+export interface AboutTargetIconProps {
+  open: boolean;
+  bottom?: boolean;
 }

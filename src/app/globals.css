@@ -46,4 +46,8 @@ body {
   .center-elements {
     @apply flex items-center justify-center;
   }
+
+  .standard-transition {
+    @apply transition-all ease-in-out duration-1000;
+  }
 }

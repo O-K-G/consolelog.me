@@ -1,6 +1,7 @@
 /* eslint-disable multiline-ternary */
 
 import type { TitleProps } from '@constants/interfaces';
+import AboutTargetIcon from './AboutTargetIcon';
 
 interface BorderProps {
   top?: boolean;
@@ -21,7 +22,7 @@ function Border({ top, bottom, label }: BorderProps) {
         }`}
       >
         <span className='relative size-full'>
-          <span className='before:absolute before:border-2 before:border-title-purple size-full before:size-full before:blur-sm border-2 border-title-purple absolute top-0 left-0' />
+          <span className='before:absolute before:border-2 before:border-title-purple size-full before:size-full before:blur-[0.125rem] border-2 border-title-purple absolute top-0 left-0' />
         </span>
         {label && (
           <span className='text-base z-10 lg:text-[1.5rem] lg:leading-7 pt-[0.120rem] font-star-date-81316 uppercase whitespace-nowrap'>
@@ -44,37 +45,50 @@ export default function Title({
   topLabel,
   bottomLabel,
   border = false,
+  alternativeLabel,
 }: TitleProps) {
   const containerClassName = !isButton
     ? ''
-    : 'border-transparent z-10 transition-all duration-1000 ease-in-out';
+    : 'border-transparent z-10 standard-transition';
 
   const componentClassName = !isButton
-    ? 'title-text-stroke-purple before:title-text-stroke-purple'
-    : 'title-text-stroke-white before:title-text-stroke-white';
+    ? 'title-text-stroke-purple'
+    : 'title-text-stroke-white';
 
-  const sharedClassName = `before:absolute before:top-0 before:left-0 before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-sm before:text-transparent center-elements flex-wrap text-transparent absolute top-0 left-0 size-full ${componentClassName} ${labelGlowText}`;
+  const sharedClassName = `lowercase before:lowercase before:absolute before:top-0 before:left-0 before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-sm before:text-transparent center-elements flex-wrap text-transparent absolute top-0 left-0 size-full before:title-text-stroke-purple ${componentClassName} ${labelGlowText}`;
 
   return (
     <div
       data-open={open}
-      className={`lowercase before:lowercase shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements ${containerClassName} ${className}`}
+      className={`shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements ${containerClassName} ${className}`}
     >
-      {isButton && (
-        <div className='size-4 bg-red-500 absolute -top-5 -left-5' />
-      )}
+      {isButton && <AboutTargetIcon open={!!open} />}
       {border && <Border top label={topLabel} />}
       {!isButton ? (
         <Component className={sharedClassName}>{label}</Component>
       ) : (
-        <button onClick={onClick} type='button' className={sharedClassName}>
-          {label}
+        <button onClick={onClick} type='button'>
+          {/* TODO: Consider an event listener for the transition, to remove/return the element from/to the DOM completely. */}
+          <div
+            aria-hidden={open}
+            className={`standard-transition ${
+              !open ? '' : 'opacity-0'
+            } ${sharedClassName}`}
+          >
+            {label}
+          </div>
+          <div
+            aria-hidden={!open}
+            className={`standard-transition text-base ${
+              !open ? 'opacity-0' : ''
+            } `}
+          >
+            {alternativeLabel}
+          </div>
         </button>
       )}
       {border && <Border bottom label={bottomLabel} />}
-      {isButton && (
-        <div className='size-4 bg-red-500 absolute -bottom-5 -right-5' />
-      )}
+      {isButton && <AboutTargetIcon bottom open={!!open} />}
     </div>
   );
 }
