@@ -45,9 +45,9 @@ function AlternatingButtons({
   alternativeLabel,
 }: AlternatingButtonsProps) {
   const buttonsClassNames =
-    'standard-transition size-full absolute top-0 bottom-0 left-0 right-0 my-auto';
+    'standard-transition size-full absolute top-0 bottom-0 left-0 right-0 my-auto overflow-hidden';
   const disabledButtonsClassName =
-    'opacity-0 pointer-events-none select-none -z-50 absolute h-0 border-y border-white overflow-hidden';
+    'opacity-0 pointer-events-none select-none h-0 border-y border-white';
 
   return (
     <>
