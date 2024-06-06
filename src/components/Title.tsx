@@ -1,7 +1,10 @@
 /* eslint-disable multiline-ternary */
 
-import type { TitleProps } from '@constants/interfaces';
-import AboutTargetIcon from './AboutTargetIcon';
+import type {
+  AlternatingButtonsProps,
+  TitleProps,
+} from '@constants/interfaces';
+import AboutTargetIcon from '@components/AboutTargetIcon';
 
 interface BorderProps {
   top?: boolean;
@@ -31,6 +34,46 @@ function Border({ top, bottom, label }: BorderProps) {
         )}
       </div>
     </div>
+  );
+}
+
+function AlternatingButtons({
+  sharedClassName,
+  open,
+  onClick,
+  label,
+  alternativeLabel,
+}: AlternatingButtonsProps) {
+  const buttonsClassNames =
+    'standard-transition size-full absolute top-0 bottom-0 left-0 right-0 my-auto';
+  const disabledButtonsClassName =
+    'opacity-0 pointer-events-none select-none -z-50 absolute h-0 border-y border-white overflow-hidden';
+
+  return (
+    <>
+      <button
+        className={`${buttonsClassNames} ${
+          !open ? 'delay-1000' : disabledButtonsClassName
+        } ${sharedClassName}`}
+        disabled={open}
+        aria-hidden={open}
+        type='button'
+        onClick={onClick}
+      >
+        {label}
+      </button>
+      <button
+        className={`${buttonsClassNames} ${
+          !open ? disabledButtonsClassName : 'delay-1000 bg-black/30'
+        }`}
+        disabled={!open}
+        aria-hidden={!open}
+        type='button'
+        onClick={onClick}
+      >
+        {alternativeLabel}
+      </button>
+    </>
   );
 }
 
@@ -67,34 +110,13 @@ export default function Title({
       {!isButton ? (
         <Component className={`relative ${sharedClassName}`}>{label}</Component>
       ) : (
-        <>
-          <button
-            className={`standard-transition size-full absolute top-0 bottom-0 left-0 right-0 my-auto ${
-              !open
-                ? 'delay-1000'
-                : 'opacity-0 pointer-events-none select-none -z-50 absolute h-0 border-y border-white overflow-hidden'
-            } ${sharedClassName}`}
-            disabled={open}
-            aria-hidden={open}
-            type='button'
-            onClick={onClick}
-          >
-            {label}
-          </button>
-          <button
-            className={`standard-transition size-full absolute top-0 bottom-0 left-0 right-0 my-auto ${
-              open
-                ? 'delay-1000 bg-black/30'
-                : 'opacity-0 pointer-events-none select-none -z-50 absolute h-0 border-y border-white overflow-hidden'
-            }`}
-            disabled={!open}
-            aria-hidden={!open}
-            type='button'
-            onClick={onClick}
-          >
-            {alternativeLabel}
-          </button>
-        </>
+        <AlternatingButtons
+          sharedClassName={sharedClassName}
+          open={open}
+          onClick={onClick}
+          label={label}
+          alternativeLabel={alternativeLabel}
+        />
       )}
       {border && <Border bottom label={bottomLabel} />}
       {isButton && <AboutTargetIcon bottom open={!!open} />}
