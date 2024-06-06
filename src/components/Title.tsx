@@ -12,9 +12,9 @@ interface BorderProps {
 function Border({ top, bottom, label }: BorderProps) {
   return (
     <div
-      className={`absolute left-0 w-full h-4 my-2 ${top ? 'top-0' : ''} ${
-        bottom ? 'bottom-0' : ''
-      }`}
+      className={`absolute left-0 w-full h-3 lg:h-4 my-2 ${
+        top ? 'top-0' : ''
+      } ${bottom ? 'bottom-0' : ''}`}
     >
       <div
         className={`text-title-purple relative size-full flex items-center gap-4 justify-between ${
@@ -22,7 +22,7 @@ function Border({ top, bottom, label }: BorderProps) {
         }`}
       >
         <div className='relative size-full'>
-          <div className='border-2 border-title-purple size-full before:border-2 before:absolute before:top-0 before:-left-[0.05rem] before:bottom-0 before:right-0 before:m-auto before:border-title-purple before:h-[110%] before:w-[100.5%] before:blur-[0.125rem]' />
+          <div className='border-2 border-title-purple size-full before:border-2 before:absolute before:top-0 before:-left-[0.05rem] before:bottom-0 before:right-0 before:m-auto before:border-title-purple before:h-[110%] before:w-[101%] lg:before:w-[100.5%] before:blur-[0.125rem]' />
         </div>
         {label && (
           <span className='text-base z-10 lg:text-[1.5rem] lg:leading-7 pt-[0.120rem] font-star-date-81316 uppercase whitespace-nowrap'>
