@@ -29,12 +29,12 @@ export default function AboutTargetIcon({
   return (
     <>
       <SVG90Degrees
-        className={className}
-        pathClassName={`${!open ? 'stroke-white' : 'stroke-title-purple'}`}
-      />
-      <SVG90Degrees
         className={`${!open ? '' : 'opacity-0'} ${className}`}
         pathClassName='stroke-title-purple blur-[0.125rem]'
+      />
+      <SVG90Degrees
+        className={className}
+        pathClassName={`${!open ? 'stroke-white' : 'stroke-title-purple'}`}
       />
     </>
   );
