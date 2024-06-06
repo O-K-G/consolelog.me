@@ -47,7 +47,7 @@ export default function Loader() {
   return (
     <div
       ref={loaderRef}
-      className={`transition-all ease-in-out duration-1000 fixed text-black text-lg flex flex-col items-center justify-center z-50 top-0 left-0 size-full bg-white ${
+      className={`standard-transition fixed text-black text-lg flex flex-col items-center justify-center z-50 top-0 left-0 size-full bg-white ${
         isLoderVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
