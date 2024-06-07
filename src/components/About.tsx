@@ -48,7 +48,8 @@ export default function About() {
               id: 2,
               label: 'click to open',
               labelGlowText: "before:content-['click_to_open']",
-              alternativeLabel: 'Todo Todo',
+              alternativeLabel:
+                "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
               isButton: true,
               open: isTitleButtonOpen,
               onClick: () => setIsTitleButtonOpen((prevValue) => !prevValue),
