@@ -5,10 +5,10 @@ import type {
   OldProps,
   OldschoolButtonProps,
 } from '@constants/interfaces';
-import { Pixelify_Sans } from 'next/font/google';
+import { Handjet } from 'next/font/google';
 import { useState } from 'react';
 
-const pixelifySans = Pixelify_Sans({ subsets: ['latin'] });
+const handjet = Handjet({ subsets: ['latin'] });
 
 function OldschoolButton({ label, onClick, disabled }: OldschoolButtonProps) {
   return (
@@ -53,7 +53,7 @@ export default function Old({ onClick }: OldProps) {
 
   return (
     <div
-      className={`fixed top-0 left-0 z-[1080] bg-[#b4b3b3] cursor-crosshair cur font-serif p-4 text-black h-svh lg:h-dvh w-svw lg:w-dvw ${pixelifySans.className}`}
+      className={`fixed top-0 left-0 z-[1080] bg-[#b4b3b3] cursor-crosshair cur font-serif p-4 text-black h-svh lg:h-dvh w-svw lg:w-dvw ${handjet.className}`}
     >
       <h2 className='text-2xl font-bold'>Huh. 90&apos;s internet, who knew.</h2>
       <p className='text-2xl mt-10'>Well, this is what you get.</p>

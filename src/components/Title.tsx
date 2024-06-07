@@ -5,6 +5,9 @@ import type {
   TitleProps,
 } from '@constants/interfaces';
 import AboutTargetIcon from '@components/AboutTargetIcon';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 interface BorderProps {
   top?: boolean;
@@ -65,7 +68,9 @@ function AlternatingButtons({
       <button
         className={`${buttonsClassNames} ${
           !open ? disabledButtonsClassName : 'delay-1000 bg-black/30'
-        }`}
+        } ${
+          montserrat.className
+        } p-2 md:p-10 lg:p-14 text-base md:text-xl xl:text-xl 2xl:text-7xl`}
         disabled={!open}
         aria-hidden={!open}
         type='button'
