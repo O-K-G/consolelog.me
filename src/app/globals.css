@@ -40,6 +40,16 @@ body {
     -webkit-text-stroke: 0.125rem #ffffff;
     text-stroke: 0.125rem #ffffff;
   }
+
+  @media screen and (max-width: 640px) {
+    .title-text-stroke-purple {
+      -webkit-text-stroke: 0.05rem #ceb7ff;
+    }
+
+    .title-text-stroke-white {
+      -webkit-text-stroke: 0.05rem #ffffff;
+    }
+  }
 }
 
 @layer components {
