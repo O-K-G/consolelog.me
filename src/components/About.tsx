@@ -1,7 +1,7 @@
 'use client';
 
 import Section from '@components/Section';
-import Title from '@components/Title';
+import Title from '@components/title/Title';
 import Old from '@components/Old';
 import { useState } from 'react';
 import type { TitleProps } from '@constants/interfaces';
