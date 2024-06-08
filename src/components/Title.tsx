@@ -2,6 +2,7 @@
 
 import type {
   AlternatingButtonsProps,
+  BorderProps,
   TitleProps,
 } from '@constants/interfaces';
 import AboutTargetIcon from '@components/AboutTargetIcon';
@@ -9,22 +10,12 @@ import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
-interface BorderProps {
-  top?: boolean;
-  bottom?: boolean;
-  label?: string;
-}
-
-function Border({ top, bottom, label }: BorderProps) {
+function Border({ leftLabel, label }: BorderProps) {
   return (
-    <div
-      className={`absolute left-0 w-full h-2.5 sm:h-3 md:h-3.5 lg:h-4 xl:h-4.5 2xl:h-5 my-2 ${
-        top ? 'top-0' : ''
-      } ${bottom ? 'bottom-0' : ''}`}
-    >
+    <div className='w-full h-2.5 sm:h-3 md:h-3.5 lg:h-4 xl:h-4.5 2xl:h-5'>
       <div
         className={`text-title-purple relative size-full flex items-center gap-4 justify-between ${
-          bottom ? 'flex-row-reverse' : ''
+          leftLabel ? 'flex-row-reverse' : ''
         }`}
       >
         <div className='relative size-full'>
@@ -108,10 +99,10 @@ export default function Title({
   return (
     <div
       data-open={open}
-      className={`shrink-0 font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl relative center-elements ${containerClassName} ${className}`}
+      className={`flex flex-col items-center justify-between shrink-0 font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl relative ${containerClassName} ${className}`}
     >
       {isButton && <AboutTargetIcon open={!!open} />}
-      {border && <Border top label={topLabel} />}
+      {border && <Border label={topLabel} />}
       {!isButton ? (
         <Component className={`relative ${sharedClassName}`}>{label}</Component>
       ) : (
@@ -123,7 +114,7 @@ export default function Title({
           alternativeLabel={alternativeLabel}
         />
       )}
-      {border && <Border bottom label={bottomLabel} />}
+      {border && <Border leftLabel label={bottomLabel} />}
       {isButton && <AboutTargetIcon bottom open={!!open} />}
     </div>
   );
