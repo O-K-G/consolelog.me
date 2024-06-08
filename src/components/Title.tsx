@@ -46,7 +46,7 @@ function AlternatingButtons({
   return (
     <>
       <button
-        className={`${buttonsClassNames} ${
+        className={`md:leading-[3rem] lg:leading-[5rem] ${buttonsClassNames} ${
           !open ? 'delay-1000' : disabledButtonsClassName
         } ${sharedClassName}`}
         disabled={open}
