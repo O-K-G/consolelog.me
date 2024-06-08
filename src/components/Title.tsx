@@ -2,6 +2,7 @@
 
 import type {
   AlternatingButtonsProps,
+  BorderProps,
   TitleProps,
 } from '@constants/interfaces';
 import AboutTargetIcon from '@components/AboutTargetIcon';
@@ -9,29 +10,19 @@ import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
-interface BorderProps {
-  top?: boolean;
-  bottom?: boolean;
-  label?: string;
-}
-
-function Border({ top, bottom, label }: BorderProps) {
+function Border({ leftLabel, label }: BorderProps) {
   return (
-    <div
-      className={`absolute left-0 w-full h-3 lg:h-4 my-2 ${
-        top ? 'top-0' : ''
-      } ${bottom ? 'bottom-0' : ''}`}
-    >
+    <div className='w-full h-2.5 sm:h-3 md:h-3.5 lg:h-4 xl:h-4.5 2xl:h-5'>
       <div
         className={`text-title-purple relative size-full flex items-center gap-4 justify-between ${
-          bottom ? 'flex-row-reverse' : ''
+          leftLabel ? 'flex-row-reverse' : ''
         }`}
       >
         <div className='relative size-full'>
-          <div className='border-2 border-title-purple size-full before:border-2 before:absolute before:top-0 before:-left-[0.05rem] before:bottom-0 before:right-0 before:m-auto before:border-title-purple before:h-[110%] before:w-[101%] lg:before:w-[100.5%] before:blur-[0.125rem]' />
+          <div className='border sm:border-2 border-title-purple size-full before:border before:sm:border-2 before:absolute before:top-0 before:-left-[0.05rem] before:bottom-0 before:right-0 before:m-auto before:border-title-purple before:h-[110%] before:w-[101%] lg:before:w-[100.5%] before:blur-[0.125rem]' />
         </div>
         {label && (
-          <span className='text-base z-10 lg:text-[1.5rem] lg:leading-7 pt-[0.120rem] font-star-date-81316 uppercase whitespace-nowrap'>
+          <span className='text-sm z-10 sm:text-base md:text-lg lg:text-xl xl:text-[1.5rem] xl:leading-8 2xl:text-3xl pt-[0.120rem] font-star-date-81316 uppercase whitespace-nowrap'>
             {label}
           </span>
         )}
@@ -55,7 +46,7 @@ function AlternatingButtons({
   return (
     <>
       <button
-        className={`${buttonsClassNames} ${
+        className={`md:leading-[3rem] lg:leading-[5rem] ${buttonsClassNames} ${
           !open ? 'delay-1000' : disabledButtonsClassName
         } ${sharedClassName}`}
         disabled={open}
@@ -89,7 +80,7 @@ export default function Title({
   isButton,
   label,
   labelGlowText,
-  className = 'w-full max-w-[18rem] sm:max-w-[21rem] h-20 lg:h-36 lg:max-w-[32rem]',
+  className = 'w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36',
   topLabel,
   bottomLabel,
   border = false,
@@ -108,10 +99,10 @@ export default function Title({
   return (
     <div
       data-open={open}
-      className={`shrink-0 font-just-in-the-firestorm text-xl sm:text-2xl lg:text-4xl relative center-elements ${containerClassName} ${className}`}
+      className={`flex flex-col items-center justify-between shrink-0 font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl relative ${containerClassName} ${className}`}
     >
       {isButton && <AboutTargetIcon open={!!open} />}
-      {border && <Border top label={topLabel} />}
+      {border && <Border label={topLabel} />}
       {!isButton ? (
         <Component className={`relative ${sharedClassName}`}>{label}</Component>
       ) : (
@@ -123,7 +114,7 @@ export default function Title({
           alternativeLabel={alternativeLabel}
         />
       )}
-      {border && <Border bottom label={bottomLabel} />}
+      {border && <Border leftLabel label={bottomLabel} />}
       {isButton && <AboutTargetIcon bottom open={!!open} />}
     </div>
   );

@@ -68,3 +68,8 @@ export interface AlternatingButtonsProps {
   label?: string;
   alternativeLabel?: string;
 }
+
+export interface BorderProps {
+  leftLabel?: boolean;
+  label?: string;
+}

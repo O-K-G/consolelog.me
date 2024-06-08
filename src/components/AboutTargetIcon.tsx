@@ -7,12 +7,12 @@ function SVG90Degrees({ className, pathClassName }: SVG90DegreesProps) {
   return (
     <svg
       viewBox='0 0 64 57'
-      className={`standard-transition w-16 h-[3.563rem] fill-none absolute -z-10 ${className}`}
+      className={`standard-transition w-10 sm:w-16 fill-none absolute -z-10 ${className}`}
       xmlns='http://www.w3.org/2000/svg'
     >
       <path
         d='M1 1V55.4688H10.7351V10.7073H62.3854V1H1Z'
-        className={`standard-transition stroke-2 ${pathClassName}`}
+        className={`standard-transition stroke-1 sm:stroke-2 ${pathClassName}`}
       />
     </svg>
   );
