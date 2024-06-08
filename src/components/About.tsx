@@ -1,7 +1,7 @@
 'use client';
 
 import Section from '@components/Section';
-import Title from '@components/Title';
+import Title from '@components/title/Title';
 import Old from '@components/Old';
 import { useState } from 'react';
 import type { TitleProps } from '@constants/interfaces';
@@ -34,8 +34,8 @@ export default function About() {
               component: 'h1',
               label: 'lorem ipsum dolor',
               labelGlowText: "before:content-['lorem_ipsum_dolor']",
-              topLabel: 'lorem ipsum dolor',
-              bottomLabel: 'lorem ipsum dolor',
+              topLabel: 'border ipsum dolor',
+              bottomLabel: 'border ipsum dolor',
               border: true,
             },
             {
