@@ -22,7 +22,7 @@ function Border({ leftLabel, label }: BorderProps) {
           <div className='border sm:border-2 border-title-purple size-full before:border before:sm:border-2 before:absolute before:top-0 before:-left-[0.05rem] before:bottom-0 before:right-0 before:m-auto before:border-title-purple before:h-[110%] before:w-[101%] lg:before:w-[100.5%] before:blur-[0.125rem]' />
         </div>
         {label && (
-          <span className='text-base z-10 lg:text-[1.5rem] lg:leading-7 pt-[0.120rem] font-star-date-81316 uppercase whitespace-nowrap'>
+          <span className='text-sm z-10 sm:text-base md:text-lg lg:text-xl xl:text-[1.5rem] xl:leading-8 2xl:text-3xl pt-[0.120rem] font-star-date-81316 uppercase whitespace-nowrap'>
             {label}
           </span>
         )}
