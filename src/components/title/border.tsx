@@ -2,7 +2,10 @@ import type { BorderProps } from '@constants/interfaces';
 
 export default function Border({ leftLabel, label }: BorderProps) {
   return (
-    <div className='w-full h-2.5 sm:h-3 md:h-3.5 lg:h-4 xl:h-4.5 2xl:h-5'>
+    <div
+      aria-hidden
+      className='w-full h-2.5 sm:h-3 md:h-3.5 lg:h-4 xl:h-4.5 2xl:h-5'
+    >
       <div
         className={`text-title-purple relative size-full flex items-center gap-4 justify-between ${
           leftLabel ? 'flex-row-reverse' : ''

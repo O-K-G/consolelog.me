@@ -20,7 +20,8 @@ export default function Section({
 }: SectionProps) {
   const pathname = usePathname();
   const sectionRef = useRef(null);
-  const { onChange: setCurrentTopSection } = useContext(appContext);
+  const { currentTopSection, onChange: setCurrentTopSection } =
+    useContext(appContext);
 
   useEffect(() => {
     if (currentSection === pathname?.substring(1)) {
@@ -64,6 +65,7 @@ export default function Section({
   return (
     <section
       ref={sectionRef}
+      aria-hidden={currentSection !== currentTopSection}
       className={`relative p-4 flex flex-col gap-24 lg:gap-16 items-center justify-start h-svh w-full overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
       }`}

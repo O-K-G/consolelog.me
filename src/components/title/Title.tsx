@@ -36,7 +36,16 @@ export default function Title({
       {isButton && <AboutTargetIcon open={!!open} />}
       {border && <Border label={topLabel} />}
       {!isButton ? (
-        <Component className={`relative ${sharedClassName}`}>{label}</Component>
+        <Component
+          aria-label={
+            topLabel ?? bottomLabel
+              ? `${topLabel} - ${label} - ${bottomLabel}`
+              : label
+          }
+          className={`relative ${sharedClassName}`}
+        >
+          {label}
+        </Component>
       ) : (
         <AlternatingButtons
           sharedClassName={sharedClassName}

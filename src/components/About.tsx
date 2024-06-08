@@ -34,8 +34,8 @@ export default function About() {
               component: 'h1',
               label: 'lorem ipsum dolor',
               labelGlowText: "before:content-['lorem_ipsum_dolor']",
-              topLabel: 'lorem ipsum dolor',
-              bottomLabel: 'lorem ipsum dolor',
+              topLabel: 'border ipsum dolor',
+              bottomLabel: 'border ipsum dolor',
               border: true,
             },
             {
