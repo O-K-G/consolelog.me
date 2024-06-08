@@ -80,7 +80,7 @@ export default function Title({
   isButton,
   label,
   labelGlowText,
-  className = 'w-fit h-20 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36',
+  className = 'w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36',
   topLabel,
   bottomLabel,
   border = false,
@@ -94,7 +94,7 @@ export default function Title({
     ? 'title-text-stroke-purple'
     : 'title-text-stroke-white';
 
-  const sharedClassName = `tracking-[0.2em] sm:tracking-normal uppercase before:uppercase before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-[0.09rem] lg:before:blur-[0.125rem] before:text-transparent center-elements flex-wrap text-transparent size-full before:title-text-stroke-purple ${componentClassName} ${labelGlowText}`;
+  const sharedClassName = `uppercase before:uppercase before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-[0.09rem] lg:before:blur-[0.125rem] before:text-transparent center-elements flex-wrap text-transparent size-full before:title-text-stroke-purple ${componentClassName} ${labelGlowText}`;
 
   return (
     <div
