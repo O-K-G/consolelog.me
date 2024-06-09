@@ -10,7 +10,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: { 'title-purple': '#ceb7ff' },
+      colors: {
+        'title-purple': '#ceb7ff',
+        'title-orange': 'orange',
+        'title-red': 'red',
+      },
       fontFamily: {
         'just-in-the-firestorm': ['var(--font-just-in-the-firestorm)'],
         'star-date-81316': ['var(--font-star-date-81316)'],

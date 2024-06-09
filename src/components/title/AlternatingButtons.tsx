@@ -2,7 +2,7 @@
 
 import type { AlternatingButtonsProps } from '@constants/interfaces';
 import { Montserrat } from 'next/font/google';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -17,44 +17,43 @@ export function AlternatingButtons({
   const windowButtonRef = useRef(null);
 
   const buttonsClassNames =
-    'standard-transition size-full absolute top-0 bottom-0 left-0 right-0 my-auto overflow-hidden';
+    'standard-transition size-full absolute top-0 bottom-0 left-0 right-0 my-auto overflow-hidden outline-none';
   const disabledButtonsClassName =
     'opacity-0 pointer-events-none select-none h-0 border-y border-white';
 
-  const handleTransitionEnd = (refVal: HTMLButtonElement) => {
-    refVal.focus();
-    refVal.removeEventListener('transitionend', () =>
-      handleTransitionEnd(refVal)
-    );
-  };
+  useEffect(() => {
+    if (open) {
+      return (windowButtonRef.current as unknown as HTMLButtonElement).focus();
+    }
+
+    return (
+      clickToOpenButtonRef.current as unknown as HTMLButtonElement
+    ).focus();
+  }, [open]);
 
   return (
     <>
       <button
         ref={clickToOpenButtonRef}
         className={`md:leading-[3rem] lg:leading-[5rem] ${buttonsClassNames} ${
-          !open ? 'delay-1000' : disabledButtonsClassName
+          !open
+            ? 'delay-1000 after:-z-10 after:delay-0 after:absolute after:top-0 after:left-0 after:size-full after:rounded-full after:focus:bg-title-purple/10'
+            : disabledButtonsClassName
         } ${sharedClassName}`}
         disabled={open}
         aria-hidden={open}
         aria-label={label}
         type='button'
-        onClick={() => {
-          const currentWindowButton =
-            windowButtonRef.current as unknown as HTMLButtonElement;
-
-          currentWindowButton.addEventListener('transitionend', () =>
-            handleTransitionEnd(currentWindowButton)
-          );
-          onClick?.();
-        }}
+        onClick={onClick}
       >
         {label}
       </button>
       <button
         ref={windowButtonRef}
         className={`${buttonsClassNames} ${
-          !open ? disabledButtonsClassName : 'delay-1000 bg-black/30'
+          !open
+            ? disabledButtonsClassName
+            : 'delay-1000 before:delay-0 before:size-full before:absolute before:bg-black/30 before:focus:bg-black/70 before:-z-10 before:top-0 before:left-0'
         } ${
           montserrat.className
         } p-2 md:p-10 lg:p-14 text-base md:text-xl 2xl:text-2xl`}
@@ -62,16 +61,7 @@ export function AlternatingButtons({
         aria-hidden={!open}
         aria-label={`Clickable button you can click at any point to stop the reading, and go back to the "Click to Open" button. ${alternativeLabel}`}
         type='button'
-        onClick={() => {
-          const currentClickToOpenButton =
-            clickToOpenButtonRef.current as unknown as HTMLButtonElement;
-
-          currentClickToOpenButton.addEventListener('transitionend', () =>
-            handleTransitionEnd(currentClickToOpenButton)
-          );
-
-          onClick?.();
-        }}
+        onClick={onClick}
       >
         {alternativeLabel}
       </button>

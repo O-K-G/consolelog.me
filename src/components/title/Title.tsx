@@ -31,7 +31,7 @@ export default function Title({
   return (
     <div
       data-open={open}
-      className={`flex flex-col items-center justify-between shrink-0 font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl relative ${containerClassName} ${className}`}
+      className={`group flex flex-col items-center justify-between shrink-0 font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl relative ${containerClassName} ${className}`}
     >
       {isButton && <AboutTargetIcon open={!!open} />}
       {border && <Border label={topLabel} />}
