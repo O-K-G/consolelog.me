@@ -57,7 +57,11 @@ body {
     @apply flex items-center justify-center;
   }
 
-  .standard-transition {
+  .transition-300 {
+    @apply transition-all ease-in-out duration-300;
+  }
+
+  .transition-1000 {
     @apply transition-all ease-in-out duration-1000;
   }
 }
