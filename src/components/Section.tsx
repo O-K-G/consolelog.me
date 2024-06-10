@@ -65,6 +65,7 @@ export default function Section({
   return (
     <section
       ref={sectionRef}
+      data-testid={`section-${currentSection}`}
       aria-hidden={currentSection !== currentTopSection}
       className={`relative p-4 flex flex-col gap-24 lg:gap-16 items-center justify-start h-svh w-full overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
