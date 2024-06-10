@@ -58,6 +58,6 @@ describe('Section component', () => {
     const sectionElement = screen.getByTestId('child-test');
     expect(sectionElement).toBeInTheDocument();
     expect(sectionElement).toHaveTextContent('Content');
-    expect(sectionElement).not.toHaveTextContent('Content');
+    expect(sectionElement).not.toHaveTextContent('content');
   });
 });
