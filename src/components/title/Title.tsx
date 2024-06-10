@@ -1,7 +1,7 @@
 /* eslint-disable multiline-ternary */
 
 import type { TitleProps } from '@constants/interfaces';
-import AboutTargetIcon from '@components/AboutTargetIcon';
+import AboutTargetIcon from '@components/title/AboutTargetIcon';
 import { AlternatingButtons } from '@components/title/AlternatingButtons';
 import Border from '@components/title/border';
 

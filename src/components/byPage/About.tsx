@@ -1,6 +1,6 @@
 'use client';
 
-import Section from '@components/Section';
+import Section from '@components/shared/Section';
 import Title from '@components/title/Title';
 import Old from '@components/Old';
 import { useState } from 'react';

@@ -37,7 +37,7 @@ export function AlternatingButtons({
         ref={clickToOpenButtonRef}
         className={`md:leading-[3rem] lg:leading-[5rem] ${buttonsClassNames} ${
           !open
-            ? 'delay-1000 after:-z-10 after:delay-0 after:absolute after:top-0 after:left-0 after:size-full after:rounded-full after:focus:bg-title-purple/10'
+            ? 'delay-1000 after:-z-10 after:delay-0 after:absolute after:top-0 after:left-0 after:size-full after:rounded-full after:focus:bg-black/30'
             : disabledButtonsClassName
         } ${sharedClassName}`}
         disabled={open}

@@ -2,7 +2,7 @@
 
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { useContext } from 'react';
-import { AppContext as appContext } from '@components/AppContext';
+import { AppContext as appContext } from '@components/shared/AppContext';
 import Image from 'next/image';
 
 const ROTATION_CLASSNAMES_BY_SECTION = {

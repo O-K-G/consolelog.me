@@ -1,6 +1,6 @@
 'use client';
 
-import { AppContext as appContext } from '@components/AppContext';
+import { AppContext as appContext } from '@components/shared/AppContext';
 import { type SectionProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
 import { useContext, useEffect, useRef } from 'react';
