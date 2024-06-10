@@ -1,4 +1,4 @@
-import Section from '@components/Section';
+import Section from '@components/shared/Section';
 import Title from '@components/title/Title';
 
 export default function Contact() {

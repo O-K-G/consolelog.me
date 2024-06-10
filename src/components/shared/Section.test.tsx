@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Section from '@components/Section';
+import Section from '@components/shared/Section';
 import { usePathname } from 'next/navigation';
-import { AppContext } from '@components/AppContext';
+import { AppContext } from '@components/shared/AppContext';
 
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
