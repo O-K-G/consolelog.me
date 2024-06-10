@@ -22,7 +22,7 @@ export default function Planet() {
 
   return (
     <div
-      className={`before:-translate-y-[5%] before:blur-lg before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] before:from-[#00B1FF] before:to-transparent before:block before:size-[98%] before:rounded-full rounded-full fixed translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto size-[75svw] standard-transition ${
+      className={`before:-translate-y-[5%] before:blur-lg before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] before:from-[#00B1FF] before:to-transparent before:block before:size-[98%] before:rounded-full rounded-full fixed translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto size-[75svw] transition-1000 ${
         rotationClasses || ''
       }`}
     >

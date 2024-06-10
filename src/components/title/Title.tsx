@@ -20,7 +20,7 @@ export default function Title({
 }: TitleProps) {
   const containerClassName = !isButton
     ? ''
-    : 'border-transparent z-10 standard-transition';
+    : 'border-transparent z-10 transition-1000';
 
   const componentClassName = !isButton
     ? 'title-text-stroke-purple'
