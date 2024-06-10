@@ -12,7 +12,7 @@ const BACKGROUND_IMAGES_CLASSNAMES = {
   projects: 'bg-projects-background',
   experience: 'bg-experience-background',
 } as const;
-console.log('AAAA', process.env.NODE_ENV);
+
 export default function Section({
   children,
   currentSection,
