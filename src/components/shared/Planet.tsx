@@ -27,6 +27,7 @@ export default function Planet() {
       }`}
     >
       <Image
+        data-testid='planet-test'
         src={`/planet.webp?cacheVersion=${CACHE_VERSION}`}
         fill
         loading='eager'
