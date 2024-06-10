@@ -12,7 +12,7 @@ jest.mock('next/navigation', () => ({
 const mockSetCurrentTopSection = jest.fn();
 
 describe('Section component', () => {
-  it('displays the Section component on the screen', () => {
+  beforeEach(() => {
     const mockUsePathname = usePathname;
 
     // @ts-ignore
@@ -42,14 +42,22 @@ describe('Section component', () => {
     render(
       <AppContext.Provider value={mockContextValue}>
         <Section currentSection='about' backgroundClassName='bg-custom'>
-          <div>Content</div>
+          <div data-testid='child-test'>Content</div>
         </Section>
       </AppContext.Provider>
     );
-
+  });
+  it('displays the Section component on the screen', () => {
     const sectionElement = screen.getByTestId('section-about');
     expect(sectionElement).toBeInTheDocument();
     expect(sectionElement).toHaveClass('bg-about-background bg-custom');
     expect(sectionElement).not.toHaveAttribute('aria-hidden', 'true');
+  });
+
+  it('displays the child component on the screen', () => {
+    const sectionElement = screen.getByTestId('child-test');
+    expect(sectionElement).toBeInTheDocument();
+    expect(sectionElement).toHaveTextContent('Content');
+    expect(sectionElement).not.toHaveTextContent('content');
   });
 });
