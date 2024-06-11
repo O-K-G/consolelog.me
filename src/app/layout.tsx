@@ -2,6 +2,13 @@ import type { Metadata, Viewport } from 'next';
 
 import './globals.css';
 import localFont from 'next/font/local';
+import { Bebas_Neue } from 'next/font/google';
+
+const bebasNeue = Bebas_Neue({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-bebas-neue',
+});
 
 /** https://www.fontspace.com/just-in-the-firestorm-font-f31017 */
 const justInTheFirestormRegular = localFont({
@@ -33,7 +40,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const className = `${justInTheFirestormRegular.variable} ${starDate81316.variable}`;
+  const className = `${justInTheFirestormRegular.variable} ${starDate81316.variable} ${bebasNeue.variable}`;
 
   return (
     <html lang='en'>

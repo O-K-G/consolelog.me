@@ -11,6 +11,7 @@ import about from '@i18nEn/about.json';
 
 export default function About() {
   const [open, setOpen] = useState(false);
+  const t = useText();
   const [isTitleButtonOpen, setIsTitleButtonOpen] = useState(false);
 
   const handleOld = (val: boolean) => {
@@ -25,7 +26,6 @@ export default function About() {
       }
     });
   };
-  const t = useText();
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function About() {
               id: 0,
               component: 'h1',
               label: t('mainTitle', about),
-              labelGlowText: t('mainTitleGlowText', about),
+              labelGlowText: "before:content-['lorem_ipsum_dolor']",
               topLabel: t('topLabel', about),
               bottomLabel: t('bottomLabel', about),
               border: true,
@@ -45,12 +45,12 @@ export default function About() {
               id: 1,
               component: 'h2',
               label: t('subtitle', about),
-              labelGlowText: t('subtitleGlowText', about),
+              labelGlowText: "before:content-['lorem_ipsum_dolor']",
             },
             {
               id: 2,
               label: t('clickToOpen', about),
-              labelGlowText: t('clickToOpenGlowText', about),
+              labelGlowText: "before:content-['click_to_open']",
               alternativeLabel: t('alternativeLabel', about),
               isButton: true,
               open: isTitleButtonOpen,
