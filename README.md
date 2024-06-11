@@ -1,6 +1,6 @@
 The repo for [http://consolelog.me](http://consolelog.me).
 
-# Version 0.1.0 changes
+### Version 0.1.0 changes
 
 - Base app structure and behavior
 - TypeScript, ESLint
