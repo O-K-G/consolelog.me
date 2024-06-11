@@ -6,6 +6,8 @@ import Old from '@components/Old';
 import { useState } from 'react';
 import type { TitleProps } from '@constants/interfaces';
 import Attribution from '@components/Attribution';
+import { useText } from '@hooks/useText';
+import about from '@i18nEn/about.json';
 
 export default function About() {
   const [open, setOpen] = useState(false);
@@ -23,6 +25,7 @@ export default function About() {
       }
     });
   };
+  const t = useText();
 
   return (
     <>
@@ -32,24 +35,23 @@ export default function About() {
             {
               id: 0,
               component: 'h1',
-              label: 'lorem ipsum dolor',
-              labelGlowText: "before:content-['lorem_ipsum_dolor']",
-              topLabel: 'border ipsum dolor',
-              bottomLabel: 'border ipsum dolor',
+              label: t('mainTitle', about),
+              labelGlowText: t('mainTitleGlowText', about),
+              topLabel: t('topLabel', about),
+              bottomLabel: t('bottomLabel', about),
               border: true,
             },
             {
               id: 1,
               component: 'h2',
-              label: 'lorem ipsum dolor',
-              labelGlowText: "before:content-['lorem_ipsum_dolor']",
+              label: t('subtitle', about),
+              labelGlowText: t('subtitleGlowText', about),
             },
             {
               id: 2,
-              label: 'click to open',
-              labelGlowText: "before:content-['click_to_open']",
-              alternativeLabel:
-                "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+              label: t('clickToOpen', about),
+              labelGlowText: t('clickToOpenGlowText', about),
+              alternativeLabel: t('alternativeLabel', about),
               isButton: true,
               open: isTitleButtonOpen,
               onClick: () => setIsTitleButtonOpen((prevValue) => !prevValue),
