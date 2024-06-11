@@ -13,9 +13,9 @@ export default function Home() {
       <Loader />
       <AppContextComponent>
         <About />
+        <Skills />
         <Contact />
         <Projects />
-        <Skills />
         <Experience />
         <Planet />
       </AppContextComponent>
