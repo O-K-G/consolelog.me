@@ -40,6 +40,8 @@ export default function About() {
               topLabel: t('topLabel', about),
               bottomLabel: t('bottomLabel', about),
               border: true,
+              className:
+                'mt-8 sm:mt-0 w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36',
             },
             {
               id: 1,
