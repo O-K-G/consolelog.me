@@ -1,11 +1,8 @@
 {
   "mainTitle": "lorem ipsum dolor",
-  "mainTitleGlowText": "before:content-['lorem_ipsum_dolor']",
   "topLabel": "border ipsum dolor",
   "bottomLabel": "border ipsum dolor",
   "subtitle": "lorem ipsum dolor",
-  "subtitleGlowText": "before:content-['lorem_ipsum_dolor']",
   "clickToOpen": "click to open",
-  "clickToOpenGlowText": "before:content-['click_to_open']",
   "alternativeLabel": "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 }

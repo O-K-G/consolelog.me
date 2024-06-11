@@ -4,9 +4,11 @@ export interface AppContextComponentProps {
   children: ReactNode;
 }
 
-export interface SectionProps {
-  children: ReactNode;
+export interface CurrentSection {
   currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
+}
+export interface SectionProps extends CurrentSection {
+  children: ReactNode;
   backgroundClassName?: string;
 }
 
