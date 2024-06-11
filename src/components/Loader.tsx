@@ -51,7 +51,10 @@ export default function Loader() {
         isLoderVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className='size-24 bg-red-500 rounded-lg animate-spin mb-4' />
+      <div
+        data-testid='loader-test'
+        className='size-24 bg-red-500 rounded-lg animate-spin mb-4'
+      />
       Temporary loader
     </div>
   );
