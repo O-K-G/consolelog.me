@@ -31,12 +31,14 @@ describe('Section component', () => {
       AppContext: React.createContext({
         currentTopSection: '',
         onChange: mockSetCurrentTopSection,
+        contactSectionRef: { current: null },
       }),
     }));
 
     const mockContextValue = {
       currentTopSection: 'about',
       onChange: mockSetCurrentTopSection,
+      contactSectionRef: { current: null },
     };
 
     render(
