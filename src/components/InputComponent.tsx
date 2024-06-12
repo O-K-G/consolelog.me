@@ -53,10 +53,10 @@ export default function InputComponent({
           </div>
         </div>
         {isSubmit && (
-          <div className='border border-red-500 flex items-center justify-end w-full'>
+          <div className='border border-red-500 flex items-center justify-end w-full mt-2'>
             <button
               type='submit'
-              className='relative w-1/3 before:-z-10 before:size-full before:absolute before:hover:bg-black/70 before:active:bg-black/70 before:focus:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full font-bebas-neue p-2 mt-2 text-xl sm:text-3xl uppercase hover:text-title-purple active:text-white focus:text-title-purple outline-none'
+              className='relative w-1/3 before:-z-10 before:size-full before:absolute before:hover:bg-black/70 before:active:bg-black/70 before:focus:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full font-bebas-neue p-2 text-xl sm:text-3xl uppercase hover:text-title-purple active:text-white focus:text-title-purple outline-none'
             >
               {t('send', inputComponent)}
             </button>
