@@ -1,17 +1,29 @@
-import React, { act, useContext } from 'react';
+import React, { LegacyRef, act, useContext, useEffect } from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { AppContext } from '@components/shared/AppContext';
 import AppContextComponent from '@components/shared/AppContext';
 
 const ContextConsumer = () => {
-  const { currentTopSection, onChange } = useContext(AppContext);
+  const { currentTopSection, onChange, contactSectionRef } =
+    useContext(AppContext);
+
+  useEffect(() => {
+    if (contactSectionRef.current) {
+      contactSectionRef.current.textContent = 'Contact Section Element';
+    }
+  }, [contactSectionRef]);
+
   return (
     <>
       <span data-testid='currentTopSection'>{currentTopSection}</span>
       <button type='button' onClick={() => onChange('contact')}>
         Change Section
       </button>
+      <div
+        ref={contactSectionRef as LegacyRef<HTMLDivElement>}
+        data-testid='contactSectionRef'
+      />
     </>
   );
 };
@@ -40,5 +52,17 @@ describe('AppContext', () => {
     expect(screen.getByTestId('currentTopSection')).toHaveTextContent(
       'contact'
     );
+  });
+
+  test('updates contactSectionRef correctly', () => {
+    render(
+      <AppContextComponent>
+        <ContextConsumer />
+      </AppContextComponent>
+    );
+
+    const contactSectionElement = screen.getByTestId('contactSectionRef');
+
+    expect(contactSectionElement).toHaveTextContent('Contact Section Element');
   });
 });

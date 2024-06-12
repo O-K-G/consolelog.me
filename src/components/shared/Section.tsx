@@ -3,8 +3,7 @@
 import { AppContext as appContext } from '@components/shared/AppContext';
 import { type SectionProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
-import { useContext, useEffect, useRef } from 'react';
-import ContactMeButton from '@components/shared/ContactMeButton';
+import { type MutableRefObject, useContext, useEffect, useRef } from 'react';
 import { useScroll } from '@hooks/useScroll';
 
 const BACKGROUND_IMAGES_CLASSNAMES = {
@@ -23,14 +22,26 @@ export default function Section({
   const pathname = usePathname();
   const sectionRef = useRef(null);
   const handleScroll = useScroll();
-  const { currentTopSection, onChange: setCurrentTopSection } =
-    useContext(appContext);
+  const {
+    currentTopSection,
+    onChange: setCurrentTopSection,
+    contactSectionRef,
+  } = useContext(appContext);
 
   useEffect(() => {
+    if (
+      currentSection === 'contact' &&
+      sectionRef.current &&
+      !contactSectionRef.current
+    ) {
+      (contactSectionRef.current as unknown as MutableRefObject<null>) =
+        sectionRef;
+    }
+
     if (currentSection === pathname?.substring(1)) {
       handleScroll({ sectionRef });
     }
-  }, [currentSection, handleScroll, pathname]);
+  }, [contactSectionRef, currentSection, handleScroll, pathname]);
 
   useEffect(() => {
     const options = {
@@ -65,7 +76,6 @@ export default function Section({
         backgroundClassName ?? ''
       }`}
     >
-      <ContactMeButton ref={sectionRef} currentSection={currentSection} />
       {children}
     </section>
   );

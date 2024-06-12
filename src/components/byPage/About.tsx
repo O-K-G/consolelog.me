@@ -8,6 +8,7 @@ import type { TitleProps } from '@constants/interfaces';
 import Attribution from '@components/Attribution';
 import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
+import ContactMeButton from '@components/shared/ContactMeButton';
 
 export default function About() {
   const [open, setOpen] = useState(false);
@@ -64,6 +65,8 @@ export default function About() {
         ).map(({ id, ...rest }) => (
           <Title key={`about-title-${id}`} {...rest} />
         ))}
+
+        <ContactMeButton />
 
         <button
           type='button'
