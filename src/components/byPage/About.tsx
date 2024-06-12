@@ -10,6 +10,10 @@ import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
 import ContactMeButton from '@components/shared/ContactMeButton';
 
+const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
+const SUBTITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
+const CLICK_TO_OPEN_GLOW_CLASSNAME = "before:content-['click_to_open']";
+
 export default function About() {
   const [open, setOpen] = useState(false);
   const t = useText();
@@ -37,7 +41,7 @@ export default function About() {
               id: 0,
               component: 'h1',
               label: t('mainTitle', about),
-              labelGlowText: "before:content-['lorem_ipsum_dolor']",
+              labelGlowText: MAIN_TITLE_GLOW_CLASSNAME,
               topLabel: t('topLabel', about),
               bottomLabel: t('bottomLabel', about),
               border: true,
@@ -48,12 +52,12 @@ export default function About() {
               id: 1,
               component: 'h2',
               label: t('subtitle', about),
-              labelGlowText: "before:content-['lorem_ipsum_dolor']",
+              labelGlowText: SUBTITLE_GLOW_CLASSNAME,
             },
             {
               id: 2,
               label: t('clickToOpen', about),
-              labelGlowText: "before:content-['click_to_open']",
+              labelGlowText: CLICK_TO_OPEN_GLOW_CLASSNAME,
               alternativeLabel: t('alternativeLabel', about),
               isButton: true,
               open: isTitleButtonOpen,
