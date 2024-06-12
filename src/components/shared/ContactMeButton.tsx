@@ -14,6 +14,7 @@ export default function ContactMeButton() {
 
   return (
     <button
+      data-testid='contact-me-button-test'
       onClick={() =>
         handleScroll({
           sectionRef:

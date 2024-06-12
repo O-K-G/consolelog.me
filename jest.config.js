@@ -101,6 +101,7 @@ const config = {
     '^@/root/(.*)$': '/$1',
     '^@/components/(.*)$': 'src/components/$1',
     '^@/constants/(.*)$': 'src/constants/$1',
+    '^@/hooks/(.*)$': 'src/hooks/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
