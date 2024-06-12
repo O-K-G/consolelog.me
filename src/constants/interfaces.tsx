@@ -85,3 +85,7 @@ export interface InputComponentProps {
   rows?: number;
   isSubmit?: boolean;
 }
+
+export interface IconsProps {
+  className: string;
+}

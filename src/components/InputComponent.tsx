@@ -4,6 +4,7 @@ import type { InputComponentProps } from '@constants/interfaces';
 import { useState } from 'react';
 import { useText } from '@hooks/useText';
 import inputComponent from '@i18nEn/InputComponent.json';
+import AlignLeftIcon from '@components/AlignLeftIcon';
 
 export default function InputComponent({
   component: Component = 'input',
@@ -16,6 +17,12 @@ export default function InputComponent({
   const isTextarea = Component === 'textarea';
   const [value, setValue] = useState('');
   const t = useText();
+
+  const alignButtonsClassName =
+    'group hover:bg-black/70 active:bg-black/70 focus:bg-black/70 rounded-full p-2 center-elements outline-none';
+
+  const alignIconsClassName =
+    'size-10 fill-white group-hover:fill-title-purple group-active:fill-white group-focus:fill-title-purple shrink-0';
 
   return (
     <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
@@ -53,14 +60,25 @@ export default function InputComponent({
           </div>
         </div>
         {isSubmit && (
-          <div className='border border-red-500 flex items-center justify-end w-full mt-2'>
-            <button
-              type='submit'
-              className='relative w-1/3 before:-z-10 before:size-full before:absolute before:hover:bg-black/70 before:active:bg-black/70 before:focus:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full font-bebas-neue p-2 text-xl sm:text-3xl uppercase hover:text-title-purple active:text-white focus:text-title-purple outline-none'
-            >
-              {t('send', inputComponent)}
-            </button>
-            <div className='w-1/3 border border-green-500 h-full' />
+          <div className='flex items-center justify-end w-full mt-2'>
+            <div className='w-1/3 center-elements'>
+              <button
+                type='submit'
+                className='relative p-2 before:-z-10 before:size-full before:absolute before:hover:bg-black/70 before:active:bg-black/70 before:focus:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full font-bebas-neue text-xl sm:text-3xl uppercase hover:text-title-purple active:text-white focus:text-title-purple outline-none'
+              >
+                {t('send', inputComponent)}
+              </button>
+            </div>
+            <div className='w-1/3 gap-2 flex items-center justify-end'>
+              <button type='button' className={alignButtonsClassName}>
+                <AlignLeftIcon className={alignIconsClassName} />
+              </button>
+              <button type='button' className={alignButtonsClassName}>
+                <AlignLeftIcon
+                  className={`${alignIconsClassName} rotate-180`}
+                />
+              </button>
+            </div>
           </div>
         )}
       </div>
