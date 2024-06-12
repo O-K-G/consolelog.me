@@ -6,6 +6,12 @@ import { useText } from '@hooks/useText';
 import inputComponent from '@i18nEn/InputComponent.json';
 import AlignLeftIcon from '@components/AlignLeftIcon';
 
+const ALIGN_BUTTONS_CLASSNAME =
+  'group hover:bg-black/70 active:bg-black/70 focus:bg-black/70 rounded-full p-2 center-elements outline-none';
+
+const ALIGN_ICONS_CLASSNAME =
+  'size-10 fill-white group-hover:fill-title-purple group-active:fill-white group-focus:fill-title-purple shrink-0';
+
 export default function InputComponent({
   component: Component = 'input',
   id,
@@ -13,16 +19,11 @@ export default function InputComponent({
   maxLength,
   rows,
   isSubmit,
+  onClick,
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
   const [value, setValue] = useState('');
   const t = useText();
-
-  const alignButtonsClassName =
-    'group hover:bg-black/70 active:bg-black/70 focus:bg-black/70 rounded-full p-2 center-elements outline-none';
-
-  const alignIconsClassName =
-    'size-10 fill-white group-hover:fill-title-purple group-active:fill-white group-focus:fill-title-purple shrink-0';
 
   return (
     <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
@@ -69,13 +70,21 @@ export default function InputComponent({
                 {t('send', inputComponent)}
               </button>
             </div>
-            <div className='w-1/3 gap-2 flex items-center justify-end'>
-              <button type='button' className={alignButtonsClassName}>
-                <AlignLeftIcon className={alignIconsClassName} />
+            <div className='w-1/3 gap-2 flex rtl:flex-row-reverse rtl:justify-start items-center justify-end'>
+              <button
+                onClick={() => onClick?.('ltr')}
+                type='button'
+                className={ALIGN_BUTTONS_CLASSNAME}
+              >
+                <AlignLeftIcon className={ALIGN_ICONS_CLASSNAME} />
               </button>
-              <button type='button' className={alignButtonsClassName}>
+              <button
+                onClick={() => onClick?.('rtl')}
+                type='button'
+                className={ALIGN_BUTTONS_CLASSNAME}
+              >
                 <AlignLeftIcon
-                  className={`${alignIconsClassName} rotate-180`}
+                  className={`${ALIGN_ICONS_CLASSNAME} rotate-180`}
                 />
               </button>
             </div>

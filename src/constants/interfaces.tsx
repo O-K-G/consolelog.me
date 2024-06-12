@@ -84,6 +84,7 @@ export interface InputComponentProps {
   maxLength: number;
   rows?: number;
   isSubmit?: boolean;
+  onClick?: (val: 'ltr' | 'rtl') => void;
 }
 
 export interface IconsProps {
