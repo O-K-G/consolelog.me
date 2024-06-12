@@ -10,6 +10,7 @@ export interface CurrentSection {
 export interface SectionProps extends CurrentSection {
   children: ReactNode;
   backgroundClassName?: string;
+  className?: string;
 }
 
 interface TitleLabels {
