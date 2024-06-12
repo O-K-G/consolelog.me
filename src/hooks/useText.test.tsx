@@ -18,7 +18,7 @@ describe('useText', () => {
     expect(screen.getByTestId('translation')).toHaveTextContent('Hello');
   });
 
-  test('returns the key and logs an error for an invalid key', () => {
+  test("returns a key and logs an error if it's invalid", () => {
     const consoleErrorSpy = jest
       .spyOn(console, 'error')
       .mockImplementation(() => {});
