@@ -22,12 +22,12 @@ function InputComponent({
 
   return (
     <div
-      className={`w-full text-white gap-6 ${
-        !isTextarea ? 'center-elements' : 'flex items-start justify-center'
+      className={`w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center ${
+        !isTextarea ? 'sm:items-center' : ''
       }`}
     >
       <div
-        className={`flex items-center justify-end w-4/12 ${
+        className={`flex items-center justify-start sm:justify-end sm:w-2/12 md:w-4/12 ${
           !isTextarea ? '' : 'mt-2'
         }`}
       >
@@ -35,7 +35,7 @@ function InputComponent({
           {id}:
         </label>
       </div>
-      <div className='center-elements flex-col'>
+      <div className='center-elements flex-col w-full'>
         <Component
           type='text'
           maxLength={maxLength}
@@ -65,7 +65,7 @@ export default function Contact() {
     <Section backgroundClassName='bg-center' currentSection='contact'>
       <Title label='contact' labelGlowText='contact' />
       <form className='size-full center-elements flex-col'>
-        <div className='w-5/12 flex flex-col justify-center items-start gap-10'>
+        <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-10'>
           <InputComponent
             id='email'
             placeholder='EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM'
