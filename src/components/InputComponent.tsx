@@ -2,6 +2,7 @@
 
 import type { InputComponentProps } from '@constants/interfaces';
 import { useState } from 'react';
+import BottomInputComponentButtons from '@components/BottomInputComponentButtons';
 
 export default function InputComponent({
   component: Component = 'input',
@@ -10,15 +11,16 @@ export default function InputComponent({
   maxLength,
   rows,
   isSubmit,
+  onClick,
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
   const [value, setValue] = useState('');
 
   return (
-    <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center'>
+    <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
       <div className='flex items-center justify-start sm:justify-end sm:mt-1.5 sm:w-2/12 md:w-3/12 md:max-w-24'>
         <label
-          htmlFor='email'
+          htmlFor={id}
           className='uppercase font-bebas-neue text-xl sm:text-3xl'
         >
           {id}:
@@ -39,7 +41,7 @@ export default function InputComponent({
             maxLength={maxLength}
             id={id}
             name={id}
-            className={`w-full placeholder:uppercase text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none bg-title-purple/30 focus:bg-black/70 ${
+            className={`w-full placeholder:uppercase text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none bg-title-purple/30 hover:bg-black/70 active:bg-black/70 focus:bg-black/70 ${
               !isTextarea ? 'h-[3.188rem] px-4' : 'p-4 resize-none'
             }`}
             placeholder={placeholder}
@@ -49,14 +51,7 @@ export default function InputComponent({
             {value.length}/{maxLength}
           </div>
         </div>
-        {isSubmit && (
-          <button
-            type='submit'
-            className='font-bebas-neue p-2 mt-2 text-xl sm:text-3xl uppercase hover:text-title-purple active:text-[#75629f] focus:text-title-purple outline-none'
-          >
-            SEND
-          </button>
-        )}
+        {isSubmit && <BottomInputComponentButtons onClick={onClick} />}
       </div>
     </div>
   );

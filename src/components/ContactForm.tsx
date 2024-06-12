@@ -1,10 +1,14 @@
 'use client';
 
 import InputComponent from '@components/InputComponent';
+import { useState } from 'react';
 
 export default function ContactForm() {
+  const [dir, setDir] = useState('ltr');
+
   return (
     <form
+      dir={dir}
       onSubmit={(e) => {
         // TODO: Proceed from here to validation.
         e.preventDefault();
@@ -25,6 +29,14 @@ export default function ContactForm() {
           rows={5}
           component='textarea'
           isSubmit
+          onClick={(val) => {
+            if (dir === 'ltr' && val === 'rtl') {
+              setDir('rtl');
+            }
+            if (dir === 'rtl' && val === 'ltr') {
+              setDir('ltr');
+            }
+          }}
         />
       </div>
     </form>
