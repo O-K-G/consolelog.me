@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 
-import './globals.css';
+import '@root/src/app/globals.css';
 import localFont from 'next/font/local';
 import { Bebas_Neue } from 'next/font/google';
 
