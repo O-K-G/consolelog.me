@@ -61,7 +61,7 @@ function InputComponent({
 export default function Contact() {
   return (
     <Section
-      className='gap-2'
+      className='gap-2 sm:gap-0'
       backgroundClassName='bg-center'
       currentSection='contact'
     >
@@ -78,7 +78,7 @@ export default function Contact() {
             id='content'
             placeholder='YOUR MESSAGE'
             maxLength={1000}
-            rows={10}
+            rows={5}
             component='textarea'
             isSubmit
           />
