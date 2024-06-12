@@ -76,3 +76,12 @@ export interface BorderProps {
   leftLabel?: boolean;
   label?: string;
 }
+
+export interface InputComponentProps {
+  component?: 'input' | 'textarea';
+  id: string;
+  placeholder: string;
+  maxLength: number;
+  rows?: number;
+  isSubmit?: boolean;
+}
