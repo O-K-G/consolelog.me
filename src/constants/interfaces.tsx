@@ -77,14 +77,17 @@ export interface BorderProps {
   label?: string;
 }
 
-export interface InputComponentProps {
+export interface BottomInputComponentButtonsProps {
+  onClick?: (val: 'ltr' | 'rtl') => void;
+}
+
+export interface InputComponentProps extends BottomInputComponentButtonsProps {
   component?: 'input' | 'textarea';
   id: string;
   placeholder: string;
   maxLength: number;
   rows?: number;
   isSubmit?: boolean;
-  onClick?: (val: 'ltr' | 'rtl') => void;
 }
 
 export interface IconsProps {
