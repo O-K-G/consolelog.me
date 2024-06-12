@@ -2,12 +2,18 @@ import type { Metadata, Viewport } from 'next';
 
 import '@root/src/app/globals.css';
 import localFont from 'next/font/local';
-import { Bebas_Neue } from 'next/font/google';
+import { Bebas_Neue, Montserrat } from 'next/font/google';
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-bebas-neue',
+});
+
+const montserrat = Montserrat({
+  weight: 'variable',
+  subsets: ['latin'],
+  variable: '--font-montserrat',
 });
 
 /** https://www.fontspace.com/just-in-the-firestorm-font-f31017 */
@@ -40,7 +46,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const className = `${justInTheFirestormRegular.variable} ${starDate81316.variable} ${bebasNeue.variable}`;
+  const className = `${justInTheFirestormRegular.variable} ${starDate81316.variable} ${bebasNeue.variable} ${montserrat.variable}`;
 
   return (
     <html lang='en'>
