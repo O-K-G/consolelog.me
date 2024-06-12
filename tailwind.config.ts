@@ -19,6 +19,7 @@ const config: Config = {
         'just-in-the-firestorm': ['var(--font-just-in-the-firestorm)'],
         'star-date-81316': ['var(--font-star-date-81316)'],
         'bebas-neue': ['var(--font-bebas-neue)'],
+        montserrat: ['var(--font-montserrat)'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

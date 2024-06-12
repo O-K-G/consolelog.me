@@ -1,10 +1,8 @@
 'use client';
 
 import type { AlternatingButtonsProps } from '@constants/interfaces';
-import { Montserrat } from 'next/font/google';
-import { useEffect, useRef } from 'react';
 
-const montserrat = Montserrat({ subsets: ['latin'] });
+import { useEffect, useRef } from 'react';
 
 export function AlternatingButtons({
   sharedClassName,
@@ -50,12 +48,10 @@ export function AlternatingButtons({
       </button>
       <button
         ref={windowButtonRef}
-        className={`${buttonsClassNames} ${
+        className={`font-montserrat ${buttonsClassNames} ${
           !open
             ? disabledButtonsClassName
             : 'delay-1000 before:delay-0 before:size-full before:absolute before:bg-black/30 before:focus:bg-black/70 before:-z-10 before:top-0 before:left-0 before:duration-300'
-        } ${
-          montserrat.className
         } p-2 md:p-10 lg:p-14 text-base md:text-xl 2xl:text-2xl`}
         disabled={!open}
         aria-hidden={!open}

@@ -10,6 +10,7 @@ export interface CurrentSection {
 export interface SectionProps extends CurrentSection {
   children: ReactNode;
   backgroundClassName?: string;
+  className?: string;
 }
 
 interface TitleLabels {
@@ -74,4 +75,13 @@ export interface AlternatingButtonsProps {
 export interface BorderProps {
   leftLabel?: boolean;
   label?: string;
+}
+
+export interface InputComponentProps {
+  component?: 'input' | 'textarea';
+  id: string;
+  placeholder: string;
+  maxLength: number;
+  rows?: number;
+  isSubmit?: boolean;
 }

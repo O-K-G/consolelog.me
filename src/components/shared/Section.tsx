@@ -15,6 +15,7 @@ const BACKGROUND_IMAGES_CLASSNAMES = {
 } as const;
 
 export default function Section({
+  className,
   children,
   currentSection,
   backgroundClassName,
@@ -72,9 +73,9 @@ export default function Section({
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
       aria-hidden={currentSection !== currentTopSection}
-      className={`relative p-4 flex flex-col gap-24 lg:gap-16 items-center justify-start h-svh w-full overflow-hidden bg-cover ${currentBackgroundImage} ${
+      className={`relative p-4 flex flex-col items-center justify-start h-svh w-full overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
-      }`}
+      } ${className}`}
     >
       {children}
     </section>
