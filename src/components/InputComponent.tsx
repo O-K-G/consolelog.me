@@ -48,11 +48,7 @@ export default function InputComponent({
             rows={rows}
           />
           <div className='font-bebas-neue text-base'>
-            {!value
-              ? maxLength
-              : `${value.length !== maxLength ? '-' : ''}${
-                  maxLength - value.length
-                }`}
+            {!value ? maxLength : maxLength - value.length}
           </div>
         </div>
         {isSubmit && <BottomInputComponentButtons onClick={onClick} />}
