@@ -5,6 +5,10 @@ import { useState } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 
+export const EMAIL_MAX_LENGTH = 100;
+export const SUBJECT_MAX_LENGTH = 100;
+export const CONTENT_MAX_LENGTH = 1000;
+
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
   const [emailValue, setEmailValue] = useState('');
@@ -33,21 +37,21 @@ export default function ContactForm() {
         <InputComponent
           id='email'
           placeholder='EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM'
-          maxLength={100}
+          maxLength={EMAIL_MAX_LENGTH}
           value={emailValue}
           onChange={setEmailValue}
         />
         <InputComponent
           id='subject'
           placeholder='SUBJECT'
-          maxLength={100}
+          maxLength={SUBJECT_MAX_LENGTH}
           value={subjectValue}
           onChange={setSubjectValue}
         />
         <InputComponent
           id='content'
           placeholder='YOUR MESSAGE'
-          maxLength={1000}
+          maxLength={CONTENT_MAX_LENGTH}
           rows={5}
           component='textarea'
           isSubmit
