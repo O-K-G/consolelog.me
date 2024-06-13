@@ -1,4 +1,8 @@
 import { type ReactNode } from 'react';
+import { z } from 'zod';
+export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
+export const CONTACT_FORM_SUBJECT_MAX_LENGTH = 100;
+export const CONTACT_FORM_CONTENT_MAX_LENGTH = 1000;
 
 export interface AppContextComponentProps {
   children: ReactNode;
@@ -96,8 +100,10 @@ export interface IconsProps {
   className: string;
 }
 
-export interface FormValidationProps {
-  email: string;
-  subject: string;
-  content: string;
-}
+export const FormDataSchema = z.object({
+  email: z.string().email().max(CONTACT_FORM_EMAIL_MAX_LENGTH),
+  subject: z.string().max(CONTACT_FORM_SUBJECT_MAX_LENGTH),
+  content: z.string().max(CONTACT_FORM_CONTENT_MAX_LENGTH),
+});
+
+export type FormValidationProps = z.infer<typeof FormDataSchema>;
