@@ -1,14 +1,19 @@
 import type { FormValidationProps } from '@constants/interfaces';
+import { z } from 'zod';
 
 export default function formValidation({
   email,
   subject,
   content,
 }: FormValidationProps) {
-  console.log('client', {
-    email,
-    subject,
-    content,
+  const FormDataSchema = z.object({
+    email: z.string().email(),
+    subject: z.string(),
+    content: z.string(),
   });
-  return true;
+
+  const validation = FormDataSchema.safeParse({ email, subject, content });
+  const { success: isValidated } = validation;
+
+  return isValidated;
 }
