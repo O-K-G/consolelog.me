@@ -6,8 +6,11 @@ export default function formValidation({
   subject,
   content,
 }: FormValidationProps) {
-  const validation = FormDataSchema.safeParse({ email, subject, content });
-  const { success: isValidated } = validation;
+  const { success, error } = FormDataSchema.safeParse({
+    email,
+    subject,
+    content,
+  });
 
-  return isValidated;
+  return { isValidated: success, error: error?.flatten().fieldErrors };
 }

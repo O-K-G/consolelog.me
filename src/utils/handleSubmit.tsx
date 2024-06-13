@@ -7,7 +7,7 @@ export async function handleSubmit(formData: FormData) {
   const subject = formData.get('subject') as string;
   const content = formData.get('content') as string;
 
-  const isValidated = formValidation({ email, subject, content });
+  const { isValidated } = formValidation({ email, subject, content });
 
   console.log('server', isValidated);
   // await fetch('http://testteefdfsgsgfvwerfsttest.com').catch((err) => {

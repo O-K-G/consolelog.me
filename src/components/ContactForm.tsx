@@ -21,7 +21,7 @@ export default function ContactForm() {
       dir={dir}
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       action={async (formData) => {
-        const isValidated = formValidation({
+        const { isValidated } = formValidation({
           email: emailValue,
           subject: subjectValue,
           content: contentValue,
