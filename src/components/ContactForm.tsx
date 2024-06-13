@@ -7,13 +7,20 @@ import formValidation from '@utils/formValidation';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
+  const [emailValue, setEmailValue] = useState('');
+  const [subjectValue, setSubjectValue] = useState('');
+  const [contentValue, setContentValue] = useState('');
 
   return (
     <form
       dir={dir}
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       action={async (formData) => {
-        const isValidated = formValidation(formData);
+        const isValidated = formValidation({
+          email: emailValue,
+          subject: subjectValue,
+          content: contentValue,
+        });
         if (isValidated) {
           console.log('client', isValidated);
           return await handleSubmit(formData);
@@ -27,8 +34,16 @@ export default function ContactForm() {
           id='email'
           placeholder='EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM'
           maxLength={100}
+          value={emailValue}
+          onChange={setEmailValue}
         />
-        <InputComponent id='subject' placeholder='SUBJECT' maxLength={100} />
+        <InputComponent
+          id='subject'
+          placeholder='SUBJECT'
+          maxLength={100}
+          value={subjectValue}
+          onChange={setSubjectValue}
+        />
         <InputComponent
           id='content'
           placeholder='YOUR MESSAGE'
@@ -36,6 +51,8 @@ export default function ContactForm() {
           rows={5}
           component='textarea'
           isSubmit
+          value={contentValue}
+          onChange={setContentValue}
           onClick={(val) => {
             if (dir === 'ltr' && val === 'rtl') {
               setDir('rtl');

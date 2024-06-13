@@ -88,8 +88,16 @@ export interface InputComponentProps extends BottomInputComponentButtonsProps {
   maxLength: number;
   rows?: number;
   isSubmit?: boolean;
+  value: string;
+  onChange: (val: string) => void;
 }
 
 export interface IconsProps {
   className: string;
+}
+
+export interface FormValidationProps {
+  email: string;
+  subject: string;
+  content: string;
 }
