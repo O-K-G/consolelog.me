@@ -6,7 +6,9 @@ import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import {
   CONTACT_FORM_EMAIL_MAX_LENGTH,
+  CONTACT_FORM_SUBJECT_MIN_LENGTH,
   CONTACT_FORM_SUBJECT_MAX_LENGTH,
+  CONTACT_FORM_CONTENT_MIN_LENGTH,
   CONTACT_FORM_CONTENT_MAX_LENGTH,
 } from '@constants/interfaces';
 
@@ -21,11 +23,13 @@ export default function ContactForm() {
       dir={dir}
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       action={async (formData) => {
-        const { isValidated } = formValidation({
+        const { isValidated, error } = formValidation({
           email: emailValue,
           subject: subjectValue,
           content: contentValue,
         });
+
+        console.log(error);
         if (isValidated) {
           console.log('client', isValidated);
           return await handleSubmit(formData);
@@ -46,6 +50,7 @@ export default function ContactForm() {
         <InputComponent
           id='subject'
           placeholder='SUBJECT'
+          minLength={CONTACT_FORM_SUBJECT_MIN_LENGTH}
           maxLength={CONTACT_FORM_SUBJECT_MAX_LENGTH}
           value={subjectValue}
           onChange={setSubjectValue}
@@ -53,6 +58,7 @@ export default function ContactForm() {
         <InputComponent
           id='content'
           placeholder='YOUR MESSAGE'
+          minLength={CONTACT_FORM_CONTENT_MIN_LENGTH}
           maxLength={CONTACT_FORM_CONTENT_MAX_LENGTH}
           rows={5}
           component='textarea'

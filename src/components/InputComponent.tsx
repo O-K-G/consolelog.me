@@ -7,6 +7,7 @@ export default function InputComponent({
   component: Component = 'input',
   id,
   placeholder,
+  minLength,
   maxLength,
   rows,
   isSubmit,
@@ -38,6 +39,7 @@ export default function InputComponent({
               onChange(value);
             }}
             value={value}
+            minLength={minLength}
             maxLength={maxLength}
             id={id}
             name={id}

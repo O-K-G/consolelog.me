@@ -1,7 +1,9 @@
 import { type ReactNode } from 'react';
 import { z } from 'zod';
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
+export const CONTACT_FORM_SUBJECT_MIN_LENGTH = 1;
 export const CONTACT_FORM_SUBJECT_MAX_LENGTH = 100;
+export const CONTACT_FORM_CONTENT_MIN_LENGTH = 1;
 export const CONTACT_FORM_CONTENT_MAX_LENGTH = 1000;
 
 export interface AppContextComponentProps {
@@ -89,6 +91,7 @@ export interface InputComponentProps extends BottomInputComponentButtonsProps {
   component?: 'input' | 'textarea';
   id: string;
   placeholder: string;
+  minLength?: number;
   maxLength: number;
   rows?: number;
   isSubmit?: boolean;
@@ -102,8 +105,14 @@ export interface IconsProps {
 
 export const FormDataSchema = z.object({
   email: z.string().email().max(CONTACT_FORM_EMAIL_MAX_LENGTH),
-  subject: z.string().max(CONTACT_FORM_SUBJECT_MAX_LENGTH),
-  content: z.string().max(CONTACT_FORM_CONTENT_MAX_LENGTH),
+  subject: z
+    .string()
+    .max(CONTACT_FORM_SUBJECT_MAX_LENGTH)
+    .min(CONTACT_FORM_SUBJECT_MIN_LENGTH),
+  content: z
+    .string()
+    .max(CONTACT_FORM_CONTENT_MAX_LENGTH)
+    .min(CONTACT_FORM_CONTENT_MIN_LENGTH),
 });
 
 export type FormValidationProps = z.infer<typeof FormDataSchema>;
