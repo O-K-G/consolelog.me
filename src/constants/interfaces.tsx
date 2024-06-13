@@ -107,3 +107,13 @@ export const FormDataSchema = z.object({
 });
 
 export type FormValidationProps = z.infer<typeof FormDataSchema>;
+
+export interface CustomElements extends HTMLFormControlsCollection {
+  email: HTMLInputElement;
+  subject: HTMLInputElement;
+  content: HTMLTextAreaElement;
+}
+
+export interface CustomForm extends HTMLFormElement {
+  readonly elements: CustomElements;
+}

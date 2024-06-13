@@ -1,13 +1,14 @@
 'use client';
 
 import InputComponent from '@components/InputComponent';
-import { useState } from 'react';
+import { type FormEvent, useState } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import {
   CONTACT_FORM_EMAIL_MAX_LENGTH,
   CONTACT_FORM_SUBJECT_MAX_LENGTH,
   CONTACT_FORM_CONTENT_MAX_LENGTH,
+  type CustomForm,
 } from '@constants/interfaces';
 
 export default function ContactForm() {
@@ -20,16 +21,23 @@ export default function ContactForm() {
     <form
       dir={dir}
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      action={async (formData) => {
+      onSubmit={async (e: FormEvent<CustomForm>) => {
+        e.preventDefault();
+        const { currentTarget } = e;
+        const {
+          elements: { email, subject, content },
+        } = currentTarget;
+
         const isValidated = formValidation({
-          email: emailValue,
-          subject: subjectValue,
-          content: contentValue,
+          email: email.value,
+          subject: subject.value,
+          content: content.value,
         });
+
         if (isValidated) {
-          console.log('client', isValidated);
-          return await handleSubmit(formData);
+          return await handleSubmit(new FormData(currentTarget));
         }
+
         return console.log('TODO: Error');
       }}
       className='size-full center-elements flex-col z-10'
