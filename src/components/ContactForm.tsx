@@ -2,6 +2,8 @@
 
 import InputComponent from '@components/InputComponent';
 import { useState } from 'react';
+import { handleSubmit } from '@utils/handleSubmit';
+import formValidation from '@utils/formValidation';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
@@ -9,9 +11,16 @@ export default function ContactForm() {
   return (
     <form
       dir={dir}
-      onSubmit={(e) => {
-        // TODO: Proceed from here to validation.
-        e.preventDefault();
+      action={(formData) => {
+        void (async () => {
+          const isValidated = formValidation(formData);
+          console.log('client', isValidated);
+          if (isValidated) {
+            await handleSubmit(formData);
+          } else {
+            console.log('TODO: Error');
+          }
+        })();
       }}
       className='size-full center-elements flex-col z-10'
     >
