@@ -11,16 +11,14 @@ export default function ContactForm() {
   return (
     <form
       dir={dir}
-      action={(formData) => {
-        void (async () => {
-          const isValidated = formValidation(formData);
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      action={async (formData) => {
+        const isValidated = formValidation(formData);
+        if (isValidated) {
           console.log('client', isValidated);
-          if (isValidated) {
-            await handleSubmit(formData);
-          } else {
-            console.log('TODO: Error');
-          }
-        })();
+          return await handleSubmit(formData);
+        }
+        return console.log('TODO: Error');
       }}
       className='size-full center-elements flex-col z-10'
     >
