@@ -1,7 +1,6 @@
 'use client';
 
 import type { InputComponentProps } from '@constants/interfaces';
-import { useState } from 'react';
 import BottomInputComponentButtons from '@components/BottomInputComponentButtons';
 
 export default function InputComponent({
@@ -12,9 +11,10 @@ export default function InputComponent({
   rows,
   isSubmit,
   onClick,
+  value,
+  onChange,
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
-  const [value, setValue] = useState('');
 
   return (
     <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
@@ -35,7 +35,7 @@ export default function InputComponent({
                 target: { value },
               } = e;
 
-              setValue(value);
+              onChange(value);
             }}
             value={value}
             maxLength={maxLength}
@@ -48,7 +48,11 @@ export default function InputComponent({
             rows={rows}
           />
           <div className='font-bebas-neue text-base'>
-            {value.length}/{maxLength}
+            {!value
+              ? maxLength
+              : `${value.length !== maxLength ? '-' : ''}${
+                  maxLength - value.length
+                }`}
           </div>
         </div>
         {isSubmit && <BottomInputComponentButtons onClick={onClick} />}

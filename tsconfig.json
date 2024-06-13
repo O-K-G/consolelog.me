@@ -24,7 +24,8 @@
       "@components/*": ["./src/components/*"],
       "@constants/*": ["./src/constants/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@i18nEn/*": ["./src/i18n/en/*"]
+      "@i18nEn/*": ["./src/i18n/en/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
