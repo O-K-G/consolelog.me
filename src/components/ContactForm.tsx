@@ -32,9 +32,6 @@ export default function ContactForm() {
         });
 
         if (isValidated) {
-          if (errors.length) {
-            setErrors([]);
-          }
           return await handleSubmit(formData);
         } else if (error) {
           setErrors(Object.keys(error) as FormErrorNames);
