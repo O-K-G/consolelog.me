@@ -13,6 +13,7 @@ import {
   type FormErrorNames,
 } from '@constants/interfaces';
 import ErrorDialog from '@components/ErrorDialog';
+import { useDisableScroll } from '@hooks/useDisableScroll';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
@@ -20,6 +21,7 @@ export default function ContactForm() {
   const [subjectValue, setSubjectValue] = useState('');
   const [contentValue, setContentValue] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
+  const { handleDisableScroll } = useDisableScroll();
   const errorDialogRef = useRef(null);
 
   return (
@@ -51,9 +53,10 @@ export default function ContactForm() {
     >
       <button
         type='button'
-        onClick={() =>
-          (errorDialogRef.current as unknown as HTMLDialogElement).showModal()
-        }
+        onClick={() => {
+          (errorDialogRef.current as unknown as HTMLDialogElement).showModal();
+          handleDisableScroll(true);
+        }}
       >
         xxx
       </button>

@@ -7,11 +7,14 @@ import {
   type RefObject,
   forwardRef,
 } from 'react';
+import { useDisableScroll } from '@hooks/useDisableScroll';
 
 function ErrorDialog(
   props: PropsWithChildren,
   ref: ForwardedRef<HTMLDialogElement>
 ) {
+  const { handleDisableScroll } = useDisableScroll();
+
   return (
     <dialog
       ref={ref}
@@ -21,9 +24,10 @@ function ErrorDialog(
         <h2 className='center-elements w-1/3 h-full'>Error</h2>
         <div className='flex items-center justify-end h-full w-1/3'>
           <button
-            onClick={() =>
-              (ref as RefObject<HTMLDialogElement>)?.current?.close()
-            }
+            onClick={() => {
+              handleDisableScroll(false);
+              (ref as RefObject<HTMLDialogElement>)?.current?.close();
+            }}
             type='button'
             className='h-full center-elements'
           >
