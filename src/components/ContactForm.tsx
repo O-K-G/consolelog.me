@@ -1,7 +1,7 @@
 'use client';
 
 import InputComponent from '@components/InputComponent';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import {
@@ -12,6 +12,7 @@ import {
   CONTACT_FORM_CONTENT_MAX_LENGTH,
   type FormErrorNames,
 } from '@constants/interfaces';
+import ErrorDialog from '@components/ErrorDialog';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
@@ -19,6 +20,7 @@ export default function ContactForm() {
   const [subjectValue, setSubjectValue] = useState('');
   const [contentValue, setContentValue] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
+  const errorDialogRef = useRef(null);
 
   return (
     <form
@@ -34,7 +36,11 @@ export default function ContactForm() {
         });
 
         if (isValidated) {
-          return await handleSubmit(formData);
+          try {
+            return await handleSubmit(formData);
+          } catch (clientError) {
+            console.log(clientError);
+          }
         } else if (error) {
           setErrors(Object.keys(error) as FormErrorNames);
         }
@@ -43,6 +49,14 @@ export default function ContactForm() {
       }}
       className='size-full center-elements flex-col z-10'
     >
+      <button
+        type='button'
+        onClick={() =>
+          (errorDialogRef.current as unknown as HTMLDialogElement).showModal()
+        }
+      >
+        xxx
+      </button>
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
         <InputComponent
           id='email'
@@ -98,6 +112,7 @@ export default function ContactForm() {
           isError={(errors as Array<'content'>).includes('content')}
         />
       </div>
+      <ErrorDialog ref={errorDialogRef} />
     </form>
   );
 }
