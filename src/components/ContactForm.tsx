@@ -41,7 +41,10 @@ export default function ContactForm() {
           try {
             return await handleSubmit(formData);
           } catch (clientError) {
-            console.log(clientError);
+            (
+              errorDialogRef.current as unknown as HTMLDialogElement
+            ).showModal();
+            handleDisableScroll(true);
           }
         } else if (error) {
           setErrors(Object.keys(error) as FormErrorNames);
@@ -51,15 +54,6 @@ export default function ContactForm() {
       }}
       className='size-full center-elements flex-col z-10'
     >
-      <button
-        type='button'
-        onClick={() => {
-          (errorDialogRef.current as unknown as HTMLDialogElement).showModal();
-          handleDisableScroll(true);
-        }}
-      >
-        xxx
-      </button>
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
         <InputComponent
           id='email'
