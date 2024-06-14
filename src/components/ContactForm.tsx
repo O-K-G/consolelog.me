@@ -20,6 +20,7 @@ export default function ContactForm() {
   const [emailValue, setEmailValue] = useState('');
   const [subjectValue, setSubjectValue] = useState('');
   const [contentValue, setContentValue] = useState('');
+  const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const { handleDisableScroll } = useDisableScroll();
   const errorDialogRef = useRef(null);
@@ -45,6 +46,7 @@ export default function ContactForm() {
               errorDialogRef.current as unknown as HTMLDialogElement
             ).showModal();
             handleDisableScroll(true);
+            setErrorDialogDetails((clientError as string)?.toString());
           }
         } else if (error) {
           setErrors(Object.keys(error) as FormErrorNames);
@@ -109,7 +111,7 @@ export default function ContactForm() {
           isError={(errors as Array<'content'>).includes('content')}
         />
       </div>
-      <ErrorDialog ref={errorDialogRef} />
+      <ErrorDialog ref={errorDialogRef} errorDetails={errorDialogDetails} />
     </form>
   );
 }

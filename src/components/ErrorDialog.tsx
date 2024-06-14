@@ -1,16 +1,12 @@
 'use client';
 
 import CloseIcon from '@components/CloseIcon';
-import {
-  type ForwardedRef,
-  type PropsWithChildren,
-  type RefObject,
-  forwardRef,
-} from 'react';
+import { type ForwardedRef, type RefObject, forwardRef } from 'react';
 import { useDisableScroll } from '@hooks/useDisableScroll';
+import type { ErrorDialogProps } from '@constants/interfaces';
 
 function ErrorDialog(
-  props: PropsWithChildren,
+  { errorDetails }: ErrorDialogProps,
   ref: ForwardedRef<HTMLDialogElement>
 ) {
   const { handleDisableScroll } = useDisableScroll();
@@ -18,7 +14,7 @@ function ErrorDialog(
   return (
     <dialog
       ref={ref}
-      className='backdrop:p-4 size-3/12 backdrop:bg-black/90 hidden open:flex flex-col justify-start items-center text-white font-star-date-81316 text-base sm:text-2xl w-full h-[50svw] md:w-[50svw] lg:size-1/2 bg-black border border-white rounded-md overflow-hidden'
+      className='backdrop:p-4 size-10/12 lg:max-h-[50%] lg:max-w-[50%] backdrop:bg-black/90 hidden open:flex flex-col justify-start items-center text-white font-montserrat text-base sm:text-2xl bg-black border border-white rounded-md overflow-hidden'
     >
       <div className='w-full h-10 flex items-center justify-end bg-title-purple/30'>
         <h2 className='center-elements w-1/3 h-full'>Error</h2>
@@ -35,18 +31,28 @@ function ErrorDialog(
           </button>
         </div>
       </div>
-      <div className='size-full center-elements flex-col'>
-        <p className='center-elements overflow-hidden'>
-          Sorry, but something went wrong.
-          <br />
-          You can either close this message and try again,
-          <br />
-          or check the error by clicking the button below.
-        </p>
-        <button type='button' className='' onClick={() => console.log('TODO')}>
-          {/* TODO */}
-          Check error
-        </button>
+      <div className='size-full flex items-center justify-evenly gap-4 px-4 flex-col'>
+        {!errorDetails && (
+          <p className='w-full center-elements text-center overflow-hidden'>
+            Sorry, but something went wrong.
+            <br />
+            You can close this message and try again.
+          </p>
+        )}
+        {errorDetails && (
+          <p className='w-full center-elements text-center overflow-hidden'>
+            Sorry, but something went wrong.
+            <br />
+            You can either close this message and try again,
+            <br />
+            or check the error below.
+          </p>
+        )}
+        {errorDetails && (
+          <div className='border-y text-base border-white w-full break-all overflow-auto h-1/3'>
+            Error details: {errorDetails}
+          </div>
+        )}
       </div>
     </dialog>
   );

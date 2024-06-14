@@ -121,3 +121,7 @@ export const FormDataSchema = z.object({
 export type FormValidationProps = z.infer<typeof FormDataSchema>;
 
 export type FormErrorNames = Array<'email' | 'subject' | 'content'>;
+
+export interface ErrorDialogProps {
+  errorDetails?: string;
+}
