@@ -6,8 +6,11 @@ import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import {
   CONTACT_FORM_EMAIL_MAX_LENGTH,
+  CONTACT_FORM_SUBJECT_MIN_LENGTH,
   CONTACT_FORM_SUBJECT_MAX_LENGTH,
+  CONTACT_FORM_CONTENT_MIN_LENGTH,
   CONTACT_FORM_CONTENT_MAX_LENGTH,
+  type FormErrorNames,
 } from '@constants/interfaces';
 
 export default function ContactForm() {
@@ -15,20 +18,25 @@ export default function ContactForm() {
   const [emailValue, setEmailValue] = useState('');
   const [subjectValue, setSubjectValue] = useState('');
   const [contentValue, setContentValue] = useState('');
+  const [errors, setErrors] = useState<[] | FormErrorNames>([]);
 
   return (
     <form
       dir={dir}
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       action={async (formData) => {
-        const isValidated = formValidation({
-          email: emailValue,
-          subject: subjectValue,
-          content: contentValue,
+        formData.append('dir', dir);
+
+        const { isValidated, error } = formValidation({
+          email: formData.get('email') as string,
+          subject: formData.get('subject') as string,
+          content: formData.get('content') as string,
         });
+
         if (isValidated) {
-          console.log('client', isValidated);
           return await handleSubmit(formData);
+        } else if (error) {
+          setErrors(Object.keys(error) as FormErrorNames);
         }
 
         return console.log('TODO: Error');
@@ -41,24 +49,44 @@ export default function ContactForm() {
           placeholder='EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM'
           maxLength={CONTACT_FORM_EMAIL_MAX_LENGTH}
           value={emailValue}
-          onChange={setEmailValue}
+          onChange={(val) => {
+            if ((errors as Array<'email'>).includes('email')) {
+              setErrors(errors.filter((str) => str !== 'email'));
+            }
+            setEmailValue(val);
+          }}
+          isError={(errors as Array<'email'>).includes('email')}
         />
         <InputComponent
           id='subject'
           placeholder='SUBJECT'
+          minLength={CONTACT_FORM_SUBJECT_MIN_LENGTH}
           maxLength={CONTACT_FORM_SUBJECT_MAX_LENGTH}
           value={subjectValue}
-          onChange={setSubjectValue}
+          onChange={(val) => {
+            if ((errors as Array<'subject'>).includes('subject')) {
+              setErrors(errors.filter((str) => str !== 'subject'));
+            }
+            setSubjectValue(val);
+          }}
+          isError={(errors as Array<'subject'>).includes('subject')}
         />
         <InputComponent
           id='content'
           placeholder='YOUR MESSAGE'
+          minLength={CONTACT_FORM_CONTENT_MIN_LENGTH}
           maxLength={CONTACT_FORM_CONTENT_MAX_LENGTH}
           rows={5}
           component='textarea'
           isSubmit
+          isSubmitDisabled={!!errors.length}
           value={contentValue}
-          onChange={setContentValue}
+          onChange={(val) => {
+            if ((errors as Array<'content'>).includes('content')) {
+              setErrors(errors.filter((str) => str !== 'content'));
+            }
+            setContentValue(val);
+          }}
           onClick={(val) => {
             if (dir === 'ltr' && val === 'rtl') {
               setDir('rtl');
@@ -67,6 +95,7 @@ export default function ContactForm() {
               setDir('ltr');
             }
           }}
+          isError={(errors as Array<'content'>).includes('content')}
         />
       </div>
     </form>

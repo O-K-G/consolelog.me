@@ -13,6 +13,7 @@ const ALIGN_ICONS_CLASSNAME =
 
 export default function BottomInputComponentButtons({
   onClick,
+  isSubmitDisabled,
 }: BottomInputComponentButtonsProps) {
   const t = useText();
 
@@ -20,8 +21,13 @@ export default function BottomInputComponentButtons({
     <div className='flex items-center justify-end w-full mt-2'>
       <div className='w-1/3 center-elements'>
         <button
+          disabled={isSubmitDisabled}
           type='submit'
-          className='relative p-2 before:-z-10 before:size-full before:absolute before:hover:bg-black/70 before:active:bg-black/70 before:focus:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full font-bebas-neue text-xl sm:text-3xl uppercase hover:text-title-purple active:text-white focus:text-title-purple outline-none'
+          className={`relative p-2 before:-z-10 before:size-full before:absolute before:hover:bg-black/70 before:active:bg-black/70 before:focus:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full font-bebas-neue text-xl sm:text-3xl uppercase active:text-white outline-none ${
+            !isSubmitDisabled
+              ? 'hover:text-title-purple focus:text-title-purple'
+              : 'text-white opacity-50 before:hidden cursor-not-allowed'
+          }`}
         >
           {t('send', inputComponent)}
         </button>
