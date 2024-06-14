@@ -15,6 +15,7 @@ export default function InputComponent({
   value,
   onChange,
   isError,
+  isSubmitDisabled,
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
 
@@ -58,7 +59,12 @@ export default function InputComponent({
             {!value ? maxLength : maxLength - value.length}
           </div>
         </div>
-        {isSubmit && <BottomInputComponentButtons onClick={onClick} />}
+        {isSubmit && (
+          <BottomInputComponentButtons
+            isSubmitDisabled={isSubmitDisabled}
+            onClick={onClick}
+          />
+        )}
       </div>
     </div>
   );

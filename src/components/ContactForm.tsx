@@ -80,6 +80,7 @@ export default function ContactForm() {
           rows={5}
           component='textarea'
           isSubmit
+          isSubmitDisabled={!!errors.length}
           value={contentValue}
           onChange={(val) => {
             if ((errors as Array<'content'>).includes('content')) {
