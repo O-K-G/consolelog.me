@@ -9,6 +9,7 @@ import Attribution from '@components/Attribution';
 import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
 import ContactMeButton from '@components/shared/ContactMeButton';
+import { useDisableScroll } from '@hooks/useDisableScroll';
 
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
 const SUBTITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
@@ -18,19 +19,7 @@ export default function About() {
   const [open, setOpen] = useState(false);
   const t = useText();
   const [isTitleButtonOpen, setIsTitleButtonOpen] = useState(false);
-
-  const handleOld = (val: boolean) => {
-    const bodyClassList = document.getElementsByTagName('body')[0].classList;
-    const classNameArr = ['h-[100svh]', 'lg:h-[100dvh]', 'overflow-hidden'];
-
-    classNameArr.forEach((str) => {
-      if (val) {
-        bodyClassList.add(str);
-      } else {
-        bodyClassList.remove(str);
-      }
-    });
-  };
+  const { handleDisableScroll } = useDisableScroll();
 
   return (
     <>
@@ -80,7 +69,7 @@ export default function About() {
           type='button'
           onClick={() => {
             setOpen(true);
-            handleOld(true);
+            handleDisableScroll(true);
           }}
           className='bg-red-500 absolute left-0 bottom-40'
         >
@@ -91,7 +80,7 @@ export default function About() {
       {open && (
         <Old
           onClick={() => {
-            handleOld(false);
+            handleDisableScroll(false);
             setOpen(false);
           }}
         />

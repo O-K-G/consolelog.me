@@ -15,7 +15,7 @@ function ErrorDialog(
   return (
     <dialog
       ref={ref}
-      className='p-4 size-3/12 backdrop:bg-black/90 flex flex-col justify-start items-center text-white font-star-date-81316 text-xl sm:text-2xl w-full h-[50svw] md:w-[50svw] lg:size-1/2 bg-black border border-white rounded-md overflow-hidden'
+      className='backdrop:p-4 size-3/12 backdrop:bg-black/90 hidden open:flex flex-col justify-start items-center text-white font-star-date-81316 text-base sm:text-2xl w-full h-[50svw] md:w-[50svw] lg:size-1/2 bg-black border border-white rounded-md overflow-hidden'
     >
       <div className='w-full h-10 flex items-center justify-end bg-title-purple/30'>
         <h2 className='center-elements w-1/3 h-full'>Error</h2>
