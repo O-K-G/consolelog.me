@@ -6,7 +6,7 @@ import { useDisableScroll } from '@hooks/useDisableScroll';
 import type { ErrorDialogProps } from '@constants/interfaces';
 
 function ErrorDialog(
-  { errorDetails }: ErrorDialogProps,
+  { errorDetails, onClose }: ErrorDialogProps,
   ref: ForwardedRef<HTMLDialogElement>
 ) {
   const { handleDisableScroll } = useDisableScroll();
@@ -21,6 +21,7 @@ function ErrorDialog(
         <div className='flex items-center justify-end h-full w-1/3'>
           <button
             onClick={() => {
+              onClose?.();
               handleDisableScroll(false);
               (ref as RefObject<HTMLDialogElement>)?.current?.close();
             }}

@@ -111,7 +111,11 @@ export default function ContactForm() {
           isError={(errors as Array<'content'>).includes('content')}
         />
       </div>
-      <ErrorDialog ref={errorDialogRef} errorDetails={errorDialogDetails} />
+      <ErrorDialog
+        ref={errorDialogRef}
+        errorDetails={errorDialogDetails}
+        onClose={() => setErrorDialogDetails('')}
+      />
     </form>
   );
 }

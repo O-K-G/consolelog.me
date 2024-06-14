@@ -124,4 +124,5 @@ export type FormErrorNames = Array<'email' | 'subject' | 'content'>;
 
 export interface ErrorDialogProps {
   errorDetails?: string;
+  onClose?: () => void;
 }
