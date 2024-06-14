@@ -10,6 +10,7 @@ import {
   CONTACT_FORM_SUBJECT_MAX_LENGTH,
   CONTACT_FORM_CONTENT_MIN_LENGTH,
   CONTACT_FORM_CONTENT_MAX_LENGTH,
+  type FormErrorNames,
 } from '@constants/interfaces';
 
 export default function ContactForm() {
@@ -17,9 +18,7 @@ export default function ContactForm() {
   const [emailValue, setEmailValue] = useState('');
   const [subjectValue, setSubjectValue] = useState('');
   const [contentValue, setContentValue] = useState('');
-  const [errors, setErrors] = useState<
-    [] | Array<'email' | 'subject' | 'content'>
-  >([]);
+  const [errors, setErrors] = useState<[] | FormErrorNames>([]);
 
   return (
     <form
@@ -38,9 +37,7 @@ export default function ContactForm() {
           }
           return await handleSubmit(formData);
         } else if (error) {
-          setErrors(
-            Object.keys(error) as Array<'content' | 'email' | 'subject'>
-          );
+          setErrors(Object.keys(error) as FormErrorNames);
         }
 
         return console.log('TODO: Error');
