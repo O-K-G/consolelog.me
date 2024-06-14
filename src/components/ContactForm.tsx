@@ -25,10 +25,12 @@ export default function ContactForm() {
       dir={dir}
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       action={async (formData) => {
+        formData.append('dir', dir);
+
         const { isValidated, error } = formValidation({
-          email: emailValue,
-          subject: subjectValue,
-          content: contentValue,
+          email: formData.get('email') as string,
+          subject: formData.get('subject') as string,
+          content: formData.get('content') as string,
         });
 
         if (isValidated) {

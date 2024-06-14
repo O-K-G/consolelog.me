@@ -9,7 +9,7 @@ export async function handleSubmit(formData: FormData) {
 
   const { isValidated } = formValidation({ email, subject, content });
 
-  console.log('server', isValidated);
+  console.log('server', formData);
   // await fetch('http://testteefdfsgsgfvwerfsttest.com').catch((err) => {
   //   console.log(err);
   // });
