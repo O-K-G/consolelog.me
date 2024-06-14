@@ -97,6 +97,7 @@ export interface InputComponentProps extends BottomInputComponentButtonsProps {
   isSubmit?: boolean;
   value: string;
   onChange: (val: string) => void;
+  isError?: boolean;
 }
 
 export interface IconsProps {

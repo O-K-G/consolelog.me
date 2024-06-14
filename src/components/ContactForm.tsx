@@ -17,6 +17,9 @@ export default function ContactForm() {
   const [emailValue, setEmailValue] = useState('');
   const [subjectValue, setSubjectValue] = useState('');
   const [contentValue, setContentValue] = useState('');
+  const [errors, setErrors] = useState<
+    [] | Array<'email' | 'subject' | 'content'>
+  >([]);
 
   return (
     <form
@@ -29,10 +32,15 @@ export default function ContactForm() {
           content: contentValue,
         });
 
-        console.log(error);
         if (isValidated) {
-          console.log('client', isValidated);
+          if (errors.length) {
+            setErrors([]);
+          }
           return await handleSubmit(formData);
+        } else if (error) {
+          setErrors(
+            Object.keys(error) as Array<'content' | 'email' | 'subject'>
+          );
         }
 
         return console.log('TODO: Error');
@@ -45,7 +53,13 @@ export default function ContactForm() {
           placeholder='EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM'
           maxLength={CONTACT_FORM_EMAIL_MAX_LENGTH}
           value={emailValue}
-          onChange={setEmailValue}
+          onChange={(val) => {
+            if ((errors as Array<'email'>).includes('email')) {
+              setErrors(errors.filter((str) => str !== 'email'));
+            }
+            setEmailValue(val);
+          }}
+          isError={(errors as Array<'email'>).includes('email')}
         />
         <InputComponent
           id='subject'
@@ -53,7 +67,13 @@ export default function ContactForm() {
           minLength={CONTACT_FORM_SUBJECT_MIN_LENGTH}
           maxLength={CONTACT_FORM_SUBJECT_MAX_LENGTH}
           value={subjectValue}
-          onChange={setSubjectValue}
+          onChange={(val) => {
+            if ((errors as Array<'subject'>).includes('subject')) {
+              setErrors(errors.filter((str) => str !== 'subject'));
+            }
+            setSubjectValue(val);
+          }}
+          isError={(errors as Array<'subject'>).includes('subject')}
         />
         <InputComponent
           id='content'
@@ -64,7 +84,12 @@ export default function ContactForm() {
           component='textarea'
           isSubmit
           value={contentValue}
-          onChange={setContentValue}
+          onChange={(val) => {
+            if ((errors as Array<'content'>).includes('content')) {
+              setErrors(errors.filter((str) => str !== 'content'));
+            }
+            setContentValue(val);
+          }}
           onClick={(val) => {
             if (dir === 'ltr' && val === 'rtl') {
               setDir('rtl');
@@ -73,6 +98,7 @@ export default function ContactForm() {
               setDir('ltr');
             }
           }}
+          isError={(errors as Array<'content'>).includes('content')}
         />
       </div>
     </form>
