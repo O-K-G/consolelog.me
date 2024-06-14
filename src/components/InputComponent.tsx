@@ -44,9 +44,13 @@ export default function InputComponent({
             maxLength={maxLength}
             id={id}
             name={id}
-            className={`w-full placeholder:uppercase text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none bg-title-purple/30 hover:bg-black/70 active:bg-black/70 focus:bg-black/70 ${
+            className={`w-full placeholder:uppercase text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none ${
               !isTextarea ? 'h-[3.188rem] px-4' : 'p-4 resize-none'
-            } ${isError ? 'bg-red-500/70' : ''}`}
+            } ${
+              !isError
+                ? 'bg-title-purple/30 hover:bg-black/70 active:bg-black/70 focus:bg-black/70'
+                : 'bg-red-500/70'
+            }`}
             placeholder={placeholder}
             rows={rows}
           />
