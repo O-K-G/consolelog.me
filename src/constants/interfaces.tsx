@@ -126,3 +126,8 @@ export interface ErrorDialogProps {
   errorDetails?: string;
   onClose?: () => void;
 }
+
+export interface DialogBackdropProps {
+  open: boolean;
+  onClick: () => void;
+}

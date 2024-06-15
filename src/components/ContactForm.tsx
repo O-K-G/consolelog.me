@@ -14,7 +14,7 @@ import {
 } from '@constants/interfaces';
 import ErrorDialog from '@components/ErrorDialog';
 import { useDisableScroll } from '@hooks/useDisableScroll';
-import Dialog from '@components/Dialog';
+import DialogBackdrop from '@components/DialogBackdrop';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
@@ -115,7 +115,7 @@ export default function ContactForm() {
           isError={(errors as Array<'content'>).includes('content')}
         />
       </div>
-      <Dialog
+      <DialogBackdrop
         open={!!errorDialogDetails}
         onClick={() => setErrorDialogDetails('')}
       />
