@@ -4,6 +4,7 @@ import InputComponent from '@components/InputComponent';
 import { useState } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
+import DialogBackdrop from '@components/shared/DialogBackdrop';
 import {
   CONTACT_FORM_EMAIL_MAX_LENGTH,
   CONTACT_FORM_SUBJECT_MIN_LENGTH,
@@ -12,7 +13,6 @@ import {
   CONTACT_FORM_CONTENT_MAX_LENGTH,
   type FormErrorNames,
 } from '@constants/interfaces';
-import DialogBackdrop from '@components/shared/DialogBackdrop';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
