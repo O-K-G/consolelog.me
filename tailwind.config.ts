@@ -10,6 +10,76 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        'dialog-backdrop-fade-in':
+          'dialog-backdrop-fade-in 0.2s linear forwards',
+        'dialog-backdrop-fade-out':
+          'dialog-backdrop-fade-out 0.2s linear forwards',
+        'dialog-fade-in': 'dialog-fade-in 0.2s linear forwards',
+        'dialog-fade-out': 'dialog-fade-out 0.2s linear forwards',
+      },
+      keyframes: {
+        'dialog-backdrop-fade-in': {
+          '0%': {
+            display: 'none',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            opacity: '0',
+            height: '100svh',
+            width: '100svw',
+            backgroundColor: 'transparent',
+          },
+          '100%': {
+            display: 'block',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            opacity: '100',
+            height: '100svh',
+            width: '100svw',
+            backgroundColor: '#000000cc',
+          },
+        },
+        'dialog-backdrop-fade-out': {
+          '0%': {
+            display: 'block',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            opacity: '100',
+            height: '100svh',
+            width: '100svw',
+            backgroundColor: '#000000cc',
+          },
+          '100%': {
+            display: 'none',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            opacity: '0',
+            height: '100svh',
+            width: '100svw',
+            backgroundColor: 'transparent',
+          },
+        },
+        'dialog-fade-in': {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '100',
+          },
+        },
+        'dialog-fade-out': {
+          '0%': {
+            opacity: '100',
+          },
+          '100%': {
+            opacity: '0',
+          },
+        },
+      },
       colors: {
         'title-purple': '#ceb7ff',
         'title-orange': 'orange',
