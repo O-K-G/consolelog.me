@@ -14,6 +14,13 @@ import {
   type FormErrorNames,
 } from '@constants/interfaces';
 
+const BASE_STATUS_CODES = {
+  200: true,
+  201: true,
+  403: false,
+  404: false,
+} as const;
+
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
   const [emailValue, setEmailValue] = useState('');
@@ -38,7 +45,23 @@ export default function ContactForm() {
         if (isValidated) {
           try {
             const reqData = await handleSubmit(formData);
-            console.log(reqData);
+            const { status } = reqData ?? { status: '' };
+            if (status) {
+              const ok =
+                BASE_STATUS_CODES[
+                  status as unknown as keyof typeof BASE_STATUS_CODES
+                ];
+
+              if (ok && status === '201') {
+                return console.log('TODO: confirmation/success screen');
+              }
+
+              if (!ok) {
+                // TODO: Add details.
+                return setErrorDialogDetails(status);
+              }
+            }
+
             return;
           } catch (clientError) {
             setErrorDialogDetails((clientError as string)?.toString());
