@@ -1,7 +1,7 @@
 'use client';
 
 import { useText } from '@hooks/useText';
-import inputComponent from '@i18nEn/InputComponent.json';
+import inputComponentText from '@i18nEn/inputComponentText.json';
 import AlignLeftIcon from '@components/AlignLeftIcon';
 import type { BottomInputComponentButtonsProps } from '@constants/interfaces';
 
@@ -29,7 +29,7 @@ export default function BottomInputComponentButtons({
               : 'text-white opacity-50 before:hidden cursor-not-allowed'
           }`}
         >
-          {t('send', inputComponent)}
+          {t('send', inputComponentText as object)}
         </button>
       </div>
       <div className='w-1/3 gap-2 flex rtl:flex-row-reverse rtl:justify-start items-center justify-end'>
