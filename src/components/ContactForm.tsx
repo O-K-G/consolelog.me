@@ -12,8 +12,7 @@ import {
   CONTACT_FORM_CONTENT_MAX_LENGTH,
   type FormErrorNames,
 } from '@constants/interfaces';
-import ErrorDialog from '@components/ErrorDialog';
-import { useDisableScroll } from '@hooks/useDisableScroll';
+// import { useDisableScroll } from '@hooks/useDisableScroll';
 import DialogBackdrop from '@components/DialogBackdrop';
 
 export default function ContactForm() {
@@ -23,8 +22,8 @@ export default function ContactForm() {
   const [contentValue, setContentValue] = useState('');
   const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
-  const { handleDisableScroll } = useDisableScroll();
-  const errorDialogRef = useRef(null);
+  // const { handleDisableScroll } = useDisableScroll();
+  // const errorDialogRef = useRef(null);
 
   return (
     <form
@@ -43,10 +42,10 @@ export default function ContactForm() {
           try {
             return await handleSubmit(formData);
           } catch (clientError) {
-            (
-              errorDialogRef.current as unknown as HTMLDialogElement
-            ).showModal();
-            handleDisableScroll(true);
+            // (
+            //   errorDialogRef.current as unknown as HTMLDialogElement
+            // ).showModal();
+            // handleDisableScroll(true);
             setErrorDialogDetails((clientError as string)?.toString());
           }
         } else if (error) {
