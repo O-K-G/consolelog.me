@@ -12,7 +12,7 @@ import {
   CONTACT_FORM_CONTENT_MAX_LENGTH,
   type FormErrorNames,
 } from '@constants/interfaces';
-import DialogBackdrop from '@components/DialogBackdrop';
+import DialogBackdrop from '@components/shared/DialogBackdrop';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');

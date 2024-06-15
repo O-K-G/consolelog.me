@@ -3,7 +3,7 @@
 import type { DialogBackdropProps } from '@constants/interfaces';
 import { useEffect, useRef, useState } from 'react';
 import { useDisableScroll } from '@hooks/useDisableScroll';
-import ErrorDialog from '@components/ErrorDialog';
+import ErrorDialog from '@components/shared/ErrorDialog';
 
 export default function DialogBackdrop({
   open,

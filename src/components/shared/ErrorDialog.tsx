@@ -40,8 +40,8 @@ export default function ErrorDialog({
             </button>
           </div>
         </div>
-        <div className='w-full break-words h-[90%] flex items-center justify-start flex-col overflow-hidden'>
-          <p className='font-montserrat pb-4 w-full h-1/2 center-elements text-center overflow-auto'>
+        <div className='w-full break-words text-base md:text-xl lg:text-2xl h-[90%] flex items-center justify-start flex-col overflow-hidden'>
+          <p className='font-montserrat pb-4 w-full h-1/2 flex items-start lg:items-center justify-start text-center overflow-auto'>
             {t('errorMessage', errorDialog)}
           </p>
 
