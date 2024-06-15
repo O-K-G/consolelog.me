@@ -18,7 +18,7 @@ export async function handleSubmit(formData: FormData) {
     console.log(HOST, PORT, SECURE === 'true', USER, PASS);
     const transporter = nodemailer.createTransport({
       host: HOST,
-      port: PORT,
+      port: Number(PORT),
       secure: SECURE === 'true', // Use `true` for port 465, `false` for all other ports
       auth: {
         user: USER,
