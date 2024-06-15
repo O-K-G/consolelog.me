@@ -37,7 +37,9 @@ export default function ContactForm() {
 
         if (isValidated) {
           try {
-            return await handleSubmit(formData);
+            const reqData = await handleSubmit(formData);
+            console.log(reqData);
+            return;
           } catch (clientError) {
             setErrorDialogDetails((clientError as string)?.toString());
           }

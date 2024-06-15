@@ -14,4 +14,6 @@ export async function handleSubmit(formData: FormData) {
   // await fetch('http://testteefdfsgsgfvwerfsttest.com').catch((err) => {
   //   console.log(err);
   // });
+
+  return { test: 'test' };
 }
