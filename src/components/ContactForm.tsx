@@ -53,6 +53,7 @@ export default function ContactForm() {
                 ];
 
               if (ok && status === '201') {
+                // TODO: Proceed from here.
                 return console.log('TODO: confirmation/success screen');
               }
 
