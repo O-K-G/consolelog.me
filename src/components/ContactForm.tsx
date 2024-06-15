@@ -14,6 +14,7 @@ import {
 } from '@constants/interfaces';
 import ErrorDialog from '@components/ErrorDialog';
 import { useDisableScroll } from '@hooks/useDisableScroll';
+import Dialog from '@components/Dialog';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
@@ -56,6 +57,9 @@ export default function ContactForm() {
       }}
       className='size-full center-elements flex-col z-10'
     >
+      <button type='button' onClick={() => setErrorDialogDetails('xxx')}>
+        xxx
+      </button>
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
         <InputComponent
           id='email'
@@ -111,11 +115,15 @@ export default function ContactForm() {
           isError={(errors as Array<'content'>).includes('content')}
         />
       </div>
-      <ErrorDialog
+      <Dialog
+        open={!!errorDialogDetails}
+        onClick={() => setErrorDialogDetails('')}
+      />
+      {/* <ErrorDialog
         ref={errorDialogRef}
         errorDetails={errorDialogDetails}
         onClose={() => setErrorDialogDetails('')}
-      />
+      /> */}
     </form>
   );
 }

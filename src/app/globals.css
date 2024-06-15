@@ -64,13 +64,4 @@ body {
   .transition-1000 {
     @apply transition-all ease-in-out duration-1000;
   }
-
-  /* dialog::backdrop {
-    background-color: salmon;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  } */
 }

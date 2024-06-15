@@ -10,6 +10,52 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        'fade-in': 'fade-in 0.5s linear forwards',
+        'fade-out': 'fade-out 0.5s linear forwards',
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': {
+            display: 'none',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            opacity: '0',
+            backgroundColor: 'transparent',
+            zIndex: '-10',
+          },
+          '100%': {
+            display: 'block',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            opacity: '100',
+            backgroundColor: 'rgb(239 68 68 / 0.5)',
+            zIndex: '10',
+          },
+        },
+        'fade-out': {
+          '0%': {
+            display: 'block',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            opacity: '100',
+            backgroundColor: 'rgb(239 68 68 / 0.5)',
+            zIndex: '10',
+          },
+          '100%': {
+            display: 'none',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            opacity: '0',
+            backgroundColor: 'transparent',
+            zIndex: '-10',
+          },
+        },
+      },
       colors: {
         'title-purple': '#ceb7ff',
         'title-orange': 'orange',
