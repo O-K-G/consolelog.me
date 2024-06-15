@@ -1,7 +1,7 @@
 'use client';
 
 import InputComponent from '@components/InputComponent';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import {
@@ -12,7 +12,6 @@ import {
   CONTACT_FORM_CONTENT_MAX_LENGTH,
   type FormErrorNames,
 } from '@constants/interfaces';
-// import { useDisableScroll } from '@hooks/useDisableScroll';
 import DialogBackdrop from '@components/DialogBackdrop';
 
 export default function ContactForm() {
@@ -22,8 +21,6 @@ export default function ContactForm() {
   const [contentValue, setContentValue] = useState('');
   const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
-  // const { handleDisableScroll } = useDisableScroll();
-  // const errorDialogRef = useRef(null);
 
   return (
     <form
@@ -45,7 +42,6 @@ export default function ContactForm() {
             // (
             //   errorDialogRef.current as unknown as HTMLDialogElement
             // ).showModal();
-            // handleDisableScroll(true);
             setErrorDialogDetails((clientError as string)?.toString());
           }
         } else if (error) {
@@ -117,12 +113,8 @@ export default function ContactForm() {
       <DialogBackdrop
         open={!!errorDialogDetails}
         onClick={() => setErrorDialogDetails('')}
-      />
-      {/* <ErrorDialog
-        ref={errorDialogRef}
         errorDetails={errorDialogDetails}
-        onClose={() => setErrorDialogDetails('')}
-      /> */}
+      />
     </form>
   );
 }
