@@ -1,10 +1,10 @@
 'use server';
 
 import formValidation from '@utils/formValidation';
-import nodemailer from 'nodemailer';
+// import nodemailer from 'nodemailer';
 
 export async function handleSubmit(formData: FormData) {
-  const dir = formData.get('dir') as string;
+  // const dir = formData.get('dir') as string;
   const email = formData.get('email') as string;
   const subject = formData.get('subject') as string;
   const content = formData.get('content') as string;
@@ -16,15 +16,15 @@ export async function handleSubmit(formData: FormData) {
     const { HOST, PORT, SECURE, USER, PASS } = env;
 
     console.log(HOST, PORT, SECURE === 'true', USER, PASS);
-    const transporter = nodemailer.createTransport({
-      host: HOST,
-      port: Number(PORT),
-      secure: SECURE === 'true', // Use `true` for port 465, `false` for all other ports
-      auth: {
-        user: USER,
-        pass: PASS,
-      },
-    });
+    // const transporter = nodemailer.createTransport({
+    //   host: HOST,
+    //   port: Number(PORT),
+    //   secure: SECURE === 'true', // Use `true` for port 465, `false` for all other ports
+    //   auth: {
+    //     user: USER,
+    //     pass: PASS,
+    //   },
+    // });
   } else {
     return { status: '403' };
   }
