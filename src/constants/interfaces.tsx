@@ -124,7 +124,7 @@ export type FormErrorNames = Array<'email' | 'subject' | 'content'>;
 
 export interface DialogBackdropProps {
   open: boolean;
-  onClick: () => void;
+  onClose: () => void;
   errorDetails: string;
 }
 

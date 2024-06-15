@@ -39,9 +39,6 @@ export default function ContactForm() {
           try {
             return await handleSubmit(formData);
           } catch (clientError) {
-            // (
-            //   errorDialogRef.current as unknown as HTMLDialogElement
-            // ).showModal();
             setErrorDialogDetails((clientError as string)?.toString());
           }
         } else if (error) {
@@ -52,9 +49,6 @@ export default function ContactForm() {
       }}
       className='size-full center-elements flex-col z-10'
     >
-      <button type='button' onClick={() => setErrorDialogDetails('xxx')}>
-        xxx
-      </button>
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
         <InputComponent
           id='email'
@@ -112,7 +106,7 @@ export default function ContactForm() {
       </div>
       <DialogBackdrop
         open={!!errorDialogDetails}
-        onClick={() => setErrorDialogDetails('')}
+        onClose={() => setErrorDialogDetails('')}
         errorDetails={errorDialogDetails}
       />
     </form>

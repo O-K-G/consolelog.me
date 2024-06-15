@@ -7,7 +7,7 @@ import ErrorDialog from '@components/ErrorDialog';
 
 export default function DialogBackdrop({
   open,
-  onClick,
+  onClose,
   errorDetails,
 }: DialogBackdropProps) {
   const [isFade, setIsFade] = useState<null | boolean>(null);
@@ -17,7 +17,7 @@ export default function DialogBackdrop({
   const handleTransitionEnd = () => {
     handleDisableScroll(false);
     setIsFade(null);
-    onClick?.();
+    onClose?.();
     (
       dialogContainerRef.current as unknown as HTMLDivElement
     )?.removeEventListener('animationend', handleTransitionEnd);
@@ -28,7 +28,7 @@ export default function DialogBackdrop({
       handleDisableScroll(true);
       setIsFade(true);
     }
-  }, [handleDisableScroll, isFade, onClick, open]);
+  }, [handleDisableScroll, isFade, open]);
 
   const handleClick = () => {
     setIsFade(false);
