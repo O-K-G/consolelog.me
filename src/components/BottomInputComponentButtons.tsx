@@ -1,7 +1,7 @@
 'use client';
 
 import { useText } from '@hooks/useText';
-// import inputComponent from '@i18nEn/inputComponent.json';
+import inputComponent from '@i18nEn/inputComponent.json';
 import AlignLeftIcon from '@components/AlignLeftIcon';
 import type { BottomInputComponentButtonsProps } from '@constants/interfaces';
 
