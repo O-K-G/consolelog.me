@@ -65,7 +65,9 @@ export default function DialogBackdrop({
             className='lg:cursor-default relative w-full h-[50svh] md:w-[50svw] md:h-[50svw] lg:w-[40dvw] lg:h-[40dvw] p-4 text-white text-xl font-bebas-neue bg-black rounded-md overflow-hidden'
           >
             <div className='flex items-center justify-end w-full h-[10%]'>
-              <h2 className='h-full w-1/3 center-elements'>Error</h2>
+              <h2 className='h-full w-1/3 center-elements'>
+                {t('error', errorDialog)}
+              </h2>
               <div className='flex items-center justify-end w-1/3 h-full'>
                 <button
                   type='button'
