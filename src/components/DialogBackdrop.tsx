@@ -25,21 +25,33 @@ export default function DialogBackdrop({ open, onClick }: DialogBackdropProps) {
     return (
       <div
         ref={dialogContainerRef}
-        className={`${isFade ? 'animate-fade-in' : 'hidden'} ${
-          isFade === false ? 'animate-fade-out' : ''
+        className={`${isFade ? 'animate-dialog-backdrop-fade-in' : 'hidden'} ${
+          isFade === false ? 'animate-dialog-backdrop-fade-out' : ''
         }`}
       >
-        <button
-          type='button'
-          onClick={() => {
-            setIsFade(false);
-            (
-              dialogContainerRef.current as unknown as HTMLDivElement
-            )?.addEventListener('animationend', handleTransitionEnd);
-          }}
+        <dialog
+          open
+          className={`text-white size-full p-4 center-elements bg-transparent ${
+            isFade ? 'animate-dialog-fade-in' : ''
+          } ${isFade === false ? 'animate-dialog-fade-out' : ''}`}
         >
-          Testz
-        </button>
+          <div className='relative w-full h-[50svh] md:w-[50svw] md:h-[50svw] lg:w-[40dvw] lg:h-[40dvw] bg-black'>
+            <div className='w-full border border-red-500'>
+              <button
+                type='button'
+                onClick={() => {
+                  setIsFade(false);
+                  (
+                    dialogContainerRef.current as unknown as HTMLDivElement
+                  )?.addEventListener('animationend', handleTransitionEnd);
+                }}
+              >
+                Testz
+              </button>
+            </div>
+          </div>
+          <div />
+        </dialog>
       </div>
     );
   }

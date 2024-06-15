@@ -11,11 +11,14 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        'fade-in': 'fade-in 1s linear forwards',
-        'fade-out': 'fade-out 1s linear forwards',
+        'dialog-backdrop-fade-in': 'dialog-backdrop-fade-in 1s linear forwards',
+        'dialog-backdrop-fade-out':
+          'dialog-backdrop-fade-out 1s linear forwards',
+        'dialog-fade-in': 'dialog-fade-in 1s linear forwards',
+        'dialog-fade-out': 'dialog-fade-out 1s linear forwards',
       },
       keyframes: {
-        'fade-in': {
+        'dialog-backdrop-fade-in': {
           '0%': {
             display: 'none',
             position: 'fixed',
@@ -37,7 +40,7 @@ const config: Config = {
             backgroundColor: '#000000cc',
           },
         },
-        'fade-out': {
+        'dialog-backdrop-fade-out': {
           '0%': {
             display: 'block',
             position: 'fixed',
@@ -57,6 +60,22 @@ const config: Config = {
             height: '100svh',
             width: '100svw',
             backgroundColor: 'transparent',
+          },
+        },
+        'dialog-fade-in': {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '100',
+          },
+        },
+        'dialog-fade-out': {
+          '0%': {
+            opacity: '100',
+          },
+          '100%': {
+            opacity: '0',
           },
         },
       },
