@@ -122,13 +122,14 @@ export type FormValidationProps = z.infer<typeof FormDataSchema>;
 
 export type FormErrorNames = Array<'email' | 'subject' | 'content'>;
 
-export interface ErrorDialogProps {
-  errorDetails?: string;
-  onClose?: () => void;
-}
-
 export interface DialogBackdropProps {
   open: boolean;
+  onClick: () => void;
+  errorDetails: string;
+}
+
+export interface ErrorDialogProps {
+  isFade: null | boolean;
   onClick: () => void;
   errorDetails: string;
 }

@@ -2,10 +2,8 @@
 
 import type { DialogBackdropProps } from '@constants/interfaces';
 import { useEffect, useRef, useState } from 'react';
-import CloseIcon from '@components/CloseIcon';
 import { useDisableScroll } from '@hooks/useDisableScroll';
-import { useText } from '@hooks/useText';
-import errorDialog from '@i18nEn/errorDialog.json';
+import ErrorDialog from '@components/ErrorDialog';
 
 export default function DialogBackdrop({
   open,
@@ -15,7 +13,6 @@ export default function DialogBackdrop({
   const [isFade, setIsFade] = useState<null | boolean>(null);
   const { handleDisableScroll } = useDisableScroll();
   const dialogContainerRef = useRef(null);
-  const t = useText();
 
   const handleTransitionEnd = () => {
     handleDisableScroll(false);
@@ -51,51 +48,11 @@ export default function DialogBackdrop({
           isFade ? 'animate-dialog-backdrop-fade-in' : 'hidden'
         } ${isFade === false ? 'animate-dialog-backdrop-fade-out' : ''}`}
       >
-        <dialog
-          open
-          className={`size-full p-4 center-elements bg-transparent ${
-            isFade ? 'animate-dialog-fade-in' : ''
-          } ${isFade === false ? 'animate-dialog-fade-out' : ''}`}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            onKeyDown={(e) => e.stopPropagation()}
-            role='textbox'
-            tabIndex={-1}
-            className='lg:cursor-default relative w-full h-[50svh] md:w-[50svw] md:h-[50svw] lg:w-[40dvw] lg:h-[40dvw] p-4 text-white text-xl font-bebas-neue bg-black rounded-md overflow-hidden'
-          >
-            <div className='flex items-center justify-end w-full h-[10%]'>
-              <h2 className='h-full w-1/3 center-elements'>
-                {t('error', errorDialog)}
-              </h2>
-              <div className='flex items-center justify-end w-1/3 h-full'>
-                <button
-                  type='button'
-                  className='group center-elements h-full outline-none'
-                  onClick={handleClick}
-                >
-                  <CloseIcon className='h-full fill-white group-hover:fill-title-purple group-active:fill-white group-focus:fill-title-purple' />
-                </button>
-              </div>
-            </div>
-            <div className='w-full break-words h-[90%] flex items-center justify-start flex-col overflow-hidden'>
-              <p className='font-montserrat pb-4 w-full h-1/2 center-elements text-center overflow-auto'>
-                {t('errorMessage', errorDialog)}
-              </p>
-
-              <p
-                className={`w-full h-1/2 flex overflow-auto border-t pt-4 border-white ${
-                  errorDetails
-                    ? 'items-start justify-start '
-                    : 'items-center justify-center '
-                }`}
-              >
-                {t('errorDetails', errorDialog)}
-                {errorDetails || 'No error details found.'}
-              </p>
-            </div>
-          </div>
-        </dialog>
+        <ErrorDialog
+          isFade={isFade}
+          errorDetails={errorDetails}
+          onClick={handleClick}
+        />
       </div>
     );
   }

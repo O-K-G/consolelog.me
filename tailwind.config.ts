@@ -11,11 +11,12 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        'dialog-backdrop-fade-in': 'dialog-backdrop-fade-in 1s linear forwards',
+        'dialog-backdrop-fade-in':
+          'dialog-backdrop-fade-in 0.2s linear forwards',
         'dialog-backdrop-fade-out':
-          'dialog-backdrop-fade-out 1s linear forwards',
-        'dialog-fade-in': 'dialog-fade-in 1s linear forwards',
-        'dialog-fade-out': 'dialog-fade-out 1s linear forwards',
+          'dialog-backdrop-fade-out 0.2s linear forwards',
+        'dialog-fade-in': 'dialog-fade-in 0.2s linear forwards',
+        'dialog-fade-out': 'dialog-fade-out 0.2s linear forwards',
       },
       keyframes: {
         'dialog-backdrop-fade-in': {
