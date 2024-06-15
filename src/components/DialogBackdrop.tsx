@@ -4,6 +4,8 @@ import type { DialogBackdropProps } from '@constants/interfaces';
 import { useEffect, useRef, useState } from 'react';
 import CloseIcon from '@components/CloseIcon';
 import { useDisableScroll } from '@hooks/useDisableScroll';
+import { useText } from '@hooks/useText';
+import errorDialog from '@i18nEn/errorDialog.json';
 
 export default function DialogBackdrop({
   open,
@@ -13,6 +15,7 @@ export default function DialogBackdrop({
   const [isFade, setIsFade] = useState<null | boolean>(null);
   const { handleDisableScroll } = useDisableScroll();
   const dialogContainerRef = useRef(null);
+  const t = useText();
 
   const handleTransitionEnd = () => {
     handleDisableScroll(false);
@@ -75,9 +78,7 @@ export default function DialogBackdrop({
             </div>
             <div className='w-full break-words h-[90%] flex items-center justify-start flex-col overflow-hidden'>
               <p className='font-montserrat pb-4 w-full h-1/2 center-elements text-center overflow-auto'>
-                Sorry, but something went wrong. You can either close this
-                window and try again, or read the error details below, if
-                available.
+                {t('errorMessage', errorDialog)}
               </p>
 
               <p
@@ -87,20 +88,8 @@ export default function DialogBackdrop({
                     : 'items-center justify-center '
                 }`}
               >
-                Error details:&nbsp;
-                {errorDetails
-                  ? `xxxxxvxxxxxvxxxxxvxxxxxvxxxx xxxxxxxxxxxxxxx
-                  xxxxx xxxxxxxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
-                  xxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                  xxxxxxxxxx xxxxxxx xxxxxv xxxxxvxxxxxv xxxxxvxxxxxv
-                  xxxxxvxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
-                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                  xxxxxxxxxxxxxxx
-                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                  xxxxxxxxxxxxxxx xxxxxv xxxxxv xxxxxv xxxxxv
-                  xxxxxxxxxxxxxxxxxxxxv xxxxxv
-                  xxxxxvxxxxxvxxxxxvxxxxxvxxxxxvxxxxxvxxxxxvxxxxxvxxxxxvxv`
-                  : 'No error details found.'}
+                {t('errorDetails', errorDialog)}
+                {errorDetails || 'No error details found.'}
               </p>
             </div>
           </div>
