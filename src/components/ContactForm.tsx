@@ -23,50 +23,52 @@ export default function ContactForm() {
   const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
 
+  const handleValidation = async (formData: FormData) => {
+    formData.append('dir', dir);
+
+    const { isValidated, error } = formValidation({
+      email: formData.get('email') as string,
+      subject: formData.get('subject') as string,
+      content: formData.get('content') as string,
+    });
+
+    if (isValidated) {
+      try {
+        const reqData = await handleSubmit(formData);
+        const { status } = reqData ?? { status: '' };
+        if (status) {
+          const ok =
+            BASE_STATUS_CODES[
+              status as unknown as keyof typeof BASE_STATUS_CODES
+            ];
+
+          if (ok && status === '201') {
+            // TODO: Proceed from here.
+            return console.log('TODO: confirmation/success screen');
+          }
+
+          if (!ok) {
+            // TODO: Add details.
+            return setErrorDialogDetails(status);
+          }
+        }
+
+        return;
+      } catch (clientError) {
+        setErrorDialogDetails((clientError as string)?.toString());
+      }
+    } else if (error) {
+      setErrors(Object.keys(error) as FormErrorNames);
+    }
+
+    return console.log('TODO: Error');
+  };
+
   return (
     <form
       dir={dir}
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      action={async (formData) => {
-        formData.append('dir', dir);
-
-        const { isValidated, error } = formValidation({
-          email: formData.get('email') as string,
-          subject: formData.get('subject') as string,
-          content: formData.get('content') as string,
-        });
-
-        if (isValidated) {
-          try {
-            const reqData = await handleSubmit(formData);
-            const { status } = reqData ?? { status: '' };
-            if (status) {
-              const ok =
-                BASE_STATUS_CODES[
-                  status as unknown as keyof typeof BASE_STATUS_CODES
-                ];
-
-              if (ok && status === '201') {
-                // TODO: Proceed from here.
-                return console.log('TODO: confirmation/success screen');
-              }
-
-              if (!ok) {
-                // TODO: Add details.
-                return setErrorDialogDetails(status);
-              }
-            }
-
-            return;
-          } catch (clientError) {
-            setErrorDialogDetails((clientError as string)?.toString());
-          }
-        } else if (error) {
-          setErrors(Object.keys(error) as FormErrorNames);
-        }
-
-        return console.log('TODO: Error');
-      }}
+      action={handleValidation}
       className='size-full center-elements flex-col z-10'
     >
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
