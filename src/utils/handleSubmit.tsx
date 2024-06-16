@@ -2,6 +2,7 @@
 
 import formValidation from '@utils/formValidation';
 import nodemailer from 'nodemailer';
+import mailHTMLTemplate from '@utils/mailHTMLTemplate';
 
 export async function handleSubmit(formData: FormData) {
   const dir = formData.get('dir') as string;
@@ -33,7 +34,7 @@ export async function handleSubmit(formData: FormData) {
           to: TO,
           subject: `A message through consolelogme.com: ${subject}`,
           text: `${content}`,
-          html: `<b>${dir} - ${content}</b>`,
+          html: mailHTMLTemplate({ dir, email, subject, content }),
         })) || {};
       if (response.includes(HOST_SUCCESS_RESPONSE as unknown as string)) {
         return { status: '201' };
