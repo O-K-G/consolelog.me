@@ -17,9 +17,6 @@ import {
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
-  const [emailValue, setEmailValue] = useState('');
-  const [subjectValue, setSubjectValue] = useState('');
-  const [contentValue, setContentValue] = useState('');
   const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
 
@@ -32,7 +29,9 @@ export default function ContactForm() {
       content: formData.get('content') as string,
     });
 
-    if (isValidated) {
+    if (error) {
+      setErrors(Object.keys(error) as FormErrorNames);
+    } else if (isValidated) {
       try {
         const reqData = await handleSubmit(formData);
         const { status } = reqData ?? { status: '' };
@@ -52,16 +51,10 @@ export default function ContactForm() {
             return setErrorDialogDetails(status);
           }
         }
-
-        return;
       } catch (clientError) {
         setErrorDialogDetails((clientError as string)?.toString());
       }
-    } else if (error) {
-      setErrors(Object.keys(error) as FormErrorNames);
     }
-
-    return console.log('TODO: Error');
   };
 
   return (
@@ -76,12 +69,10 @@ export default function ContactForm() {
           id='email'
           placeholder='EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM'
           maxLength={CONTACT_FORM_EMAIL_MAX_LENGTH}
-          value={emailValue}
-          onChange={(val) => {
+          onChange={() => {
             if ((errors as Array<'email'>).includes('email')) {
               setErrors(errors.filter((str) => str !== 'email'));
             }
-            setEmailValue(val);
           }}
           isError={(errors as Array<'email'>).includes('email')}
         />
@@ -90,12 +81,10 @@ export default function ContactForm() {
           placeholder='SUBJECT'
           minLength={CONTACT_FORM_SUBJECT_MIN_LENGTH}
           maxLength={CONTACT_FORM_SUBJECT_MAX_LENGTH}
-          value={subjectValue}
-          onChange={(val) => {
+          onChange={() => {
             if ((errors as Array<'subject'>).includes('subject')) {
               setErrors(errors.filter((str) => str !== 'subject'));
             }
-            setSubjectValue(val);
           }}
           isError={(errors as Array<'subject'>).includes('subject')}
         />
@@ -108,12 +97,10 @@ export default function ContactForm() {
           component='textarea'
           isSubmit
           isSubmitDisabled={!!errors.length}
-          value={contentValue}
-          onChange={(val) => {
+          onChange={() => {
             if ((errors as Array<'content'>).includes('content')) {
               setErrors(errors.filter((str) => str !== 'content'));
             }
-            setContentValue(val);
           }}
           onClick={(val) => {
             if (dir === 'ltr' && val === 'rtl') {

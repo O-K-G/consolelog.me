@@ -2,6 +2,7 @@
 
 import type { InputComponentProps } from '@constants/interfaces';
 import BottomInputComponentButtons from '@components/BottomInputComponentButtons';
+import { useState } from 'react';
 
 export default function InputComponent({
   component: Component = 'input',
@@ -12,12 +13,12 @@ export default function InputComponent({
   rows,
   isSubmit,
   onClick,
-  value,
   onChange,
   isError,
   isSubmitDisabled,
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
+  const [value, setValue] = useState('');
 
   return (
     <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
@@ -33,12 +34,9 @@ export default function InputComponent({
         <div className='w-full flex flex-col items-end justify-center'>
           <Component
             type='text'
-            onChange={(e) => {
-              const {
-                target: { value },
-              } = e;
-
-              onChange(value);
+            onChange={({ target: { value } }) => {
+              setValue(value);
+              onChange?.();
             }}
             value={value}
             minLength={minLength}

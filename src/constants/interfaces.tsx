@@ -96,8 +96,7 @@ export interface InputComponentProps extends BottomInputComponentButtonsProps {
   maxLength: number;
   rows?: number;
   isSubmit?: boolean;
-  value: string;
-  onChange: (val: string) => void;
+  onChange: () => void;
   isError?: boolean;
   isSubmitDisabled?: boolean;
 }
