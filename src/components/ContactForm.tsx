@@ -11,15 +11,9 @@ import {
   CONTACT_FORM_SUBJECT_MAX_LENGTH,
   CONTACT_FORM_CONTENT_MIN_LENGTH,
   CONTACT_FORM_CONTENT_MAX_LENGTH,
+  BASE_STATUS_CODES,
   type FormErrorNames,
 } from '@constants/interfaces';
-
-const BASE_STATUS_CODES = {
-  200: true,
-  201: true,
-  403: false,
-  404: false,
-} as const;
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');

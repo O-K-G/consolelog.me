@@ -140,3 +140,9 @@ export interface MailHTMLTemplateProps {
   subject: string;
   content: string;
 }
+
+export const BASE_STATUS_CODES = {
+  400: false,
+  201: true,
+  401: false,
+} as const;

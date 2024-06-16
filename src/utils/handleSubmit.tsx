@@ -30,9 +30,9 @@ export async function handleSubmit(formData: FormData) {
       }
     } catch (nodeMailerRequestError) {
       console.error(nodeMailerRequestError);
-      return { status: '403' };
+      return { status: '401' };
     }
   } else {
-    return { status: '403' };
+    return { status: '400' };
   }
 }
