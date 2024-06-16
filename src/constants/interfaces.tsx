@@ -133,3 +133,10 @@ export interface ErrorDialogProps {
   onClick: () => void;
   errorDetails: string;
 }
+
+export interface MailHTMLTemplateProps {
+  dir: string;
+  email: string;
+  subject: string;
+  content: string;
+}

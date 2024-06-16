@@ -1,20 +1,27 @@
-export default function mailHTMLTemplate({
+'use server';
+
+import type { MailHTMLTemplateProps } from '@constants/interfaces';
+import mailHTMLText from '@i18nEn/mailHTMLText.json';
+
+export default async function mailHTMLTemplate({
   dir,
   email,
   subject,
   content,
-}: {
-  dir: string;
-  email: string;
-  subject: string;
-  content: string;
-}) {
+}: MailHTMLTemplateProps) {
+  const {
+    subject: subjectText,
+    sendersEmailAddressText,
+    subjectSecondaryTitle,
+    messageContent,
+  } = mailHTMLText;
+
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A message from consolelog.me</title>
+    <title>${subjectText}</title>
   </head>
   <style>
     main {
@@ -55,13 +62,13 @@ export default function mailHTMLTemplate({
   </style>
   <body dir="${dir || 'ltr'}">
     <main>
-      <h1>A message from consolelog.me</h1>
+      <h1>${subjectText}</h1>
       <span
-        ><b>Sender&apos;s email address:&nbsp;</b
+        ><b>${sendersEmailAddressText}:&nbsp;</b
         ><a href="mailto:${email}" rel="noreferrer" target="_blank">${email}</a></span
       >
-      <p><b>Subject:</b>&nbsp;${subject}</p>
-      <p><b>Message content:</b>&nbsp;${content}</p>
+      <p><b>${subjectSecondaryTitle}:</b>&nbsp;${subject}</p>
+      <p><b>${messageContent}:</b>&nbsp;${content}</p>
     </main>
   </body>
 </html>
