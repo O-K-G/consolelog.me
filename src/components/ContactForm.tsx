@@ -21,6 +21,7 @@ export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
   const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
+  const [isMessageSent, setMessageSent] = useState(false);
 
   const handleValidation = async (formData: FormData) => {
     formData.append('dir', dir);
@@ -44,13 +45,14 @@ export default function ContactForm() {
             ];
 
           if (ok && status === '201') {
-            // TODO: Proceed from here.
-            return console.log('TODO: confirmation/success screen');
+            setMessageSent(true);
           }
 
           if (!ok) {
-            // TODO: Add details.
-            return setErrorDialogDetails(status);
+            if (isMessageSent) {
+              setMessageSent(false);
+            }
+            setErrorDialogDetails(status);
           }
         }
       } catch (clientError) {
@@ -108,7 +110,7 @@ export default function ContactForm() {
                   setDir('ltr');
                 }
               }}
-              leftSlot={<ProgressIndicators isMessageSent={false} />}
+              leftSlot={<ProgressIndicators isMessageSent={isMessageSent} />}
             />
           }
           onChange={() => {
