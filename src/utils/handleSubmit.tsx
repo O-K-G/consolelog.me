@@ -1,8 +1,7 @@
 'use server';
 
 import formValidation from '@utils/formValidation';
-import nodemailer from 'nodemailer';
-import mailHTMLTemplate from '@utils/mailHTMLTemplate';
+import mailConfig from '@utils/mailConfig';
 
 export async function handleSubmit(formData: FormData) {
   const dir = formData.get('dir') as string;
@@ -14,28 +13,18 @@ export async function handleSubmit(formData: FormData) {
 
   if (isValidated) {
     const { env } = process;
-    const { HOST, HOST_PORT, SECURE, USER, PASS, HOST_SUCCESS_RESPONSE, TO } =
-      env;
-
-    const transporter = nodemailer.createTransport({
-      host: HOST,
-      port: Number(HOST_PORT),
-      secure: SECURE === 'true',
-      auth: {
-        user: USER,
-        pass: PASS,
-      },
+    const { HOST_SUCCESS_RESPONSE } = env;
+    const { transporter, messageSendDetailsObject } = await mailConfig({
+      dir,
+      email,
+      subject,
+      content,
     });
 
     try {
       const { response } =
-        (await transporter.sendMail({
-          from: `"${email}" <${email}>`,
-          to: TO,
-          subject: `A message through consolelogme.com: ${subject}`,
-          text: `${content}`,
-          html: mailHTMLTemplate({ dir, email, subject, content }),
-        })) || {};
+        (await transporter.sendMail(messageSendDetailsObject)) || {};
+
       if (response.includes(HOST_SUCCESS_RESPONSE as unknown as string)) {
         return { status: '201' };
       }
