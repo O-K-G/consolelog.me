@@ -1,7 +1,7 @@
 'use client';
 
 import InputComponent from '@components/InputComponent';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import DialogBackdrop from '@components/shared/DialogBackdrop';
@@ -14,6 +14,7 @@ import {
   BASE_STATUS_CODES,
   type FormErrorNames,
 } from '@constants/interfaces';
+import { useFormState } from 'react-dom';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
@@ -23,50 +24,50 @@ export default function ContactForm() {
   const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
 
+  const handleValidation = async (prevState: null, formData: FormData) => {
+    formData.append('dir', dir);
+
+    const { isValidated, error } = formValidation({
+      email: formData.get('email') as string,
+      subject: formData.get('subject') as string,
+      content: formData.get('content') as string,
+    });
+
+    if (isValidated) {
+      try {
+        return await handleSubmit(formData);
+      } catch (clientError) {
+        setErrorDialogDetails((clientError as string)?.toString());
+      }
+    } else if (error) {
+      setErrors(Object.keys(error) as FormErrorNames);
+    }
+  };
+
+  const [state, formAction] = useFormState(handleValidation, null);
+  const { status } = state ?? { status: '' };
+
+  useEffect(() => {
+    if (status) {
+      const ok =
+        BASE_STATUS_CODES[status as unknown as keyof typeof BASE_STATUS_CODES];
+
+      if (ok && status === '201') {
+        // TODO: Proceed from here.
+        return console.log('TODO: confirmation/success screen');
+      }
+
+      if (!ok) {
+        // TODO: Add details.
+        return setErrorDialogDetails(status);
+      }
+    }
+  }, [status]);
+
   return (
     <form
+      action={formAction}
       dir={dir}
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      action={async (formData) => {
-        formData.append('dir', dir);
-
-        const { isValidated, error } = formValidation({
-          email: formData.get('email') as string,
-          subject: formData.get('subject') as string,
-          content: formData.get('content') as string,
-        });
-
-        if (isValidated) {
-          try {
-            const reqData = await handleSubmit(formData);
-            const { status } = reqData ?? { status: '' };
-            if (status) {
-              const ok =
-                BASE_STATUS_CODES[
-                  status as unknown as keyof typeof BASE_STATUS_CODES
-                ];
-
-              if (ok && status === '201') {
-                // TODO: Proceed from here.
-                return console.log('TODO: confirmation/success screen');
-              }
-
-              if (!ok) {
-                // TODO: Add details.
-                return setErrorDialogDetails(status);
-              }
-            }
-
-            return;
-          } catch (clientError) {
-            setErrorDialogDetails((clientError as string)?.toString());
-          }
-        } else if (error) {
-          setErrors(Object.keys(error) as FormErrorNames);
-        }
-
-        return console.log('TODO: Error');
-      }}
       className='size-full center-elements flex-col z-10'
     >
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
