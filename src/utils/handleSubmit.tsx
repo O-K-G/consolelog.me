@@ -8,7 +8,6 @@ export async function handleSubmit(formData: FormData) {
   const email = formData.get('email') as string;
   const subject = formData.get('subject') as string;
   const content = formData.get('content') as string;
-
   const { isValidated } = formValidation({ email, subject, content });
 
   if (!isValidated) {
