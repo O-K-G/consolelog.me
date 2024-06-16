@@ -11,7 +11,9 @@ export async function handleSubmit(formData: FormData) {
 
   const { isValidated } = formValidation({ email, subject, content });
 
-  if (isValidated) {
+  if (!isValidated) {
+    return { status: '400' };
+  } else {
     const { env } = process;
     const { HOST_SUCCESS_RESPONSE } = env;
     const { transporter, messageSendDetailsObject } = await mailConfig({
@@ -32,7 +34,5 @@ export async function handleSubmit(formData: FormData) {
       console.error(nodeMailerRequestError);
       return { status: '401' };
     }
-  } else {
-    return { status: '400' };
   }
 }
