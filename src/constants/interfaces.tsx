@@ -133,3 +133,16 @@ export interface ErrorDialogProps {
   onClick: () => void;
   errorDetails: string;
 }
+
+export interface MailHTMLTemplateProps {
+  dir: string;
+  email: string;
+  subject: string;
+  content: string;
+}
+
+export const BASE_STATUS_CODES = {
+  400: false,
+  201: true,
+  401: false,
+} as const;
