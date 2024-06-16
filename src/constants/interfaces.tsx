@@ -86,6 +86,7 @@ export interface BorderProps {
 export interface BottomInputComponentButtonsProps {
   onClick?: (val: 'ltr' | 'rtl') => void;
   isSubmitDisabled?: boolean;
+  leftSlot?: ReactNode;
 }
 
 export interface InputComponentProps extends BottomInputComponentButtonsProps {
@@ -95,10 +96,9 @@ export interface InputComponentProps extends BottomInputComponentButtonsProps {
   minLength?: number;
   maxLength: number;
   rows?: number;
-  isSubmit?: boolean;
   onChange: () => void;
   isError?: boolean;
-  isSubmitDisabled?: boolean;
+  bottomSlot?: ReactNode;
 }
 
 export interface IconsProps {

@@ -14,6 +14,8 @@ import {
   BASE_STATUS_CODES,
   type FormErrorNames,
 } from '@constants/interfaces';
+import ProgressIndicators from '@components/ProgressIndicators';
+import BottomInputComponentButtons from '@components/BottomInputComponentButtons';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
@@ -95,19 +97,23 @@ export default function ContactForm() {
           maxLength={CONTACT_FORM_CONTENT_MAX_LENGTH}
           rows={5}
           component='textarea'
-          isSubmit
-          isSubmitDisabled={!!errors.length}
+          bottomSlot={
+            <BottomInputComponentButtons
+              isSubmitDisabled={!!errors.length}
+              onClick={(val) => {
+                if (dir === 'ltr' && val === 'rtl') {
+                  setDir('rtl');
+                }
+                if (dir === 'rtl' && val === 'ltr') {
+                  setDir('ltr');
+                }
+              }}
+              leftSlot={<ProgressIndicators isMessageSent={false} />}
+            />
+          }
           onChange={() => {
             if ((errors as Array<'content'>).includes('content')) {
               setErrors(errors.filter((str) => str !== 'content'));
-            }
-          }}
-          onClick={(val) => {
-            if (dir === 'ltr' && val === 'rtl') {
-              setDir('rtl');
-            }
-            if (dir === 'rtl' && val === 'ltr') {
-              setDir('ltr');
             }
           }}
           isError={(errors as Array<'content'>).includes('content')}

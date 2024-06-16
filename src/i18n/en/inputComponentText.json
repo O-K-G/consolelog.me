@@ -1,3 +1,4 @@
 {
-  "send": "SEND"
+  "send": "SEND",
+  "messageSent": "Message sent!"
 }
