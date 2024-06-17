@@ -2,6 +2,8 @@
 
 import { handleA11y1000FirstNumbers } from '@utils/handleA11y1000FirstNumbers';
 import type { InputComponentProps } from '@constants/interfaces';
+import inputComponentText from '@i18nEn/inputComponentText.json';
+import { useText } from '@hooks/useText';
 import { useEffect, useState } from 'react';
 
 export default function InputComponent({
@@ -19,6 +21,7 @@ export default function InputComponent({
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
   const [value, setValue] = useState('');
+  const t = useText();
 
   useEffect(() => {
     if (isReset) {
@@ -26,10 +29,10 @@ export default function InputComponent({
     }
   }, [isReset]);
 
-  const ariaLabeErrorlValueById = {
-    email: 'email is invalid',
-    subject: 'subject field is empty',
-    content: 'message text area is empty',
+  const ariaLabelErrorValueById = {
+    email: t('emailAriaLabelError', inputComponentText),
+    subject: t('subjectAriaLabelError', inputComponentText),
+    content: t('contentAriaLabelError', inputComponentText),
   };
 
   const ariaLabel = !isError
@@ -37,9 +40,14 @@ export default function InputComponent({
         !value
           ? handleA11y1000FirstNumbers(maxLength)
           : handleA11y1000FirstNumbers(maxLength - value.length)
-      } ${maxLength - value.length !== 1 ? 'characters' : 'character'} remain`
-    : `Error - ${
-        ariaLabeErrorlValueById[id as keyof typeof ariaLabeErrorlValueById]
+      } ${t(
+        maxLength - value.length !== 1
+          ? 'charactersAriaLabelError'
+          : 'characterAriaLabelError',
+        inputComponentText
+      )} ${t('remain', inputComponentText)}`
+    : `${t('error', inputComponentText)} - ${
+        ariaLabelErrorValueById[id as keyof typeof ariaLabelErrorValueById]
       }`;
 
   return (
