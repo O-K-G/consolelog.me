@@ -13,6 +13,7 @@ export default function DialogBackdrop({
   const [isFade, setIsFade] = useState<null | boolean>(null);
   const { handleDisableScroll } = useDisableScroll();
   const dialogContainerRef = useRef(null);
+  const dialogRef = useRef(null);
 
   const handleTransitionEnd = () => {
     handleDisableScroll(false);
@@ -31,6 +32,9 @@ export default function DialogBackdrop({
   }, [handleDisableScroll, isFade, open]);
 
   const handleClick = () => {
+    if (dialogRef.current) {
+      (dialogRef.current as HTMLDialogElement).close();
+    }
     setIsFade(false);
     (dialogContainerRef.current as unknown as HTMLDivElement)?.addEventListener(
       'animationend',
@@ -49,6 +53,7 @@ export default function DialogBackdrop({
         } ${isFade === false ? 'animate-dialog-backdrop-fade-out' : ''}`}
       >
         <ErrorDialog
+          ref={dialogRef}
           isFade={isFade}
           errorDetails={errorDetails}
           onClick={handleClick}

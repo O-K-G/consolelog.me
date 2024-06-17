@@ -4,17 +4,27 @@ import { useText } from '@hooks/useText';
 import errorDialog from '@i18nEn/errorDialog.json';
 import CloseIcon from '@components/CloseIcon';
 import type { ErrorDialogProps } from '@constants/interfaces';
+import {
+  type ForwardedRef,
+  type MutableRefObject,
+  forwardRef,
+  useEffect,
+} from 'react';
 
-export default function ErrorDialog({
-  isFade,
-  onClick,
-  errorDetails,
-}: ErrorDialogProps) {
+function ErrorDialog(
+  { isFade, onClick, errorDetails }: ErrorDialogProps,
+  ref: ForwardedRef<HTMLDialogElement>
+) {
   const t = useText();
+
+  useEffect(
+    () => (ref as MutableRefObject<HTMLDialogElement>).current.showModal(),
+    [ref]
+  );
 
   return (
     <dialog
-      open
+      ref={ref}
       className={`size-full p-4 center-elements bg-transparent ${
         isFade ? 'animate-dialog-fade-in' : ''
       } ${isFade === false ? 'animate-dialog-fade-out' : ''}`}
@@ -42,7 +52,6 @@ export default function ErrorDialog({
         </div>
         <div className='w-full break-words text-base md:text-xl lg:text-2xl h-[90%] flex items-center justify-start flex-col overflow-hidden'>
           <p
-            aria-live='assertive'
             role='alert'
             className='font-montserrat pb-4 w-full h-1/2 flex items-start lg:items-center justify-start text-center overflow-auto'
           >
@@ -64,3 +73,5 @@ export default function ErrorDialog({
     </dialog>
   );
 }
+
+export default forwardRef(ErrorDialog);
