@@ -1,7 +1,6 @@
 export function handleA11y1000FirstNumbers(val: number) {
-  const tens = Number(val.toString().substring(1, 3))
-    ? `and ${Number(val.toString().substring(1, 3))}`
-    : '';
+  const tensDefinition = Number(val.toString().substring(1, 3));
+  const tens = tensDefinition ? `and ${tensDefinition}` : '';
   const exactTens = [
     '10',
     '20',
