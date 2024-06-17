@@ -13,21 +13,22 @@ export default function ProgressIndicators({
   isMessageSent: boolean;
 }) {
   const { pending: isLoading } = useFormStatus(); // TODO: Experimental, revisit in the future.
-  const t = useText();
   const isPending = isLoading && !isMessageSent;
   const isSent = !isLoading && isMessageSent;
+  const t = useText();
 
   return (
     <>
+      <div className='sr-only' aria-live='assertive' role='status'>
+        {isPending ? t('sendingMessage', inputComponentText) : ''}
+        {isSent ? t('messageSent', inputComponentText) : ''}
+      </div>
+
       <ProgressIcon
         className={`relative transition-300 h-full rounded-full fill-white animate-spin ${
           !(isLoading && !isMessageSent) ? INVISIBLE_CLASSNAME : 'opacity-100'
         }`}
       />
-      <div className='sr-only' aria-live='assertive' role='status'>
-        {isPending ? t('sendingMessage', inputComponentText) : ''}
-        {isSent ? t('messageSent', inputComponentText) : ''}
-      </div>
 
       <div
         aria-hidden
