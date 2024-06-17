@@ -8,13 +8,14 @@ import DialogBackdrop from '@components/shared/DialogBackdrop';
 import ProgressIndicators from '@components/ProgressIndicators';
 import BottomInputComponentButtons from '@components/BottomInputComponentButtons';
 import {
+  type FormErrorNames,
+  type Fields,
   CONTACT_FORM_EMAIL_MAX_LENGTH,
   CONTACT_FORM_SUBJECT_MIN_LENGTH,
   CONTACT_FORM_SUBJECT_MAX_LENGTH,
   CONTACT_FORM_CONTENT_MIN_LENGTH,
   CONTACT_FORM_CONTENT_MAX_LENGTH,
   BASE_STATUS_CODES,
-  type FormErrorNames,
 } from '@constants/interfaces';
 
 export default function ContactForm() {
@@ -61,6 +62,9 @@ export default function ContactForm() {
     }
   };
 
+  const fieldError = (val: Fields) =>
+    (errors as Array<typeof val>).includes(val);
+
   return (
     <form
       dir={dir}
@@ -75,7 +79,7 @@ export default function ContactForm() {
           placeholder='EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM'
           maxLength={CONTACT_FORM_EMAIL_MAX_LENGTH}
           onChange={() => {
-            if ((errors as Array<'email'>).includes('email')) {
+            if (fieldError('email')) {
               setErrors(errors.filter((str) => str !== 'email'));
             }
           }}
@@ -84,7 +88,7 @@ export default function ContactForm() {
               setMessageSent(false);
             }
           }}
-          isError={(errors as Array<'email'>).includes('email')}
+          isError={fieldError('email')}
         />
         <InputComponent
           isReset={isMessageSent}
@@ -93,7 +97,7 @@ export default function ContactForm() {
           minLength={CONTACT_FORM_SUBJECT_MIN_LENGTH}
           maxLength={CONTACT_FORM_SUBJECT_MAX_LENGTH}
           onChange={() => {
-            if ((errors as Array<'subject'>).includes('subject')) {
+            if (fieldError('subject')) {
               setErrors(errors.filter((str) => str !== 'subject'));
             }
           }}
@@ -102,7 +106,7 @@ export default function ContactForm() {
               setMessageSent(false);
             }
           }}
-          isError={(errors as Array<'subject'>).includes('subject')}
+          isError={fieldError('subject')}
         />
         <InputComponent
           isReset={isMessageSent}
@@ -128,7 +132,7 @@ export default function ContactForm() {
             />
           }
           onChange={() => {
-            if ((errors as Array<'content'>).includes('content')) {
+            if (fieldError('content')) {
               setErrors(errors.filter((str) => str !== 'content'));
             }
           }}
@@ -137,7 +141,7 @@ export default function ContactForm() {
               setMessageSent(false);
             }
           }}
-          isError={(errors as Array<'content'>).includes('content')}
+          isError={fieldError('content')}
         />
       </div>
       <DialogBackdrop

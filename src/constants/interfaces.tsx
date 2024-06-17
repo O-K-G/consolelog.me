@@ -122,7 +122,9 @@ export const FormDataSchema = z.object({
 
 export type FormValidationProps = z.infer<typeof FormDataSchema>;
 
-export type FormErrorNames = Array<'email' | 'subject' | 'content'>;
+export type Fields = 'email' | 'subject' | 'content';
+
+export type FormErrorNames = Fields[];
 
 export interface DialogBackdropProps {
   open: boolean;
