@@ -1,8 +1,7 @@
 'use client';
 
 import type { InputComponentProps } from '@constants/interfaces';
-import BottomInputComponentButtons from '@components/BottomInputComponentButtons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function InputComponent({
   component: Component = 'input',
@@ -11,14 +10,20 @@ export default function InputComponent({
   minLength,
   maxLength,
   rows,
-  isSubmit,
-  onClick,
   onChange,
   isError,
-  isSubmitDisabled,
+  bottomSlot,
+  isReset,
+  onClick,
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
   const [value, setValue] = useState('');
+
+  useEffect(() => {
+    if (isReset) {
+      setValue('');
+    }
+  }, [isReset]);
 
   return (
     <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
@@ -38,6 +43,7 @@ export default function InputComponent({
               setValue(value);
               onChange?.();
             }}
+            onClick={onClick}
             value={value}
             minLength={minLength}
             maxLength={maxLength}
@@ -57,12 +63,7 @@ export default function InputComponent({
             {!value ? maxLength : maxLength - value.length}
           </div>
         </div>
-        {isSubmit && (
-          <BottomInputComponentButtons
-            isSubmitDisabled={isSubmitDisabled}
-            onClick={onClick}
-          />
-        )}
+        {bottomSlot}
       </div>
     </div>
   );

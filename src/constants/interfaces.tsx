@@ -84,21 +84,24 @@ export interface BorderProps {
 }
 
 export interface BottomInputComponentButtonsProps {
-  onClick?: (val: 'ltr' | 'rtl') => void;
-  isSubmitDisabled?: boolean;
+  onClick: (val: 'ltr' | 'rtl') => void;
+  isSubmitDisabled: boolean;
+  leftSlot: ReactNode;
+  onSubmit: () => void;
 }
 
-export interface InputComponentProps extends BottomInputComponentButtonsProps {
+export interface InputComponentProps {
   component?: 'input' | 'textarea';
   id: string;
   placeholder: string;
   minLength?: number;
   maxLength: number;
   rows?: number;
-  isSubmit?: boolean;
   onChange: () => void;
+  onClick?: () => void;
   isError?: boolean;
-  isSubmitDisabled?: boolean;
+  bottomSlot?: ReactNode;
+  isReset?: boolean;
 }
 
 export interface IconsProps {
@@ -119,7 +122,9 @@ export const FormDataSchema = z.object({
 
 export type FormValidationProps = z.infer<typeof FormDataSchema>;
 
-export type FormErrorNames = Array<'email' | 'subject' | 'content'>;
+export type Fields = 'email' | 'subject' | 'content';
+
+export type FormErrorNames = Fields[];
 
 export interface DialogBackdropProps {
   open: boolean;
