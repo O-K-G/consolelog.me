@@ -26,6 +26,22 @@ export default function InputComponent({
     }
   }, [isReset]);
 
+  const ariaLabeErrorlValueById = {
+    email: 'email is invalid',
+    subject: 'subject field is empty',
+    content: 'message text area is empty',
+  };
+
+  const ariaLabel = !isError
+    ? `${
+        !value
+          ? handleA11y1000FirstNumbers(maxLength)
+          : handleA11y1000FirstNumbers(maxLength - value.length)
+      } ${maxLength - value.length !== 1 ? 'characters' : 'character'} remain`
+    : `Error - ${
+        ariaLabeErrorlValueById[id as keyof typeof ariaLabeErrorlValueById]
+      }`;
+
   return (
     <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
       <div className='flex items-center justify-start sm:justify-end sm:mt-1.5 sm:w-2/12 md:w-3/12 md:max-w-24'>
@@ -44,17 +60,12 @@ export default function InputComponent({
               setValue(value);
               onChange?.();
             }}
+            aria-live='assertive'
             onClick={onClick}
             value={value}
             minLength={minLength}
             maxLength={maxLength}
-            aria-label={`${
-              !value
-                ? handleA11y1000FirstNumbers(maxLength)
-                : handleA11y1000FirstNumbers(maxLength - value.length)
-            } ${
-              maxLength - value.length !== 1 ? 'characters' : 'character'
-            } remain`}
+            aria-label={ariaLabel}
             id={id}
             name={id}
             className={`w-full placeholder:uppercase text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none ${
