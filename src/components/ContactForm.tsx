@@ -73,76 +73,107 @@ export default function ContactForm() {
       className='size-full center-elements flex-col z-10'
     >
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
-        <InputComponent
-          isReset={isMessageSent}
-          id='email'
-          placeholder='EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM'
-          maxLength={CONTACT_FORM_EMAIL_MAX_LENGTH}
-          onChange={() => {
-            if (fieldError('email')) {
-              setErrors(errors.filter((str) => str !== 'email'));
-            }
-          }}
-          onClick={() => {
-            if (isMessageSent) {
-              setMessageSent(false);
-            }
-          }}
-          isError={fieldError('email')}
-        />
-        <InputComponent
-          isReset={isMessageSent}
-          id='subject'
-          placeholder='SUBJECT'
-          minLength={CONTACT_FORM_SUBJECT_MIN_LENGTH}
-          maxLength={CONTACT_FORM_SUBJECT_MAX_LENGTH}
-          onChange={() => {
-            if (fieldError('subject')) {
-              setErrors(errors.filter((str) => str !== 'subject'));
-            }
-          }}
-          onClick={() => {
-            if (isMessageSent) {
-              setMessageSent(false);
-            }
-          }}
-          isError={fieldError('subject')}
-        />
-        <InputComponent
-          isReset={isMessageSent}
-          id='content'
-          placeholder='YOUR MESSAGE'
-          minLength={CONTACT_FORM_CONTENT_MIN_LENGTH}
-          maxLength={CONTACT_FORM_CONTENT_MAX_LENGTH}
-          rows={5}
-          component='textarea'
-          bottomSlot={
-            <BottomInputComponentButtons
-              isSubmitDisabled={!!errors.length}
-              onSubmit={() => setMessageSent(false)}
-              onClick={(val) => {
-                if (dir === 'ltr' && val === 'rtl') {
-                  setDir('rtl');
-                }
-                if (dir === 'rtl' && val === 'ltr') {
-                  setDir('ltr');
-                }
-              }}
-              leftSlot={<ProgressIndicators isMessageSent={isMessageSent} />}
+        {[
+          {
+            id: 'email',
+            isReset: isMessageSent,
+            placeholder: 'EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM',
+            maxLength: CONTACT_FORM_EMAIL_MAX_LENGTH,
+            onChange: () => {
+              if (fieldError('email')) {
+                setErrors(errors.filter((str) => str !== 'email'));
+              }
+            },
+            onClick: () => {
+              if (isMessageSent) {
+                setMessageSent(false);
+              }
+            },
+            isError: fieldError('email'),
+          },
+          {
+            id: 'subject',
+            isReset: isMessageSent,
+            placeholder: 'SUBJECT',
+            minLength: CONTACT_FORM_SUBJECT_MIN_LENGTH,
+            maxLength: CONTACT_FORM_SUBJECT_MAX_LENGTH,
+            onChange: () => {
+              if (fieldError('subject')) {
+                setErrors(errors.filter((str) => str !== 'subject'));
+              }
+            },
+            onClick: () => {
+              if (isMessageSent) {
+                setMessageSent(false);
+              }
+            },
+            isError: fieldError('subject'),
+          },
+          {
+            id: 'content',
+            isReset: isMessageSent,
+            placeholder: 'YOUR MESSAGE',
+            minLength: CONTACT_FORM_CONTENT_MIN_LENGTH,
+            maxLength: CONTACT_FORM_CONTENT_MAX_LENGTH,
+            rows: 5,
+            component: 'textarea' as const,
+            bottomSlot: (
+              <BottomInputComponentButtons
+                isSubmitDisabled={!!errors.length}
+                onSubmit={() => setMessageSent(false)}
+                onClick={(val) => {
+                  if (dir === 'ltr' && val === 'rtl') {
+                    setDir('rtl');
+                  }
+                  if (dir === 'rtl' && val === 'ltr') {
+                    setDir('ltr');
+                  }
+                }}
+                leftSlot={<ProgressIndicators isMessageSent={isMessageSent} />}
+              />
+            ),
+            onChange: () => {
+              if (fieldError('content')) {
+                setErrors(errors.filter((str) => str !== 'content'));
+              }
+            },
+            onClick: () => {
+              if (isMessageSent) {
+                setMessageSent(false);
+              }
+            },
+            isError: fieldError('content'),
+          },
+        ].map(
+          ({
+            id,
+            isReset,
+            placeholder,
+            minLength,
+            maxLength,
+            rows,
+            component,
+            bottomSlot,
+            onChange,
+            onClick,
+            isError,
+          }) => (
+            <InputComponent
+              key={id}
+              id={id}
+              isReset={isReset}
+              placeholder={placeholder}
+              minLength={minLength}
+              maxLength={maxLength}
+              rows={rows}
+              component={component}
+              bottomSlot={bottomSlot}
+              onChange={onChange}
+              onClick={onClick}
+              isError={isError}
             />
-          }
-          onChange={() => {
-            if (fieldError('content')) {
-              setErrors(errors.filter((str) => str !== 'content'));
-            }
-          }}
-          onClick={() => {
-            if (isMessageSent) {
-              setMessageSent(false);
-            }
-          }}
-          isError={fieldError('content')}
-        />
+          )
+        )}
       </div>
       <DialogBackdrop
         open={!!errorDialogDetails}
