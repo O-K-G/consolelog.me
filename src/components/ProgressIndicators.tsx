@@ -22,15 +22,13 @@ export default function ProgressIndicators({
           !(isLoading && !isMessageSent) ? INVISIBLE_CLASSNAME : 'opacity-100'
         }`}
       />
-      {true && (
-        <div
-          className={`transition-300 text-white h-full flex items-center justify-start font-bebas-neue text-lg md:text-2xl sm:text-3xl ${
-            !(!isLoading && isMessageSent) ? INVISIBLE_CLASSNAME : 'opacity-100'
-          }`}
-        >
-          {t('messageSent', inputComponentText as object)}
-        </div>
-      )}
+      <div
+        className={`transition-300 uppercase text-white h-full flex items-center justify-start font-bebas-neue text-lg md:text-2xl sm:text-3xl ${
+          !(!isLoading && isMessageSent) ? INVISIBLE_CLASSNAME : 'opacity-100'
+        }`}
+      >
+        {t('messageSent', inputComponentText as object)}
+      </div>
     </>
   );
 }
