@@ -54,7 +54,7 @@ export default function InputComponent({
                 : handleA11y1000FirstNumbers(maxLength - value.length)
             } ${
               maxLength - value.length !== 1 ? 'characters' : 'character'
-            } remain.`}
+            } remain`}
             id={id}
             name={id}
             className={`w-full placeholder:uppercase text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none ${
