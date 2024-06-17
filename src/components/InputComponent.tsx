@@ -68,7 +68,6 @@ export default function InputComponent({
               setValue(value);
               onChange?.();
             }}
-            aria-live='assertive'
             onClick={onClick}
             value={value}
             minLength={minLength}
