@@ -123,7 +123,12 @@ export default function ContactForm() {
                     setDir('ltr');
                   }
                 }}
-                leftSlot={<ProgressIndicators isMessageSent={isMessageSent} />}
+                leftSlot={
+                  <ProgressIndicators
+                    isError={errors}
+                    isMessageSent={isMessageSent}
+                  />
+                }
               />
             ),
             onChange: () => handleOnChange('content'),
