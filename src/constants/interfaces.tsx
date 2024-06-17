@@ -84,12 +84,13 @@ export interface BorderProps {
 }
 
 export interface BottomInputComponentButtonsProps {
-  onClick?: (val: 'ltr' | 'rtl') => void;
-  isSubmitDisabled?: boolean;
-  leftSlot?: ReactNode;
+  onClick: (val: 'ltr' | 'rtl') => void;
+  isSubmitDisabled: boolean;
+  leftSlot: ReactNode;
+  onSubmit: () => void;
 }
 
-export interface InputComponentProps extends BottomInputComponentButtonsProps {
+export interface InputComponentProps {
   component?: 'input' | 'textarea';
   id: string;
   placeholder: string;

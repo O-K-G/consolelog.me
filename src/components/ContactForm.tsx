@@ -102,6 +102,7 @@ export default function ContactForm() {
           bottomSlot={
             <BottomInputComponentButtons
               isSubmitDisabled={!!errors.length}
+              onSubmit={() => setMessageSent(false)}
               onClick={(val) => {
                 if (dir === 'ltr' && val === 'rtl') {
                   setDir('rtl');
