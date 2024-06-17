@@ -84,6 +84,7 @@ export interface BorderProps {
 }
 
 export interface BottomInputComponentButtonsProps {
+  dir: 'ltr' | 'rtl';
   onClick: (val: 'ltr' | 'rtl') => void;
   isSubmitDisabled: boolean;
   leftSlot: ReactNode;

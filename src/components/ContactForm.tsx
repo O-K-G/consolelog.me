@@ -19,7 +19,7 @@ import {
 } from '@constants/interfaces';
 
 export default function ContactForm() {
-  const [dir, setDir] = useState('ltr');
+  const [dir, setDir] = useState<'ltr' | 'rtl'>('ltr');
   const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);
@@ -112,6 +112,7 @@ export default function ContactForm() {
             component: 'textarea' as const,
             bottomSlot: (
               <BottomInputComponentButtons
+                dir={dir}
                 isSubmitDisabled={!!errors.length}
                 onSubmit={() => setMessageSent(false)}
                 onClick={(val) => {

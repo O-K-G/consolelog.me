@@ -13,6 +13,7 @@ const ALIGN_ICONS_CLASSNAME =
   'size-full rounded-full fill-white group-hover:fill-title-purple group-active:fill-white group-focus:fill-title-purple';
 
 export default function BottomInputComponentButtons({
+  dir,
   onClick,
   isSubmitDisabled,
   leftSlot,
@@ -21,6 +22,7 @@ export default function BottomInputComponentButtons({
   const { pending: isLoading } = useFormStatus(); // TODO: Experimental, revisit in the future.
   const isBusy = isLoading ?? isSubmitDisabled;
   const t = useText();
+  const isLTR = dir === 'ltr';
 
   return (
     <div className='flex items-center justify-end w-full mt-2 h-12 overflow-hidden'>
@@ -41,20 +43,16 @@ export default function BottomInputComponentButtons({
           {t('send', inputComponentText as object)}
         </button>
       </div>
-      <div className='w-1/3 overflow-hidden gap-2 flex rtl:flex-row-reverse rtl:justify-start items-center justify-end'>
+      <div className='w-1/3 overflow-hidden flex items-center justify-end'>
         <button
-          onClick={() => onClick?.('ltr')}
+          aria-label={`Align form text to the ${isLTR ? 'right' : 'left'}`}
+          onClick={() => onClick?.(isLTR ? 'rtl' : 'ltr')}
           type='button'
           className={ALIGN_BUTTONS_CLASSNAME}
         >
-          <AlignLeftIcon className={ALIGN_ICONS_CLASSNAME} />
-        </button>
-        <button
-          onClick={() => onClick?.('rtl')}
-          type='button'
-          className={ALIGN_BUTTONS_CLASSNAME}
-        >
-          <AlignLeftIcon className={`${ALIGN_ICONS_CLASSNAME} rotate-180`} />
+          <AlignLeftIcon
+            className={`${ALIGN_ICONS_CLASSNAME} ${isLTR ? 'rotate-180' : ''}`}
+          />
         </button>
       </div>
     </div>
