@@ -30,6 +30,7 @@ export default function Planet() {
         data-testid='planet-test'
         src={`/planet.webp?cacheVersion=${CACHE_VERSION}`}
         fill
+        sizes='(max-width: 767px) 50svw, (min-width: 768px) 100dvw'
         loading='eager'
         alt='planet with astronauts'
         aria-hidden
