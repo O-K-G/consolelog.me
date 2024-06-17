@@ -85,6 +85,9 @@ export default function InputComponent({
             placeholder={placeholder}
             rows={rows}
           />
+          <div aria-live='assertive' className='sr-only'>
+            {isError ? ariaLabel : ''}
+          </div>
           <div aria-hidden className='font-bebas-neue text-base'>
             {!value ? maxLength : maxLength - value.length}
           </div>
