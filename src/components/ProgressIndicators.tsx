@@ -26,12 +26,11 @@ export default function ProgressIndicators({
       />
       <div className='sr-only' aria-live='assertive' role='status'>
         {isPending ? t('sendingMessage', inputComponentText) : ''}
+        {isSent ? t('messageSent', inputComponentText) : ''}
       </div>
 
       <div
-        aria-live='assertive'
-        aria-label={isSent ? t('messageSent', inputComponentText) : ''}
-        role='status'
+        aria-hidden
         className={`transition-300 uppercase text-white h-full flex items-center justify-start font-bebas-neue text-lg md:text-2xl sm:text-3xl ${
           !isSent ? INVISIBLE_CLASSNAME : 'opacity-100'
         }`}
