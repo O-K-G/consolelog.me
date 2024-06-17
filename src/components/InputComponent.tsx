@@ -1,7 +1,7 @@
 'use client';
 
 import type { InputComponentProps } from '@constants/interfaces';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function InputComponent({
   component: Component = 'input',
@@ -13,9 +13,17 @@ export default function InputComponent({
   onChange,
   isError,
   bottomSlot,
+  isReset,
+  onClick,
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
   const [value, setValue] = useState('');
+
+  useEffect(() => {
+    if (isReset) {
+      setValue('');
+    }
+  }, [isReset]);
 
   return (
     <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
@@ -35,6 +43,7 @@ export default function InputComponent({
               setValue(value);
               onChange?.();
             }}
+            onClick={onClick}
             value={value}
             minLength={minLength}
             maxLength={maxLength}

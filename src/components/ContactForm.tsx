@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import DialogBackdrop from '@components/shared/DialogBackdrop';
+import ProgressIndicators from '@components/ProgressIndicators';
+import BottomInputComponentButtons from '@components/BottomInputComponentButtons';
 import {
   CONTACT_FORM_EMAIL_MAX_LENGTH,
   CONTACT_FORM_SUBJECT_MIN_LENGTH,
@@ -14,8 +16,6 @@ import {
   BASE_STATUS_CODES,
   type FormErrorNames,
 } from '@constants/interfaces';
-import ProgressIndicators from '@components/ProgressIndicators';
-import BottomInputComponentButtons from '@components/BottomInputComponentButtons';
 
 export default function ContactForm() {
   const [dir, setDir] = useState('ltr');
@@ -70,6 +70,7 @@ export default function ContactForm() {
     >
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
         <InputComponent
+          isReset={isMessageSent}
           id='email'
           placeholder='EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM'
           maxLength={CONTACT_FORM_EMAIL_MAX_LENGTH}
@@ -78,9 +79,15 @@ export default function ContactForm() {
               setErrors(errors.filter((str) => str !== 'email'));
             }
           }}
+          onClick={() => {
+            if (isMessageSent) {
+              setMessageSent(false);
+            }
+          }}
           isError={(errors as Array<'email'>).includes('email')}
         />
         <InputComponent
+          isReset={isMessageSent}
           id='subject'
           placeholder='SUBJECT'
           minLength={CONTACT_FORM_SUBJECT_MIN_LENGTH}
@@ -90,9 +97,15 @@ export default function ContactForm() {
               setErrors(errors.filter((str) => str !== 'subject'));
             }
           }}
+          onClick={() => {
+            if (isMessageSent) {
+              setMessageSent(false);
+            }
+          }}
           isError={(errors as Array<'subject'>).includes('subject')}
         />
         <InputComponent
+          isReset={isMessageSent}
           id='content'
           placeholder='YOUR MESSAGE'
           minLength={CONTACT_FORM_CONTENT_MIN_LENGTH}
@@ -117,6 +130,11 @@ export default function ContactForm() {
           onChange={() => {
             if ((errors as Array<'content'>).includes('content')) {
               setErrors(errors.filter((str) => str !== 'content'));
+            }
+          }}
+          onClick={() => {
+            if (isMessageSent) {
+              setMessageSent(false);
             }
           }}
           isError={(errors as Array<'content'>).includes('content')}

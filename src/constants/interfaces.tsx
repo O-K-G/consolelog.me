@@ -98,8 +98,10 @@ export interface InputComponentProps {
   maxLength: number;
   rows?: number;
   onChange: () => void;
+  onClick?: () => void;
   isError?: boolean;
   bottomSlot?: ReactNode;
+  isReset?: boolean;
 }
 
 export interface IconsProps {
