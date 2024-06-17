@@ -65,6 +65,18 @@ export default function ContactForm() {
   const fieldError = (val: Fields) =>
     (errors as Array<typeof val>).includes(val);
 
+  const handleOnChange = (val: Fields) => {
+    if (fieldError(val)) {
+      setErrors(errors.filter((str) => str !== val));
+    }
+  };
+
+  const handleOnClick = () => {
+    if (isMessageSent) {
+      setMessageSent(false);
+    }
+  };
+
   return (
     <form
       dir={dir}
@@ -76,42 +88,23 @@ export default function ContactForm() {
         {[
           {
             id: 'email',
-            isReset: isMessageSent,
             placeholder: 'EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM',
             maxLength: CONTACT_FORM_EMAIL_MAX_LENGTH,
-            onChange: () => {
-              if (fieldError('email')) {
-                setErrors(errors.filter((str) => str !== 'email'));
-              }
-            },
-            onClick: () => {
-              if (isMessageSent) {
-                setMessageSent(false);
-              }
-            },
+            onChange: () => handleOnChange('email'),
+            onClick: handleOnClick,
             isError: fieldError('email'),
           },
           {
             id: 'subject',
-            isReset: isMessageSent,
             placeholder: 'SUBJECT',
             minLength: CONTACT_FORM_SUBJECT_MIN_LENGTH,
             maxLength: CONTACT_FORM_SUBJECT_MAX_LENGTH,
-            onChange: () => {
-              if (fieldError('subject')) {
-                setErrors(errors.filter((str) => str !== 'subject'));
-              }
-            },
-            onClick: () => {
-              if (isMessageSent) {
-                setMessageSent(false);
-              }
-            },
+            onChange: () => handleOnChange('subject'),
+            onClick: handleOnClick,
             isError: fieldError('subject'),
           },
           {
             id: 'content',
-            isReset: isMessageSent,
             placeholder: 'YOUR MESSAGE',
             minLength: CONTACT_FORM_CONTENT_MIN_LENGTH,
             maxLength: CONTACT_FORM_CONTENT_MAX_LENGTH,
@@ -132,22 +125,13 @@ export default function ContactForm() {
                 leftSlot={<ProgressIndicators isMessageSent={isMessageSent} />}
               />
             ),
-            onChange: () => {
-              if (fieldError('content')) {
-                setErrors(errors.filter((str) => str !== 'content'));
-              }
-            },
-            onClick: () => {
-              if (isMessageSent) {
-                setMessageSent(false);
-              }
-            },
+            onChange: () => handleOnChange('content'),
+            onClick: handleOnClick,
             isError: fieldError('content'),
           },
         ].map(
           ({
             id,
-            isReset,
             placeholder,
             minLength,
             maxLength,
@@ -161,7 +145,7 @@ export default function ContactForm() {
             <InputComponent
               key={`input-component-${id}`}
               id={id}
-              isReset={isReset}
+              isReset={isMessageSent}
               placeholder={placeholder}
               minLength={minLength}
               maxLength={maxLength}
