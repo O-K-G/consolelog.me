@@ -1,5 +1,6 @@
 'use client';
 
+import { handleA11y1000FirstNumbers } from '@utils/handleA11y1000FirstNumbers';
 import type { InputComponentProps } from '@constants/interfaces';
 import { useEffect, useState } from 'react';
 
@@ -47,6 +48,13 @@ export default function InputComponent({
             value={value}
             minLength={minLength}
             maxLength={maxLength}
+            aria-label={`${
+              !value
+                ? handleA11y1000FirstNumbers(maxLength)
+                : handleA11y1000FirstNumbers(maxLength - value.length)
+            } ${
+              maxLength - value.length !== 1 ? 'characters' : 'character'
+            } remain.`}
             id={id}
             name={id}
             className={`w-full placeholder:uppercase text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none ${
@@ -59,7 +67,7 @@ export default function InputComponent({
             placeholder={placeholder}
             rows={rows}
           />
-          <div className='font-bebas-neue text-base'>
+          <div aria-hidden className='font-bebas-neue text-base'>
             {!value ? maxLength : maxLength - value.length}
           </div>
         </div>
