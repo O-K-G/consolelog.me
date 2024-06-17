@@ -2,6 +2,8 @@
 
 import { handleA11y1000FirstNumbers } from '@utils/handleA11y1000FirstNumbers';
 import type { InputComponentProps } from '@constants/interfaces';
+import inputComponentText from '@i18nEn/inputComponentText.json';
+import { useText } from '@hooks/useText';
 import { useEffect, useState } from 'react';
 
 export default function InputComponent({
@@ -19,12 +21,34 @@ export default function InputComponent({
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
   const [value, setValue] = useState('');
+  const t = useText();
 
   useEffect(() => {
     if (isReset) {
       setValue('');
     }
   }, [isReset]);
+
+  const ariaLabelErrorValueById = {
+    email: t('emailAriaLabelError', inputComponentText),
+    subject: t('subjectAriaLabelError', inputComponentText),
+    content: t('contentAriaLabelError', inputComponentText),
+  };
+
+  const ariaLabel = !isError
+    ? `${
+        !value
+          ? handleA11y1000FirstNumbers(maxLength)
+          : handleA11y1000FirstNumbers(maxLength - value.length)
+      } ${t(
+        maxLength - value.length !== 1
+          ? 'charactersAriaLabelError'
+          : 'characterAriaLabelError',
+        inputComponentText
+      )} ${t('remain', inputComponentText)}`
+    : `${t('error', inputComponentText)} - ${
+        ariaLabelErrorValueById[id as keyof typeof ariaLabelErrorValueById]
+      }`;
 
   return (
     <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
@@ -48,13 +72,7 @@ export default function InputComponent({
             value={value}
             minLength={minLength}
             maxLength={maxLength}
-            aria-label={`${
-              !value
-                ? handleA11y1000FirstNumbers(maxLength)
-                : handleA11y1000FirstNumbers(maxLength - value.length)
-            } ${
-              maxLength - value.length !== 1 ? 'characters' : 'character'
-            } remain`}
+            aria-label={ariaLabel}
             id={id}
             name={id}
             className={`w-full placeholder:uppercase text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none ${

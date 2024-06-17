@@ -1,4 +1,15 @@
 {
   "send": "SEND",
-  "messageSent": "MESSAGE SENT"
+  "sendingMessage": "sending message",
+  "messageSent": "MESSAGE SENT",
+  "emailAriaLabelError": "email is invalid",
+  "subjectAriaLabelError": "subject field is empty",
+  "contentAriaLabelError": "message text area is empty",
+  "characterAriaLabelError": "character",
+  "charactersAriaLabelError": "characters",
+  "remain": "remain",
+  "error": "Error",
+  "alignFormText": "Align form text to the",
+  "right": "right",
+  "left": "left"
 }

@@ -45,7 +45,10 @@ export default function BottomInputComponentButtons({
       </div>
       <div className='w-1/3 overflow-hidden flex items-center justify-end'>
         <button
-          aria-label={`Align form text to the ${isLTR ? 'right' : 'left'}`}
+          aria-label={`${t('alignFormText', inputComponentText)} ${t(
+            isLTR ? 'right' : 'left',
+            inputComponentText
+          )}`}
           onClick={() => onClick?.(isLTR ? 'rtl' : 'ltr')}
           type='button'
           className={ALIGN_BUTTONS_CLASSNAME}
