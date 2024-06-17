@@ -18,7 +18,7 @@ export default function ProgressIndicators({
   return (
     <>
       <ProgressIcon
-        className={`transition-300 h-full rounded-full shrink-0 fill-white animate-spin ${
+        className={`transition-300 h-full rounded-full fill-white animate-spin ${
           !(isLoading && !isMessageSent) ? INVISIBLE_CLASSNAME : 'opacity-100'
         }`}
       />
