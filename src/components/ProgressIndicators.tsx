@@ -4,24 +4,27 @@ import { useText } from '@hooks/useText';
 import { useFormStatus } from 'react-dom';
 import ProgressIcon from '@components/ProgressIcon';
 import inputComponentText from '@i18nEn/inputComponentText.json';
-import type { FormErrorNames } from '@constants/interfaces';
+import formValidation from '@utils/formValidation';
 
 const INVISIBLE_CLASSNAME = 'opacity-0 absolute top-0 left-0 -z-10';
 
 export default function ProgressIndicators({
   isMessageSent,
-  isError,
 }: {
   isMessageSent: boolean;
-  isError: [] | FormErrorNames;
 }) {
-  const { pending: isLoading } = useFormStatus(); // TODO: Experimental, revisit in the future.
+  const { pending: isLoading, data } = useFormStatus(); // TODO: Experimental, revisit in the future.
   const t = useText();
+  const { isValidated } = formValidation({
+    email: data?.get('email') as string,
+    subject: data?.get('subject') as string,
+    content: data?.get('content') as string,
+  });
 
   return (
     <>
       <div className='sr-only' aria-live='assertive' role='status'>
-        {!isError.length && isLoading
+        {isValidated && isLoading
           ? t('sendingMessage', inputComponentText)
           : ''}
         {isMessageSent ? t('messageSent', inputComponentText) : ''}
