@@ -159,7 +159,7 @@ export default function ContactForm() {
             isError,
           }) => (
             <InputComponent
-              key={id}
+              key={`input-component-${id}`}
               id={id}
               isReset={isReset}
               placeholder={placeholder}
