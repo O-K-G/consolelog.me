@@ -73,7 +73,7 @@ export default function Section({
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
       aria-hidden={currentSection !== currentTopSection}
-      className={`relative p-4 flex flex-col items-center justify-start min-h-svh size-full overflow-hidden bg-cover ${currentBackgroundImage} ${
+      className={`relative p-4 flex flex-col items-center justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
       } ${className}`}
     >
