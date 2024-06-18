@@ -2,7 +2,7 @@
 
 import { useText } from '@hooks/useText';
 import inputComponentText from '@i18nEn/inputComponentText.json';
-import AlignLeftIcon from '@components/AlignLeftIcon';
+import AlignLeftIcon from '@components/contactForm/AlignLeftIcon';
 import type { BottomInputComponentButtonsProps } from '@constants/interfaces';
 import { useFormStatus } from 'react-dom';
 

@@ -1,12 +1,12 @@
 'use client';
 
-import InputComponent from '@components/InputComponent';
+import InputComponent from '@components/contactForm/InputComponent';
 import { useState } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import DialogBackdrop from '@components/shared/DialogBackdrop';
-import ProgressIndicators from '@components/ProgressIndicators';
-import BottomInputComponentButtons from '@components/BottomInputComponentButtons';
+import ProgressIndicators from '@components/contactForm/ProgressIndicators';
+import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
 import {
   type FormErrorNames,
   type Fields,
