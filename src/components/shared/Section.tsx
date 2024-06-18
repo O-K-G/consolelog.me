@@ -46,8 +46,8 @@ export default function Section({
 
   useEffect(() => {
     const options = {
-      rootMargin: '10px',
-      threshold: 1.0,
+      rootMargin: '0px',
+      threshold: 0,
     };
 
     const handleObserve = (e: IntersectionObserverEntry[]) => {
