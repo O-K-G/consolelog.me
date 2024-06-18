@@ -4,7 +4,7 @@ import Title from '@components/title/Title';
 export default function Experience() {
   return (
     <Section
-      className='h-svh lg:h-dvh w-svw lg:w-dvw'
+      className='h-svh lg:h-dvh'
       backgroundClassName='bg-top-left'
       currentSection='experience'
     >

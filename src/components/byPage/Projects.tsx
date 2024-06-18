@@ -4,7 +4,7 @@ import Title from '@components/title/Title';
 export default function Projects() {
   return (
     <Section
-      className='h-svh lg:h-dvh w-svw lg:w-dvw'
+      className='h-svh lg:h-dvh'
       backgroundClassName='bg-center'
       currentSection='projects'
     >
