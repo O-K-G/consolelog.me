@@ -2,7 +2,7 @@
 
 import { useText } from '@hooks/useText';
 import errorDialog from '@i18nEn/errorDialog.json';
-import CloseIcon from '@components/CloseIcon';
+import CloseIcon from '@components/shared/CloseIcon';
 import type { ErrorDialogProps } from '@constants/interfaces';
 import {
   type ForwardedRef,

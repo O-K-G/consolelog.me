@@ -1,6 +1,6 @@
 import Section from '@components/shared/Section';
 import Title from '@components/title/Title';
-import ContactForm from '@components/ContactForm';
+import ContactForm from '@components/contactForm/ContactForm';
 
 export default function Contact() {
   return (

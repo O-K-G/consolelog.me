@@ -2,7 +2,7 @@
 
 import { useText } from '@hooks/useText';
 import { useFormStatus } from 'react-dom';
-import ProgressIcon from '@components/ProgressIcon';
+import ProgressIcon from '@components/contactForm/ProgressIcon';
 import inputComponentText from '@i18nEn/inputComponentText.json';
 import formValidation from '@utils/formValidation';
 

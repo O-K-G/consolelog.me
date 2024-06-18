@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import type { MutableRefObject, ReactNode } from 'react';
 import { z } from 'zod';
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
 export const CONTACT_FORM_SUBJECT_MIN_LENGTH = 1;
@@ -151,3 +151,8 @@ export const BASE_STATUS_CODES = {
   201: true,
   401: false,
 } as const;
+
+export interface UseHandleObserveAndScrollByPathNameProps
+  extends CurrentSection {
+  sectionRef: MutableRefObject<null>;
+}

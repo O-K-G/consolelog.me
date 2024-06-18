@@ -2,9 +2,9 @@
 
 import { AppContext as appContext } from '@components/shared/AppContext';
 import { type SectionProps } from '@constants/interfaces';
-import { usePathname } from 'next/navigation';
-import { type MutableRefObject, useContext, useEffect, useRef } from 'react';
-import { useScroll } from '@hooks/useScroll';
+import { useContext, useRef } from 'react';
+import useHandleObserve from '@hooks/useHandleObserve';
+import useScrollByPathName from '@hooks/useScrollByPathName';
 
 const BACKGROUND_IMAGES_CLASSNAMES = {
   about: 'bg-about-background',
@@ -20,50 +20,11 @@ export default function Section({
   currentSection,
   backgroundClassName,
 }: SectionProps) {
-  const pathname = usePathname();
   const sectionRef = useRef(null);
-  const handleScroll = useScroll();
-  const {
-    currentTopSection,
-    onChange: setCurrentTopSection,
-    contactSectionRef,
-  } = useContext(appContext);
+  const { currentTopSection } = useContext(appContext);
 
-  useEffect(() => {
-    if (
-      currentSection === 'contact' &&
-      sectionRef.current &&
-      !contactSectionRef.current
-    ) {
-      (contactSectionRef.current as unknown as MutableRefObject<null>) =
-        sectionRef;
-    }
-
-    if (currentSection === pathname?.substring(1)) {
-      handleScroll({ sectionRef });
-    }
-  }, [contactSectionRef, currentSection, handleScroll, pathname]);
-
-  useEffect(() => {
-    const options = {
-      rootMargin: '0px',
-      threshold: 0,
-    };
-
-    const handleObserve = (e: IntersectionObserverEntry[]) => {
-      const { isIntersecting } = e[0];
-
-      if (isIntersecting) {
-        setCurrentTopSection(currentSection);
-      }
-    };
-
-    const observer = new IntersectionObserver(handleObserve, options);
-
-    observer.observe(sectionRef.current as unknown as HTMLElement);
-
-    return () => observer.disconnect();
-  }, [currentSection, setCurrentTopSection]);
+  useScrollByPathName({ currentSection, sectionRef });
+  useHandleObserve({ currentSection, sectionRef });
 
   const currentBackgroundImage =
     BACKGROUND_IMAGES_CLASSNAMES[currentSection] || '';
