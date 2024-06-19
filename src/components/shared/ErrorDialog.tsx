@@ -24,6 +24,7 @@ function ErrorDialog(
 
   return (
     <dialog
+      data-testid='test-error-dialog'
       ref={ref}
       className={`size-full p-4 center-elements bg-transparent ${
         isFade ? 'animate-dialog-fade-in' : ''
@@ -59,6 +60,7 @@ function ErrorDialog(
           </p>
 
           <p
+            data-testid='error-details-test'
             className={`w-full h-1/2 flex overflow-auto border-t pt-4 border-white ${
               errorDetails
                 ? 'items-start justify-start '
