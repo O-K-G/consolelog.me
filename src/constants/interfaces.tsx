@@ -156,3 +156,10 @@ export interface UseHandleObserveAndScrollByPathNameProps
   extends CurrentSection {
   sectionRef: MutableRefObject<null>;
 }
+
+export interface AnchorLinkProps {
+  url: string;
+  icon: ReactNode;
+  isRounded?: boolean;
+  ariaLabel: string;
+}
