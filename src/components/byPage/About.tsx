@@ -2,24 +2,24 @@
 
 import Section from '@components/shared/Section';
 import Title from '@components/title/Title';
-import Old from '@components/Old';
+// import Old from '@components/Old';
 import { useState } from 'react';
 import type { TitleProps } from '@constants/interfaces';
 import Attribution from '@components/Attribution';
 import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
 import ContactMeButton from '@components/shared/ContactMeButton';
-import { useDisableScroll } from '@hooks/useDisableScroll';
+// import { useDisableScroll } from '@hooks/useDisableScroll';
 
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
 const SUBTITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
 const CLICK_TO_OPEN_GLOW_CLASSNAME = "before:content-['click_to_open']";
 
 export default function About() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const t = useText();
   const [isTitleButtonOpen, setIsTitleButtonOpen] = useState(false);
-  const { handleDisableScroll } = useDisableScroll();
+  // const { handleDisableScroll } = useDisableScroll();
 
   return (
     <>
@@ -65,26 +65,26 @@ export default function About() {
 
         <ContactMeButton />
 
-        <button
+        {/* <button
           type='button'
           onClick={() => {
             setOpen(true);
             handleDisableScroll(true);
           }}
-          className='bg-red-500 absolute left-0 bottom-40'
+          className='bg-red-500 absolute right-0 bottom-40'
         >
           TBD
-        </button>
+        </button> */}
         <Attribution />
       </Section>
-      {open && (
+      {/* {open && (
         <Old
           onClick={() => {
             handleDisableScroll(false);
             setOpen(false);
           }}
         />
-      )}
+      )} */}
     </>
   );
 }

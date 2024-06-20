@@ -42,7 +42,7 @@ export default function Attribution() {
     <>
       <button
         type='button'
-        className='bg-red-500 absolute top-96 left-0'
+        className='bg-red-500 absolute top-96 right-0'
         onClick={() => setOpen(true)}
       >
         Attribution - TBD
