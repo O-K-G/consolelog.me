@@ -24,7 +24,7 @@ export default function About() {
   return (
     <>
       <Section
-        className='h-svh lg:h-dvh gap-24 lg:gap-16'
+        className='gap-24 lg:gap-16'
         backgroundClassName='bg-left-top'
         currentSection='about'
       >

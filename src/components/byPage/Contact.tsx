@@ -5,7 +5,7 @@ import ContactForm from '@components/contactForm/ContactForm';
 export default function Contact() {
   return (
     <Section
-      className='gap-2 sm:gap-0 h-[150svh] sm:h-svh lg:h-dvh'
+      className='gap-2 sm:gap-0'
       backgroundClassName='bg-center'
       currentSection='contact'
     >

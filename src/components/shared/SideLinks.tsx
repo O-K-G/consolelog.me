@@ -32,9 +32,9 @@ export default function SideLinks() {
   return (
     <nav
       aria-label={t('navAriaLabel', sideLinks)}
-      className='fixed left-0 top-0 sm:bottom-0 w-24 sm:w-16 p-1 h-fit z-10 overflow-hidden mt-[0.35rem] sm:my-auto ml-4'
+      className='fixed left-0 top-0 sm:bottom-0 w-24 sm:w-16 p-1 h-fit z-10 overflow-hidden mt-[0.1rem] sm:my-auto ml-4'
     >
-      <ul className='size-full center-elements sm:flex-col gap-4 sm:gap-16 '>
+      <ul className='size-full center-elements sm:flex-col gap-1 sm:gap-16 '>
         <AnchorLink
           isRounded
           ariaLabel={t('ghLinkAriaLabel', sideLinks)}
