@@ -16,7 +16,7 @@ function AnchorLink({ url, icon, isRounded, ariaLabel }: AnchorLinkProps) {
         aria-label={ariaLabel}
         rel='noreferrer'
         target='_blank'
-        className={`relative p-2 overflow-hidden size-full center-elements group outline-none before:size-full before:bg-transparent focus:before:bg-black/30 before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:-z-10 ${
+        className={`transition-300 hover:scale-150 active:scale-150 focus:scale-150 overflow-hidden size-full center-elements group outline-none ${
           !isRounded ? '' : 'rounded-full'
         }`}
       >
@@ -32,9 +32,9 @@ export default function SideLinks() {
   return (
     <nav
       aria-label={t('navAriaLabel', sideLinks)}
-      className='fixed left-0 top-0 sm:bottom-0 w-24 sm:w-16 p-1 h-fit z-10 overflow-hidden mt-[0.1rem] sm:my-auto ml-4'
+      className='fixed left-0 top-0 sm:bottom-0 w-16 h-fit z-10 mt-[0.75rem] sm:my-auto ml-4'
     >
-      <ul className='size-full center-elements sm:flex-col gap-1 sm:gap-16 '>
+      <ul className='size-full center-elements sm:flex-col gap-1.5 sm:gap-10 '>
         <AnchorLink
           isRounded
           ariaLabel={t('ghLinkAriaLabel', sideLinks)}
