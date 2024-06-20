@@ -12,6 +12,7 @@ export default function Contact() {
   return (
     <Section
       className='gap-8'
+      defaultHeight='min-h-svh lg:min-h-dvh'
       backgroundClassName='bg-center'
       currentSection='contact'
     >
