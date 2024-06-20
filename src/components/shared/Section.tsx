@@ -34,7 +34,7 @@ export default function Section({
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
       aria-hidden={currentSection !== currentTopSection}
-      className={`relative p-4 flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
+      className={`relative p-4 flex flex-col items-center min-h-svh lg:min-h-dvh w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
       } ${className}`}
     >
