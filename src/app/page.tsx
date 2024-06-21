@@ -9,7 +9,7 @@ import Loader from '@components/Loader';
 
 export default function Home() {
   return (
-    <main className='min-h-[100svh] lg:min-h-[100dvh] overflow-hidden'>
+    <main className='min-h-svh lg:min-h-dvh overflow-hidden'>
       <Loader />
       <AppContextComponent>
         <About />

@@ -1,8 +1,7 @@
 'use client';
 
-import { AppContext as appContext } from '@components/shared/AppContext';
 import { type SectionProps } from '@constants/interfaces';
-import { useContext, useRef } from 'react';
+import { useRef } from 'react';
 import useHandleObserve from '@hooks/useHandleObserve';
 import useScrollByPathName from '@hooks/useScrollByPathName';
 
@@ -22,7 +21,6 @@ export default function Section({
   backgroundClassName,
 }: SectionProps) {
   const sectionRef = useRef(null);
-  const { currentTopSection } = useContext(appContext);
 
   useScrollByPathName({ currentSection, sectionRef });
   useHandleObserve({ currentSection, sectionRef });
@@ -34,7 +32,6 @@ export default function Section({
     <section
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
-      aria-hidden={currentSection !== currentTopSection}
       className={`relative p-4 flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
       } ${defaultHeight} ${className}`}
