@@ -18,9 +18,9 @@ function Column({ children }: { children: any }) {
 function SkillBlock({ str }: { str: string }) {
   return (
     <div className='group w-[10.047rem] h-[4.92225rem] lg:w-[13.396rem] lg:h-[6.563rem] p-1 shrink-0 center-elements bg-black/30 hover:bg-black/70 overflow-hidden border-2 border-title-purple'>
-      <div className='transition-300 size-full group-hover:scale-110 break-words text-center center-elements text-white font-montserrat text-base md:text-xl'>
+      <li className='transition-300 size-full group-hover:scale-110 break-words text-center center-elements text-white font-montserrat text-base md:text-xl'>
         {str}
-      </div>
+      </li>
     </div>
   );
 }
@@ -45,7 +45,7 @@ export default function Skills() {
         textColorClassName='text-white before:lg:text-title-purple'
         beforeTextStrokeClassName='title-text-stroke-purple-narrow-dark'
       />
-      <div className='flex items-start justify-center flex-wrap gap-x-4 h-full overflow-y-auto'>
+      <ul className='flex items-start justify-center flex-wrap gap-4 h-full overflow-y-auto'>
         <Column>
           {['React.js', 'Next.js', 'Node.js', 'Express.js'].map((str) => (
             <SkillBlock key={str} str={str} />
@@ -70,7 +70,7 @@ export default function Skills() {
             )
           )}
         </Column>
-      </div>
+      </ul>
     </Section>
   );
 }
