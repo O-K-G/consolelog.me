@@ -39,6 +39,12 @@ export interface TitleProps extends TitleLabels {
   alternativeLabel?: string;
   className?: string;
   border?: boolean;
+  beforeBlurClassName?: string;
+  fontClassName?: string;
+  textSizeClassName?: string;
+  textColorClassName?: string;
+  beforeTextStrokeClassName?: string;
+  textStrokeClassName?: string;
 }
 
 export interface OldschoolButtonProps {

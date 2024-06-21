@@ -54,6 +54,7 @@ export default function About() {
               alternativeLabel: t('alternativeLabel', about),
               isButton: true,
               open: isTitleButtonOpen,
+              textStrokeClassName: 'title-text-stroke-white',
               onClick: () => setIsTitleButtonOpen((prevValue) => !prevValue),
               className:
                 'w-[33.333333svw] h-[33.333333svw] sm:w-[25svw] sm:h-[25svw] md:w-[20dvw] md:h-[20dvw] data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3 border sm:border-2 md:border-[0.188rem] data-[open=true]:border-title-purple',
