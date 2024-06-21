@@ -17,21 +17,21 @@ export default function Title({
   bottomLabel,
   border = false,
   alternativeLabel,
+  beforeBlurClassName = 'before:blur-[0.09rem] lg:before:blur-[0.125rem]',
+  fontClassName = 'font-just-in-the-firestorm',
+  textSizeClassName = 'text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl',
+  textColorClassName = 'text-transparent before:text-transparent',
+  beforeTextStrokeClassName = 'before:title-text-stroke-purple',
+  textStrokeClassName = 'title-text-stroke-purple',
 }: TitleProps) {
-  const containerClassName = !isButton
-    ? ''
-    : 'border-transparent z-10 transition-1000';
-
-  const componentClassName = !isButton
-    ? 'title-text-stroke-purple'
-    : 'title-text-stroke-white';
-
-  const sharedClassName = `uppercase before:uppercase before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap before:blur-[0.09rem] lg:before:blur-[0.125rem] before:text-transparent center-elements flex-wrap text-transparent size-full before:title-text-stroke-purple ${componentClassName} ${labelGlowText}`;
+  const sharedClassName = `uppercase text-center before:uppercase before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap center-elements flex-wrap size-full ${beforeTextStrokeClassName} ${textStrokeClassName} ${beforeBlurClassName} ${labelGlowText} ${textColorClassName}`;
 
   return (
     <div
       data-open={open}
-      className={`group flex flex-col items-center justify-between shrink-0 font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl relative ${containerClassName} ${className}`}
+      className={`group flex flex-col items-center justify-between shrink-0 relative ${
+        !isButton ? '' : 'border-transparent z-10 transition-1000'
+      } ${fontClassName} ${textSizeClassName} ${className}`}
     >
       {isButton && <AboutTargetIcon open={!!open} />}
       {border && <Border label={topLabel} />}
