@@ -2,7 +2,7 @@ import { SKILLS_LISTS } from '@constants/skillsLists';
 
 function Column({ children }: { children: any }) {
   return (
-    <div className='flex justify-start items-center flex-col gap-y-4 z-10 min-w-1/4'>
+    <div className='w-[45%] max-w-[10.047rem] sm:max-w-[auto] sm:w-[10.047rem] lg:w-[13.396rem] flex justify-start items-center flex-col gap-y-4 z-10 min-w-1/4'>
       {children}
     </div>
   );
@@ -10,8 +10,8 @@ function Column({ children }: { children: any }) {
 
 function SkillBlock({ str }: { str: string }) {
   return (
-    <div className='group w-[10.047rem] h-[4.92225rem] lg:w-[13.396rem] lg:h-[6.563rem] p-1 shrink-0 center-elements bg-black/30 hover:bg-black/70 overflow-hidden border-2 border-title-purple'>
-      <li className='transition-300 size-full group-hover:scale-110 break-words text-center center-elements text-white font-montserrat text-base md:text-xl'>
+    <div className='transition-300 group hover:scale-110 w-full h-[4.92225rem] lg:h-[6.563rem] p-1 shrink-0 center-elements bg-black/30 hover:bg-black/70 overflow-hidden border-2 border-title-purple'>
+      <li className='size-full break-words text-center center-elements text-white font-montserrat text-sm sm:text-base md:text-xl'>
         {str}
       </li>
     </div>
@@ -20,7 +20,7 @@ function SkillBlock({ str }: { str: string }) {
 
 export default function SkillsList() {
   return (
-    <ul className='flex items-start justify-center flex-wrap gap-4 h-full overflow-y-auto'>
+    <ul className='flex items-start justify-center flex-wrap p-2.5 gap-4 h-full'>
       {SKILLS_LISTS.map((obj) => {
         const col = Object.keys(obj)[0];
 
