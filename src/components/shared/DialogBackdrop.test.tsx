@@ -65,6 +65,24 @@ describe('DialogBackdrop and ErrorDialog components', () => {
     });
   });
 
+  test('should close the dialog when Escape key is pressed', async () => {
+    const onClose = jest.fn();
+    render(
+      <DialogBackdrop
+        open={true}
+        onClose={onClose}
+        errorDetails={errorDetails}
+      />
+    );
+
+    fireEvent.keyDown(window, { key: 'Escape' });
+    fireEvent.animationEnd(screen.getByRole('presentation'));
+
+    await waitFor(() => {
+      expect(onClose).toHaveBeenCalled();
+    });
+  });
+
   test("Displays ErrorDialog's error details correctly", () => {
     render(
       <ErrorDialog
