@@ -1,7 +1,7 @@
 'use client';
 
 import type { DialogBackdropProps } from '@constants/interfaces';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDisableScroll } from '@hooks/useDisableScroll';
 import ErrorDialog from '@components/shared/ErrorDialog';
 
@@ -15,23 +15,16 @@ export default function DialogBackdrop({
   const dialogContainerRef = useRef(null);
   const dialogRef = useRef(null);
 
-  const handleTransitionEnd = () => {
+  const handleTransitionEnd = useCallback(() => {
     handleDisableScroll(false);
     setIsFade(null);
     onClose?.();
     (
       dialogContainerRef.current as unknown as HTMLDivElement
     )?.removeEventListener('animationend', handleTransitionEnd);
-  };
+  }, [handleDisableScroll, onClose]);
 
-  useEffect(() => {
-    if (isFade === null && open) {
-      handleDisableScroll(true);
-      setIsFade(true);
-    }
-  }, [handleDisableScroll, isFade, open]);
-
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (dialogRef.current) {
       (dialogRef.current as HTMLDialogElement).close();
     }
@@ -40,7 +33,22 @@ export default function DialogBackdrop({
       'animationend',
       handleTransitionEnd
     );
-  };
+  }, [handleTransitionEnd]);
+
+  useEffect(() => {
+    const handleEsc = ({ key }: { key: string }) => {
+      if (key === 'Escape') {
+        handleClick();
+        window.removeEventListener('keydown', handleEsc);
+      }
+    };
+
+    if (isFade === null && open) {
+      handleDisableScroll(true);
+      setIsFade(true);
+      window.addEventListener('keydown', handleEsc);
+    }
+  }, [handleClick, handleDisableScroll, isFade, open]);
 
   if (open) {
     return (
