@@ -32,7 +32,7 @@ export default function Section({
     <section
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
-      className={`relative p-4 flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
+      className={`relative pt-20 md:pt-40 px-4 pb-4 flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
       } ${defaultHeight} ${className}`}
     >

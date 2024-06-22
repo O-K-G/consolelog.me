@@ -24,7 +24,7 @@ export default function About() {
   return (
     <>
       <Section
-        className='gap-24 lg:gap-16'
+        className='gap-10'
         backgroundClassName='bg-left-top'
         currentSection='about'
       >
@@ -51,13 +51,17 @@ export default function About() {
               id: 2,
               label: t('clickToOpen', about),
               labelGlowText: CLICK_TO_OPEN_GLOW_CLASSNAME,
+              alternatingButtonsAriaLabelPrefix: t(
+                'alternativeLabelAriaLabel',
+                about
+              ),
               alternativeLabel: t('alternativeLabel', about),
               isButton: true,
               open: isTitleButtonOpen,
               textStrokeClassName: 'title-text-stroke-white',
               onClick: () => setIsTitleButtonOpen((prevValue) => !prevValue),
               className:
-                'w-[33.333333svw] h-[33.333333svw] sm:w-[25svw] sm:h-[25svw] md:w-[20dvw] md:h-[20dvw] data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3 border sm:border-2 md:border-[0.188rem] data-[open=true]:border-title-purple',
+                'w-24 h-20 sm:w-36 sm:h-28 md:w-44 md:h-32 lg:w-52 lg:h-40 data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3 border sm:border-2 md:border-[0.188rem] data-[open=true]:border-title-purple',
             },
           ] as TitleProps[]
         ).map(({ id, ...rest }) => (

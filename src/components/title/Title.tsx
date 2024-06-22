@@ -17,14 +17,15 @@ export default function Title({
   bottomLabel,
   border = false,
   alternativeLabel,
+  alternatingButtonsAriaLabelPrefix,
   beforeBlurClassName = 'before:blur-[0.09rem] lg:before:blur-[0.125rem]',
   fontClassName = 'font-just-in-the-firestorm',
-  textSizeClassName = 'text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl',
+  textSizeClassName = 'text-base sm:text-2xl md:text-3xl lg:text-4xl',
   textColorClassName = 'text-transparent before:text-transparent',
   beforeTextStrokeClassName = 'before:title-text-stroke-purple',
   textStrokeClassName = 'title-text-stroke-purple',
 }: TitleProps) {
-  const sharedClassName = `uppercase text-center before:uppercase before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap center-elements flex-wrap size-full ${beforeTextStrokeClassName} ${textStrokeClassName} ${beforeBlurClassName} ${labelGlowText} ${textColorClassName}`;
+  const sharedClassName = `z-10 uppercase text-center before:uppercase before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap center-elements flex-wrap size-full ${beforeTextStrokeClassName} ${textStrokeClassName} ${beforeBlurClassName} ${labelGlowText} ${textColorClassName}`;
 
   return (
     <div
@@ -53,6 +54,7 @@ export default function Title({
           onClick={onClick}
           label={label}
           alternativeLabel={alternativeLabel}
+          ariaLabelPrefix={alternatingButtonsAriaLabelPrefix}
         />
       )}
       {border && <Border leftLabel label={bottomLabel} />}
