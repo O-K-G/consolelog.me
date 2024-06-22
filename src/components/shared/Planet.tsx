@@ -22,7 +22,7 @@ export default function Planet() {
 
   return (
     <div
-      className={`before:-translate-y-[5%] before:blur-lg before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] before:from-[#00B1FF] before:to-transparent before:block before:size-[98%] before:rounded-full rounded-full fixed translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto size-[40svh] max-h-[75svw] max-w-[75svw] md:size-[75dvh] md:max-h-[75dvw] md:max-w-[75dvw] transition-1000 ${
+      className={`size-[100svw] lg:size-[65dvw] before:-translate-y-[5%] before:blur-lg before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] before:from-[#00B1FF] before:to-transparent before:block before:size-[98%] before:rounded-full rounded-full fixed translate-y-[60%] md:translate-y-[70%] bottom-0 left-0 right-0 mx-auto transition-1000 ${
         rotationClasses || ''
       }`}
     >
@@ -30,7 +30,7 @@ export default function Planet() {
         data-testid='planet-test'
         src={`/planet.webp?cacheVersion=${CACHE_VERSION}`}
         fill
-        sizes='(max-width: 767px) 50svw, (min-width: 768px) 100dvw'
+        sizes='(max-width: 767px) 100svw, (min-width: 768px) 100dvw'
         loading='eager'
         alt='planet with astronauts'
         aria-hidden

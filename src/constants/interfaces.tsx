@@ -45,6 +45,7 @@ export interface TitleProps extends TitleLabels {
   textColorClassName?: string;
   beforeTextStrokeClassName?: string;
   textStrokeClassName?: string;
+  alternatingButtonsAriaLabelPrefix?: string;
 }
 
 export interface OldschoolButtonProps {
@@ -83,6 +84,7 @@ export interface AlternatingButtonsProps {
   onClick?: () => void;
   label?: string;
   alternativeLabel?: string;
+  ariaLabelPrefix?: string;
 }
 
 export interface BorderProps {
