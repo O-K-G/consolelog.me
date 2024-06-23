@@ -1,8 +1,9 @@
 import Section from '@components/shared/Section';
-import Title from '@components/title/Title';
+import Title from '@components/shared/title/Title';
 import skills from '@i18nEn/skills.json';
 import { useText } from '@hooks/useText';
 import SkillsList from '@components/SkillsList';
+import Subtitle from '@components/shared/Subtitle';
 
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_skills']";
 const SUBTITLE_GLOW_CLASSNAME =
@@ -23,16 +24,11 @@ export default function Skills() {
         border
       />
 
-      <Title
+      <Subtitle
         label={t('subtitle', skills)}
         labelGlowText={SUBTITLE_GLOW_CLASSNAME}
-        beforeBlurClassName='lg:before:blur-[2rem]'
-        fontClassName='font-bebas-neue'
-        textSizeClassName='text-2xl sm:text-3xl lg:text-5xl xl:text-7xl'
-        textColorClassName='text-white'
-        textStrokeClassName='lg:title-text-stroke-purple'
-        beforeTextStrokeClassName='before:lg:title-text-stroke-purple-narrow-dark'
       />
+
       <SkillsList />
     </Section>
   );

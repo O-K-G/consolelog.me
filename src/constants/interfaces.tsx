@@ -48,6 +48,11 @@ export interface TitleProps extends TitleLabels {
   alternatingButtonsAriaLabelPrefix?: string;
 }
 
+export interface SubtitleProps {
+  label: string;
+  labelGlowText: string;
+}
+
 export interface OldschoolButtonProps {
   label: string;
   onClick: () => void;
@@ -184,4 +189,8 @@ export interface CogwheelProps {
 
 export interface BoltProps {
   centerPointClassName?: string;
+}
+
+export interface ClickToOpenButtonProps {
+  alternativeLabel: string;
 }
