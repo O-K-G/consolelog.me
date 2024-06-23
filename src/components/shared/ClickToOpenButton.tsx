@@ -17,10 +17,6 @@ export function ClickToOpenButton({
       alternativeLabel={alternativeLabel}
       label={t('clickToOpen', clickToOpenButtonText)}
       labelGlowText={CLICK_TO_OPEN_GLOW_CLASSNAME}
-      alternatingButtonsAriaLabelPrefix={t(
-        'alternativeLabelAriaLabel',
-        clickToOpenButtonText
-      )}
       isButton
       open={isTitleButtonOpen}
       textStrokeClassName='title-text-stroke-white'
