@@ -11,8 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        test: 'test 1s linear infinite',
         'flash-loader-text': 'flash-loader-text 1s linear infinite',
+        'left-to-right-bar': 'left-to-right-bar 1s linear infinite',
         'dialog-backdrop-fade-in':
           'dialog-backdrop-fade-in 0.2s linear forwards',
         'dialog-backdrop-fade-out':
@@ -21,7 +21,12 @@ const config: Config = {
         'dialog-fade-out': 'dialog-fade-out 0.2s linear forwards',
       },
       keyframes: {
-        test: {
+        'flash-loader-text': {
+          '50%': {
+            opacity: '0',
+          },
+        },
+        'left-to-right-bar': {
           '0%': {
             left: '0',
             opacity: '0%',
@@ -36,11 +41,6 @@ const config: Config = {
             left: '100%',
             opacity: '0%',
             backgroundColor: 'white',
-          },
-        },
-        'flash-loader-text': {
-          '50%': {
-            opacity: '0',
           },
         },
         'dialog-backdrop-fade-in': {

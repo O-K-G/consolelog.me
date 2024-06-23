@@ -11,12 +11,16 @@ function Cogwheel({
   childrenClassName = 'center-elements',
   bgClassName = 'bg-blue-300',
   className = '',
+  dataTestid,
 }: CogwheelProps) {
   const cogwheelClassName =
     'absolute top-0 bottom-0 left-0 right-0 m-auto size-full rounded-md';
 
   return (
-    <div className={`relative animate-spin ${sizeClassName} ${className}`}>
+    <div
+      data-testid={dataTestid}
+      className={`relative animate-spin ${sizeClassName} ${className}`}
+    >
       <div className={`${cogwheelClassName} ${bgClassName}`} />
       <div className={`${cogwheelClassName} ${bgClassName} rotate-45`}>
         <div
@@ -48,7 +52,7 @@ function LoadingText() {
         {LOADING_TEXT}
       </div>
       <div className='bg-sky-500 h-6 w-full relative overflow-hidden rounded-sm'>
-        <div className='animate-test absolute h-full w-4' />
+        <div className='animate-left-to-right-bar absolute h-full w-4' />
       </div>
     </div>
   );
@@ -109,7 +113,10 @@ export default function Loader() {
         isLoderVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <Cogwheel childrenClassName='flex items-start justify-center'>
+      <Cogwheel
+        dataTestid='loader-test'
+        childrenClassName='flex items-start justify-center'
+      >
         <CogwheelsSeparator>
           {[
             {
