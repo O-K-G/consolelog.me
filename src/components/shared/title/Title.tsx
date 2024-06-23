@@ -1,9 +1,7 @@
-/* eslint-disable multiline-ternary */
-
 import type { TitleProps } from '@constants/interfaces';
-import AboutTargetIcon from '@components/title/AboutTargetIcon';
-import { AlternatingButtons } from '@components/title/AlternatingButtons';
-import Border from '@components/title/border';
+import AboutTargetIcon from '@components/shared/title/AboutTargetIcon';
+import { AlternatingButtons } from '@components/shared/title/AlternatingButtons';
+import Border from '@components/shared/title/border';
 
 export default function Title({
   open,

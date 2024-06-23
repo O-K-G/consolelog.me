@@ -1,5 +1,5 @@
 import Section from '@components/shared/Section';
-import Title from '@components/title/Title';
+import Title from '@components/shared/title/Title';
 import ContactForm from '@components/contactForm/ContactForm';
 import { useText } from '@hooks/useText';
 import content from '@i18nEn/contact.json';

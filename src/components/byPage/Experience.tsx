@@ -1,5 +1,5 @@
 import Section from '@components/shared/Section';
-import Title from '@components/title/Title';
+import Title from '@components/shared/title/Title';
 
 export default function Experience() {
   return (
