@@ -1,5 +1,3 @@
-'use client';
-
 import type { AlternatingButtonsProps } from '@constants/interfaces';
 
 const ARIA_LABEL_COLLAPSED = 'collapsed -';
