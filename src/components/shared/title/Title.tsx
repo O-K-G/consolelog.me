@@ -15,7 +15,6 @@ export default function Title({
   bottomLabel,
   border = false,
   alternativeLabel,
-  alternatingButtonsAriaLabelPrefix,
   beforeBlurClassName = 'before:blur-[0.09rem] lg:before:blur-[0.125rem]',
   fontClassName = 'font-just-in-the-firestorm',
   textSizeClassName = 'text-base sm:text-2xl md:text-3xl lg:text-4xl',
@@ -52,7 +51,6 @@ export default function Title({
           onClick={onClick}
           label={label}
           alternativeLabel={alternativeLabel}
-          ariaLabelPrefix={alternatingButtonsAriaLabelPrefix}
         />
       )}
       {border && <Border leftLabel label={bottomLabel} />}
