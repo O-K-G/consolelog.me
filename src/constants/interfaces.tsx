@@ -172,3 +172,15 @@ export interface AnchorLinkProps {
   isRounded?: boolean;
   ariaLabel: string;
 }
+
+export interface CogwheelProps {
+  sizeClassName?: string;
+  children?: ReactNode;
+  childrenClassName?: string;
+  bgClassName?: string;
+  className?: string;
+}
+
+export interface BoltProps {
+  centerPointClassName?: string;
+}
