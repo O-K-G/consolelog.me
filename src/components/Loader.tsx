@@ -48,7 +48,7 @@ function Bolt({ centerPointClassName = '' }: BoltProps) {
 function LoadingText() {
   return (
     <div className='flex justify-center items-start flex-col w-full sm:w-auto px-4 sm:px-0'>
-      <div className='font-mono w-full text-center text-xl animate-flash-loader-text text-sky-500'>
+      <div className='font-mono w-full text-center text-base sm:text-xl animate-flash-loader-text text-sky-500'>
         {LOADING_TEXT}
       </div>
       <div className='bg-sky-500 h-6 w-full relative overflow-hidden rounded-sm'>
