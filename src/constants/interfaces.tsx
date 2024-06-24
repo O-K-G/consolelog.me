@@ -28,15 +28,12 @@ interface TitleLabels {
 export interface TitleProps extends TitleLabels {
   id?: number;
   open?: boolean;
-  onClick?: () => void;
   component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  isButton?: boolean;
-  label: string;
+  label?: string;
   /** Must be in the following format: ' ... before:content-['some_string'] ',
    * as JIT mode can't handle template literals.
    */
-  labelGlowText: string;
-  alternativeLabel?: string;
+  labelGlowText?: string;
   className?: string;
   border?: boolean;
   beforeBlurClassName?: string;
@@ -45,6 +42,7 @@ export interface TitleProps extends TitleLabels {
   textColorClassName?: string;
   beforeTextStrokeClassName?: string;
   textStrokeClassName?: string;
+  children?: ReactNode;
 }
 
 export interface SubtitleProps {
@@ -83,7 +81,7 @@ export interface AttributionDialogProps {
 }
 
 export interface AlternatingButtonsProps {
-  sharedClassName?: string;
+  className?: string;
   open?: boolean;
   onClick?: () => void;
   label?: string;
