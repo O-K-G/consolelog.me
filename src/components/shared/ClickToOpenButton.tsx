@@ -1,8 +1,9 @@
 import type { ClickToOpenButtonProps } from '@constants/interfaces';
-import Title from '@components/shared/title/Title';
 import { useState } from 'react';
 import clickToOpenButtonText from '@i18nEn/clickToOpenButton.json';
 import { useText } from '@hooks/useText';
+import { AlternatingButtons } from '@components/shared/title/AlternatingButtons';
+import AboutTargetIcon from '@components/shared/title/AboutTargetIcon';
 
 const CLICK_TO_OPEN_GLOW_CLASSNAME = "before:content-['click_to_open']";
 
@@ -13,15 +14,21 @@ export function ClickToOpenButton({
   const [isTitleButtonOpen, setIsTitleButtonOpen] = useState(false);
 
   return (
-    <Title
-      alternativeLabel={alternativeLabel}
-      label={t('clickToOpen', clickToOpenButtonText)}
-      labelGlowText={CLICK_TO_OPEN_GLOW_CLASSNAME}
-      isButton
-      open={isTitleButtonOpen}
-      textStrokeClassName='title-text-stroke-white'
-      onClick={() => setIsTitleButtonOpen((prevValue) => !prevValue)}
-      className='w-24 h-20 sm:w-36 sm:h-28 md:w-44 md:h-32 lg:w-52 lg:h-40 data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3 border sm:border-2 md:border-[0.188rem] data-[open=true]:border-title-purple'
-    />
+    <div
+      data-open={isTitleButtonOpen}
+      className='group transition-1000 z-10 relative w-24 h-20 sm:w-36 sm:h-28 md:w-44 md:h-32 lg:w-52 lg:h-40 data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3 border sm:border-2 md:border-[0.188rem] border-transparent data-[open=true]:border-title-purple'
+    >
+      <AboutTargetIcon open={!!isTitleButtonOpen} />
+
+      <AlternatingButtons
+        className={CLICK_TO_OPEN_GLOW_CLASSNAME}
+        open={isTitleButtonOpen}
+        onClick={() => setIsTitleButtonOpen((prevValue) => !prevValue)}
+        label={t('clickToOpen', clickToOpenButtonText)}
+        alternativeLabel={alternativeLabel}
+      />
+
+      <AboutTargetIcon bottom open={!!isTitleButtonOpen} />
+    </div>
   );
 }
