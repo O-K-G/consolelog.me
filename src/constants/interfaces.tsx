@@ -41,7 +41,6 @@ export interface TitleProps extends TitleLabels {
   textColorClassName?: string;
   beforeTextStrokeClassName?: string;
   textStrokeClassName?: string;
-  children?: ReactNode;
 }
 
 export interface SubtitleProps {

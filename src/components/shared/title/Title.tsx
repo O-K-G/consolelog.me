@@ -15,25 +15,24 @@ export default function Title({
   textColorClassName = 'text-transparent before:text-transparent',
   beforeTextStrokeClassName = 'before:title-text-stroke-purple',
   textStrokeClassName = 'title-text-stroke-purple',
-  children,
 }: TitleProps) {
   return (
     <div
       className={`flex flex-col items-center justify-between shrink-0 relative ${fontClassName} ${textSizeClassName} ${className}`}
     >
       {border && <Border label={topLabel} />}
-      {children ?? (
-        <Component
-          aria-label={
-            topLabel ?? bottomLabel
-              ? `${topLabel} - ${label} - ${bottomLabel}`
-              : label
-          }
-          className={`relative z-10 uppercase text-center before:uppercase before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap center-elements flex-wrap size-full ${beforeTextStrokeClassName} ${textStrokeClassName} ${beforeBlurClassName} ${labelGlowText} ${textColorClassName}`}
-        >
-          {label}
-        </Component>
-      )}
+
+      <Component
+        aria-label={
+          topLabel ?? bottomLabel
+            ? `${topLabel} - ${label} - ${bottomLabel}`
+            : label
+        }
+        className={`relative z-10 uppercase text-center before:uppercase before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:pointer-events-none before:select-none before:size-full before:center-elements before:flex-wrap center-elements flex-wrap size-full ${beforeTextStrokeClassName} ${textStrokeClassName} ${beforeBlurClassName} ${labelGlowText} ${textColorClassName}`}
+      >
+        {label}
+      </Component>
+
       {border && <Border leftLabel label={bottomLabel} />}
     </div>
   );
