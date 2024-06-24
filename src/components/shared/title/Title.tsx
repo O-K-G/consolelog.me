@@ -2,7 +2,6 @@ import type { TitleProps } from '@constants/interfaces';
 import Border from '@components/shared/title/border';
 
 export default function Title({
-  open,
   component: Component = 'h2',
   label,
   labelGlowText,
@@ -20,7 +19,6 @@ export default function Title({
 }: TitleProps) {
   return (
     <div
-      data-open={open}
       className={`flex flex-col items-center justify-between shrink-0 relative ${fontClassName} ${textSizeClassName} ${className}`}
     >
       {border && <Border label={topLabel} />}

@@ -27,7 +27,6 @@ interface TitleLabels {
 
 export interface TitleProps extends TitleLabels {
   id?: number;
-  open?: boolean;
   component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   label?: string;
   /** Must be in the following format: ' ... before:content-['some_string'] ',
