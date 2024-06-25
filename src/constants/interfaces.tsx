@@ -207,3 +207,8 @@ export interface IconButtonProps {
   className?: string;
   disabled?: boolean;
 }
+
+export interface SideLinksProps {
+  className?: string;
+  ulClassName?: string;
+}
