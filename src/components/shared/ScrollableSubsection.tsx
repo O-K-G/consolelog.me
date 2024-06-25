@@ -35,7 +35,7 @@ export default function ScrollableSubsection({
   const handleSidescroll = useHandleSidescroll({ childrenRefsArray });
 
   return (
-    <div className='z-10 relative size-full center-elements'>
+    <div className='z-10 size-full center-elements'>
       <IconButton
         onClick={() => handleSidescroll(false)}
         className={`${BUTTONS_CLASSNAME} left-0 rotate-180`}

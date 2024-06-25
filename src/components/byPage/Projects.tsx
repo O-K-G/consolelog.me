@@ -3,7 +3,6 @@
 import Section from '@components/shared/Section';
 import Title from '@components/shared/title/Title';
 import { useText } from '@hooks/useText';
-import skills from '@i18nEn/skills.json';
 import projects from '@i18nEn/projects.json';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
 import Subtitle from '@components/shared/Subtitle';
@@ -18,7 +17,8 @@ export default function Projects() {
   const t = useText();
   const subsection1 = useRef(null);
   const subsection2 = useRef(null);
-  const childrenRefsArray = [subsection1, subsection2];
+  const subsection3 = useRef(null);
+  const childrenRefsArray = [subsection1, subsection2, subsection3];
 
   return (
     <Section backgroundClassName='bg-center' currentSection='projects'>
@@ -30,7 +30,7 @@ export default function Projects() {
       <ScrollableSubsection childrenRefsArray={childrenRefsArray}>
         <ScrollableSubsection.Item ref={subsection1}>
           <Subtitle
-            label={t('subtitle', skills)}
+            label={t('subtitle', projects)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />
 
@@ -41,7 +41,18 @@ export default function Projects() {
 
         <ScrollableSubsection.Item ref={subsection2}>
           <Subtitle
-            label={t('subtitle', skills)}
+            label={t('subtitle', projects)}
+            labelGlowText={SUBTITLE_GLOW_CLASSNAME}
+          />
+
+          <ClickToOpenButton
+            alternativeLabel={t('alternativeLabel', projects)}
+          />
+        </ScrollableSubsection.Item>
+
+        <ScrollableSubsection.Item ref={subsection3}>
+          <Subtitle
+            label={t('subtitle', projects)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />
 
