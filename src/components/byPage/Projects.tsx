@@ -28,10 +28,7 @@ export default function Projects() {
         border
       />
       <ScrollableSubsection childrenRefsArray={childrenRefsArray}>
-        <div
-          ref={subsection1}
-          className='border border-yellow-500 h-full min-w-full center-elements flex-col gap-24'
-        >
+        <ScrollableSubsection.Item ref={subsection1}>
           <Subtitle
             label={t('subtitle', skills)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
@@ -40,11 +37,9 @@ export default function Projects() {
           <ClickToOpenButton
             alternativeLabel={t('alternativeLabel', projects)}
           />
-        </div>
-        <div
-          ref={subsection2}
-          className='border border-green-500 h-full min-w-full center-elements flex-col gap-24'
-        >
+        </ScrollableSubsection.Item>
+
+        <ScrollableSubsection.Item ref={subsection2}>
           <Subtitle
             label={t('subtitle', skills)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
@@ -53,7 +48,7 @@ export default function Projects() {
           <ClickToOpenButton
             alternativeLabel={t('alternativeLabel', projects)}
           />
-        </div>
+        </ScrollableSubsection.Item>
       </ScrollableSubsection>
     </Section>
   );

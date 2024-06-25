@@ -2,6 +2,7 @@ import type { ScrollableSubsectionProps } from '@constants/interfaces';
 import useHandleSidescroll from '@/hooks/useHandleSidescroll';
 import ArrowrightIcon from '@components/ArrowRightIcon';
 import IconButton from '@components/shared/IconButton';
+import { forwardRef, type ForwardedRef, type ReactNode } from 'react';
 
 const BUTTONS_CLASSNAME =
   'h-1/6 absolute top-0 bottom-0 my-auto disabled:opacity-30';
@@ -12,6 +13,20 @@ const ICONS_CLASSNAME = {
   strokeClassName:
     'stroke-title-purple group-hover:stroke-white group-active:stroke-[#75629f] group-focus:stroke-title-purple',
 };
+
+function ScrollableSubsectionItem(
+  { children }: { children: ReactNode },
+  ref: ForwardedRef<HTMLDivElement>
+) {
+  return (
+    <div
+      ref={ref}
+      className='h-full min-w-full center-elements flex-col gap-24'
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function ScrollableSubsection({
   children,
@@ -41,3 +56,5 @@ export default function ScrollableSubsection({
     </div>
   );
 }
+
+ScrollableSubsection.Item = forwardRef(ScrollableSubsectionItem);
