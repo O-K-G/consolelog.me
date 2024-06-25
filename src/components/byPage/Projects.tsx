@@ -19,7 +19,11 @@ export default function Projects() {
   const childrenRefsArray = [subsection1, subsection2];
 
   return (
-    <Section backgroundClassName='bg-center' currentSection='projects'>
+    <Section
+      backgroundClassName='bg-center'
+      currentSection='projects'
+      className='z-10'
+    >
       <Title
         label={t('mainTitle', projects)}
         labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}

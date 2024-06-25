@@ -3,7 +3,11 @@ import Title from '@components/shared/title/Title';
 
 export default function Experience() {
   return (
-    <Section backgroundClassName='bg-top-left' currentSection='experience'>
+    <Section
+      backgroundClassName='bg-top-left'
+      currentSection='experience'
+      className='z-10'
+    >
       <Title label='experience' labelGlowText='experience' />
     </Section>
   );
