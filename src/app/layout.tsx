@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from 'next';
 import '@root/src/app/globals.css';
 import localFont from 'next/font/local';
 import { Bebas_Neue, Montserrat } from 'next/font/google';
-import SideLinks from '@components/shared/SideLinks';
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
@@ -51,10 +50,7 @@ export default function RootLayout({
 
   return (
     <html lang='en'>
-      <body className={className}>
-        <SideLinks />
-        {children}
-      </body>
+      <body className={className}>{children}</body>
     </html>
   );
 }

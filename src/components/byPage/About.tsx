@@ -8,6 +8,8 @@ import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
 import ContactMeButton from '@components/shared/ContactMeButton';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
+import SideLinks from '@components/shared/SideLinks';
+
 // import { useDisableScroll } from '@hooks/useDisableScroll';
 
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
@@ -42,6 +44,7 @@ export default function About() {
         <ClickToOpenButton alternativeLabel={t('alternativeLabel', about)} />
 
         <ContactMeButton />
+        <SideLinks />
 
         {/* <button
           type='button'

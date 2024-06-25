@@ -1,4 +1,4 @@
-import type { AnchorLinkProps } from '@constants/interfaces';
+import type { AnchorLinkProps, SideLinksProps } from '@constants/interfaces';
 import GHIcon from '@components/GHIcon';
 import LIIcon from '@components/LIIcon';
 import { URLs } from '@constants/urls';
@@ -26,15 +26,15 @@ function AnchorLink({ url, icon, isRounded, ariaLabel }: AnchorLinkProps) {
   );
 }
 
-export default function SideLinks() {
+export default function SideLinks({
+  className = 'fixed left-0 top-0 sm:bottom-0 w-16 h-fit z-10 mt-[0.75rem] sm:my-auto ml-4',
+  ulClassName = 'size-full center-elements sm:flex-col gap-4 sm:gap-10',
+}: SideLinksProps) {
   const t = useText();
 
   return (
-    <nav
-      aria-label={t('navAriaLabel', sideLinks)}
-      className='fixed left-0 top-0 sm:bottom-0 w-16 h-fit z-10 mt-[0.75rem] sm:my-auto ml-4'
-    >
-      <ul className='size-full center-elements sm:flex-col gap-1.5 sm:gap-10 '>
+    <nav aria-label={t('navAriaLabel', sideLinks)} className={className}>
+      <ul className={ulClassName}>
         <AnchorLink
           isRounded
           ariaLabel={t('ghLinkAriaLabel', sideLinks)}

@@ -22,7 +22,7 @@ export default function ContactMeButton() {
         })
       }
       type='button'
-      className='uppercase outline-none fixed font-bebas-neue top-0 right-0 z-10 text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl mt-4 mr-4'
+      className='uppercase outline-none fixed font-bebas-neue top-0 right-0 z-20 text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl mt-4 mr-4'
     >
       {t('contactMe', contactMe)}
     </button>

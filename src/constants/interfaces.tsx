@@ -188,3 +188,27 @@ export interface BoltProps {
 export interface ClickToOpenButtonProps {
   alternativeLabel: string;
 }
+
+export interface ScrollableSubsectionProps {
+  children: ReactNode;
+  childrenRefsArray: Array<MutableRefObject<null>>;
+}
+
+export interface ArrowrightIconProps {
+  className?: string;
+  strokeClassName: string;
+  fillClassName: string;
+}
+
+export interface IconButtonProps {
+  onClick: () => void;
+  'aria-label': string;
+  icon: ReactNode;
+  className?: string;
+  disabled?: boolean;
+}
+
+export interface SideLinksProps {
+  className?: string;
+  ulClassName?: string;
+}
