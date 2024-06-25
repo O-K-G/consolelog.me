@@ -188,3 +188,8 @@ export interface BoltProps {
 export interface ClickToOpenButtonProps {
   alternativeLabel: string;
 }
+
+export interface ScrollableSubsectionProps {
+  children: ReactNode;
+  childrenRefsArray: Array<MutableRefObject<null>>;
+}
