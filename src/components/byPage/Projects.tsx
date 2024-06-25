@@ -16,7 +16,8 @@ export default function Projects() {
   const t = useText();
   const subsection1 = useRef(null);
   const subsection2 = useRef(null);
-  const childrenRefsArray = [subsection1, subsection2];
+  const subsection3 = useRef(null);
+  const childrenRefsArray = [subsection1, subsection2, subsection3];
 
   return (
     <Section
@@ -42,6 +43,17 @@ export default function Projects() {
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item ref={subsection2}>
+          <Subtitle
+            label={t('subtitle', projects)}
+            labelGlowText={SUBTITLE_GLOW_CLASSNAME}
+          />
+
+          <ClickToOpenButton
+            alternativeLabel={t('alternativeLabel', projects)}
+          />
+        </ScrollableSubsection.Item>
+
+        <ScrollableSubsection.Item ref={subsection3}>
           <Subtitle
             label={t('subtitle', projects)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}

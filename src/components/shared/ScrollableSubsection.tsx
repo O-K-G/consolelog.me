@@ -32,11 +32,14 @@ export default function ScrollableSubsection({
   children,
   childrenRefsArray,
 }: ScrollableSubsectionProps) {
-  const handleSidescroll = useHandleSidescroll({ childrenRefsArray });
+  const { handleSidescroll, disableLeft, disableRight } = useHandleSidescroll({
+    childrenRefsArray,
+  });
 
   return (
     <div className='z-10 size-full center-elements'>
       <IconButton
+        disabled={disableLeft}
         onClick={() => handleSidescroll(false)}
         className={`${BUTTONS_CLASSNAME} left-0 rotate-180 ml-4`}
         aria-label='Scroll left'
@@ -48,6 +51,7 @@ export default function ScrollableSubsection({
       </div>
 
       <IconButton
+        disabled={disableRight}
         onClick={() => handleSidescroll(true)}
         className={`${BUTTONS_CLASSNAME} right-0 mr-4`}
         aria-label='Scroll right'
