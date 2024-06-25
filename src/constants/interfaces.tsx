@@ -193,3 +193,17 @@ export interface ScrollableSubsectionProps {
   children: ReactNode;
   childrenRefsArray: Array<MutableRefObject<null>>;
 }
+
+export interface ArrowrightIconProps {
+  className?: string;
+  strokeClassName: string;
+  fillClassName: string;
+}
+
+export interface IconButtonProps {
+  onClick: () => void;
+  'aria-label': string;
+  icon: ReactNode;
+  className?: string;
+  disabled?: boolean;
+}

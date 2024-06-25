@@ -1,5 +1,14 @@
 import type { ScrollableSubsectionProps } from '@constants/interfaces';
 import useHandleSidescroll from '@/hooks/useHandleSidescroll';
+import ArrowrightIcon from '@components/ArrowRightIcon';
+import IconButton from '@components/shared/IconButton';
+
+const ICONS_CLASSNAME = {
+  fillClassName:
+    'fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple',
+  strokeClassName:
+    'stroke-title-purple group-hover:stroke-white group-active:stroke-[#75629f] group-focus:stroke-title-purple',
+};
 
 export default function ScrollableSubsection({
   children,
@@ -9,26 +18,26 @@ export default function ScrollableSubsection({
 
   return (
     <div className='z-10 relative size-full center-elements border-2 border-blue-500'>
-      <button
+      <IconButton
         onClick={() => handleSidescroll(false)}
-        type='button'
-        className='absolute top-0 bottom-0 my-auto left-0'
-      >
-        Left
-      </button>
+        className='h-1/6 absolute top-0 bottom-0 my-auto left-0 rotate-180'
+        aria-label='Scroll left'
+        icon={<ArrowrightIcon {...ICONS_CLASSNAME} />}
+      />
+
       <div
         style={{ scrollbarWidth: 'none' }}
         className='size-full flex items-center justify-start overflow-y-hidden overflow-x-auto border border-red-500'
       >
         {children}
       </div>
-      <button
+
+      <IconButton
         onClick={() => handleSidescroll(true)}
-        type='button'
-        className='absolute top-0 bottom-0 my-auto right-0'
-      >
-        Right
-      </button>
+        className='h-1/6 absolute top-0 bottom-0 my-auto right-0 disabled:opacity-30'
+        aria-label='Scroll right'
+        icon={<ArrowrightIcon {...ICONS_CLASSNAME} />}
+      />
     </div>
   );
 }
