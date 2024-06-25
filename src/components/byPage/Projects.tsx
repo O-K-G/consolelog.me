@@ -10,8 +10,7 @@ import ScrollableSubsection from '@components/shared/ScrollableSubsection';
 import { useRef } from 'react';
 
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_projects']";
-const SUBTITLE_GLOW_CLASSNAME =
-  "before:content-['here_is_a_list_of_some_of_my_skills']";
+const SUBTITLE_GLOW_CLASSNAME = "before:content-['project_x']";
 
 export default function Projects() {
   const t = useText();
