@@ -8,7 +8,6 @@ import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
 import ContactMeButton from '@components/shared/ContactMeButton';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
-import SideLinks from '@components/shared/SideLinks';
 
 // import { useDisableScroll } from '@hooks/useDisableScroll';
 
@@ -44,7 +43,6 @@ export default function About() {
         <ClickToOpenButton alternativeLabel={t('alternativeLabel', about)} />
 
         <ContactMeButton />
-        <SideLinks />
 
         {/* <button
           type='button'

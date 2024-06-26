@@ -4,6 +4,7 @@ import skills from '@i18nEn/skills.json';
 import { useText } from '@hooks/useText';
 import SkillsList from '@components/SkillsList';
 import Subtitle from '@components/shared/Subtitle';
+import SideLinks from '@components/shared/SideLinks';
 
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_skills']";
 const SUBTITLE_GLOW_CLASSNAME =
@@ -30,6 +31,7 @@ export default function Skills() {
       />
 
       <SkillsList />
+      <SideLinks />
     </Section>
   );
 }

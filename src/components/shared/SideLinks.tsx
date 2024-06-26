@@ -8,7 +8,12 @@ import { useText } from '@hooks/useText';
 const ICONS_CLASSNAME =
   'fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple size-full shrink-0';
 
-function AnchorLink({ url, icon, isRounded, ariaLabel }: AnchorLinkProps) {
+function AnchorLink({
+  url,
+  icon,
+  isRounded,
+  'aria-label': ariaLabel,
+}: AnchorLinkProps) {
   return (
     <li>
       <a
@@ -27,7 +32,7 @@ function AnchorLink({ url, icon, isRounded, ariaLabel }: AnchorLinkProps) {
 }
 
 export default function SideLinks({
-  className = 'fixed left-0 top-0 sm:bottom-0 w-16 h-fit z-10 mt-[0.75rem] sm:my-auto ml-4',
+  className = 'fixed left-0 top-0 sm:bottom-0 w-16 h-fit mt-[0.75rem] sm:my-auto ml-4',
   ulClassName = 'size-full center-elements sm:flex-col gap-4 sm:gap-10',
 }: SideLinksProps) {
   const t = useText();
@@ -37,12 +42,12 @@ export default function SideLinks({
       <ul className={ulClassName}>
         <AnchorLink
           isRounded
-          ariaLabel={t('ghLinkAriaLabel', sideLinks)}
+          aria-label={t('ghLinkAriaLabel', sideLinks)}
           url={URLs.gitHub}
           icon={<GHIcon className={ICONS_CLASSNAME} />}
         />
         <AnchorLink
-          ariaLabel={t('liLinkAriaLabel', sideLinks)}
+          aria-label={t('liLinkAriaLabel', sideLinks)}
           url={URLs.linkedIn}
           icon={<LIIcon className={ICONS_CLASSNAME} />}
         />
