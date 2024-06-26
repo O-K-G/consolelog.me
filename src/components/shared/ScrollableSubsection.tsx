@@ -1,6 +1,7 @@
 import ArrowrightIcon from '@components/ArrowRightIcon';
 import IconButton from '@components/shared/IconButton';
 import { useRef, type ReactNode, Children } from 'react';
+import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
@@ -31,14 +32,7 @@ export default function ScrollableSubsection({
 }) {
   const scrollableRef = useRef(null);
   let clickedTimesNext = 0;
-
-  const handleHorizontalScroll = (num: number) => {
-    (scrollableRef.current as unknown as HTMLDivElement).scrollTo({
-      top: 0,
-      left: num,
-      behavior: 'smooth',
-    });
-  };
+  const { handleHorizontalScroll } = useHandleHorizontalScroll();
 
   return (
     <div className='z-10 size-full center-elements'>
@@ -46,7 +40,10 @@ export default function ScrollableSubsection({
         onClick={() => {
           if (clickedTimesNext !== 0) {
             clickedTimesNext -= 1;
-            handleHorizontalScroll(window.innerWidth / clickedTimesNext);
+            handleHorizontalScroll({
+              num: window.innerWidth / clickedTimesNext,
+              scrollableRef,
+            });
           }
         }}
         className={`${BUTTONS_CLASSNAME} left-0 rotate-180 ml-4`}
@@ -65,7 +62,10 @@ export default function ScrollableSubsection({
         onClick={() => {
           if (clickedTimesNext < Children.count(children) - 1) {
             clickedTimesNext += 1;
-            handleHorizontalScroll(window.innerWidth * clickedTimesNext);
+            handleHorizontalScroll({
+              num: window.innerWidth * clickedTimesNext,
+              scrollableRef,
+            });
           }
         }}
         className={`${BUTTONS_CLASSNAME} right-0 mr-4`}
