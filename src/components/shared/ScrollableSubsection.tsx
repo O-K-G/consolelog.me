@@ -6,12 +6,21 @@ import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
 
-const ICONS_CLASSNAME = {
-  fillClassName:
-    'fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple',
-  strokeClassName:
-    'stroke-title-purple group-hover:stroke-white group-active:stroke-[#75629f] group-focus:stroke-title-purple',
-};
+function ArrorIconComponent() {
+  return (
+    <div className='relative shrink-0 center-elements size-full'>
+      <ArrowrightIcon
+        fillClassName='fill-black/30'
+        strokeClassName='stroke-black/30'
+        className='hidden fill-black/30 group-focus:block scale-150 -z-10 absolute m-auto top-0 bottom-0 right-0 left-0 size-full'
+      />
+      <ArrowrightIcon
+        fillClassName='fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple'
+        strokeClassName='stroke-title-purple group-hover:stroke-white group-active:stroke-[#75629f] group-focus:stroke-title-purple'
+      />
+    </div>
+  );
+}
 
 export function ScrollableSubsectionItem({
   children,
@@ -48,7 +57,7 @@ export default function ScrollableSubsection({
         }}
         className={`${BUTTONS_CLASSNAME} left-0 rotate-180 ml-4`}
         aria-label='Scroll left'
-        icon={<ArrowrightIcon {...ICONS_CLASSNAME} />}
+        icon={<ArrorIconComponent />}
       />
 
       <div
@@ -70,7 +79,7 @@ export default function ScrollableSubsection({
         }}
         className={`${BUTTONS_CLASSNAME} right-0 mr-4`}
         aria-label='Scroll right'
-        icon={<ArrowrightIcon {...ICONS_CLASSNAME} />}
+        icon={<ArrorIconComponent />}
       />
     </div>
   );
