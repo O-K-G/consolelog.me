@@ -7,17 +7,12 @@ import projects from '@i18nEn/projects.json';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
 import Subtitle from '@components/shared/Subtitle';
 import ScrollableSubsection from '@components/shared/ScrollableSubsection';
-import { useRef } from 'react';
 
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_projects']";
 const SUBTITLE_GLOW_CLASSNAME = "before:content-['project_x']";
 
 export default function Projects() {
   const t = useText();
-  const subsection1 = useRef(null);
-  const subsection2 = useRef(null);
-  const subsection3 = useRef(null);
-  const childrenRefsArray = [subsection1, subsection2, subsection3];
 
   return (
     <Section
@@ -30,8 +25,8 @@ export default function Projects() {
         labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}
         border
       />
-      <ScrollableSubsection childrenRefsArray={childrenRefsArray}>
-        <ScrollableSubsection.Item ref={subsection1}>
+      <ScrollableSubsection>
+        <ScrollableSubsection.Item>
           <Subtitle
             label={t('subtitle', projects)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
@@ -42,7 +37,7 @@ export default function Projects() {
           />
         </ScrollableSubsection.Item>
 
-        <ScrollableSubsection.Item ref={subsection2}>
+        <ScrollableSubsection.Item>
           <Subtitle
             label={t('subtitle', projects)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
@@ -53,7 +48,7 @@ export default function Projects() {
           />
         </ScrollableSubsection.Item>
 
-        <ScrollableSubsection.Item ref={subsection3}>
+        <ScrollableSubsection.Item>
           <Subtitle
             label={t('subtitle', projects)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}

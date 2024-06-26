@@ -189,11 +189,6 @@ export interface ClickToOpenButtonProps {
   alternativeLabel: string;
 }
 
-export interface ScrollableSubsectionProps {
-  children: ReactNode;
-  childrenRefsArray: Array<MutableRefObject<null>>;
-}
-
 export interface ArrowrightIconProps {
   className?: string;
   strokeClassName: string;

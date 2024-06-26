@@ -1,8 +1,6 @@
-import type { ScrollableSubsectionProps } from '@constants/interfaces';
-import useHandleSidescroll from '@/hooks/useHandleSidescroll';
 import ArrowrightIcon from '@components/ArrowRightIcon';
 import IconButton from '@components/shared/IconButton';
-import { forwardRef, type ForwardedRef, type ReactNode } from 'react';
+import { useRef, type ReactNode } from 'react';
 
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
@@ -14,15 +12,13 @@ const ICONS_CLASSNAME = {
     'stroke-title-purple group-hover:stroke-white group-active:stroke-[#75629f] group-focus:stroke-title-purple',
 };
 
-function ScrollableSubsectionItem(
-  { children }: { children: ReactNode },
-  ref: ForwardedRef<HTMLDivElement>
-) {
+export function ScrollableSubsectionItem({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
-    <div
-      ref={ref}
-      className='h-full snap-center min-w-full center-elements flex-col gap-24'
-    >
+    <div className='h-full min-w-full center-elements flex-col gap-24'>
       {children}
     </div>
   );
@@ -30,29 +26,48 @@ function ScrollableSubsectionItem(
 
 export default function ScrollableSubsection({
   children,
-  childrenRefsArray,
-}: ScrollableSubsectionProps) {
-  const { handleSidescroll, disableLeft, disableRight } = useHandleSidescroll({
-    childrenRefsArray,
-  });
+}: {
+  children: ReactNode;
+}) {
+  const scrollableRef = useRef(null);
+  let clickedTimesNext = 0;
 
   return (
     <div className='z-10 size-full center-elements'>
       <IconButton
-        disabled={disableLeft}
-        onClick={() => handleSidescroll(false)}
+        onClick={() => {
+          if (clickedTimesNext !== 0) {
+            clickedTimesNext -= 1;
+            (scrollableRef.current as unknown as HTMLDivElement).scrollTo({
+              top: 0,
+              left: window.innerWidth / clickedTimesNext,
+              behavior: 'smooth',
+            });
+          }
+        }}
         className={`${BUTTONS_CLASSNAME} left-0 rotate-180 ml-4`}
         aria-label='Scroll left'
         icon={<ArrowrightIcon {...ICONS_CLASSNAME} />}
       />
 
-      <div className='hide-scrollbars snap-x snap-mandatory size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'>
+      <div
+        ref={scrollableRef}
+        className='hide-scrollbars size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
+      >
         {children}
       </div>
 
       <IconButton
-        disabled={disableRight}
-        onClick={() => handleSidescroll(true)}
+        onClick={() => {
+          if (clickedTimesNext <= 2) {
+            clickedTimesNext += 1;
+            (scrollableRef.current as unknown as HTMLDivElement).scrollTo({
+              top: 0,
+              left: window.innerWidth * clickedTimesNext,
+              behavior: 'smooth',
+            });
+          }
+        }}
         className={`${BUTTONS_CLASSNAME} right-0 mr-4`}
         aria-label='Scroll right'
         icon={<ArrowrightIcon {...ICONS_CLASSNAME} />}
@@ -61,4 +76,4 @@ export default function ScrollableSubsection({
   );
 }
 
-ScrollableSubsection.Item = forwardRef(ScrollableSubsectionItem);
+ScrollableSubsection.Item = ScrollableSubsectionItem;
