@@ -169,7 +169,7 @@ export interface AnchorLinkProps {
   url: string;
   icon: ReactNode;
   isRounded?: boolean;
-  ariaLabel: string;
+  'aria-label': string;
 }
 
 export interface CogwheelProps {
