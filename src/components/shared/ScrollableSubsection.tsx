@@ -6,7 +6,7 @@ import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
 
-function ArrorIconComponent() {
+function ArrowIconComponent() {
   return (
     <div className='relative shrink-0 center-elements size-full'>
       <ArrowrightIcon
@@ -57,7 +57,7 @@ export default function ScrollableSubsection({
         }}
         className={`${BUTTONS_CLASSNAME} left-0 rotate-180 ml-4`}
         aria-label='Scroll left'
-        icon={<ArrorIconComponent />}
+        icon={<ArrowIconComponent />}
       />
 
       <div
@@ -79,7 +79,7 @@ export default function ScrollableSubsection({
         }}
         className={`${BUTTONS_CLASSNAME} right-0 mr-4`}
         aria-label='Scroll right'
-        icon={<ArrorIconComponent />}
+        icon={<ArrowIconComponent />}
       />
     </div>
   );
