@@ -27,7 +27,7 @@ function AnchorLink({ url, icon, isRounded, ariaLabel }: AnchorLinkProps) {
 }
 
 export default function SideLinks({
-  className = 'fixed left-0 top-0 sm:bottom-0 w-16 h-fit z-10 mt-[0.75rem] sm:my-auto ml-4',
+  className = 'fixed left-0 top-0 sm:bottom-0 w-16 h-fit mt-[0.75rem] sm:my-auto ml-4',
   ulClassName = 'size-full center-elements sm:flex-col gap-4 sm:gap-10',
 }: SideLinksProps) {
   const t = useText();
