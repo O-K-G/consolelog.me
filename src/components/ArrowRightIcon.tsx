@@ -1,10 +1,10 @@
-import type { ArrowrightIconProps } from '@constants/interfaces';
+import type { ArrowRightIconProps } from '@constants/interfaces';
 
-export default function ArrowrightIcon({
+export default function ArrowRightIcon({
   className,
   strokeClassName,
   fillClassName,
-}: ArrowrightIconProps) {
+}: ArrowRightIconProps) {
   return (
     <svg
       viewBox='0 0 54 105'
