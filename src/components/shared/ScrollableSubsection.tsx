@@ -19,7 +19,7 @@ export function ScrollableSubsectionItem({
   children: ReactNode;
 }) {
   return (
-    <div className='h-full min-w-full center-elements flex-col gap-24'>
+    <div className='h-full snap-center min-w-full center-elements flex-col gap-24'>
       {children}
     </div>
   );
@@ -53,7 +53,7 @@ export default function ScrollableSubsection({
 
       <div
         ref={scrollableRef}
-        className='hide-scrollbars size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
+        className='hide-scrollbars snap-x snap-mandatory size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
       >
         {children}
       </div>
