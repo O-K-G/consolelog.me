@@ -63,7 +63,7 @@ export default function ScrollableSubsection({
 
       <IconButton
         onClick={() => {
-          if (clickedTimesNext <= Children.count(children) - 1) {
+          if (clickedTimesNext < Children.count(children) - 1) {
             clickedTimesNext += 1;
             handleHorizontalScroll(window.innerWidth * clickedTimesNext);
           }
