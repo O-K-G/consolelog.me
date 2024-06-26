@@ -1,5 +1,5 @@
 import { useScroll } from '@hooks/useScroll';
-import { useEffect, useState, type MutableRefObject } from 'react';
+import { type MutableRefObject } from 'react';
 
 export default function useHandleSidescroll({
   childrenRefsArray,
@@ -7,34 +7,32 @@ export default function useHandleSidescroll({
   childrenRefsArray: Array<MutableRefObject<null>>;
 }) {
   const handleScroll = useScroll();
-  const [currentSubsection, setCurrentSubsection] = useState(0);
-
-  useEffect(
-    () =>
-      handleScroll({
-        sectionRef: childrenRefsArray[currentSubsection],
-      }),
-    [childrenRefsArray, currentSubsection, handleScroll]
-  );
+  let currentSubsection = 0;
 
   const handleSidescroll = (val: boolean) => {
     if (val) {
       const nextSubsection = currentSubsection + 1;
 
       if (childrenRefsArray[nextSubsection]) {
-        return setCurrentSubsection(nextSubsection);
+        currentSubsection = nextSubsection;
+        return handleScroll({
+          sectionRef: childrenRefsArray[nextSubsection],
+        });
       }
     } else {
       const previousSubsection = currentSubsection - 1;
 
       if (childrenRefsArray[previousSubsection]) {
-        return setCurrentSubsection(previousSubsection);
+        currentSubsection = previousSubsection;
+        return handleScroll({
+          sectionRef: childrenRefsArray[previousSubsection],
+        });
       }
     }
   };
 
-  const disableLeft = !currentSubsection;
-  const disableRight = currentSubsection === childrenRefsArray.length - 1;
+  const disableLeft = false;
+  const disableRight = false;
 
   return { handleSidescroll, disableLeft, disableRight };
 }
