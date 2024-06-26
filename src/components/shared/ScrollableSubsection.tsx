@@ -1,6 +1,6 @@
 import ArrowrightIcon from '@components/ArrowRightIcon';
 import IconButton from '@components/shared/IconButton';
-import { useRef, type ReactNode } from 'react';
+import { useRef, type ReactNode, Children } from 'react';
 
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
@@ -59,7 +59,7 @@ export default function ScrollableSubsection({
 
       <IconButton
         onClick={() => {
-          if (clickedTimesNext <= 2) {
+          if (clickedTimesNext <= Children.count(children) - 1) {
             clickedTimesNext += 1;
             (scrollableRef.current as unknown as HTMLDivElement).scrollTo({
               top: 0,
