@@ -189,7 +189,7 @@ export interface ClickToOpenButtonProps {
   alternativeLabel: string;
 }
 
-export interface ArrowrightIconProps {
+export interface ArrowRightIconProps {
   className?: string;
   strokeClassName: string;
   fillClassName: string;
