@@ -8,6 +8,7 @@ import {
   cloneElement,
   useState,
   type PropsWithChildren,
+  useEffect,
 } from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 
@@ -53,7 +54,10 @@ export default function ScrollableSubsection({
 }) {
   const scrollableRef = useRef(null);
   const { handleHorizontalScroll } = useHandleHorizontalScroll();
-  const [selectedSubsection, setSelectedSubsection] = useState(0);
+  const [selectedSubsection, setSelectedSubsection] = useState<null | number>(
+    null
+  );
+  const initializedSelectedSubsectionValue = selectedSubsection ?? 0;
 
   const childrenWithId = Children.map(children, (child, index) => {
     if (isValidElement(child)) {
@@ -63,13 +67,49 @@ export default function ScrollableSubsection({
     }
   });
 
+  const { children: clds } = scrollableRef.current ?? { children: null };
+
+  useEffect(() => {
+    const options = {
+      rootMargin: '0px',
+      threshold: 1,
+    };
+
+    const handleObserve = (e: IntersectionObserverEntry[], id: number) => {
+      const { isIntersecting } = e[0];
+
+      if (isIntersecting && id !== selectedSubsection) {
+        setSelectedSubsection(id);
+      }
+    };
+
+    if (clds) {
+      Object.values(clds).forEach((ch, index) => {
+        const { id } = childrenWithId?.[index]?.props as ChildrenWithIdProps;
+        const observer = new IntersectionObserver(
+          (e) => handleObserve(e, id),
+          options
+        );
+        observer.observe(ch as HTMLDivElement);
+
+        return () => observer.disconnect();
+      });
+    }
+
+    if (selectedSubsection === null) {
+      setSelectedSubsection(0);
+    }
+  }, [childrenWithId, clds, selectedSubsection]);
+
   return (
     <div className='z-10 size-full center-elements'>
       <IconButton
-        disabled={!selectedSubsection}
+        disabled={!initializedSelectedSubsectionValue}
         onClick={() => {
           const isZero =
-            selectedSubsection - 1 > 0 ? selectedSubsection - 1 : 0;
+            initializedSelectedSubsectionValue - 1 > 0
+              ? initializedSelectedSubsectionValue - 1
+              : 0;
 
           const id = (childrenWithId?.[isZero]?.props as ChildrenWithIdProps)
             ?.id;
@@ -95,10 +135,12 @@ export default function ScrollableSubsection({
       </div>
 
       <IconButton
-        disabled={selectedSubsection + 1 === childrenWithId?.length}
+        disabled={
+          initializedSelectedSubsectionValue + 1 === childrenWithId?.length
+        }
         onClick={() => {
           const id = (
-            childrenWithId?.[selectedSubsection + 1]
+            childrenWithId?.[initializedSelectedSubsectionValue + 1]
               ?.props as ChildrenWithIdProps
           )?.id;
 
