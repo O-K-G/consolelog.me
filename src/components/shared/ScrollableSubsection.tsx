@@ -40,7 +40,7 @@ export function ScrollableSubsectionItem({
   children: ReactNode;
 }) {
   return (
-    <div className='h-full snap-center min-w-full center-elements flex-col gap-24'>
+    <div className='h-full snap-center min-w-full flex items-center justify-start flex-col gap-24'>
       {children}
     </div>
   );
