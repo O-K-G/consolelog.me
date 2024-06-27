@@ -7,8 +7,13 @@ import {
   isValidElement,
   cloneElement,
   useState,
+  type PropsWithChildren,
 } from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
+
+interface ChildrenWithIdProps extends PropsWithChildren {
+  id: number;
+}
 
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
@@ -65,7 +70,9 @@ export default function ScrollableSubsection({
         onClick={() => {
           const isZero =
             selectedSubsection - 1 > 0 ? selectedSubsection - 1 : 0;
-          const id = childrenWithId?.[isZero]?.props?.id;
+
+          const id = (childrenWithId?.[isZero]?.props as ChildrenWithIdProps)
+            ?.id;
 
           if (id || id === 0) {
             setSelectedSubsection(id);
@@ -90,7 +97,10 @@ export default function ScrollableSubsection({
       <IconButton
         disabled={selectedSubsection + 1 === childrenWithId?.length}
         onClick={() => {
-          const id = childrenWithId?.[selectedSubsection + 1]?.props?.id;
+          const id = (
+            childrenWithId?.[selectedSubsection + 1]
+              ?.props as ChildrenWithIdProps
+          )?.id;
 
           if (id) {
             setSelectedSubsection(id);
