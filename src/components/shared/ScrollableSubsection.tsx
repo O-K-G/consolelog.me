@@ -60,7 +60,7 @@ export const ScrollableSubsectionItem = forwardRef(
       const options = {
         root: (scrollableRef as MutableRefObject<HTMLDivElement>)?.current,
         rootMargin: '0px',
-        threshold: 1,
+        threshold: 0.5,
       };
 
       const handleObserve = (e: IntersectionObserverEntry[]) => {
