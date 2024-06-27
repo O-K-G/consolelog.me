@@ -8,6 +8,12 @@ import {
   cloneElement,
   useState,
   type PropsWithChildren,
+  type MutableRefObject,
+  forwardRef,
+  type ForwardedRef,
+  useEffect,
+  type Dispatch,
+  type SetStateAction,
 } from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 
@@ -34,17 +40,56 @@ function ArrowIconComponent() {
   );
 }
 
-export function ScrollableSubsectionItem({
-  children,
-}: {
-  children: ReactNode;
-}) {
-  return (
-    <div className='h-full snap-center min-w-full flex items-center justify-start flex-col gap-24'>
-      {children}
-    </div>
-  );
-}
+export const ScrollableSubsectionItem = forwardRef(
+  function ScrollableSubsectionItem(
+    {
+      children,
+      onSubsectionSelectChange: setSubsectionSelectChange,
+      id,
+    }: {
+      children: ReactNode;
+      onSubsectionSelectChange: Dispatch<SetStateAction<number>>;
+      id: number;
+    },
+    ref: ForwardedRef<HTMLDivElement>
+  ) {
+    const scrollableRef = ref;
+    const scrollableItemRef = useRef(null);
+
+    useEffect(() => {
+      const options = {
+        root: (scrollableRef as MutableRefObject<HTMLDivElement>)?.current,
+        rootMargin: '0px',
+        threshold: 1,
+      };
+
+      const handleObserve = (e: IntersectionObserverEntry[]) => {
+        const { isIntersecting } = e[0];
+
+        if (isIntersecting) {
+          setSubsectionSelectChange(id);
+        }
+      };
+
+      const observer = new IntersectionObserver(handleObserve, options);
+      observer.observe(
+        (scrollableItemRef as unknown as MutableRefObject<HTMLDivElement>)
+          ?.current
+      );
+
+      return () => observer.disconnect();
+    }, [id, scrollableRef, setSubsectionSelectChange]);
+
+    return (
+      <div
+        ref={scrollableItemRef}
+        className='h-full snap-center min-w-full flex items-center justify-start flex-col gap-24'
+      >
+        {children}
+      </div>
+    );
+  }
+);
 
 export default function ScrollableSubsection({
   children,
@@ -59,7 +104,9 @@ export default function ScrollableSubsection({
     if (isValidElement(child)) {
       return cloneElement(child, {
         id: index,
-      } as { id: number });
+        ref: scrollableRef,
+        onSubsectionSelectChange: setSelectedSubsection,
+      } as { id: number; ref: MutableRefObject<null>; onSubsectionSelectChange: Dispatch<SetStateAction<number>> });
     }
   });
 
