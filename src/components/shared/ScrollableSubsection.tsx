@@ -1,7 +1,19 @@
 import ArrowRightIcon from '@components/ArrowRightIcon';
 import IconButton from '@components/shared/IconButton';
-import { useRef, type ReactNode, Children } from 'react';
+import {
+  useRef,
+  type ReactNode,
+  Children,
+  isValidElement,
+  cloneElement,
+  useState,
+  type PropsWithChildren,
+} from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
+
+interface ChildrenWithIdProps extends PropsWithChildren {
+  id: number;
+}
 
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
@@ -40,17 +52,32 @@ export default function ScrollableSubsection({
   children: ReactNode;
 }) {
   const scrollableRef = useRef(null);
-  let clickedTimesNext = 0;
   const { handleHorizontalScroll } = useHandleHorizontalScroll();
+  const [selectedSubsection, setSelectedSubsection] = useState(0);
+
+  const childrenWithId = Children.map(children, (child, index) => {
+    if (isValidElement(child)) {
+      return cloneElement(child, {
+        id: index,
+      } as { id: number });
+    }
+  });
 
   return (
     <div className='z-10 size-full center-elements'>
       <IconButton
+        disabled={!selectedSubsection}
         onClick={() => {
-          if (clickedTimesNext !== 0) {
-            clickedTimesNext -= 1;
+          const isZero =
+            selectedSubsection - 1 > 0 ? selectedSubsection - 1 : 0;
+
+          const id = (childrenWithId?.[isZero]?.props as ChildrenWithIdProps)
+            ?.id;
+
+          if (id || id === 0) {
+            setSelectedSubsection(id);
             handleHorizontalScroll({
-              num: window.innerWidth / clickedTimesNext,
+              num: typeof window === 'object' ? window.innerWidth / id : 0,
               scrollableRef,
             });
           }
@@ -64,15 +91,21 @@ export default function ScrollableSubsection({
         ref={scrollableRef}
         className='hide-scrollbars snap-x snap-mandatory size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
       >
-        {children}
+        {childrenWithId}
       </div>
 
       <IconButton
+        disabled={selectedSubsection + 1 === childrenWithId?.length}
         onClick={() => {
-          if (clickedTimesNext < Children.count(children) - 1) {
-            clickedTimesNext += 1;
+          const id = (
+            childrenWithId?.[selectedSubsection + 1]
+              ?.props as ChildrenWithIdProps
+          )?.id;
+
+          if (id) {
+            setSelectedSubsection(id);
             handleHorizontalScroll({
-              num: window.innerWidth * clickedTimesNext,
+              num: typeof window === 'object' ? window.innerWidth * id : 0,
               scrollableRef,
             });
           }
