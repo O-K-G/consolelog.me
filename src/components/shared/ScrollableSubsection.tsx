@@ -8,6 +8,7 @@ import {
   cloneElement,
   useState,
   type PropsWithChildren,
+  useEffect,
 } from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 
@@ -54,6 +55,9 @@ export default function ScrollableSubsection({
   const scrollableRef = useRef(null);
   const { handleHorizontalScroll } = useHandleHorizontalScroll();
   const [selectedSubsection, setSelectedSubsection] = useState(0);
+  const [currentVisibleSubsectionId, setCurrentVisibleSubsectionId] =
+    useState(0);
+  console.log(currentVisibleSubsectionId);
 
   const childrenWithId = Children.map(children, (child, index) => {
     if (isValidElement(child)) {
@@ -62,6 +66,36 @@ export default function ScrollableSubsection({
       } as { id: number });
     }
   });
+
+  const { children: clds } = scrollableRef.current ?? { children: null };
+
+  useEffect(() => {
+    const options = {
+      rootMargin: '0px',
+      threshold: 1,
+    };
+
+    const handleObserve = (e: IntersectionObserverEntry[], id: number) => {
+      const { isIntersecting } = e[0];
+
+      if (isIntersecting && id !== currentVisibleSubsectionId) {
+        setCurrentVisibleSubsectionId(id);
+      }
+    };
+
+    if (clds) {
+      Object.values(clds).forEach((ch, index) => {
+        const { id } = childrenWithId?.[index]?.props as ChildrenWithIdProps;
+        const observer = new IntersectionObserver(
+          (e) => handleObserve(e, id),
+          options
+        );
+        observer.observe(ch as HTMLDivElement);
+
+        return () => observer.disconnect();
+      });
+    }
+  }, [childrenWithId, clds, currentVisibleSubsectionId]);
 
   return (
     <div className='z-10 size-full center-elements'>
