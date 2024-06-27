@@ -48,8 +48,8 @@ export const ScrollableSubsectionItem = forwardRef(
       id,
     }: {
       children: ReactNode;
-      onSubsectionSelectChange: Dispatch<SetStateAction<number>>;
-      id: number;
+      onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
+      id?: number;
     },
     ref: ForwardedRef<HTMLDivElement>
   ) {
@@ -67,7 +67,7 @@ export const ScrollableSubsectionItem = forwardRef(
         const { isIntersecting } = e[0];
 
         if (isIntersecting) {
-          setSubsectionSelectChange(id);
+          setSubsectionSelectChange?.(Number(id));
         }
       };
 
