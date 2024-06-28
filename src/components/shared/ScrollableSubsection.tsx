@@ -5,6 +5,8 @@ import useHandleChildrenWithNewProps from '@hooks/useHandleChildrenWithNewProps'
 import type { PropsWithId } from '@constants/interfaces';
 import { ScrollableSubsectionItem } from '@components/shared/ScrollableSubsectionItem';
 import ArrowIconComponent from '@components/shared/ArrowIconComponent';
+import { useText } from '@hooks/useText';
+import scrollableSectionText from '@i18nEn/scrollableSectionText.json';
 
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
@@ -15,6 +17,7 @@ export default function ScrollableSubsection({
   children: ReactNode;
 }) {
   const scrollableRef = useRef(null);
+  const t = useText();
   const { handleHorizontalScroll } = useHandleHorizontalScroll();
   const [selectedSubsection, setSelectedSubsection] = useState(0);
   const { handleChildrenWithNewProps } = useHandleChildrenWithNewProps();
@@ -42,7 +45,7 @@ export default function ScrollableSubsection({
           }
         }}
         className={`${BUTTONS_CLASSNAME} left-0 rotate-180 ml-4`}
-        aria-label='Scroll left'
+        aria-label={t('scrollLeft', scrollableSectionText)}
         icon={<ArrowIconComponent />}
       />
 
@@ -69,7 +72,7 @@ export default function ScrollableSubsection({
           }
         }}
         className={`${BUTTONS_CLASSNAME} right-0 mr-4`}
-        aria-label='Scroll right'
+        aria-label={t('scrollRight', scrollableSectionText)}
         icon={<ArrowIconComponent />}
       />
     </div>
