@@ -45,15 +45,27 @@ function Bolt({ centerPointClassName = '' }: BoltProps) {
   );
 }
 
-function LoadingText() {
+function TextAnimation() {
+  return (
+    <div className='bg-sky-500 h-6 w-full relative overflow-hidden rounded-sm'>
+      <div className='animate-left-to-right-bar absolute h-full w-4' />
+    </div>
+  );
+}
+
+function LoadingText({
+  label = LOADING_TEXT,
+  slot = <TextAnimation />,
+}: {
+  label?: string;
+  slot?: ReactNode;
+}) {
   return (
     <div className='flex justify-center items-start flex-col w-full sm:w-auto px-4 sm:px-0'>
       <div className='font-mono w-full text-center text-base sm:text-xl animate-flash-loader-text text-sky-500'>
-        {LOADING_TEXT}
+        {label}
       </div>
-      <div className='bg-sky-500 h-6 w-full relative overflow-hidden rounded-sm'>
-        <div className='animate-left-to-right-bar absolute h-full w-4' />
-      </div>
+      {slot}
     </div>
   );
 }
@@ -64,7 +76,15 @@ function CogwheelsSeparator({ children }: { children: ReactNode }) {
   );
 }
 
-export default function Loader() {
+export default function Loader({
+  open,
+  label,
+  loadingTextAdditionalSlot,
+}: {
+  open?: boolean;
+  label?: string;
+  loadingTextAdditionalSlot?: ReactNode;
+}) {
   const [isLoderVisible, setIsLoderVisible] = useState(true);
   const [isLoader, setIsLoader] = useState(true);
   const loaderRef = useRef(null);
@@ -102,7 +122,7 @@ export default function Loader() {
     }
   }, [isLoader, isLoderVisible]);
 
-  if (!isLoader) {
+  if (!isLoader && !open) {
     return null;
   }
 
@@ -110,7 +130,7 @@ export default function Loader() {
     <div
       ref={loaderRef}
       className={`transition-1000 fixed text-white text-lg center-elements flex-col gap-10 z-50 top-0 left-0 size-full bg-black ${
-        isLoderVisible ? 'opacity-100' : 'opacity-0'
+        isLoderVisible || open ? 'opacity-100' : 'opacity-0'
       }`}
     >
       <Cogwheel
@@ -153,7 +173,7 @@ export default function Loader() {
           ))}
         </CogwheelsSeparator>
       </Cogwheel>
-      <LoadingText />
+      <LoadingText label={label} slot={loadingTextAdditionalSlot} />
     </div>
   );
 }
