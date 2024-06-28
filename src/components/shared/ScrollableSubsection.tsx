@@ -1,70 +1,13 @@
-import ArrowRightIcon from '@components/ArrowRightIcon';
 import IconButton from '@components/shared/IconButton';
-import {
-  useState,
-  forwardRef,
-  useRef,
-  type ReactNode,
-  type ForwardedRef,
-  type Dispatch,
-  type SetStateAction,
-} from 'react';
+import { useState, useRef, type ReactNode } from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 import useHandleChildrenWithNewProps from '@hooks/useHandleChildrenWithNewProps';
 import type { PropsWithId } from '@constants/interfaces';
-import useObserveScrollSubsection from '@hooks/useObserveScrollSubsection';
+import { ScrollableSubsectionItem } from '@components/shared/ScrollableSubsectionItem';
+import ArrowIconComponent from '@components/shared/ArrowIconComponent';
 
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
-
-function ArrowIconComponent() {
-  return (
-    <div className='relative shrink-0 center-elements size-full'>
-      <ArrowRightIcon
-        fillClassName='fill-black/30'
-        strokeClassName='stroke-black/30'
-        className='hidden fill-black/30 group-focus:block scale-150 -z-10 absolute m-auto top-0 bottom-0 right-0 left-0 size-full'
-      />
-      <ArrowRightIcon
-        fillClassName='fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple'
-        strokeClassName='stroke-title-purple group-hover:stroke-white group-active:stroke-[#75629f] group-focus:stroke-title-purple'
-      />
-    </div>
-  );
-}
-
-export const ScrollableSubsectionItem = forwardRef(
-  function ScrollableSubsectionItem(
-    {
-      children,
-      onSubsectionSelectChange,
-      id,
-    }: {
-      children: ReactNode;
-      onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
-      id?: number;
-    },
-    ref: ForwardedRef<HTMLDivElement>
-  ) {
-    const scrollableRef = ref;
-    const scrollableItemRef = useRef(null);
-    useObserveScrollSubsection({
-      id,
-      onSubsectionSelectChange,
-      scrollableItemRef,
-      scrollableRef,
-    });
-
-    return (
-      <div
-        ref={scrollableItemRef}
-        className='h-full snap-center min-w-full flex items-center justify-start flex-col gap-24'
-      >
-        {children}
-      </div>
-    );
-  }
-);
 
 export default function ScrollableSubsection({
   children,
@@ -88,7 +31,6 @@ export default function ScrollableSubsection({
         onClick={() => {
           const isZero =
             selectedSubsection - 1 > 0 ? selectedSubsection - 1 : 0;
-
           const id = (childrenWithNewProps?.[isZero]?.props as PropsWithId)?.id;
 
           if (id || id === 0) {
