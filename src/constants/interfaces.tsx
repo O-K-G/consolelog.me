@@ -237,3 +237,9 @@ export interface UseObserveScrollSubsectionProps {
   onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
   scrollableItemRef: MutableRefObject<null>;
 }
+
+export interface ScrollableSubsectionItemProps {
+  children: ReactNode;
+  onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
+  id?: number;
+}

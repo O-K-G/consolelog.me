@@ -1,28 +1,15 @@
-import {
-  type Dispatch,
-  type ForwardedRef,
-  type ReactNode,
-  type SetStateAction,
-  forwardRef,
-  useRef,
-} from 'react';
+import { type ForwardedRef, forwardRef, useRef } from 'react';
 import useObserveScrollSubsection from '@hooks/useObserveScrollSubsection';
+import type { ScrollableSubsectionItemProps } from '@constants/interfaces';
 
 export const ScrollableSubsectionItem = forwardRef(
   function ScrollableSubsectionItem(
-    {
-      children,
-      onSubsectionSelectChange,
-      id,
-    }: {
-      children: ReactNode;
-      onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
-      id?: number;
-    },
+    { children, onSubsectionSelectChange, id }: ScrollableSubsectionItemProps,
     ref: ForwardedRef<HTMLDivElement>
   ) {
     const scrollableRef = ref;
     const scrollableItemRef = useRef(null);
+
     useObserveScrollSubsection({
       id,
       onSubsectionSelectChange,
