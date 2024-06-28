@@ -1,0 +1,24 @@
+import { Children, cloneElement, isValidElement } from 'react';
+import type {
+  ChildWithNewProps,
+  HandleChildrenWithNewPropsProps,
+} from '@constants/interfaces';
+
+export default function useHandleChildrenWithNewProps() {
+  const handleChildrenWithNewProps = ({
+    children,
+    scrollableRef,
+    onSubsectionSelectChange,
+  }: HandleChildrenWithNewPropsProps) =>
+    Children.map(children, (child, index) => {
+      if (isValidElement(child)) {
+        return cloneElement(child, {
+          id: index,
+          ref: scrollableRef,
+          onSubsectionSelectChange,
+        } as ChildWithNewProps);
+      }
+    });
+
+  return { handleChildrenWithNewProps };
+}

@@ -3,11 +3,7 @@ import IconButton from '@components/shared/IconButton';
 import {
   useRef,
   type ReactNode,
-  Children,
-  isValidElement,
-  cloneElement,
   useState,
-  type PropsWithChildren,
   type MutableRefObject,
   forwardRef,
   type ForwardedRef,
@@ -16,10 +12,8 @@ import {
   type SetStateAction,
 } from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
-
-interface ChildrenWithIdProps extends PropsWithChildren {
-  id: number;
-}
+import useHandleChildrenWithNewProps from '@hooks/useHandleChildrenWithNewProps';
+import type { PropsWithId } from '@constants/interfaces';
 
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
@@ -99,15 +93,12 @@ export default function ScrollableSubsection({
   const scrollableRef = useRef(null);
   const { handleHorizontalScroll } = useHandleHorizontalScroll();
   const [selectedSubsection, setSelectedSubsection] = useState(0);
+  const { handleChildrenWithNewProps } = useHandleChildrenWithNewProps();
 
-  const childrenWithId = Children.map(children, (child, index) => {
-    if (isValidElement(child)) {
-      return cloneElement(child, {
-        id: index,
-        ref: scrollableRef,
-        onSubsectionSelectChange: setSelectedSubsection,
-      } as { id: number; ref: MutableRefObject<null>; onSubsectionSelectChange: Dispatch<SetStateAction<number>> });
-    }
+  const childrenWithNewProps = handleChildrenWithNewProps({
+    children,
+    scrollableRef,
+    onSubsectionSelectChange: setSelectedSubsection,
   });
 
   return (
@@ -118,8 +109,7 @@ export default function ScrollableSubsection({
           const isZero =
             selectedSubsection - 1 > 0 ? selectedSubsection - 1 : 0;
 
-          const id = (childrenWithId?.[isZero]?.props as ChildrenWithIdProps)
-            ?.id;
+          const id = (childrenWithNewProps?.[isZero]?.props as PropsWithId)?.id;
 
           if (id || id === 0) {
             setSelectedSubsection(id);
@@ -138,15 +128,14 @@ export default function ScrollableSubsection({
         ref={scrollableRef}
         className='hide-scrollbars snap-x snap-mandatory size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
       >
-        {childrenWithId}
+        {childrenWithNewProps}
       </div>
 
       <IconButton
-        disabled={selectedSubsection + 1 === childrenWithId?.length}
+        disabled={selectedSubsection + 1 === childrenWithNewProps?.length}
         onClick={() => {
           const id = (
-            childrenWithId?.[selectedSubsection + 1]
-              ?.props as ChildrenWithIdProps
+            childrenWithNewProps?.[selectedSubsection + 1]?.props as PropsWithId
           )?.id;
 
           if (id) {
