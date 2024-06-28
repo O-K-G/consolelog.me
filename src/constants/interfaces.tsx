@@ -145,13 +145,15 @@ export type FormErrorNames = Fields[];
 export interface DialogBackdropProps {
   open: boolean;
   onClose: () => void;
-  errorDetails: string;
+  title: string;
+  contentSlot: ReactNode;
 }
 
-export interface ErrorDialogProps {
+export interface DialogComponentProps {
   isFade: null | boolean;
   onClick: () => void;
-  errorDetails: string;
+  title: string;
+  contentSlot: ReactNode;
 }
 
 export interface MailHTMLTemplateProps {

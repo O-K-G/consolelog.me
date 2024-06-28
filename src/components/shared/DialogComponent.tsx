@@ -1,9 +1,9 @@
 'use client';
 
-import { useText } from '@hooks/useText';
-import errorDialog from '@i18nEn/errorDialog.json';
 import CloseIcon from '@components/shared/CloseIcon';
-import type { ErrorDialogProps } from '@constants/interfaces';
+import type { DialogComponentProps } from '@constants/interfaces';
+import dialogComponentText from '@i18nEn/dialogComponentText.json';
+import { useText } from '@hooks/useText';
 import {
   type ForwardedRef,
   type MutableRefObject,
@@ -11,8 +11,10 @@ import {
   useEffect,
 } from 'react';
 
-function ErrorDialog(
-  { isFade, onClick, errorDetails }: ErrorDialogProps,
+const DATA_TEST_ID = 'dialog-backdrop-test';
+
+function DialogComponent(
+  { isFade, onClick, title, contentSlot }: DialogComponentProps,
   ref: ForwardedRef<HTMLDialogElement>
 ) {
   const t = useText();
@@ -24,7 +26,7 @@ function ErrorDialog(
 
   return (
     <dialog
-      data-testid='test-error-dialog'
+      data-testid={DATA_TEST_ID}
       ref={ref}
       className={`size-full p-4 center-elements bg-transparent ${
         isFade ? 'animate-dialog-fade-in' : ''
@@ -37,12 +39,10 @@ function ErrorDialog(
         className='lg:cursor-default relative w-full h-[50svh] md:w-[50svw] md:h-[50svw] lg:w-[40dvw] lg:h-[40dvw] p-4 text-white text-xl font-bebas-neue bg-black rounded-md overflow-hidden'
       >
         <div className='flex items-center justify-end w-full h-[10%]'>
-          <h2 className='h-full w-1/3 center-elements'>
-            {t('error', errorDialog)}
-          </h2>
+          <h2 className='h-full w-1/3 center-elements'>{title}</h2>
           <div className='flex items-center justify-end w-1/3 h-full'>
             <button
-              aria-label='Close'
+              aria-label={t('close', dialogComponentText)}
               type='button'
               className='group center-elements h-full outline-none'
               onClick={onClick}
@@ -51,29 +51,10 @@ function ErrorDialog(
             </button>
           </div>
         </div>
-        <div className='w-full break-words text-base md:text-xl lg:text-2xl h-[90%] flex items-center justify-start flex-col overflow-hidden'>
-          <p
-            role='alert'
-            className='font-montserrat pb-4 w-full h-1/2 flex items-start lg:items-center justify-start text-center overflow-auto'
-          >
-            {t('errorMessage', errorDialog)}
-          </p>
-
-          <p
-            data-testid='error-details-test'
-            className={`w-full h-1/2 flex overflow-auto border-t pt-4 border-white ${
-              errorDetails
-                ? 'items-start justify-start '
-                : 'items-center justify-center '
-            }`}
-          >
-            {t('errorDetails', errorDialog)}
-            {errorDetails || 'No error details found.'}
-          </p>
-        </div>
+        {contentSlot}
       </div>
     </dialog>
   );
 }
 
-export default forwardRef(ErrorDialog);
+export default forwardRef(DialogComponent);

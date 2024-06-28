@@ -3,12 +3,13 @@
 import type { DialogBackdropProps } from '@constants/interfaces';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDisableScroll } from '@hooks/useDisableScroll';
-import ErrorDialog from '@components/shared/ErrorDialog';
+import DialogComponent from '@components/shared/DialogComponent';
 
 export default function DialogBackdrop({
   open,
   onClose,
-  errorDetails,
+  title,
+  contentSlot,
 }: DialogBackdropProps) {
   const [isFade, setIsFade] = useState<null | boolean>(null);
   const { handleDisableScroll } = useDisableScroll();
@@ -60,11 +61,12 @@ export default function DialogBackdrop({
           isFade ? 'animate-dialog-backdrop-fade-in' : 'hidden'
         } ${isFade === false ? 'animate-dialog-backdrop-fade-out' : ''}`}
       >
-        <ErrorDialog
+        <DialogComponent
           ref={dialogRef}
           isFade={isFade}
-          errorDetails={errorDetails}
           onClick={handleClick}
+          title={title}
+          contentSlot={contentSlot}
         />
       </div>
     );
