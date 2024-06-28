@@ -1,4 +1,11 @@
-import type { MutableRefObject, ReactNode } from 'react';
+import type {
+  Dispatch,
+  ForwardedRef,
+  MutableRefObject,
+  PropsWithChildren,
+  ReactNode,
+  SetStateAction,
+} from 'react';
 import { z } from 'zod';
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
 export const CONTACT_FORM_SUBJECT_MIN_LENGTH = 1;
@@ -206,4 +213,33 @@ export interface IconButtonProps {
 export interface SideLinksProps {
   className?: string;
   ulClassName?: string;
+}
+
+export interface HandleChildrenWithNewPropsProps {
+  children: ReactNode;
+  scrollableRef: MutableRefObject<null>;
+  onSubsectionSelectChange: Dispatch<SetStateAction<number>>;
+}
+
+export interface ChildWithNewProps {
+  id: number;
+  ref: MutableRefObject<null>;
+  onSubsectionSelectChange: Dispatch<SetStateAction<number>>;
+}
+
+export interface PropsWithId extends PropsWithChildren {
+  id: number;
+}
+
+export interface UseObserveScrollSubsectionProps {
+  scrollableRef: ForwardedRef<HTMLDivElement>;
+  id?: number;
+  onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
+  scrollableItemRef: MutableRefObject<null>;
+}
+
+export interface ScrollableSubsectionItemProps {
+  children: ReactNode;
+  onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
+  id?: number;
 }
