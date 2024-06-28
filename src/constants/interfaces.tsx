@@ -1,5 +1,6 @@
 import type {
   Dispatch,
+  ForwardedRef,
   MutableRefObject,
   PropsWithChildren,
   ReactNode,
@@ -228,4 +229,11 @@ export interface ChildWithNewProps {
 
 export interface PropsWithId extends PropsWithChildren {
   id: number;
+}
+
+export interface UseObserveScrollSubsectionProps {
+  scrollableRef: ForwardedRef<HTMLDivElement>;
+  id?: number;
+  onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
+  scrollableItemRef: MutableRefObject<null>;
 }

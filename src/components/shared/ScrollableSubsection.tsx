@@ -1,19 +1,18 @@
 import ArrowRightIcon from '@components/ArrowRightIcon';
 import IconButton from '@components/shared/IconButton';
 import {
+  useState,
+  forwardRef,
   useRef,
   type ReactNode,
-  useState,
-  type MutableRefObject,
-  forwardRef,
   type ForwardedRef,
-  useEffect,
   type Dispatch,
   type SetStateAction,
 } from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 import useHandleChildrenWithNewProps from '@hooks/useHandleChildrenWithNewProps';
 import type { PropsWithId } from '@constants/interfaces';
+import useObserveScrollSubsection from '@hooks/useObserveScrollSubsection';
 
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
@@ -38,7 +37,7 @@ export const ScrollableSubsectionItem = forwardRef(
   function ScrollableSubsectionItem(
     {
       children,
-      onSubsectionSelectChange: setSubsectionSelectChange,
+      onSubsectionSelectChange,
       id,
     }: {
       children: ReactNode;
@@ -49,30 +48,12 @@ export const ScrollableSubsectionItem = forwardRef(
   ) {
     const scrollableRef = ref;
     const scrollableItemRef = useRef(null);
-
-    useEffect(() => {
-      const options = {
-        root: (scrollableRef as MutableRefObject<HTMLDivElement>)?.current,
-        rootMargin: '0px',
-        threshold: 0.5,
-      };
-
-      const handleObserve = (e: IntersectionObserverEntry[]) => {
-        const { isIntersecting } = e[0];
-
-        if (isIntersecting) {
-          setSubsectionSelectChange?.(Number(id));
-        }
-      };
-
-      const observer = new IntersectionObserver(handleObserve, options);
-      observer.observe(
-        (scrollableItemRef as unknown as MutableRefObject<HTMLDivElement>)
-          ?.current
-      );
-
-      return () => observer.disconnect();
-    }, [id, scrollableRef, setSubsectionSelectChange]);
+    useObserveScrollSubsection({
+      id,
+      onSubsectionSelectChange,
+      scrollableItemRef,
+      scrollableRef,
+    });
 
     return (
       <div
@@ -94,7 +75,6 @@ export default function ScrollableSubsection({
   const { handleHorizontalScroll } = useHandleHorizontalScroll();
   const [selectedSubsection, setSelectedSubsection] = useState(0);
   const { handleChildrenWithNewProps } = useHandleChildrenWithNewProps();
-
   const childrenWithNewProps = handleChildrenWithNewProps({
     children,
     scrollableRef,
