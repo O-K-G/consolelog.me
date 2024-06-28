@@ -1,9 +1,6 @@
-'use client';
-
 import Section from '@components/shared/Section';
 import Title from '@components/shared/title/Title';
 // import Old from '@components/Old';
-import Attribution from '@components/Attribution';
 import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
 import ContactMeButton from '@components/shared/ContactMeButton';
@@ -54,7 +51,6 @@ export default function About() {
         >
           TBD
         </button> */}
-        <Attribution />
       </Section>
       {/* {open && (
         <Old

@@ -1,3 +1,5 @@
+'use client';
+
 import type { ClickToOpenButtonProps } from '@constants/interfaces';
 import { useState } from 'react';
 import clickToOpenButtonText from '@i18nEn/clickToOpenButton.json';

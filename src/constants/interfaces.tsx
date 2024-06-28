@@ -80,11 +80,6 @@ export interface AboutTargetIconProps {
   bottom?: boolean;
 }
 
-export interface AttributionDialogProps {
-  open: boolean;
-  onClick: () => void;
-}
-
 export interface AlternatingButtonsProps {
   className?: string;
   open?: boolean;
@@ -147,6 +142,7 @@ export interface DialogBackdropProps {
   onClose: () => void;
   title: string;
   contentSlot: ReactNode;
+  sizeClassName?: string;
 }
 
 export interface DialogComponentProps {
@@ -154,6 +150,7 @@ export interface DialogComponentProps {
   onClick: () => void;
   title: string;
   contentSlot: ReactNode;
+  sizeClassName?: string;
 }
 
 export interface MailHTMLTemplateProps {
@@ -207,7 +204,7 @@ export interface ArrowRightIconProps {
 export interface IconButtonProps {
   onClick: () => void;
   'aria-label': string;
-  'data-testid': string;
+  'data-testid'?: string;
   icon: ReactNode;
   className?: string;
   disabled?: boolean;

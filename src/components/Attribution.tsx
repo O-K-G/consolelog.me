@@ -1,20 +1,13 @@
-import type { AttributionDialogProps } from '@constants/interfaces';
 import { useState } from 'react';
+import DialogBackdrop from '@components/shared/DialogBackdrop';
 
-function AttributionDialog({ open, onClick }: AttributionDialogProps) {
+function AttributionContent() {
   return (
-    <dialog
-      open={open}
-      className='fixed top-0 bottom-0 left-0 right-0 m-auto bg-white size-3/4 text-xs text-black z-10'
-    >
-      <div className='w-full flex items-center justify-end'>
-        <button type='button' onClick={onClick}>
-          X
-        </button>
-      </div>
+    <p className='h-[90%] w-full break-words font-montserrat text-base sm:text-lg md:text-xl'>
       Design based on Jayendra Awasthi&apos;s &apos;Space themed portfolio&apos;
-      free community Figma template at&nbsp;
+      free community Figma template at:
       <a
+        className='relative before:focus:absolute before:focus:size-full z-10 before:rounded-md before:-z-10 before:focus:bg-white transition-300 block mt-2 outline-none text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]'
         target='_blank'
         rel='noreferrer'
         href='https://www.figma.com/community/file/1192903581929005722'
@@ -23,15 +16,18 @@ function AttributionDialog({ open, onClick }: AttributionDialogProps) {
       </a>
       and used under the&nbsp;
       <a
+        className='relative before:focus:absolute before:focus:size-full z-10 before:rounded-md before:-z-10 before:focus:bg-white transition-300 outline-none text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]'
         target='_blank'
         rel='noreferrer'
         href='https://creativecommons.org/licenses/by/4.0/'
       >
         CC BY 4.0
       </a>
-      &nbsp; license. Changes were made to the material from the original
-      version.
-    </dialog>
+      &nbsp; license.
+      <span className='block mt-2'>
+        Changes were made to the material from the original version.
+      </span>
+    </p>
   );
 }
 
@@ -42,12 +38,19 @@ export default function Attribution() {
     <>
       <button
         type='button'
-        className='bg-red-500 absolute top-96 right-0'
+        className='mt-auto z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl'
         onClick={() => setOpen(true)}
       >
-        Attribution - TBD
+        Attribution
       </button>
-      <AttributionDialog open={open} onClick={() => setOpen(false)} />
+
+      <DialogBackdrop
+        open={open}
+        onClose={() => setOpen(false)}
+        title='Attribution'
+        sizeClassName='w-full h-fit md:w-[50svw] lg:w-[40dvw]'
+        contentSlot={<AttributionContent />}
+      />
     </>
   );
 }
