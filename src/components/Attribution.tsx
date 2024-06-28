@@ -6,7 +6,7 @@ import { URLs } from '@constants/urls';
 
 function AttributionContent() {
   const t = useText();
-  const { ccbyLicense, figmaAttribution } = URLs;
+  const { figmaAttribution, ccbyLicense } = URLs;
 
   return (
     <p className='h-[90%] w-full break-words font-montserrat text-base sm:text-lg md:text-xl'>
