@@ -1,6 +1,8 @@
 import { useText } from '@hooks/useText';
 import errorDialog from '@i18nEn/errorDialog.json';
 
+const DATA_TEST_ID = 'error-details-test';
+
 export default function ErrorDialogMeesage({ details }: { details: string }) {
   const t = useText();
 
@@ -14,7 +16,7 @@ export default function ErrorDialogMeesage({ details }: { details: string }) {
       </p>
 
       <p
-        data-testid='error-details-test'
+        data-testid={DATA_TEST_ID}
         className={`w-full h-1/2 flex overflow-auto border-t pt-4 border-white ${
           details
             ? 'items-start justify-start '

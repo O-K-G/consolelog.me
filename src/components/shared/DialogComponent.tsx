@@ -11,6 +11,8 @@ import {
   useEffect,
 } from 'react';
 
+const DATA_TEST_ID = 'dialog-backdrop-test';
+
 function DialogComponent(
   { isFade, onClick, title, contentSlot }: DialogComponentProps,
   ref: ForwardedRef<HTMLDialogElement>
@@ -24,7 +26,7 @@ function DialogComponent(
 
   return (
     <dialog
-      data-testid='dialog-backdrop-test'
+      data-testid={DATA_TEST_ID}
       ref={ref}
       className={`size-full p-4 center-elements bg-transparent ${
         isFade ? 'animate-dialog-fade-in' : ''

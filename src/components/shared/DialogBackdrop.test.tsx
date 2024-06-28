@@ -6,6 +6,9 @@ import DialogComponent from '@components/shared/DialogComponent';
 import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
 
 const TITLE = 'Error';
+const DIALOG_DATA_TEST_ID = 'dialog-backdrop-test';
+const ERROR_DETAILS_DATA_TEST_ID = 'error-details-test';
+const NO_ERROR_DETAILS_FOUND = 'No error details found.';
 
 jest.mock('../../hooks/useText', () => ({
   useText: () => (key: string | number, obj: { [x: string]: any }) => obj[key],
@@ -36,7 +39,7 @@ describe('DialogBackdrop and DialogComponent components', () => {
         contentSlot={<ErrorDialogMeesage details={details} />}
       />
     );
-    expect(screen.getByTestId('dialog-backdrop-test')).toBeInTheDocument();
+    expect(screen.getByTestId(DIALOG_DATA_TEST_ID)).toBeInTheDocument();
   });
 
   test('should not render DialogBackdrop when open is false', () => {
@@ -100,7 +103,9 @@ describe('DialogBackdrop and DialogComponent components', () => {
         contentSlot={<ErrorDialogMeesage details={details} />}
       />
     );
-    expect(screen.getByTestId('error-details-test')).toHaveTextContent(details);
+    expect(screen.getByTestId(ERROR_DETAILS_DATA_TEST_ID)).toHaveTextContent(
+      details
+    );
   });
 
   test('Default message displayed by ErrorDialog when no error details are provided', () => {
@@ -113,8 +118,8 @@ describe('DialogBackdrop and DialogComponent components', () => {
         contentSlot={<ErrorDialogMeesage details='' />}
       />
     );
-    expect(screen.getByTestId('error-details-test')).toHaveTextContent(
-      'No error details found.'
+    expect(screen.getByTestId(ERROR_DETAILS_DATA_TEST_ID)).toHaveTextContent(
+      NO_ERROR_DETAILS_FOUND
     );
   });
 
