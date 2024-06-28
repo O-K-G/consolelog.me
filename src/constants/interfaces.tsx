@@ -207,6 +207,7 @@ export interface ArrowRightIconProps {
 export interface IconButtonProps {
   onClick: () => void;
   'aria-label': string;
+  'data-testid': string;
   icon: ReactNode;
   className?: string;
   disabled?: boolean;

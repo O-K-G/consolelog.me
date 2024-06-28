@@ -8,6 +8,9 @@ import ArrowIconComponent from '@components/shared/ArrowIconComponent';
 import { useText } from '@hooks/useText';
 import scrollableSectionText from '@i18nEn/scrollableSectionText.json';
 
+const LEFT_BUTTON_TEST_ID = 'left-button-test-id';
+const RIGHT_BUTTON_TEST_ID = 'right-button-test-id';
+
 const BUTTONS_CLASSNAME =
   'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
 
@@ -30,6 +33,7 @@ export default function ScrollableSubsection({
   return (
     <div className='z-10 size-full center-elements'>
       <IconButton
+        data-testid={LEFT_BUTTON_TEST_ID}
         disabled={!selectedSubsection}
         onClick={() => {
           const isZero =
@@ -57,6 +61,7 @@ export default function ScrollableSubsection({
       </div>
 
       <IconButton
+        data-testid={RIGHT_BUTTON_TEST_ID}
         disabled={selectedSubsection + 1 === childrenWithNewProps?.length}
         onClick={() => {
           const id = (

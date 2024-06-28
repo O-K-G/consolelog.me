@@ -4,12 +4,14 @@ export default function IconButton({
   onClick,
   disabled,
   'aria-label': ariaLabel,
+  'data-testid': dataTestId,
   icon,
   className,
   ...rest
 }: IconButtonProps) {
   return (
     <button
+      data-testid={dataTestId}
       onClick={onClick}
       disabled={disabled}
       type='button'
