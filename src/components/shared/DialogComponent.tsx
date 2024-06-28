@@ -2,6 +2,8 @@
 
 import CloseIcon from '@components/shared/CloseIcon';
 import type { DialogComponentProps } from '@constants/interfaces';
+import dialogComponentText from '@i18nEn/dialogComponentText.json';
+import { useText } from '@hooks/useText';
 import {
   type ForwardedRef,
   type MutableRefObject,
@@ -13,6 +15,8 @@ function DialogComponent(
   { isFade, onClick, title, contentSlot }: DialogComponentProps,
   ref: ForwardedRef<HTMLDialogElement>
 ) {
+  const t = useText();
+
   useEffect(
     () => (ref as MutableRefObject<HTMLDialogElement>).current.showModal(),
     [ref]
@@ -36,7 +40,7 @@ function DialogComponent(
           <h2 className='h-full w-1/3 center-elements'>{title}</h2>
           <div className='flex items-center justify-end w-1/3 h-full'>
             <button
-              aria-label='Close'
+              aria-label={t('close', dialogComponentText)}
               type='button'
               className='group center-elements h-full outline-none'
               onClick={onClick}
