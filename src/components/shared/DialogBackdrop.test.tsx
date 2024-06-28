@@ -2,7 +2,10 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import DialogBackdrop from '@components/shared/DialogBackdrop';
-import ErrorDialog from '@components/shared/ErrorDialog';
+import DialogComponent from '@components/shared/DialogComponent';
+import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
+
+const TITLE = 'Error';
 
 jest.mock('../../hooks/useText', () => ({
   useText: () => (key: string | number, obj: { [x: string]: any }) => obj[key],
@@ -18,21 +21,22 @@ jest.mock('../../hooks/useDisableScroll', () => {
   };
 });
 
-const errorDetails = 'Detailed error.';
+const details = 'Detailed error.';
 
 HTMLDialogElement.prototype.showModal = jest.fn();
 HTMLDialogElement.prototype.close = jest.fn();
 
-describe('DialogBackdrop and ErrorDialog components', () => {
+describe('DialogBackdrop and DialogComponent components', () => {
   test('renders DialogBackdrop when open is true', () => {
     render(
       <DialogBackdrop
         open={true}
         onClose={jest.fn()}
-        errorDetails={errorDetails}
+        title={TITLE}
+        contentSlot={<ErrorDialogMeesage details={details} />}
       />
     );
-    expect(screen.getByTestId('test-error-dialog')).toBeInTheDocument();
+    expect(screen.getByTestId('dialog-backdrop-test')).toBeInTheDocument();
   });
 
   test('should not render DialogBackdrop when open is false', () => {
@@ -40,7 +44,8 @@ describe('DialogBackdrop and ErrorDialog components', () => {
       <DialogBackdrop
         open={false}
         onClose={jest.fn()}
-        errorDetails={errorDetails}
+        title={TITLE}
+        contentSlot={<ErrorDialogMeesage details={details} />}
       />
     );
     expect(container.firstChild).toBeNull();
@@ -52,7 +57,8 @@ describe('DialogBackdrop and ErrorDialog components', () => {
       <DialogBackdrop
         open={true}
         onClose={onClose}
-        errorDetails={errorDetails}
+        title={TITLE}
+        contentSlot={<ErrorDialogMeesage details={details} />}
       />
     );
 
@@ -71,7 +77,8 @@ describe('DialogBackdrop and ErrorDialog components', () => {
       <DialogBackdrop
         open={true}
         onClose={onClose}
-        errorDetails={errorDetails}
+        title={TITLE}
+        contentSlot={<ErrorDialogMeesage details={details} />}
       />
     );
 
@@ -85,25 +92,25 @@ describe('DialogBackdrop and ErrorDialog components', () => {
 
   test("Displays ErrorDialog's error details correctly", () => {
     render(
-      <ErrorDialog
+      <DialogComponent
         ref={React.createRef()}
         isFade={true}
         onClick={jest.fn()}
-        errorDetails={errorDetails}
+        title={TITLE}
+        contentSlot={<ErrorDialogMeesage details={details} />}
       />
     );
-    expect(screen.getByTestId('error-details-test')).toHaveTextContent(
-      errorDetails
-    );
+    expect(screen.getByTestId('error-details-test')).toHaveTextContent(details);
   });
 
   test('Default message displayed by ErrorDialog when no error details are provided', () => {
     render(
-      <ErrorDialog
+      <DialogComponent
         ref={React.createRef()}
         isFade={true}
         onClick={jest.fn()}
-        errorDetails=''
+        title={TITLE}
+        contentSlot={<ErrorDialogMeesage details='' />}
       />
     );
     expect(screen.getByTestId('error-details-test')).toHaveTextContent(
@@ -120,7 +127,8 @@ describe('DialogBackdrop and ErrorDialog components', () => {
       <DialogBackdrop
         open={true}
         onClose={onClose}
-        errorDetails={errorDetails}
+        title={TITLE}
+        contentSlot={<ErrorDialogMeesage details={details} />}
       />
     );
     expect(handleDisableScroll).toHaveBeenCalledWith(true);

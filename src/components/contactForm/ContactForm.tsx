@@ -7,6 +7,9 @@ import formValidation from '@utils/formValidation';
 import DialogBackdrop from '@components/shared/DialogBackdrop';
 import ProgressIndicators from '@components/contactForm/ProgressIndicators';
 import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
+import errorDialog from '@i18nEn/errorDialog.json';
+import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
+import { useText } from '@hooks/useText';
 import {
   type FormErrorNames,
   type Fields,
@@ -23,6 +26,7 @@ export default function ContactForm() {
   const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);
+  const t = useText();
 
   const handleValidation = async (formData: FormData) => {
     formData.append('dir', dir);
@@ -163,7 +167,8 @@ export default function ContactForm() {
       <DialogBackdrop
         open={!!errorDialogDetails}
         onClose={() => setErrorDialogDetails('')}
-        errorDetails={errorDialogDetails}
+        title={t('error', errorDialog)}
+        contentSlot={<ErrorDialogMeesage details={errorDialogDetails} />}
       />
     </form>
   );
