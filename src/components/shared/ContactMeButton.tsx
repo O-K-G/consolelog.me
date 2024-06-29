@@ -6,6 +6,8 @@ import { useScroll } from '@hooks/useScroll';
 import { useText } from '@hooks/useText';
 import contactMe from '@i18nEn/contactMeButton.json';
 
+const CONTACT_ME_BUTTON_TEST_ID = 'contact-me-button-test';
+
 export default function ContactMeButton() {
   const handleScroll = useScroll();
   const t = useText();
@@ -14,7 +16,7 @@ export default function ContactMeButton() {
 
   return (
     <button
-      data-testid='contact-me-button-test'
+      data-testid={CONTACT_ME_BUTTON_TEST_ID}
       onClick={() =>
         handleScroll({
           sectionRef:

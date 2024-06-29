@@ -5,6 +5,8 @@ import Section from '@components/shared/Section';
 import { usePathname } from 'next/navigation';
 import { AppContext } from '@components/shared/AppContext';
 
+const CHILD_TEST_ID = 'child-test';
+
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
 }));
@@ -44,7 +46,7 @@ describe('Section component', () => {
     render(
       <AppContext.Provider value={mockContextValue}>
         <Section currentSection='about' backgroundClassName='bg-custom'>
-          <div data-testid='child-test'>Content</div>
+          <div data-testid={CHILD_TEST_ID}>Content</div>
         </Section>
       </AppContext.Provider>
     );
@@ -57,7 +59,7 @@ describe('Section component', () => {
   });
 
   it('displays the child component on the screen', () => {
-    const sectionElement = screen.getByTestId('child-test');
+    const sectionElement = screen.getByTestId(CHILD_TEST_ID);
     expect(sectionElement).toBeInTheDocument();
     expect(sectionElement).toHaveTextContent('Content');
     expect(sectionElement).not.toHaveTextContent('content');

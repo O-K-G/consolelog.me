@@ -5,6 +5,8 @@ import Planet from '@components/shared/Planet';
 import { AppContext } from '@components/shared/AppContext';
 import { CACHE_VERSION } from '@root/tailwind.config';
 
+const PLANET_TEST_ID = 'planet-test';
+
 jest.mock('next/image', () => (props: { alt: string }) => {
   return <img {...props} alt={props.alt} />;
 });
@@ -23,7 +25,7 @@ describe('Planet component', () => {
       </AppContext.Provider>
     );
 
-    const planetElement = screen.getByTestId('planet-test');
+    const planetElement = screen.getByTestId(PLANET_TEST_ID);
     expect(planetElement).toBeInTheDocument();
     expect(planetElement).toHaveAttribute(
       'src',
@@ -58,7 +60,7 @@ describe('Planet component', () => {
         </AppContext.Provider>
       );
 
-      const planetElement = screen.getByTestId('planet-test');
+      const planetElement = screen.getByTestId(PLANET_TEST_ID);
       const divElement = planetElement.parentElement;
       expect(divElement).toHaveClass(expectedClass);
       cleanup();
