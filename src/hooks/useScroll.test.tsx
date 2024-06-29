@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useScroll } from '@hooks/useScroll';
 
-const SCROLL_BUTTON_ID = 'scrollButton';
-const SECTION_ID = 'section';
+const SCROLL_BUTTON_TEST_ID = 'scrollButton';
+const SECTION_TEST_ID = 'section';
 
 const MockComponent = () => {
   const sectionRef = useRef(null);
@@ -14,11 +14,11 @@ const MockComponent = () => {
     <>
       <button
         onClick={() => handleScroll({ sectionRef })}
-        data-testid={SCROLL_BUTTON_ID}
+        data-testid={SCROLL_BUTTON_TEST_ID}
       >
         Scroll to Section
       </button>
-      <div ref={sectionRef} data-testid={SECTION_ID}>
+      <div ref={sectionRef} data-testid={SECTION_TEST_ID}>
         Section Content
       </div>
     </>
@@ -32,7 +32,7 @@ describe('useScroll', () => {
 
     render(<MockComponent />);
 
-    const button = screen.getByTestId(SCROLL_BUTTON_ID);
+    const button = screen.getByTestId(SCROLL_BUTTON_TEST_ID);
     fireEvent.click(button);
 
     expect(scrollIntoViewMock).toHaveBeenCalledWith({
