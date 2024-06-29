@@ -6,10 +6,10 @@ import { useText } from '@hooks/useText';
 import { URLs } from '@constants/urls';
 
 jest.mock('../../hooks/useText');
-jest.mock('../../components/GHIcon', () =>
+jest.mock('../../components/icons/GHIcon', () =>
   jest.fn(() => <div>GitHub Icon</div>)
 );
-jest.mock('../../components/LIIcon', () =>
+jest.mock('../../components/icons/LIIcon', () =>
   jest.fn(() => <div>LinkedIn Icon</div>)
 );
 

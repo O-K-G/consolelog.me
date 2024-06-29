@@ -3,8 +3,8 @@ import { useState, useRef, type ReactNode } from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 import useHandleChildrenWithNewProps from '@hooks/useHandleChildrenWithNewProps';
 import type { PropsWithId } from '@constants/interfaces';
-import { ScrollableSubsectionItem } from '@components/shared/ScrollableSubsectionItem';
-import ArrowIconComponent from '@components/shared/ArrowIconComponent';
+import { ScrollableSubsectionItem } from '@components/shared/scrollableSection/ScrollableSubsectionItem';
+import ArrowIconComponent from '@components/icons/ArrowIconComponent';
 import { useText } from '@hooks/useText';
 import scrollableSectionText from '@i18nEn/scrollableSectionText.json';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import CloseIcon from '@components/shared/CloseIcon';
+import CloseIcon from '@components/icons/CloseIcon';
 import IconButton from '@components/shared/IconButton';
 import type { DialogComponentProps } from '@constants/interfaces';
 import dialogComponentText from '@i18nEn/dialogComponentText.json';

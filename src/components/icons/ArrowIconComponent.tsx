@@ -1,4 +1,4 @@
-import ArrowRightIcon from '@components/ArrowRightIcon';
+import ArrowRightIcon from '@components/icons/ArrowRightIcon';
 
 export default function ArrowIconComponent() {
   return (

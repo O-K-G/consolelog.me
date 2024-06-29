@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import DialogBackdrop from '@components/shared/DialogBackdrop';
-import DialogComponent from '@components/shared/DialogComponent';
+import DialogBackdrop from '@components/shared/dialog/DialogBackdrop';
+import DialogComponent from '@components/shared/dialog/DialogComponent';
 import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
 
 const TITLE = 'Error';
@@ -10,11 +10,11 @@ const DIALOG_DATA_TEST_ID = 'dialog-backdrop-test';
 const ERROR_DETAILS_DATA_TEST_ID = 'error-details-test';
 const NO_ERROR_DETAILS_FOUND = 'No error details found.';
 
-jest.mock('../../hooks/useText', () => ({
+jest.mock('../../../hooks/useText', () => ({
   useText: () => (key: string | number, obj: { [x: string]: any }) => obj[key],
 }));
 
-jest.mock('../../hooks/useDisableScroll', () => {
+jest.mock('../../../hooks/useDisableScroll', () => {
   const handleDisableScroll = jest.fn();
   return {
     useDisableScroll: () => ({
@@ -124,7 +124,7 @@ describe('DialogBackdrop and DialogComponent components', () => {
   });
 
   test('calls handleDisableScroll on open and close', async () => {
-    const { useDisableScroll } = require('../../hooks/useDisableScroll');
+    const { useDisableScroll } = require('../../../hooks/useDisableScroll');
     const { handleDisableScroll } = useDisableScroll();
     const onClose = jest.fn();
 

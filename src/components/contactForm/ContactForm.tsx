@@ -4,7 +4,7 @@ import InputComponent from '@components/contactForm/InputComponent';
 import { useState } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
-import DialogBackdrop from '@components/shared/DialogBackdrop';
+import DialogBackdrop from '@components/shared/dialog/DialogBackdrop';
 import ProgressIndicators from '@components/contactForm/ProgressIndicators';
 import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
 import errorDialog from '@i18nEn/errorDialog.json';
