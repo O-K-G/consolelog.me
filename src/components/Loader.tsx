@@ -4,7 +4,7 @@ import type { BoltProps, CogwheelProps } from '@constants/interfaces';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 const LOADING_TEXT = 'Gearing up... almost there...';
-const LOADER_TEST_ID = 'loader-test';
+export const LOADER_TEST_ID = 'loader-test';
 
 function Cogwheel({
   sizeClassName = 'size-24',

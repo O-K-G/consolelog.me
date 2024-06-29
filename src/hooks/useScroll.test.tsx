@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 import { useScroll } from '@hooks/useScroll';
 
 const SCROLL_BUTTON_TEST_ID = 'scrollButton';
-const SECTION_TEST_ID = 'section';
 
 const MockComponent = () => {
   const sectionRef = useRef(null);
@@ -18,9 +17,7 @@ const MockComponent = () => {
       >
         Scroll to Section
       </button>
-      <div ref={sectionRef} data-testid={SECTION_TEST_ID}>
-        Section Content
-      </div>
+      <div ref={sectionRef}>Section Content</div>
     </>
   );
 };

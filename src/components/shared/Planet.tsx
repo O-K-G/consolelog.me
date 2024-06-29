@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { AppContext as appContext } from '@components/shared/AppContext';
 import Image from 'next/image';
 
-const PLANET_TEST_ID = 'planet-test';
+export const PLANET_TEST_ID = 'planet-test';
 
 const ROTATION_CLASSNAMES_BY_SECTION = {
   contact: 'rotate-90',

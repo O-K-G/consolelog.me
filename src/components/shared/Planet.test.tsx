@@ -1,11 +1,9 @@
 import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Planet from '@components/shared/Planet';
+import Planet, { PLANET_TEST_ID } from '@components/shared/Planet';
 import { AppContext } from '@components/shared/AppContext';
 import { CACHE_VERSION } from '@root/tailwind.config';
-
-const PLANET_TEST_ID = 'planet-test';
 
 jest.mock('next/image', () => (props: { alt: string }) => {
   return <img {...props} alt={props.alt} />;
