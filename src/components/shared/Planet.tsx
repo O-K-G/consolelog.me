@@ -5,6 +5,8 @@ import { useContext } from 'react';
 import { AppContext as appContext } from '@components/shared/AppContext';
 import Image from 'next/image';
 
+const PLANET_TEST_ID = 'planet-test';
+
 const ROTATION_CLASSNAMES_BY_SECTION = {
   contact: 'rotate-90',
   projects: 'rotate-180',
@@ -27,7 +29,7 @@ export default function Planet() {
       }`}
     >
       <Image
-        data-testid='planet-test'
+        data-testid={PLANET_TEST_ID}
         src={`/planet.webp?cacheVersion=${CACHE_VERSION}`}
         fill
         sizes='(max-width: 767px) 100svw, (min-width: 768px) 100dvw'

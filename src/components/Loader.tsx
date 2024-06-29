@@ -4,6 +4,7 @@ import type { BoltProps, CogwheelProps } from '@constants/interfaces';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 const LOADING_TEXT = 'Gearing up... almost there...';
+const LOADER_TEST_ID = 'loader-test';
 
 function Cogwheel({
   sizeClassName = 'size-24',
@@ -11,14 +12,14 @@ function Cogwheel({
   childrenClassName = 'center-elements',
   bgClassName = 'bg-blue-300',
   className = '',
-  dataTestid,
+  'data-testid': dataTestId,
 }: CogwheelProps) {
   const cogwheelClassName =
     'absolute top-0 bottom-0 left-0 right-0 m-auto size-full rounded-md';
 
   return (
     <div
-      data-testid={dataTestid}
+      data-testid={dataTestId}
       className={`relative animate-spin ${sizeClassName} ${className}`}
     >
       <div className={`${cogwheelClassName} ${bgClassName}`} />
@@ -134,7 +135,7 @@ export default function Loader({
       }`}
     >
       <Cogwheel
-        dataTestid='loader-test'
+        data-testid={LOADER_TEST_ID}
         childrenClassName='flex items-start justify-center'
       >
         <CogwheelsSeparator>

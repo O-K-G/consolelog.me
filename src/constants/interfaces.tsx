@@ -184,7 +184,7 @@ export interface CogwheelProps {
   childrenClassName?: string;
   bgClassName?: string;
   className?: string;
-  dataTestid?: string;
+  'data-testid'?: string;
 }
 
 export interface BoltProps {
