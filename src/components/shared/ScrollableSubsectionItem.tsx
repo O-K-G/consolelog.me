@@ -2,7 +2,7 @@ import { type ForwardedRef, forwardRef, useRef } from 'react';
 import useObserveScrollSubsection from '@hooks/useObserveScrollSubsection';
 import type { ScrollableSubsectionItemProps } from '@constants/interfaces';
 
-const SCROLLABLE_ITEM_TEST_ID = 'scrollable-ityem-test-id';
+export const SCROLLABLE_ITEM_TEST_ID = 'scrollable-item-test-id';
 
 export const ScrollableSubsectionItem = forwardRef(
   function ScrollableSubsectionItem(

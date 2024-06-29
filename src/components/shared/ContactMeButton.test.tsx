@@ -2,7 +2,9 @@ import React, { type MutableRefObject } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { AppContext } from '@components/shared/AppContext';
-import ContactMeButton from '@components/shared/ContactMeButton';
+import ContactMeButton, {
+  CONTACT_ME_BUTTON_TEST_ID,
+} from '@components/shared/ContactMeButton';
 
 // Mocking the useScroll hook
 jest.mock('../../hooks/useScroll', () => ({
@@ -42,7 +44,7 @@ describe('ContactMeButton', () => {
       </AppContext.Provider>
     );
 
-    const button = screen.getByTestId('contact-me-button-test');
+    const button = screen.getByTestId(CONTACT_ME_BUTTON_TEST_ID);
     fireEvent.click(button);
 
     expect(mockHandleScroll).toHaveBeenCalledWith({

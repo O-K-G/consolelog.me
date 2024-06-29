@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { AppContext } from '@components/shared/AppContext';
 
 const CHILD_TEST_ID = 'child-test';
+const SECTION_ABOUT_TEST_ID = 'section-about';
 
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
@@ -52,7 +53,7 @@ describe('Section component', () => {
     );
   });
   it('displays the Section component on the screen', () => {
-    const sectionElement = screen.getByTestId('section-about');
+    const sectionElement = screen.getByTestId(SECTION_ABOUT_TEST_ID);
     expect(sectionElement).toBeInTheDocument();
     expect(sectionElement).toHaveClass('bg-about-background bg-custom');
     expect(sectionElement).not.toHaveAttribute('aria-hidden', 'true');

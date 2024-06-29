@@ -6,7 +6,7 @@ import { useScroll } from '@hooks/useScroll';
 import { useText } from '@hooks/useText';
 import contactMe from '@i18nEn/contactMeButton.json';
 
-const CONTACT_ME_BUTTON_TEST_ID = 'contact-me-button-test';
+export const CONTACT_ME_BUTTON_TEST_ID = 'contact-me-button-test';
 
 export default function ContactMeButton() {
   const handleScroll = useScroll();
