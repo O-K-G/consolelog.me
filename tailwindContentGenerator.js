@@ -1,5 +1,5 @@
-import fs from 'fs';
-import about from './src/i18n/en/about.json';
+const fs = require('node:fs');
+const about = require('../consolelog.me/src/i18n/en/about.json');
 
 /** Both 'tailwindContentGenerator.js' and 'contentClassNames.tsx' are ignored by ESLint,
  * at .eslintignore.
