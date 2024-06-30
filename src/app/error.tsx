@@ -1,6 +1,6 @@
 'use client';
 
-import Loader from '@components/Loader';
+import Loader from '@components/shared/Loader';
 import { useEffect } from 'react';
 import ProgressIcon from '@components/contactForm/ProgressIcon';
 import IconButton from '@components/shared/IconButton';
