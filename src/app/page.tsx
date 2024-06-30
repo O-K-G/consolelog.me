@@ -6,6 +6,7 @@ import Experience from '@components/byPage/Experience';
 import AppContextComponent from '@components/shared/AppContext';
 import Planet from '@components/shared/Planet';
 import Loader from '@components/shared/Loader';
+import ScrollIconComponent from '@components/shared/ScrollIconComponent';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Experience />
         <Planet />
       </AppContextComponent>
+      <ScrollIconComponent />
     </main>
   );
 }

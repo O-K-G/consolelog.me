@@ -58,7 +58,7 @@ export default function DialogBackdrop({
         onClick={handleClick}
         role='presentation'
         ref={dialogContainerRef}
-        className={`lg:cursor-pointer ${
+        className={`lg:cursor-pointer z-20 ${
           isFade ? 'animate-dialog-backdrop-fade-in' : 'hidden'
         } ${isFade === false ? 'animate-dialog-backdrop-fade-out' : ''}`}
       >

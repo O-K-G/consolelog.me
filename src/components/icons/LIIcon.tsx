@@ -6,7 +6,7 @@ export default function LIIcon({ className }: IconsProps) {
       viewBox='0 0 45 45'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className={className}
+      className={`shrink-0 ${className}`}
     >
       <path
         fillRule='evenodd'
