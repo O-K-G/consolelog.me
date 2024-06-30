@@ -6,7 +6,7 @@ import { useText } from '@hooks/useText';
 import projects from '@i18nEn/projects.json';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
 import Subtitle from '@components/shared/Subtitle';
-import ScrollableSubsection from '@components/shared/ScrollableSubsection';
+import ScrollableSubsection from '@components/shared/scrollableSection/ScrollableSubsection';
 
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_projects']";
 const SUBTITLE_GLOW_CLASSNAME = "before:content-['project_x']";

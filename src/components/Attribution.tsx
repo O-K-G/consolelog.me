@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import DialogBackdrop from '@components/shared/DialogBackdrop';
+import DialogBackdrop from '@components/shared/dialog/DialogBackdrop';
 import { useText } from '@hooks/useText';
 import attributionText from '@i18nEn/attributionText.json';
 import { URLs } from '@constants/urls';

@@ -1,6 +1,6 @@
 import type { AnchorLinkProps, SideLinksProps } from '@constants/interfaces';
-import GHIcon from '@components/GHIcon';
-import LIIcon from '@components/LIIcon';
+import GHIcon from '@components/icons/GHIcon';
+import LIIcon from '@components/icons/LIIcon';
 import { URLs } from '@constants/urls';
 import sideLinks from '@i18nEn/sideLinks.json';
 import { useText } from '@hooks/useText';

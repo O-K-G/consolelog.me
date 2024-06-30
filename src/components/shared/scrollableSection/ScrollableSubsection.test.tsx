@@ -1,11 +1,11 @@
 import React from 'react';
-import { SCROLLABLE_ITEM_TEST_ID } from '@components/shared/ScrollableSubsectionItem';
+import { SCROLLABLE_ITEM_TEST_ID } from '@components/shared/scrollableSection/ScrollableSubsectionItem';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ScrollableSubsection, {
   LEFT_BUTTON_TEST_ID,
   RIGHT_BUTTON_TEST_ID,
-} from '@components/shared/ScrollableSubsection';
+} from '@components/shared/scrollableSection/ScrollableSubsection';
 
 beforeAll(() => {
   const observe = jest.fn();
