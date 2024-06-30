@@ -1,13 +1,18 @@
-const fs = require('node:fs');
-const about = require('../consolelog.me/src/i18n/en/about.json');
+import fs from 'fs';
+import about from './src/i18n/en/about.json';
 
 /** Both 'tailwindContentGenerator.js' and 'contentClassNames.tsx' are ignored by ESLint,
  * at .eslintignore.
  *
  * 'contentClassNames.tsx' is ignored, as it is auto-generated.
  *
- * The aim of this file is to pre-generate Tailwind content-[] classes at a pre-build stage.
- * To generate them mid-development, add an entry below and run 'node tailwindContentGenerator'.
+ * The aim of this file is to generate pre-build Tailwind content-[] classes.
+ * To generate them during development, add a string entry below,
+ *  and run 'node tailwindContentGenerator'.
+ *
+ * The output will be created at contentClassNames.tsx.
+ *
+ * This file must be run during development, before running the build.
  */
 
 const PATH = './src/contentClassNames/contentClassNames.tsx';
