@@ -7,7 +7,7 @@ import { handleA11y1000FirstNumbers } from '@utils/handleA11y1000FirstNumbers';
 const PLACEHOLDER_TEST_VALUE = 'email - placeholder test value';
 const EMAIL_TEST_VALUE = 'test@test.test';
 
-jest.mock('../../hooks/useText', () => ({
+jest.mock(`${process.cwd()}/src/hooks/useText`, () => ({
   useText: () => (key: string, obj: object) => obj[key as keyof typeof obj],
 }));
 

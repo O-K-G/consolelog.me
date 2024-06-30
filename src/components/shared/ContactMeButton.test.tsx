@@ -6,20 +6,19 @@ import ContactMeButton, {
   CONTACT_ME_BUTTON_TEST_ID,
 } from '@components/shared/ContactMeButton';
 
-// Mocking the useScroll hook
-jest.mock('../../hooks/useScroll', () => ({
+jest.mock(`${process.cwd()}/src/hooks/useScroll`, () => ({
   useScroll: jest.fn(),
 }));
 
-// Mocking the useText hook
-jest.mock('../../hooks/useText', () => ({
+jest.mock(`${process.cwd()}/src/hooks/useText`, () => ({
   useText: jest.fn(),
 }));
 
 describe('ContactMeButton', () => {
   const mockHandleScroll = jest.fn();
-  const mockUseScroll = require('../../hooks/useScroll').useScroll;
-  const mockUseText = require('../../hooks/useText').useText;
+  const mockUseScroll =
+    require(`${process.cwd()}/src/hooks/useScroll`).useScroll;
+  const mockUseText = require(`${process.cwd()}/src/hooks/useText`).useText;
 
   beforeEach(() => {
     mockHandleScroll.mockClear();
