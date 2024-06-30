@@ -6,7 +6,7 @@ import sideLinks from '@i18nEn/sideLinks.json';
 import { useText } from '@hooks/useText';
 
 const ICONS_CLASSNAME =
-  'fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple size-full shrink-0';
+  'fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple size-full';
 
 function AnchorLink({
   url,
