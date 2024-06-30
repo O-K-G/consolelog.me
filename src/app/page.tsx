@@ -6,7 +6,7 @@ import Experience from '@components/byPage/Experience';
 import AppContextComponent from '@components/shared/AppContext';
 import Planet from '@components/shared/Planet';
 import Loader from '@components/shared/Loader';
-import ScrollIcon from '@components/icons/ScrollIcon';
+import ScrollIconComponent from '@components/shared/ScrollIconComponent';
 
 export default function Home() {
   return (
@@ -20,12 +20,7 @@ export default function Home() {
         <Experience />
         <Planet />
       </AppContextComponent>
-      <div className='fixed center-elements flex-col h-16 overflow-hidden md:h-[4.5rem] lg:h-24 bottom-0 right-0 mr-4 mb-4'>
-        <div className='uppercase text-title-purple text-base md:text-xl lg:text-2xl text-center w-full font-bebas-neue'>
-          SCROLL
-        </div>
-        <ScrollIcon className='h-full stroke-title-purple fill-title-purple' />
-      </div>
+      <ScrollIconComponent />
     </main>
   );
 }
