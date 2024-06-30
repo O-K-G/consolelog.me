@@ -5,17 +5,15 @@ import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
 import ContactMeButton from '@components/shared/ContactMeButton';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
+import { contentClassNames } from '@contentClassNames/contentClassNames';
 
 // import { useDisableScroll } from '@hooks/useDisableScroll';
-
-const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
-const SUBTITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
 
 export default function About() {
   // const [open, setOpen] = useState(false);
   const t = useText();
   // const { handleDisableScroll } = useDisableScroll();
-
+  // "before:content-['lorem_ipsum_dolor']"
   return (
     <>
       <Section
@@ -26,7 +24,7 @@ export default function About() {
         <Title
           component='h1'
           label={t('mainTitle', about)}
-          labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}
+          labelGlowText={contentClassNames.aboutGlowText.mainTitle}
           topLabel={t('topLabel', about)}
           bottomLabel={t('bottomLabel', about)}
           border
@@ -35,7 +33,7 @@ export default function About() {
 
         <Title
           label={t('subtitle', about)}
-          labelGlowText={SUBTITLE_GLOW_CLASSNAME}
+          labelGlowText={contentClassNames.aboutGlowText.subtitle}
         />
         <ClickToOpenButton alternativeLabel={t('alternativeLabel', about)} />
 

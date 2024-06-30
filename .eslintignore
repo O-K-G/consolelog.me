@@ -1,1 +1,3 @@
 **/*.test.tsx
+**/contentClassNames.tsx
+**/tailwindContentGenerator.js
