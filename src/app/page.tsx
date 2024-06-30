@@ -5,7 +5,7 @@ import Skills from '@components/byPage/Skills';
 import Experience from '@components/byPage/Experience';
 import AppContextComponent from '@components/shared/AppContext';
 import Planet from '@components/shared/Planet';
-import Loader from '@components/Loader';
+import Loader from '@components/shared/Loader';
 
 export default function Home() {
   return (

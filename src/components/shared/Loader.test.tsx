@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Loader, { LOADER_TEST_ID } from '@components/Loader';
+import Loader, { LOADER_TEST_ID } from '@components/shared/Loader';
 
 describe('Loader Component - start', () => {
   beforeAll(() => {
