@@ -5,6 +5,7 @@ import about from '@i18nEn/about.json';
 import ContactMeButton from '@components/shared/ContactMeButton';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
 
+const CURRENT_SECTION = 'about';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
 const SUBTITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
 
@@ -16,7 +17,7 @@ export default function About() {
       <Section
         className='gap-10'
         backgroundClassName='bg-left-top'
-        currentSection='about'
+        currentSection={CURRENT_SECTION}
       >
         <Title
           component='h1'

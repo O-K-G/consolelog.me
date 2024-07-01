@@ -5,6 +5,7 @@ import { useText } from '@hooks/useText';
 import content from '@i18nEn/contact.json';
 import SideLinks from '@components/shared/SideLinks';
 
+const CURRENT_SECTION = 'contact';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['contact_me']";
 
 export default function Contact() {
@@ -14,7 +15,7 @@ export default function Contact() {
     <Section
       className='gap-8'
       backgroundClassName='bg-center'
-      currentSection='contact'
+      currentSection={CURRENT_SECTION}
     >
       <Title
         label={t('mainTitle', content)}

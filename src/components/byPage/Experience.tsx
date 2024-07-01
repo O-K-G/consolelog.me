@@ -9,13 +9,14 @@ import Subtitle from '@components/shared/Subtitle';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
 import experience from '@i18nEn/experience.json';
 
+const CURRENT_SECTION = 'experience';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_work_experience']";
 const SUBTITLE_GLOW_CLASSNAME = "before:content-['some_place']";
 
 export default function Experience() {
   const t = useText();
   return (
-    <Section backgroundClassName='bg-top-left' currentSection='experience'>
+    <Section backgroundClassName='bg-top-left' currentSection={CURRENT_SECTION}>
       <Title
         label={t('mainTitle', experience)}
         labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}
