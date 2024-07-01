@@ -15,7 +15,6 @@ const BACKGROUND_IMAGES_CLASSNAMES = {
 
 export default function Section({
   className,
-  defaultHeight = 'h-svh lg:h-dvh',
   children,
   currentSection,
   backgroundClassName,
@@ -32,9 +31,9 @@ export default function Section({
     <section
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
-      className={`relative pt-20 md:pt-40 px-4 pb-4 flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
+      className={`min-h-screen relative pt-20 md:pt-40 px-4 pb-4 flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
-      } ${defaultHeight} ${className}`}
+      } ${className}`}
     >
       {children}
     </section>

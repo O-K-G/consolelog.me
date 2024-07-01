@@ -24,7 +24,6 @@ export interface SectionProps extends CurrentSection {
   children: ReactNode;
   backgroundClassName?: string;
   className?: string;
-  defaultHeight?: string;
 }
 
 interface TitleLabels {
