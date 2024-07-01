@@ -1,7 +1,7 @@
 'use client';
 
 import { Handjet } from 'next/font/google';
-import { useState } from 'react';
+import { type ForwardedRef, forwardRef, useRef, useState } from 'react';
 import { useDisableScroll } from '@hooks/useDisableScroll';
 import { useText } from '@hooks/useText';
 import oldComponentText from '@i18nEn/oldComponentText.json';
@@ -20,6 +20,7 @@ function OldschoolButton({
   return (
     <button
       disabled={disabled}
+      aria-hidden={disabled}
       onClick={onClick}
       className={`shadow-sm border border-black shadow-black outline-none center-elements p-4 mt-10 ${
         disabled
@@ -33,18 +34,21 @@ function OldschoolButton({
   );
 }
 
-function NoDialog({ open, onClick }: NoDialogProps) {
+const NoDialog = forwardRef(function NoDialog(
+  { onClick }: NoDialogProps,
+  ref: ForwardedRef<null>
+) {
   const t = useText();
 
   return (
     <dialog
-      open={open}
-      className='hidden open:center-elements border border-black shadow-md shadow-gray-500 flex-col fixed top-0 bottom-0 left-0 right-0 m-auto w-11/12 md:w-3/12 h-[50svh] lg:h-[25dvh] bg-[#b4b3b3] font-bold text-xl text-black'
+      ref={ref}
+      className='hidden backdrop:hidden open:flex open:center-elements border border-black shadow-md shadow-gray-500 flex-col fixed top-0 bottom-0 left-0 right-0 m-auto w-11/12 md:w-3/12 h-[50svh] lg:h-[25dvh] bg-[#b4b3b3] font-bold text-xl text-black'
     >
       <div className='bg-gray-500 py-4 pl-4 pr-0.5 flex items-center justify-between w-full h-4 absolute top-0 right-0'>
-        <span className='text-white text-base'>
+        <h2 className='text-white text-base'>
           {t('error418', oldComponentText)}
-        </span>
+        </h2>
         <button
           className='rounded-full center-elements bg-red-300 size-7 border-1.5 shadow-inner shadow-black rotate-180 border-[#b4b3b3] hover:bg-white active:bg-white focus:bg-white'
           onClick={onClick}
@@ -55,12 +59,13 @@ function NoDialog({ open, onClick }: NoDialogProps) {
       {t('no', oldComponentText)}
     </dialog>
   );
-}
+});
 
 export default function Old() {
   const [isOldComponentOpen, setOldComponentOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const { handleDisableScroll } = useDisableScroll();
+  const noDialogRef = useRef(null);
   const t = useText();
   const A11Y_SCREEN_READER_TEXT = `${t('graphicsOff', oldComponentText)} ${t(
     'whoKnew',
@@ -104,6 +109,9 @@ export default function Old() {
                 onClick={() => {
                   const date = new Date();
                   setOpen(true);
+                  (
+                    noDialogRef?.current as unknown as HTMLDialogElement
+                  ).showModal();
                   console.warn(
                     `${date.toLocaleDateString()} ${date.toLocaleTimeString()}: ${t(
                       'justSaying',
@@ -125,7 +133,13 @@ export default function Old() {
               </OldschoolButton>
             </div>
           </div>
-          <NoDialog onClick={() => setOpen(false)} open={open} />
+          <NoDialog
+            ref={noDialogRef}
+            onClick={() => {
+              (noDialogRef?.current as unknown as HTMLDialogElement).close();
+              setOpen(false);
+            }}
+          />
         </div>
       )}
     </>

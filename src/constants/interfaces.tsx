@@ -62,7 +62,6 @@ export interface OldschoolButtonProps {
 }
 
 export interface NoDialogProps {
-  open: boolean;
   onClick: () => void;
 }
 
