@@ -56,17 +56,13 @@ export interface SubtitleProps {
 }
 
 export interface OldschoolButtonProps {
-  label: string;
+  children: ReactNode;
   onClick: () => void;
   disabled: boolean;
 }
 
 export interface NoDialogProps {
   open: boolean;
-  onClick: () => void;
-}
-
-export interface OldProps {
   onClick: () => void;
 }
 

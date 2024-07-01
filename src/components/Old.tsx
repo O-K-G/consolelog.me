@@ -1,16 +1,22 @@
 'use client';
 
-import type {
-  NoDialogProps,
-  OldProps,
-  OldschoolButtonProps,
-} from '@constants/interfaces';
 import { Handjet } from 'next/font/google';
 import { useState } from 'react';
+import { useDisableScroll } from '@hooks/useDisableScroll';
+import { useText } from '@hooks/useText';
+import oldComponentText from '@i18nEn/oldComponentText.json';
+import type {
+  NoDialogProps,
+  OldschoolButtonProps,
+} from '@constants/interfaces';
 
 const handjet = Handjet({ subsets: ['latin'] });
 
-function OldschoolButton({ label, onClick, disabled }: OldschoolButtonProps) {
+function OldschoolButton({
+  children,
+  onClick,
+  disabled,
+}: OldschoolButtonProps) {
   return (
     <button
       disabled={disabled}
@@ -22,12 +28,14 @@ function OldschoolButton({ label, onClick, disabled }: OldschoolButtonProps) {
       }`}
       type='button'
     >
-      {label}
+      {children}
     </button>
   );
 }
 
 function NoDialog({ open, onClick }: NoDialogProps) {
+  const t = useText();
+
   return (
     <dialog
       open={open}
@@ -35,53 +43,81 @@ function NoDialog({ open, onClick }: NoDialogProps) {
     >
       <div className='bg-gray-500 py-4 pl-4 pr-0.5 flex items-center justify-between w-full h-4 absolute top-0 right-0'>
         <span className='text-white text-base'>
-          Error 418 - I&apos;m a teapot
+          {t('error418', oldComponentText)}
         </span>
         <button
           className='rounded-full center-elements bg-red-300 size-7 border-1.5 shadow-inner shadow-black rotate-180 border-[#b4b3b3] hover:bg-white active:bg-white focus:bg-white'
           onClick={onClick}
           type='button'
-        ></button>
+          aria-label={t('close', oldComponentText)}
+        />
       </div>
-      No.
+      {t('no', oldComponentText)}
     </dialog>
   );
 }
 
-export default function Old({ onClick }: OldProps) {
+export default function Old() {
+  const [isOldComponentOpen, setOldComponentOpen] = useState(false);
   const [open, setOpen] = useState(false);
+  const { handleDisableScroll } = useDisableScroll();
+  const t = useText();
 
   return (
-    <div
-      className={`fixed top-0 left-0 z-[1080] bg-[#b4b3b3] cursor-crosshair cur font-serif p-4 text-black h-svh lg:h-dvh w-svw lg:w-dvw ${handjet.className}`}
-    >
-      <h2 className='text-2xl font-bold'>Huh. 90&apos;s internet, who knew.</h2>
-      <p className='text-2xl mt-10'>Well, this is what you get.</p>
+    <>
+      <button
+        type='button'
+        onClick={() => {
+          setOldComponentOpen(true);
+          handleDisableScroll(true);
+        }}
+        className='uppercase z-10 outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base'
+      >
+        {t('whatIf', oldComponentText)}
+      </button>
+      {isOldComponentOpen && (
+        <div
+          className={`fixed top-0 left-0 z-50 bg-[#b4b3b3] flex items-center justify-start flex-col cursor-crosshair font-serif p-4 text-black h-svh lg:h-dvh w-svw lg:w-dvw ${handjet.className}`}
+        >
+          <h2 className='text-2xl font-bold'>
+            {t('whoKnew', oldComponentText)}
+          </h2>
+          <h3 className='text-2xl mt-10'>
+            {t('whatYouGet', oldComponentText)}
+          </h3>
 
-      <div className='center-elements flex-col'>
-        <p className='mt-10'>
-          So, do you want to continue with your shenanigans?
-        </p>
-        <div className='center-elements gap-2'>
-          <OldschoolButton
-            disabled={open}
-            onClick={() => {
-              const date = new Date();
-              setOpen(true);
-              console.warn(
-                `${date.toLocaleDateString()} ${date.toLocaleTimeString()}: Error (418): I'm a teapot. Just saying. :)`
-              );
-            }}
-            label='OK'
-          />
-          <OldschoolButton
-            disabled={open}
-            onClick={onClick}
-            label='Take me back!'
-          />
+          <div className='center-elements flex-col'>
+            <p className='mt-10'>{t('shenanigans', oldComponentText)}</p>
+            <div className='center-elements gap-2'>
+              <OldschoolButton
+                disabled={open}
+                onClick={() => {
+                  const date = new Date();
+                  setOpen(true);
+                  console.warn(
+                    `${date.toLocaleDateString()} ${date.toLocaleTimeString()}: ${t(
+                      'justSaying',
+                      oldComponentText
+                    )}`
+                  );
+                }}
+              >
+                {t('ok', oldComponentText)}
+              </OldschoolButton>
+              <OldschoolButton
+                disabled={open}
+                onClick={() => {
+                  setOldComponentOpen(false);
+                  handleDisableScroll(false);
+                }}
+              >
+                {t('takeMeBack', oldComponentText)}
+              </OldschoolButton>
+            </div>
+          </div>
+          <NoDialog onClick={() => setOpen(false)} open={open} />
         </div>
-      </div>
-      <NoDialog onClick={() => setOpen(false)} open={open} />
-    </div>
+      )}
+    </>
   );
 }
