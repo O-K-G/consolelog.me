@@ -1,7 +1,14 @@
 'use client';
 
 import { Handjet } from 'next/font/google';
-import { type ForwardedRef, forwardRef, useRef, useState } from 'react';
+import {
+  type ForwardedRef,
+  forwardRef,
+  useRef,
+  useState,
+  useEffect,
+  type MutableRefObject,
+} from 'react';
 import { useDisableScroll } from '@hooks/useDisableScroll';
 import { useText } from '@hooks/useText';
 import oldComponentText from '@i18nEn/oldComponentText.json';
@@ -61,13 +68,15 @@ const NoDialog = forwardRef(function NoDialog(
   );
 });
 
-export default function Old() {
-  const [isOldComponentOpen, setOldComponentOpen] = useState(false);
-  const [open, setOpen] = useState(false);
-  const { handleDisableScroll } = useDisableScroll();
-  const oldDialogRef = useRef(null);
-  const noDialogRef = useRef(null);
+const DialogComponent = forwardRef(function DialogComponent(
+  { onChange }: { onChange: (val: boolean) => void },
+  ref: ForwardedRef<null>
+) {
   const t = useText();
+  const [open, setOpen] = useState(false);
+  const noDialogRef = useRef(null);
+  const { handleDisableScroll } = useDisableScroll();
+
   const A11Y_SCREEN_READER_TEXT = `${t('graphicsOff', oldComponentText)} ${t(
     'whoKnew',
     oldComponentText
@@ -75,13 +84,89 @@ export default function Old() {
     'shenanigans',
     oldComponentText
   )} ${t('hitTheButtons', oldComponentText)}`;
+  const refEl = ref as unknown as MutableRefObject<HTMLDialogElement>;
+
+  useEffect(() => {
+    console.log('test');
+    if (refEl?.current) {
+      refEl?.current?.showModal();
+    }
+  }, [ref, refEl]);
+
+  return (
+    <dialog
+      ref={ref}
+      className={`open:fixed open:flex backdrop:bg-[#b4b3b3] top-0 left-0 bottom-0 right-0 m-auto z-50 bg-[#b4b3b3] items-center justify-start flex-col cursor-crosshair font-serif p-4 text-black h-svh lg:h-dvh w-svw lg:min-w-dvw ${handjet.className}`}
+    >
+      <h2 aria-hidden className='text-2xl font-bold'>
+        {t('whoKnew', oldComponentText)}
+      </h2>
+      <h3 aria-hidden className='text-2xl mt-10'>
+        {t('whatYouGet', oldComponentText)}
+      </h3>
+
+      <div className='center-elements flex-col'>
+        <div aria-live='assertive' className='sr-only'>
+          {A11Y_SCREEN_READER_TEXT}
+        </div>
+        <p aria-hidden className='mt-10'>
+          {t('shenanigans', oldComponentText)}
+        </p>
+        <div className='center-elements gap-2'>
+          <OldschoolButton
+            disabled={open}
+            onClick={() => {
+              const date = new Date();
+              setOpen(true);
+              (
+                noDialogRef?.current as unknown as HTMLDialogElement
+              ).showModal();
+              console.warn(
+                `${date.toLocaleDateString()} ${date.toLocaleTimeString()}: ${t(
+                  'justSaying',
+                  oldComponentText
+                )}`
+              );
+            }}
+          >
+            {t('ok', oldComponentText)}
+          </OldschoolButton>
+          <OldschoolButton
+            disabled={open}
+            onClick={() => {
+              (
+                ref as unknown as MutableRefObject<HTMLDialogElement>
+              ).current?.close();
+              onChange(false);
+              handleDisableScroll(false);
+            }}
+          >
+            {t('takeMeBack', oldComponentText)}
+          </OldschoolButton>
+        </div>
+      </div>
+      <NoDialog
+        ref={noDialogRef}
+        onClick={() => {
+          (noDialogRef?.current as unknown as HTMLDialogElement).close();
+          setOpen(false);
+        }}
+      />
+    </dialog>
+  );
+});
+
+export default function Old() {
+  const [isOldComponentOpen, setOldComponentOpen] = useState(false);
+  const { handleDisableScroll } = useDisableScroll();
+  const oldDialogRef = useRef(null);
+  const t = useText();
 
   return (
     <>
       <button
         type='button'
         onClick={() => {
-          (oldDialogRef.current as unknown as HTMLDialogElement).showModal();
           setOldComponentOpen(true);
           handleDisableScroll(true);
         }}
@@ -89,64 +174,9 @@ export default function Old() {
       >
         {t('whatIf', oldComponentText)}
       </button>
-
-      <dialog
-        ref={oldDialogRef}
-        className={`open:fixed open:flex backdrop:bg-[#b4b3b3] top-0 left-0 bottom-0 right-0 m-auto z-50 bg-[#b4b3b3] items-center justify-start flex-col cursor-crosshair font-serif p-4 text-black h-svh lg:h-dvh w-svw lg:min-w-dvw ${handjet.className}`}
-      >
-        <h2 aria-hidden className='text-2xl font-bold'>
-          {t('whoKnew', oldComponentText)}
-        </h2>
-        <h3 aria-hidden className='text-2xl mt-10'>
-          {t('whatYouGet', oldComponentText)}
-        </h3>
-
-        <div className='center-elements flex-col'>
-          <div aria-live='assertive' className='sr-only'>
-            {isOldComponentOpen && A11Y_SCREEN_READER_TEXT}
-          </div>
-          <p aria-hidden className='mt-10'>
-            {t('shenanigans', oldComponentText)}
-          </p>
-          <div className='center-elements gap-2'>
-            <OldschoolButton
-              disabled={open}
-              onClick={() => {
-                const date = new Date();
-                setOpen(true);
-                (
-                  noDialogRef?.current as unknown as HTMLDialogElement
-                ).showModal();
-                console.warn(
-                  `${date.toLocaleDateString()} ${date.toLocaleTimeString()}: ${t(
-                    'justSaying',
-                    oldComponentText
-                  )}`
-                );
-              }}
-            >
-              {t('ok', oldComponentText)}
-            </OldschoolButton>
-            <OldschoolButton
-              disabled={open}
-              onClick={() => {
-                setOldComponentOpen(false);
-                handleDisableScroll(false);
-                (oldDialogRef.current as unknown as HTMLDialogElement).close();
-              }}
-            >
-              {t('takeMeBack', oldComponentText)}
-            </OldschoolButton>
-          </div>
-        </div>
-        <NoDialog
-          ref={noDialogRef}
-          onClick={() => {
-            (noDialogRef?.current as unknown as HTMLDialogElement).close();
-            setOpen(false);
-          }}
-        />
-      </dialog>
+      {isOldComponentOpen && (
+        <DialogComponent onChange={setOldComponentOpen} ref={oldDialogRef} />
+      )}
     </>
   );
 }
