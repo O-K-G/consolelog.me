@@ -18,6 +18,7 @@ export default function Section({
   children,
   currentSection,
   backgroundClassName,
+  heightClassName = 'h-svh lg:h-dvh',
 }: SectionProps) {
   const sectionRef = useRef(null);
 
@@ -33,7 +34,7 @@ export default function Section({
       data-testid={`section-${currentSection}`}
       className={`min-h-screen relative pt-20 md:pt-40 px-4 pb-4 flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
-      } ${className}`}
+      } ${heightClassName} ${className}`}
     >
       {children}
     </section>
