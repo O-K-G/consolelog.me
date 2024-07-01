@@ -87,7 +87,7 @@ const DialogComponent = forwardRef(function DialogComponent(
   const refEl = ref as unknown as MutableRefObject<HTMLDialogElement>;
 
   useEffect(() => {
-    if (refEl?.current) {
+    if (refEl?.current && !refEl?.current.open) {
       refEl?.current?.showModal();
     }
   }, [ref, refEl]);
