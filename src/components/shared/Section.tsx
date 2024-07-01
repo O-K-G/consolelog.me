@@ -19,6 +19,7 @@ export default function Section({
   currentSection,
   backgroundClassName,
   heightClassName = 'h-svh lg:h-dvh',
+  paddingClassName = 'pt-20 md:pt-40 px-4 pb-4',
 }: SectionProps) {
   const sectionRef = useRef(null);
 
@@ -32,9 +33,9 @@ export default function Section({
     <section
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
-      className={`min-h-screen relative pt-20 md:pt-40 px-4 pb-4 flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
+      className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
-      } ${heightClassName} ${className}`}
+      } ${paddingClassName} ${heightClassName} ${className}`}
     >
       {children}
     </section>

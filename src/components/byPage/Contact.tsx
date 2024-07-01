@@ -13,7 +13,7 @@ export default function Contact() {
 
   return (
     <Section
-      className='gap-8'
+      paddingClassName='pt-8 md:pt-16 px-4 pb-4'
       backgroundClassName='bg-center'
       currentSection={CURRENT_SECTION}
     >

@@ -25,6 +25,7 @@ export interface SectionProps extends CurrentSection {
   backgroundClassName?: string;
   className?: string;
   heightClassName?: string;
+  paddingClassName?: string;
 }
 
 interface TitleLabels {
