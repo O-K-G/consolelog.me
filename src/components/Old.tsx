@@ -69,13 +69,12 @@ const NoDialog = forwardRef(function NoDialog(
 });
 
 const DialogComponent = forwardRef(function DialogComponent(
-  { onChange }: { onChange: (val: boolean) => void },
+  { onClose }: { onClose: () => void },
   ref: ForwardedRef<null>
 ) {
   const t = useText();
   const [open, setOpen] = useState(false);
   const noDialogRef = useRef(null);
-  const { handleDisableScroll } = useDisableScroll();
 
   const A11Y_SCREEN_READER_TEXT = `${t('graphicsOff', oldComponentText)} ${t(
     'whoKnew',
@@ -130,16 +129,7 @@ const DialogComponent = forwardRef(function DialogComponent(
           >
             {t('ok', oldComponentText)}
           </OldschoolButton>
-          <OldschoolButton
-            disabled={open}
-            onClick={() => {
-              (
-                ref as unknown as MutableRefObject<HTMLDialogElement>
-              ).current?.close();
-              onChange(false);
-              handleDisableScroll(false);
-            }}
-          >
+          <OldschoolButton disabled={open} onClick={onClose}>
             {t('takeMeBack', oldComponentText)}
           </OldschoolButton>
         </div>
@@ -174,7 +164,16 @@ export default function Old() {
         {t('whatIf', oldComponentText)}
       </button>
       {isOldComponentOpen && (
-        <DialogComponent onChange={setOldComponentOpen} ref={oldDialogRef} />
+        <DialogComponent
+          onClose={() => {
+            (
+              oldDialogRef as unknown as MutableRefObject<HTMLDialogElement>
+            ).current?.close();
+            handleDisableScroll(false);
+            setOldComponentOpen(false);
+          }}
+          ref={oldDialogRef}
+        />
       )}
     </>
   );
