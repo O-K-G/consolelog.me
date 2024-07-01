@@ -26,10 +26,14 @@ function DialogComponent(
 ) {
   const t = useText();
 
-  useEffect(
-    () => (ref as MutableRefObject<HTMLDialogElement>).current.showModal(),
-    [ref]
-  );
+  useEffect(() => {
+    const currentDialogRefEl = (ref as MutableRefObject<HTMLDialogElement>)
+      .current;
+
+    if (!currentDialogRefEl.open) {
+      currentDialogRefEl.showModal();
+    }
+  }, [ref]);
 
   return (
     <dialog
