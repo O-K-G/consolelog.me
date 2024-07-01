@@ -8,5 +8,7 @@
   "no": "No",
   "ok": "OK",
   "close": "Close",
-  "takeMeBack": "Take me back!"
+  "takeMeBack": "Take me back!",
+  "graphicsOff": "Graphics is off, the background is grey and the text is pixelated black.",
+  "hitTheButtons": "Hit the 'OK' or 'Take me back' buttons"
 }

@@ -62,6 +62,13 @@ export default function Old() {
   const [open, setOpen] = useState(false);
   const { handleDisableScroll } = useDisableScroll();
   const t = useText();
+  const A11Y_SCREEN_READER_TEXT = `${t('graphicsOff', oldComponentText)} ${t(
+    'whoKnew',
+    oldComponentText
+  )} ${t('whatYouGet', oldComponentText)} ${t(
+    'shenanigans',
+    oldComponentText
+  )} ${t('hitTheButtons', oldComponentText)}`;
 
   return (
     <>
@@ -75,6 +82,9 @@ export default function Old() {
       >
         {t('whatIf', oldComponentText)}
       </button>
+      <div aria-live='assertive' className='sr-only'>
+        {isOldComponentOpen && A11Y_SCREEN_READER_TEXT}
+      </div>
       {isOldComponentOpen && (
         <div
           className={`fixed top-0 left-0 z-50 bg-[#b4b3b3] flex items-center justify-start flex-col cursor-crosshair font-serif p-4 text-black h-svh lg:h-dvh w-svw lg:w-dvw ${handjet.className}`}
