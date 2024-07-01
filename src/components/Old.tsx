@@ -95,7 +95,7 @@ const DialogComponent = forwardRef(function DialogComponent(
   return (
     <dialog
       ref={ref}
-      className={`open:fixed open:flex backdrop:bg-[#b4b3b3] top-0 left-0 bottom-0 right-0 m-auto z-50 bg-[#b4b3b3] items-center justify-start flex-col cursor-crosshair font-serif p-4 text-black h-svh lg:h-dvh w-svw lg:min-w-dvw ${handjet.className}`}
+      className={`hidden open:fixed open:flex backdrop:bg-[#b4b3b3] top-0 left-0 bottom-0 right-0 m-auto z-50 bg-[#b4b3b3] items-center justify-start flex-col cursor-crosshair font-serif p-4 text-black h-svh lg:h-dvh w-svw lg:min-w-dvw ${handjet.className}`}
     >
       <h2 aria-hidden className='text-2xl font-bold'>
         {t('whoKnew', oldComponentText)}
