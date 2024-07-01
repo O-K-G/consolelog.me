@@ -1,20 +1,15 @@
 import Section from '@components/shared/Section';
 import Title from '@components/shared/title/Title';
-// import Old from '@components/Old';
 import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
 import ContactMeButton from '@components/shared/ContactMeButton';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
 
-// import { useDisableScroll } from '@hooks/useDisableScroll';
-
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
 const SUBTITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
 
 export default function About() {
-  // const [open, setOpen] = useState(false);
   const t = useText();
-  // const { handleDisableScroll } = useDisableScroll();
 
   return (
     <>
@@ -40,26 +35,7 @@ export default function About() {
         <ClickToOpenButton alternativeLabel={t('alternativeLabel', about)} />
 
         <ContactMeButton />
-
-        {/* <button
-          type='button'
-          onClick={() => {
-            setOpen(true);
-            handleDisableScroll(true);
-          }}
-          className='bg-red-500 absolute right-0 bottom-40'
-        >
-          TBD
-        </button> */}
       </Section>
-      {/* {open && (
-        <Old
-          onClick={() => {
-            handleDisableScroll(false);
-            setOpen(false);
-          }}
-        />
-      )} */}
     </>
   );
 }

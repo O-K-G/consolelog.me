@@ -130,7 +130,7 @@ export default function Loader({
   return (
     <div
       ref={loaderRef}
-      className={`transition-1000 fixed text-white text-lg center-elements flex-col gap-10 z-50 top-0 left-0 size-full bg-black ${
+      className={`transition-1000 fixed text-white text-lg center-elements flex-col gap-10 z-50 top-0 left-0 size-full bg-[#111111] ${
         isLoderVisible || open ? 'opacity-100' : 'opacity-0'
       }`}
     >
