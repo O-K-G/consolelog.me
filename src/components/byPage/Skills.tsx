@@ -14,11 +14,7 @@ export default function Skills() {
   const t = useText();
 
   return (
-    <Section
-      defaultHeight='min-h-svh lg:min-h-dvh'
-      backgroundClassName='bg-center'
-      currentSection='skills'
-    >
+    <Section backgroundClassName='bg-center' currentSection='skills'>
       <Title
         label={t('mainTitle', skills)}
         labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}
