@@ -12,7 +12,7 @@ export const LEFT_BUTTON_TEST_ID = 'left-button-test-id';
 export const RIGHT_BUTTON_TEST_ID = 'right-button-test-id';
 
 const BUTTONS_CLASSNAME =
-  'h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
+  'z-10 h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
 
 export default function ScrollableSubsection({
   children,
@@ -31,7 +31,7 @@ export default function ScrollableSubsection({
   });
 
   return (
-    <div className='z-10 size-full center-elements'>
+    <div className='z-10 absolute top-0 bottom-0 my-auto h-1/2 md:relative md:h-full left-0 w-full center-elements'>
       <IconButton
         data-testid={LEFT_BUTTON_TEST_ID}
         disabled={!selectedSubsection}

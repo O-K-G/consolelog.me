@@ -12,6 +12,8 @@ import experience from '@i18nEn/experience.json';
 const CURRENT_SECTION = 'experience';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_work_experience']";
 const SUBTITLE_GLOW_CLASSNAME = "before:content-['some_place']";
+const SUBTITLE_CLASSNAME =
+  'absolute top-0 w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36';
 
 export default function Experience() {
   const t = useText();
@@ -25,6 +27,7 @@ export default function Experience() {
       <ScrollableSubsection>
         <ScrollableSubsection.Item>
           <Subtitle
+            className={SUBTITLE_CLASSNAME}
             label={t('subtitle', experience)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />
@@ -36,6 +39,7 @@ export default function Experience() {
 
         <ScrollableSubsection.Item>
           <Subtitle
+            className={SUBTITLE_CLASSNAME}
             label={t('subtitle', experience)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />
@@ -47,6 +51,7 @@ export default function Experience() {
 
         <ScrollableSubsection.Item>
           <Subtitle
+            className={SUBTITLE_CLASSNAME}
             label={t('subtitle', experience)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />

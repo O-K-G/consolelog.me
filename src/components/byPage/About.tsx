@@ -26,14 +26,17 @@ export default function About() {
           topLabel={t('topLabel', about)}
           bottomLabel={t('bottomLabel', about)}
           border
-          className='mt-8 sm:mt-0 w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36'
+          className='relative mt-8 sm:mt-0 w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36'
         />
 
         <Title
           label={t('subtitle', about)}
           labelGlowText={SUBTITLE_GLOW_CLASSNAME}
         />
-        <ClickToOpenButton alternativeLabel={t('alternativeLabel', about)} />
+        <ClickToOpenButton
+          openSizeClassName='data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3'
+          alternativeLabel={t('alternativeLabel', about)}
+        />
 
         <ContactMeButton />
       </Section>

@@ -54,6 +54,7 @@ export interface TitleProps extends TitleLabels {
 export interface SubtitleProps {
   label: string;
   labelGlowText: string;
+  className?: string;
 }
 
 export interface OldschoolButtonProps {
@@ -194,6 +195,7 @@ export interface BoltProps {
 
 export interface ClickToOpenButtonProps {
   alternativeLabel: string;
+  openSizeClassName?: string;
 }
 
 export interface ArrowRightIconProps {

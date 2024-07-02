@@ -11,6 +11,7 @@ const CLICK_TO_OPEN_GLOW_CLASSNAME = "before:content-['click_to_open']";
 
 export function ClickToOpenButton({
   alternativeLabel,
+  openSizeClassName = 'data-[open=true]:w-3/5 data-[open=true]:h-4/6 data-[open=true]:lg:h-3/6',
 }: ClickToOpenButtonProps) {
   const t = useText();
   const [isTitleButtonOpen, setIsTitleButtonOpen] = useState(false);
@@ -18,7 +19,7 @@ export function ClickToOpenButton({
   return (
     <div
       data-open={isTitleButtonOpen}
-      className='group transition-1000 z-10 relative w-24 h-20 sm:w-36 sm:h-28 md:w-44 md:h-32 lg:w-52 lg:h-40 data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3 border sm:border-2 md:border-[0.188rem] border-transparent data-[open=true]:border-title-purple'
+      className={`group transition-1000 z-10 relative w-24 h-20 sm:w-36 sm:h-28 md:w-44 md:h-32 lg:w-52 lg:h-40 border sm:border-2 md:border-[0.188rem] border-transparent data-[open=true]:border-title-purple ${openSizeClassName}`}
     >
       <AboutTargetIcon open={!!isTitleButtonOpen} />
 

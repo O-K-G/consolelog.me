@@ -5,7 +5,7 @@ export default function Title({
   component: Component = 'h2',
   label,
   labelGlowText,
-  className = 'w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36',
+  className = 'relative w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36',
   topLabel,
   bottomLabel,
   border = false,
@@ -18,7 +18,7 @@ export default function Title({
 }: TitleProps) {
   return (
     <div
-      className={`flex flex-col items-center justify-between shrink-0 relative ${fontClassName} ${textSizeClassName} ${className}`}
+      className={`flex flex-col items-center justify-between shrink-0 ${fontClassName} ${textSizeClassName} ${className}`}
     >
       {border && <Border label={topLabel} />}
 
