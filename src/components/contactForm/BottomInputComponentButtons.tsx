@@ -25,7 +25,7 @@ export default function BottomInputComponentButtons({
   const isLTR = dir === 'ltr';
 
   return (
-    <div className='flex items-center justify-end w-full mt-2 h-12 overflow-hidden'>
+    <div className='flex items-center justify-end w-full mt-2 overflow-hidden'>
       <div className='relative overflow-hidden w-1/3 h-full flex items-center justify-start'>
         {leftSlot}
       </div>
