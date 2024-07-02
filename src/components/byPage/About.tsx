@@ -33,7 +33,10 @@ export default function About() {
           label={t('subtitle', about)}
           labelGlowText={SUBTITLE_GLOW_CLASSNAME}
         />
-        <ClickToOpenButton alternativeLabel={t('alternativeLabel', about)} />
+        <ClickToOpenButton
+          openSizeClassName='data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3'
+          alternativeLabel={t('alternativeLabel', about)}
+        />
 
         <ContactMeButton />
       </Section>
