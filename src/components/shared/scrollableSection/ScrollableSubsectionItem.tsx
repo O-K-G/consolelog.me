@@ -23,7 +23,7 @@ export const ScrollableSubsectionItem = forwardRef(
       <div
         data-testid={SCROLLABLE_ITEM_TEST_ID}
         ref={scrollableItemRef}
-        className='h-full snap-center min-w-full flex items-center justify-start flex-col gap-24'
+        className='relative h-full snap-center min-w-full center-elements flex-col'
       >
         {children}
       </div>

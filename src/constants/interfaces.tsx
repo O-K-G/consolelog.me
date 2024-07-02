@@ -54,6 +54,7 @@ export interface TitleProps extends TitleLabels {
 export interface SubtitleProps {
   label: string;
   labelGlowText: string;
+  className?: string;
 }
 
 export interface OldschoolButtonProps {

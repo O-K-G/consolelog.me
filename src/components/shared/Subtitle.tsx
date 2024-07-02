@@ -1,9 +1,14 @@
 import type { SubtitleProps } from '@constants/interfaces';
 import Title from '@components/shared/title/Title';
 
-export default function Subtitle({ label, labelGlowText }: SubtitleProps) {
+export default function Subtitle({
+  label,
+  labelGlowText,
+  className,
+}: SubtitleProps) {
   return (
     <Title
+      className={className}
       label={label}
       labelGlowText={labelGlowText}
       beforeBlurClassName='lg:before:blur-[2rem]'

@@ -11,6 +11,8 @@ import ScrollableSubsection from '@components/shared/scrollableSection/Scrollabl
 const CURRENT_SECTION = 'projects';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_projects']";
 const SUBTITLE_GLOW_CLASSNAME = "before:content-['project_x']";
+const SUBTITLE_CLASSNAME =
+  'absolute top-0 w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36';
 
 export default function Projects() {
   const t = useText();
@@ -25,6 +27,20 @@ export default function Projects() {
       <ScrollableSubsection>
         <ScrollableSubsection.Item>
           <Subtitle
+            className={SUBTITLE_CLASSNAME}
+            label={t('subtitle', projects)}
+            labelGlowText={SUBTITLE_GLOW_CLASSNAME}
+          />
+          <div className='size-full absolute center-elements'>
+            <ClickToOpenButton
+              alternativeLabel={t('alternativeLabel', projects)}
+            />
+          </div>
+        </ScrollableSubsection.Item>
+
+        <ScrollableSubsection.Item>
+          <Subtitle
+            className={SUBTITLE_CLASSNAME}
             label={t('subtitle', projects)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />
@@ -36,17 +52,7 @@ export default function Projects() {
 
         <ScrollableSubsection.Item>
           <Subtitle
-            label={t('subtitle', projects)}
-            labelGlowText={SUBTITLE_GLOW_CLASSNAME}
-          />
-
-          <ClickToOpenButton
-            alternativeLabel={t('alternativeLabel', projects)}
-          />
-        </ScrollableSubsection.Item>
-
-        <ScrollableSubsection.Item>
-          <Subtitle
+            className={SUBTITLE_CLASSNAME}
             label={t('subtitle', projects)}
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />
