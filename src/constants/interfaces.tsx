@@ -195,6 +195,7 @@ export interface BoltProps {
 
 export interface ClickToOpenButtonProps {
   alternativeLabel: string;
+  openSizeClassName?: string;
 }
 
 export interface ArrowRightIconProps {
