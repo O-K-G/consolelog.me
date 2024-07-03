@@ -62,8 +62,10 @@ export default function Experience() {
           />
         </ScrollableSubsection.Item>
       </ScrollableSubsection>
-      <Attribution />
-      <Shenanigans />
+      <footer className='mt-auto z-10 center-elements flex-col'>
+        <Attribution />
+        <Shenanigans />
+      </footer>
     </Section>
   );
 }

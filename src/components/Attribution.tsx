@@ -42,7 +42,7 @@ export default function Attribution() {
     <>
       <button
         type='button'
-        className='mt-auto z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl'
+        className='uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl'
         onClick={() => setOpen(true)}
       >
         {t('title', attributionText)}

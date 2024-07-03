@@ -32,7 +32,7 @@ export default function Shenanigans() {
     <>
       <button
         type='button'
-        className='z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl'
+        className='uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl'
         onClick={() => setOpen(true)}
       >
         {t('shenanigansButton', shenanigans)}
