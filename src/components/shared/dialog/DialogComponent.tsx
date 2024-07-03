@@ -21,7 +21,7 @@ function DialogComponent(
     title,
     contentSlot,
     sizeClassName = 'w-full h-[50svh] md:w-[50svw] md:h-[50svw] lg:w-[40dvw] lg:h-[40dvw]',
-    className = 'size-full p-4 center-elements bg-transparent',
+    className = 'h-svh w-svw p-4 center-elements backdrop:bg-transparent bg-transparent',
     dialogWindowClassName = 'lg:cursor-default relative p-4 text-white text-xl font-bebas-neue bg-black rounded-md overflow-hidden',
     titleClassName = 'flex items-center justify-end w-full h-[10%]',
     closeIconComponent = (
