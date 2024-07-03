@@ -19,15 +19,17 @@ export default function About() {
         backgroundClassName='bg-left-top'
         currentSection={CURRENT_SECTION}
       >
-        <Title
-          component='h1'
-          label={t('mainTitle', about)}
-          labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}
-          topLabel={t('topLabel', about)}
-          bottomLabel={t('bottomLabel', about)}
-          border
-          className='relative mt-8 sm:mt-0 w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36'
-        />
+        <header className='mt-8 sm:mt-0'>
+          <Title
+            component='h1'
+            label={t('mainTitle', about)}
+            labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}
+            topLabel={t('topLabel', about)}
+            bottomLabel={t('bottomLabel', about)}
+            border
+            className='relative w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36'
+          />
+        </header>
 
         <Title
           label={t('subtitle', about)}

@@ -8,6 +8,7 @@ import ScrollableSubsection from '@components/shared/scrollableSection/Scrollabl
 import Subtitle from '@components/shared/Subtitle';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
 import experience from '@i18nEn/experience.json';
+import Shenanigans from '@components/Shenanigans';
 
 const CURRENT_SECTION = 'experience';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_work_experience']";
@@ -61,7 +62,11 @@ export default function Experience() {
           />
         </ScrollableSubsection.Item>
       </ScrollableSubsection>
-      <Attribution />
+
+      <footer className='mt-auto z-10 center-elements flex-col gap-2'>
+        <Attribution />
+        <Shenanigans />
+      </footer>
     </Section>
   );
 }

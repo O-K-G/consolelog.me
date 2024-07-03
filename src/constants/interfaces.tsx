@@ -57,12 +57,6 @@ export interface SubtitleProps {
   className?: string;
 }
 
-export interface OldschoolButtonProps {
-  label: string;
-  onClick: () => void;
-  disabled: boolean;
-}
-
 export interface NoDialogProps {
   open: boolean;
   onClick: () => void;
@@ -145,6 +139,10 @@ export interface DialogBackdropProps {
   title: string;
   contentSlot: ReactNode;
   sizeClassName?: string;
+  className?: string;
+  dialogWindowClassName?: string;
+  titleClassName?: string;
+  closeIconComponent?: ReactNode;
 }
 
 export interface DialogComponentProps {
@@ -153,6 +151,10 @@ export interface DialogComponentProps {
   title: string;
   contentSlot: ReactNode;
   sizeClassName?: string;
+  className?: string;
+  dialogWindowClassName?: string;
+  titleClassName?: string;
+  closeIconComponent?: ReactNode;
 }
 
 export interface MailHTMLTemplateProps {

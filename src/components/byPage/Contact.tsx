@@ -24,7 +24,7 @@ export default function Contact() {
       />
       <ContactForm />
       <SideLinks
-        className='center-elements w-16 md:w-24 h-fit z-10'
+        className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6'
         ulClassName='size-full center-elements gap-4'
       />
     </Section>
