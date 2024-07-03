@@ -11,6 +11,10 @@ export default function DialogBackdrop({
   title,
   contentSlot,
   sizeClassName,
+  className,
+  dialogWindowClassName,
+  titleClassName,
+  closeIconComponent,
 }: DialogBackdropProps) {
   const [isFade, setIsFade] = useState<null | boolean>(null);
   const { handleDisableScroll } = useDisableScroll();
@@ -69,6 +73,10 @@ export default function DialogBackdrop({
           title={title}
           contentSlot={contentSlot}
           sizeClassName={sizeClassName}
+          className={className}
+          dialogWindowClassName={dialogWindowClassName}
+          titleClassName={titleClassName}
+          closeIconComponent={closeIconComponent}
         />
       </div>
     );
