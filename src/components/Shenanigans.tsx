@@ -39,7 +39,7 @@ export default function Shenanigans() {
       </button>
       <DialogBackdrop
         open={open}
-        className={`size-full md:p-4 center-elements bg-[#4cae9a] ${handjet.className}`}
+        className={`size-full md:p-4 center-elements backdrop:bg-[#4cae9a] bg-[#4cae9a] ${handjet.className}`}
         onClose={() => setOpen(false)}
         title={t('mainTitle', shenanigans)}
         sizeClassName='w-full h-fit md:w-[50svw] lg:w-[40dvw]'
