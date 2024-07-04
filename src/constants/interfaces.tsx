@@ -26,7 +26,6 @@ export interface AppContextProps {
   modalRef: MutableRefObject<HTMLDialogElement | null>;
   modalContent: ReactNode;
   onCloseModal: (e: Event | React.MouseEvent<HTMLElement>) => void;
-  isDialog: boolean;
 }
 
 export interface CurrentSection {

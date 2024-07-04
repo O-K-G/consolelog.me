@@ -4,9 +4,9 @@ import { useContext } from 'react';
 import { AppContext as appContext } from '@components/shared/AppContext';
 
 export default function Dialog() {
-  const { modalRef, modalContent, isDialog } = useContext(appContext);
+  const { modalRef, modalContent } = useContext(appContext);
 
-  if (!isDialog) {
+  if (!modalContent) {
     return null;
   }
 

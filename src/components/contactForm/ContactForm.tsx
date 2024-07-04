@@ -6,7 +6,6 @@ import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import ProgressIndicators from '@components/contactForm/ProgressIndicators';
 import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
-// import errorDialog from '@i18nEn/errorDialog.json';
 import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
 import { AppContext as appContext } from '@components/shared/AppContext';
 import {
