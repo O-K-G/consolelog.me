@@ -163,12 +163,6 @@ export default function ContactForm() {
           )
         )}
       </div>
-      {/* <DialogBackdrop
-        open={!!errorDialogDetails}
-        onClose={() => setErrorDialogDetails('')}
-        title={t('error', errorDialog)}
-        contentSlot={<ErrorDialogMeesage details={errorDialogDetails} />}
-      /> */}
     </form>
   );
 }

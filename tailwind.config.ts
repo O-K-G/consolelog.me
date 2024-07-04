@@ -13,12 +13,6 @@ const config: Config = {
       animation: {
         'flash-loader-text': 'flash-loader-text 1s linear infinite',
         'left-to-right-bar': 'left-to-right-bar 1s linear infinite',
-        'dialog-backdrop-fade-in':
-          'dialog-backdrop-fade-in 0.2s linear forwards',
-        'dialog-backdrop-fade-out':
-          'dialog-backdrop-fade-out 0.2s linear forwards',
-        'dialog-fade-in': 'dialog-fade-in 0.2s linear forwards',
-        'dialog-fade-out': 'dialog-fade-out 0.2s linear forwards',
       },
       keyframes: {
         'flash-loader-text': {
@@ -41,66 +35,6 @@ const config: Config = {
             left: '100%',
             opacity: '0%',
             backgroundColor: 'white',
-          },
-        },
-        'dialog-backdrop-fade-in': {
-          '0%': {
-            display: 'none',
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            opacity: '0',
-            height: '100vh',
-            width: '100vw',
-            backgroundColor: 'transparent',
-          },
-          '100%': {
-            display: 'block',
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            opacity: '100',
-            height: '100vh',
-            width: '100vw',
-            backgroundColor: '#000000cc',
-          },
-        },
-        'dialog-backdrop-fade-out': {
-          '0%': {
-            display: 'block',
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            opacity: '100',
-            height: '100vh',
-            width: '100vw',
-            backgroundColor: '#000000cc',
-          },
-          '100%': {
-            display: 'none',
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            opacity: '0',
-            height: '100vh',
-            width: '100vw',
-            backgroundColor: 'transparent',
-          },
-        },
-        'dialog-fade-in': {
-          '0%': {
-            opacity: '0',
-          },
-          '100%': {
-            opacity: '100',
-          },
-        },
-        'dialog-fade-out': {
-          '0%': {
-            opacity: '100',
-          },
-          '100%': {
-            opacity: '0',
           },
         },
       },

@@ -150,30 +150,6 @@ export type Fields = 'email' | 'subject' | 'content';
 
 export type FormErrorNames = Fields[];
 
-export interface DialogBackdropProps {
-  open: boolean;
-  onClose: () => void;
-  title: string;
-  contentSlot: ReactNode;
-  sizeClassName?: string;
-  className?: string;
-  dialogWindowClassName?: string;
-  titleClassName?: string;
-  closeIconComponent?: ReactNode;
-}
-
-export interface DialogComponentProps {
-  isFade: null | boolean;
-  onClick: () => void;
-  title: string;
-  contentSlot: ReactNode;
-  sizeClassName?: string;
-  className?: string;
-  dialogWindowClassName?: string;
-  titleClassName?: string;
-  closeIconComponent?: ReactNode;
-}
-
 export interface MailHTMLTemplateProps {
   dir: string;
   email: string;
