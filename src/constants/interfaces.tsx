@@ -1,6 +1,7 @@
 import type {
   Dispatch,
   ForwardedRef,
+  MouseEventHandler,
   MutableRefObject,
   PropsWithChildren,
   ReactNode,
@@ -15,6 +16,23 @@ export const CONTACT_FORM_CONTENT_MAX_LENGTH = 1000;
 
 export interface AppContextComponentProps {
   children: ReactNode;
+}
+
+export interface AppContextProps {
+  currentTopSection: string;
+  onChange: Dispatch<SetStateAction<string>>;
+  onModalContentChange: Dispatch<SetStateAction<ReactNode>>;
+  contactSectionRef: MutableRefObject<HTMLElement | null>;
+  modalRef: MutableRefObject<HTMLDialogElement | null>;
+  modalContent: ReactNode;
+  onCloseModal: (e: Event | React.MouseEvent<HTMLElement>) => void;
+}
+
+export interface DialogTitleProps {
+  label: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
+  className?: string;
+  closeButtonIcon?: ReactNode;
 }
 
 export interface CurrentSection {
@@ -133,30 +151,6 @@ export type Fields = 'email' | 'subject' | 'content';
 
 export type FormErrorNames = Fields[];
 
-export interface DialogBackdropProps {
-  open: boolean;
-  onClose: () => void;
-  title: string;
-  contentSlot: ReactNode;
-  sizeClassName?: string;
-  className?: string;
-  dialogWindowClassName?: string;
-  titleClassName?: string;
-  closeIconComponent?: ReactNode;
-}
-
-export interface DialogComponentProps {
-  isFade: null | boolean;
-  onClick: () => void;
-  title: string;
-  contentSlot: ReactNode;
-  sizeClassName?: string;
-  className?: string;
-  dialogWindowClassName?: string;
-  titleClassName?: string;
-  closeIconComponent?: ReactNode;
-}
-
 export interface MailHTMLTemplateProps {
   dir: string;
   email: string;
@@ -207,7 +201,7 @@ export interface ArrowRightIconProps {
 }
 
 export interface IconButtonProps {
-  onClick: () => void;
+  onClick: MouseEventHandler<HTMLButtonElement>;
   'aria-label': string;
   'data-testid'?: string;
   icon: ReactNode;
