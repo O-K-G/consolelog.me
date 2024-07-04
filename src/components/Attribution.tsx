@@ -18,7 +18,9 @@ function AttributionContent() {
         onClick={onCloseModal}
       />
       <p className='size-full break-words font-montserrat text-base sm:text-lg md:text-xl'>
-        {t('designBasedOn', attributionText)}
+        <span className='inline-block'>
+          {t('designBasedOn', attributionText)}
+        </span>
         <br />
         <a
           className='relative before:focus:absolute before:focus:size-full z-10 before:rounded-md before:-z-10 before:focus:bg-white transition-300 inline mt-2 outline-none text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]'
@@ -29,7 +31,10 @@ function AttributionContent() {
           {figmaAttribution}
         </a>
         &nbsp;
-        {t('andUsedUnderThe', attributionText)}&nbsp;
+        <span className='inline-block'>
+          {t('andUsedUnderThe', attributionText)}
+        </span>
+        &nbsp;
         <a
           className='relative before:focus:absolute before:focus:size-full z-10 before:rounded-md before:-z-10 before:focus:bg-white transition-300 outline-none text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]'
           target='_blank'
@@ -38,8 +43,11 @@ function AttributionContent() {
         >
           {t('ccby', attributionText)}
         </a>
-        &nbsp;{t('license', attributionText)}.
-        <span className='block mt-2'>{t('changes', attributionText)}.</span>
+        &nbsp;
+        <span className='inline-block'>{t('license', attributionText)}</span>.
+        <span className='inline-block mt-2'>
+          {t('changes', attributionText)}.
+        </span>
       </p>
     </div>
   );
