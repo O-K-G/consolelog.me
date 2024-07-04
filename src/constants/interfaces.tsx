@@ -28,6 +28,12 @@ export interface AppContextProps {
   onCloseModal: (e: Event | React.MouseEvent<HTMLElement>) => void;
 }
 
+export interface DialogTitleProps {
+  label: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
+  className?: string;
+}
+
 export interface CurrentSection {
   currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
 }

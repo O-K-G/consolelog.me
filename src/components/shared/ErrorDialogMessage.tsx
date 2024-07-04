@@ -11,7 +11,7 @@ export default function ErrorDialogMeesage({ details }: { details: string }) {
   const t = useText();
 
   return (
-    <div className='w-full h-1/2 cursor-default sm:w-[50svw] sm:h-[50svw] md:w-[40dvw] md:h-[40dvw] bg-black text-white p-4 break-words text-base md:text-xl lg:text-2xl flex items-center justify-start flex-col overflow-hidden'>
+    <div className='w-full h-1/2 lg:cursor-default sm:w-[50svw] sm:h-[50svw] md:w-[40dvw] md:h-[40dvw] bg-black text-white p-4 break-words text-base md:text-xl lg:text-2xl flex items-center justify-start flex-col overflow-hidden'>
       <DialogTitle label={t('error', errorDialog)} onClick={onCloseModal} />
       <p
         role='alert'
