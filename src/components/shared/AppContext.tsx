@@ -23,6 +23,7 @@ export const AppContext = createContext({
   modalRef: { current: null },
   modalContent: null,
   onCloseModal: () => null,
+  isModal: false,
 } as AppContextProps);
 
 export default function AppContextComponent({
@@ -30,6 +31,7 @@ export default function AppContextComponent({
 }: AppContextComponentProps) {
   const [currentTopSection, setCurrentTopSection] = useState('about');
   const [modalContent, setModalContent] = useState<ReactNode | null>(null);
+  const [isModal, setIsModal] = useState(false);
   const contactSectionRef = useRef(null);
   const modalRef = useRef(null);
 
@@ -48,22 +50,30 @@ export default function AppContextComponent({
         if (open) {
           modalEl.close();
         }
+
+        if (isModal) {
+          setIsModal(false);
+        }
       }
     },
-    [modalContent]
+    [isModal, modalContent]
   );
 
   useEffect(() => {
     const modalEl = modalRef.current as unknown as HTMLDialogElement;
-    const { open } = modalEl;
+    const { open } = modalEl || {};
 
-    if (modalContent && !open) {
-      modalEl.showModal();
-      modalEl.addEventListener('click', handleCloseModal);
+    if (modalContent && !isModal) {
+      setIsModal(true);
     }
 
-    return () => modalEl.removeEventListener('click', handleCloseModal);
-  }, [modalContent, handleCloseModal]);
+    if (modalContent && !open && isModal) {
+      modalEl?.showModal();
+      modalEl?.addEventListener('click', handleCloseModal);
+    }
+
+    return () => modalEl?.removeEventListener('click', handleCloseModal);
+  }, [handleCloseModal, isModal, modalContent]);
 
   const AppContextData = useMemo(
     () => ({
@@ -75,8 +85,9 @@ export default function AppContextComponent({
       contactSectionRef,
       modalRef,
       modalContent,
+      isModal,
     }),
-    [currentTopSection, handleCloseModal, modalContent]
+    [currentTopSection, handleCloseModal, isModal, modalContent]
   );
 
   return (

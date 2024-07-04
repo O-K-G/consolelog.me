@@ -1,7 +1,7 @@
 'use client';
 
 import InputComponent from '@components/contactForm/InputComponent';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
 import ProgressIndicators from '@components/contactForm/ProgressIndicators';
@@ -25,6 +25,10 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);
   const { onModalContentChange: setModalContent } = useContext(appContext);
+
+  useEffect(() => {
+    setModalContent(<ErrorDialogMeesage details='af awrgcwrtg ergg' />);
+  }, [setModalContent]);
 
   const handleValidation = async (formData: FormData) => {
     formData.append('dir', dir);
