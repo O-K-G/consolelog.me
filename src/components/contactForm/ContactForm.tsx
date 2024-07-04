@@ -1,15 +1,14 @@
 'use client';
 
 import InputComponent from '@components/contactForm/InputComponent';
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { handleSubmit } from '@utils/handleSubmit';
 import formValidation from '@utils/formValidation';
-import DialogBackdrop from '@components/shared/dialog/DialogBackdrop';
 import ProgressIndicators from '@components/contactForm/ProgressIndicators';
 import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
-import errorDialog from '@i18nEn/errorDialog.json';
+// import errorDialog from '@i18nEn/errorDialog.json';
 import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
-import { useText } from '@hooks/useText';
+import { AppContext as appContext } from '@components/shared/AppContext';
 import {
   type FormErrorNames,
   type Fields,
@@ -23,10 +22,13 @@ import {
 
 export default function ContactForm() {
   const [dir, setDir] = useState<'ltr' | 'rtl'>('ltr');
-  const [errorDialogDetails, setErrorDialogDetails] = useState('');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);
-  const t = useText();
+  const { onModalContentChange: setModalContent } = useContext(appContext);
+
+  useEffect(() => {
+    setModalContent(<ErrorDialogMeesage details='af awrgcwrtg ergg' />);
+  }, [setModalContent]);
 
   const handleValidation = async (formData: FormData) => {
     formData.append('dir', dir);
@@ -57,11 +59,13 @@ export default function ContactForm() {
             if (isMessageSent) {
               setMessageSent(false);
             }
-            setErrorDialogDetails(status);
+            setModalContent(<ErrorDialogMeesage details={status} />);
           }
         }
       } catch (clientError) {
-        setErrorDialogDetails((clientError as string)?.toString());
+        setModalContent(
+          <ErrorDialogMeesage details={(clientError as string)?.toString()} />
+        );
       }
     }
   };
@@ -164,12 +168,12 @@ export default function ContactForm() {
           )
         )}
       </div>
-      <DialogBackdrop
+      {/* <DialogBackdrop
         open={!!errorDialogDetails}
         onClose={() => setErrorDialogDetails('')}
         title={t('error', errorDialog)}
         contentSlot={<ErrorDialogMeesage details={errorDialogDetails} />}
-      />
+      /> */}
     </form>
   );
 }

@@ -1,6 +1,7 @@
 import type {
   Dispatch,
   ForwardedRef,
+  MouseEventHandler,
   MutableRefObject,
   PropsWithChildren,
   ReactNode,
@@ -207,7 +208,7 @@ export interface ArrowRightIconProps {
 }
 
 export interface IconButtonProps {
-  onClick: () => void;
+  onClick: MouseEventHandler<HTMLButtonElement>;
   'aria-label': string;
   'data-testid'?: string;
   icon: ReactNode;
