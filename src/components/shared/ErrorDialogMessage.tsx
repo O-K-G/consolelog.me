@@ -18,7 +18,7 @@ export default function ErrorDialogMeesage({ details }: { details: string }) {
         <div className='w-1/3 flex items-center justify-end border border-blue-500'>
           <IconButton
             aria-label={ARIA_LABEL}
-            onClick={(e) => onCloseModal(e as unknown as MouseEvent, 'close')}
+            onClick={onCloseModal}
             className='h-14 fill-white border border-white rounded-lg'
             icon={<CloseIcon className='h-full' />}
           />

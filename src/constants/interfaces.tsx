@@ -18,6 +18,16 @@ export interface AppContextComponentProps {
   children: ReactNode;
 }
 
+export interface AppContextProps {
+  currentTopSection: string;
+  onChange: Dispatch<SetStateAction<string>>;
+  onModalContentChange: Dispatch<SetStateAction<ReactNode>>;
+  contactSectionRef: MutableRefObject<HTMLElement | null>;
+  modalRef: MutableRefObject<HTMLDialogElement | null>;
+  modalContent: ReactNode;
+  onCloseModal: (e: Event | React.MouseEvent<HTMLElement>) => void;
+}
+
 export interface CurrentSection {
   currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
 }
