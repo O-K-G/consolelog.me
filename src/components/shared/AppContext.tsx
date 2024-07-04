@@ -44,9 +44,9 @@ export default function AppContextComponent({
     (e: MouseEvent, val?: 'close') => {
       const modalEl = modalRef.current as unknown as HTMLDialogElement;
       const { open } = modalEl;
-      const { id } = (e.target as unknown as { id: string }) || {};
-      console.log(e.target.value);
-      if (id === 'dialogBackdrop' || val === 'close') {
+      const { tagName } = (e.target as unknown as { tagName: string }) || {};
+      console.log(tagName);
+      if (tagName === 'DIALOG' || val === 'close') {
         if (modalContent) {
           setModalContent(null);
         }
