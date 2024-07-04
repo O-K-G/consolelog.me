@@ -32,6 +32,7 @@ export interface DialogTitleProps {
   label: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
   className?: string;
+  closeButtonIcon?: ReactNode;
 }
 
 export interface CurrentSection {

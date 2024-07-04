@@ -8,6 +8,9 @@ export default function DialogTitle({
   label,
   onClick,
   className,
+  closeButtonIcon = (
+    <CloseIcon className='h-full fill-white group-hover:fill-title-purple group-active:fill-[#75629f] group-focus:fill-title-purple stroke-white group-hover:stroke-title-purple group-active:stroke-[#75629f] group-focus:stroke-title-purple' />
+  ),
 }: DialogTitleProps) {
   const t = useText();
 
@@ -19,9 +22,7 @@ export default function DialogTitle({
           aria-label={t('close', dialogComponentText)}
           onClick={onClick}
           className='h-14 rounded-lg'
-          icon={
-            <CloseIcon className='h-full fill-white group-hover:fill-title-purple group-active:fill-[#75629f] group-focus:fill-title-purple stroke-white group-hover:stroke-title-purple group-active:stroke-[#75629f] group-focus:stroke-title-purple' />
-          }
+          icon={closeButtonIcon}
         />
       </div>
     </div>
