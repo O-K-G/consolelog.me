@@ -60,9 +60,6 @@ export default function AppContextComponent({
     if (modalContent && !open) {
       modalEl.showModal();
       modalEl.addEventListener('click', handleCloseModal);
-    } else if (!modalContent && open) {
-      modalEl.close();
-      modalEl.removeEventListener('click', handleCloseModal);
     }
 
     return () => modalEl.removeEventListener('click', handleCloseModal);
