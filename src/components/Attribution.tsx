@@ -38,7 +38,7 @@ function AttributionContent() {
         >
           {t('ccby', attributionText)}
         </a>
-        &nbsp; {t('license', attributionText)}.
+        &nbsp;{t('license', attributionText)}.
         <span className='block mt-2'>{t('changes', attributionText)}.</span>
       </p>
     </div>
