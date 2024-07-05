@@ -66,10 +66,10 @@ function ShenanigansComponent() {
         />
         <div className='size-full p-4 text-black'>
           <div className='border-2 border-t-gray-600 border-l-gray-600 border-r-white border-b-white center-elements flex-col size-full p-4 bg-white'>
-            <h2 className='text-xl text-center font-bold'>
+            <h2 className='text-lg sm:text-xl text-center font-bold'>
               {t('wow', shenanigans)}
             </h2>
-            <h3 className='text-xl text-center semi-bold'>
+            <h3 className='text-lg sm:text-xl text-center semi-bold'>
               {t('make', shenanigans)}
             </h3>
             <div className='sr-only'>{t('graphics', shenanigans)}</div>
