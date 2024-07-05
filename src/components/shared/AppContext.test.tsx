@@ -6,6 +6,9 @@ import AppContextComponent from '@components/shared/AppContext';
 
 const CURRENT_TOP_SECTION_TEST_ID = 'currentTopSection';
 const CONTACT_SECTION_REF_TEST_ID = 'contactSectionRef';
+const BUTTON_TEXT = 'Change Section';
+const TEXT_CONTEXT = 'Contact Section Element';
+const CONTACT_SECTION_STRING = 'contact';
 
 const ContextConsumer = () => {
   const { currentTopSection, onChange, contactSectionRef } =
@@ -13,15 +16,15 @@ const ContextConsumer = () => {
 
   useEffect(() => {
     if (contactSectionRef.current) {
-      contactSectionRef.current.textContent = 'Contact Section Element';
+      contactSectionRef.current.textContent = TEXT_CONTEXT;
     }
   }, [contactSectionRef]);
 
   return (
     <>
       <span data-testid={CURRENT_TOP_SECTION_TEST_ID}>{currentTopSection}</span>
-      <button type='button' onClick={() => onChange('contact')}>
-        Change Section
+      <button type='button' onClick={() => onChange(CONTACT_SECTION_STRING)}>
+        {BUTTON_TEXT}
       </button>
       <div
         ref={contactSectionRef as LegacyRef<HTMLDivElement>}

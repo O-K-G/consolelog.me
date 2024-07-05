@@ -3,6 +3,8 @@
 import { useContext } from 'react';
 import { AppContext as appContext } from '@components/shared/AppContext';
 
+export const DIALOG_TEST_ID = 'dialog-test-id';
+
 export default function Dialog() {
   const { modalRef, modalContent } = useContext(appContext);
 
@@ -12,6 +14,7 @@ export default function Dialog() {
 
   return (
     <dialog
+      data-testid={DIALOG_TEST_ID}
       ref={modalRef}
       className='backdrop:hidden lg:cursor-pointer min-h-[100vh] min-w-[100vw] bg-black/50'
     >
