@@ -6,7 +6,6 @@ import DialogTitle from '@components/shared/dialog/DialogTitle';
 import { useContext, type MouseEventHandler, type ReactNode } from 'react';
 
 const COMPONENT_ID = 'shenanigans-id';
-
 const handjet = Handjet({ subsets: ['latin'] });
 
 function OldschoolButton({
@@ -19,10 +18,12 @@ function OldschoolButton({
   return (
     <button
       onClick={onClick}
-      className='shadow-sm group border font-bold border-black shadow-black outline-none center-elements p-4'
+      className='shadow-sm group hover:bg-gray-100 active:bg-blue-200 border font-bold border-black shadow-black outline-none center-elements p-4'
       type='button'
     >
-      {children}
+      <span className='border border-transparent group-focus:border-dashed group-focus:border-black px-2'>
+        {children}
+      </span>
     </button>
   );
 }
@@ -60,7 +61,7 @@ function ShenanigansComponent() {
           label={t('mainTitle', shenanigans)}
           onClick={onCloseModal}
           closeButtonIcon={
-            <div className='rounded-full center-elements bg-red-300 size-7 border-1.5 shadow-inner shadow-black rotate-180 border-[#b4b3b3] hover:bg-white active:bg-white focus:bg-white' />
+            <div className='rounded-full center-elements bg-red-300 size-7 border-1.5 shadow-inner shadow-black rotate-180 border-[#b4b3b3] group-hover:bg-white group-active:bg-white group-focus:bg-white' />
           }
         />
         <div className='size-full p-4 text-black'>
