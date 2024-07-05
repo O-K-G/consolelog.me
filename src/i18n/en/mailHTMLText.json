@@ -1,6 +1,7 @@
 {
-  "subject": "A message from consolelog.me",
-  "sendersEmailAddressText": "Sender&apos;s email address",
+  "subject": "A message from",
+  "website": "consolelog.me",
+  "sendersEmailAddressText": "Sender's email address",
   "subjectSecondaryTitle": "Subject",
   "messageContent": "Message content"
 }
