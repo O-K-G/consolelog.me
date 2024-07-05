@@ -20,7 +20,7 @@ export default function ProgressIndicators({
   });
 
   return (
-    <div className='size-full relative'>
+    <div className='min-h-8 w-full relative'>
       <div className='sr-only' aria-live='assertive' role='status'>
         {isValidated && isLoading
           ? t('sendingMessage', inputComponentText)
