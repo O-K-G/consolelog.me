@@ -5,6 +5,9 @@ import attributionText from '@i18nEn/attributionText.json';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
 import { URLs } from '@constants/urls';
 
+const ANCHOR_TAG_CLASSNAME =
+  'outline-none focus:bg-white focus:rounded-md text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]';
+
 function AttributionContent() {
   const { onCloseModal } = useContext(appContext);
   const t = useText();
@@ -23,7 +26,7 @@ function AttributionContent() {
         </span>
         <br />
         <a
-          className='relative before:focus:absolute before:focus:size-full z-10 before:rounded-md before:-z-10 before:focus:bg-white transition-300 inline mt-2 outline-none text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]'
+          className={ANCHOR_TAG_CLASSNAME}
           target='_blank'
           rel='noreferrer'
           href={figmaAttribution}
@@ -36,7 +39,7 @@ function AttributionContent() {
         </span>
         &nbsp;
         <a
-          className='relative before:focus:absolute before:focus:size-full z-10 before:rounded-md before:-z-10 before:focus:bg-white transition-300 outline-none text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]'
+          className={ANCHOR_TAG_CLASSNAME}
           target='_blank'
           rel='noreferrer'
           href={ccbyLicense}
@@ -44,9 +47,10 @@ function AttributionContent() {
           {t('ccby', attributionText)}
         </a>
         &nbsp;
-        <span className='inline-block'>{t('license', attributionText)}</span>.
+        <span className='inline-block'>{t('license', attributionText)}</span>
+        &nbsp;
         <span className='inline-block mt-2'>
-          {t('changes', attributionText)}.
+          {t('changes', attributionText)}
         </span>
       </p>
     </div>

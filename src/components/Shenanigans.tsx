@@ -65,6 +65,7 @@ function ShenanigansComponent() {
             <h3 className='text-xl text-center semi-bold'>
               {t('make', shenanigans)}
             </h3>
+            <div className='sr-only'>{t('graphics', shenanigans)}</div>
             <p className='mt-2 text-base'>
               {t('yourApp', shenanigans)}
               <br />
