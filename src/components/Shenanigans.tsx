@@ -1,15 +1,11 @@
 import { Handjet } from 'next/font/google';
 import { useText } from '@hooks/useText';
 import shenanigans from '@i18nEn/shenanigansText.json';
-import {
-  useContext,
-  type KeyboardEventHandler,
-  type MouseEventHandler,
-  type ReactNode,
-} from 'react';
 import { AppContext as appContext } from '@components/shared/AppContext';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
+import { useContext, type MouseEventHandler, type ReactNode } from 'react';
 
+const COMPONENT_ID = 'shenanigans-id';
 const handjet = Handjet({ subsets: ['latin'] });
 
 function OldschoolButton({
@@ -22,10 +18,12 @@ function OldschoolButton({
   return (
     <button
       onClick={onClick}
-      className='shadow-sm group border font-bold border-black shadow-black outline-none center-elements p-4'
+      className='shadow-sm group hover:bg-gray-100 active:bg-blue-200 border font-bold border-black shadow-black outline-none center-elements p-4'
       type='button'
     >
-      {children}
+      <span className='border border-transparent group-focus:border-dashed group-focus:border-black px-2'>
+        {children}
+      </span>
     </button>
   );
 }
@@ -34,19 +32,28 @@ function ShenanigansComponent() {
   const { onCloseModal } = useContext(appContext);
   const t = useText();
 
+  const handleClick = (
+    e:
+      | React.MouseEvent<HTMLElement, MouseEvent>
+      | React.KeyboardEvent<HTMLDivElement>
+  ) => {
+    const { id } = (e.target as unknown as { id: string }) || {};
+    if (id === COMPONENT_ID) {
+      onCloseModal(
+        e as unknown as Event | React.MouseEvent<HTMLElement, MouseEvent>
+      );
+    }
+  };
+
   return (
     <div
-      onClick={onCloseModal}
-      onKeyDown={
-        onCloseModal as unknown as KeyboardEventHandler<HTMLDivElement>
-      }
+      onClick={handleClick}
+      onKeyDown={handleClick}
+      id={COMPONENT_ID}
       role='presentation'
       className='bg-[#4cae9a] lg:cursor-crosshair h-screen w-screen fixed top-0 left-0 center-elements'
     >
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div
-        onClick={(e) => e.stopPropagation()}
-        onKeyDown={(e) => e.stopPropagation()}
         className={`flex flex-col justify-start items-center border-2 border-t-white border-l-white border-r-gray-600 border-b-gray-600 bg-[#b4b3b3] text-black lg:cursor-default ${handjet.className}`}
       >
         <DialogTitle
@@ -54,7 +61,7 @@ function ShenanigansComponent() {
           label={t('mainTitle', shenanigans)}
           onClick={onCloseModal}
           closeButtonIcon={
-            <div className='rounded-full center-elements bg-red-300 size-7 border-1.5 shadow-inner shadow-black rotate-180 border-[#b4b3b3] hover:bg-white active:bg-white focus:bg-white' />
+            <div className='rounded-full center-elements bg-red-300 size-7 border-1.5 shadow-inner shadow-black rotate-180 border-[#b4b3b3] group-hover:bg-white group-active:bg-white group-focus:bg-white' />
           }
         />
         <div className='size-full p-4 text-black'>
