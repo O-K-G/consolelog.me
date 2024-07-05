@@ -57,7 +57,7 @@ export default async function mailHTMLTemplate({
     messageContent,
     website,
   } = mailHTMLText;
-  const title = `${subjectText}\xa0${website}`;
+  const title = `${subjectText}:\xa0${website}`;
 
   const getData = async (component: ReactNode) => {
     const ReactDOMServer = (await import('react-dom/server')).default;
