@@ -13,7 +13,7 @@ export default async function mailConfig({
 }: MailHTMLTemplateProps) {
   const { env } = process;
   const { HOST, HOST_PORT, SECURE, USER, PASS, TO } = env;
-  const { subject: subjectText } = mailHTMLText;
+  const { subject: subjectText, website } = mailHTMLText;
 
   const transporter = nodemailer.createTransport({
     host: HOST,
@@ -28,7 +28,7 @@ export default async function mailConfig({
   const messageSendDetailsObject = {
     from: `"${email}" <${email}>`,
     to: TO,
-    subject: `${subjectText}: ${subject}`,
+    subject: `${subjectText}: ${website}`,
     text: `${content}`,
     html: await mailHTMLTemplate({ dir, email, subject, content }),
   };
