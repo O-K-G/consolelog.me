@@ -7,7 +7,7 @@ import type { BottomInputComponentButtonsProps } from '@constants/interfaces';
 import { useFormStatus } from 'react-dom';
 
 const ALIGN_BUTTONS_CLASSNAME =
-  'group h-12 p-1.5 shrink-0 hover:bg-black/70 active:bg-black/70 focus:bg-black/70 rounded-full center-elements outline-none';
+  'group h-8 shrink-0 hover:bg-black/70 active:bg-black/70 focus:bg-black/70 rounded-full center-elements outline-none';
 
 const ALIGN_ICONS_CLASSNAME =
   'size-full rounded-full fill-white group-hover:fill-title-purple group-active:fill-white group-focus:fill-title-purple';
