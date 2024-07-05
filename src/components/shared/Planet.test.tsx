@@ -13,6 +13,10 @@ const mockContextValue = {
   currentTopSection: '',
   onChange: () => null,
   contactSectionRef: { current: null },
+  onModalContentChange: jest.fn(),
+  onCloseModal: jest.fn(),
+  modalRef: { current: null },
+  modalContent: null,
 };
 
 describe('Planet component', () => {
@@ -52,6 +56,10 @@ describe('Planet component', () => {
             onChange: () => null,
             currentTopSection: section,
             contactSectionRef: { current: null },
+            onModalContentChange: jest.fn(),
+            onCloseModal: jest.fn(),
+            modalRef: { current: null },
+            modalContent: null,
           }}
         >
           <Planet />
