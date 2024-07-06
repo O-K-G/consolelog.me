@@ -11,7 +11,7 @@ export function AlternatingButtons({
   alternativeLabel,
 }: AlternatingButtonsProps) {
   const buttonsClassNames =
-    'transition-1000 center-elements size-full absolute top-0 bottom-0 left-0 right-0 my-auto overflow-hidden outline-none';
+    'transition-1000 text-white center-elements size-full absolute top-0 bottom-0 left-0 right-0 my-auto overflow-hidden outline-none';
   const disabledButtonsClassName =
     'opacity-0 pointer-events-none select-none h-0 border-y border-white';
 
