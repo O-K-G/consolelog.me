@@ -1,13 +1,13 @@
 'use client';
 
-import type { UseHandleObserveAndScrollByPathNameProps } from '@constants/interfaces';
+import type { UseHandleObserveProps } from '@constants/interfaces';
 import { AppContext as appContext } from '@components/shared/AppContext';
 import { useContext, useEffect } from 'react';
 
 export default function useHandleObserve({
   currentSection,
-  sectionRef,
-}: UseHandleObserveAndScrollByPathNameProps) {
+  middleSectionRef,
+}: UseHandleObserveProps) {
   const { onChange: setCurrentTopSection } = useContext(appContext);
 
   useEffect(() => {
@@ -25,8 +25,8 @@ export default function useHandleObserve({
     };
 
     const observer = new IntersectionObserver(handleObserve, options);
-    observer.observe(sectionRef.current as unknown as HTMLElement);
+    observer.observe(middleSectionRef.current as unknown as HTMLElement);
 
     return () => observer.disconnect();
-  }, [currentSection, sectionRef, setCurrentTopSection]);
+  }, [currentSection, middleSectionRef, setCurrentTopSection]);
 }

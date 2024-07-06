@@ -10,6 +10,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      rotate: { 270: '270deg', 360: '360deg' },
       animation: {
         'flash-loader-text': 'flash-loader-text 1s linear infinite',
         'left-to-right-bar': 'left-to-right-bar 1s linear infinite',

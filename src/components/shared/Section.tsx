@@ -22,9 +22,10 @@ export default function Section({
   paddingClassName = 'pt-20 md:pt-40 px-4 pb-4',
 }: SectionProps) {
   const sectionRef = useRef(null);
+  const middleSectionRef = useRef(null);
 
   useScrollByPathName({ currentSection, sectionRef });
-  useHandleObserve({ currentSection, sectionRef });
+  useHandleObserve({ currentSection, middleSectionRef });
 
   const currentBackgroundImage =
     BACKGROUND_IMAGES_CLASSNAMES[currentSection] || '';
@@ -37,6 +38,10 @@ export default function Section({
         backgroundClassName ?? ''
       } ${paddingClassName} ${heightClassName} ${className}`}
     >
+      <div
+        ref={middleSectionRef}
+        className='absolute top-0 bottom-0 left-0 my-auto size-0 opacity-0 overflow-hidden'
+      />
       {children}
     </section>
   );
