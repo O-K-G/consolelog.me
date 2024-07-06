@@ -164,9 +164,12 @@ export const BASE_STATUS_CODES = {
   401: false,
 } as const;
 
-export interface UseHandleObserveAndScrollByPathNameProps
-  extends CurrentSection {
+export interface UseHandleScrollByPathNameProps extends CurrentSection {
   sectionRef: MutableRefObject<null>;
+}
+
+export interface UseHandleObserveProps extends CurrentSection {
+  middleSectionRef: MutableRefObject<null>;
 }
 
 export interface AnchorLinkProps {

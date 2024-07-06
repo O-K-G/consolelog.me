@@ -1,13 +1,13 @@
 import { type MutableRefObject, useEffect, useContext } from 'react';
 import { useScroll } from '@hooks/useScroll';
 import { AppContext as appContext } from '@components/shared/AppContext';
-import type { UseHandleObserveAndScrollByPathNameProps } from '@constants/interfaces';
+import type { UseHandleScrollByPathNameProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
 
 export default function useScrollByPathName({
   currentSection,
   sectionRef,
-}: UseHandleObserveAndScrollByPathNameProps) {
+}: UseHandleScrollByPathNameProps) {
   const pathname = usePathname();
   const handleScroll = useScroll();
   const { contactSectionRef } = useContext(appContext);

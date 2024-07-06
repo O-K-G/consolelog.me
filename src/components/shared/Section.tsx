@@ -22,23 +22,25 @@ export default function Section({
   paddingClassName = 'pt-20 md:pt-40 px-4 pb-4',
 }: SectionProps) {
   const sectionRef = useRef(null);
+  const middleSectionRef = useRef(null);
 
   useScrollByPathName({ currentSection, sectionRef });
-  useHandleObserve({ currentSection, sectionRef });
+  useHandleObserve({ currentSection, middleSectionRef });
 
   const currentBackgroundImage =
     BACKGROUND_IMAGES_CLASSNAMES[currentSection] || '';
 
   return (
     <section
+      ref={sectionRef}
       data-testid={`section-${currentSection}`}
       className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
       } ${paddingClassName} ${heightClassName} ${className}`}
     >
       <div
-        ref={sectionRef}
-        className='absolute top-0 bottom-0 left-0 right-0 my-auto size-0 opacity-0 overflow-hidden'
+        ref={middleSectionRef}
+        className='absolute top-0 bottom-0 left-0 my-auto size-0 opacity-0 overflow-hidden'
       />
       {children}
     </section>
