@@ -31,12 +31,15 @@ export default function Section({
 
   return (
     <section
-      ref={sectionRef}
       data-testid={`section-${currentSection}`}
       className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden bg-cover ${currentBackgroundImage} ${
         backgroundClassName ?? ''
       } ${paddingClassName} ${heightClassName} ${className}`}
     >
+      <div
+        ref={sectionRef}
+        className='absolute top-0 bottom-0 left-0 right-0 my-auto size-0 opacity-0 overflow-hidden'
+      />
       {children}
     </section>
   );
