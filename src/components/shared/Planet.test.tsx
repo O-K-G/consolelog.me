@@ -37,16 +37,16 @@ describe('Planet component', () => {
     const divElement = planetElement.parentElement;
     expect(divElement).not.toHaveClass('rotate-90');
     expect(divElement).not.toHaveClass('rotate-180');
-    expect(divElement).not.toHaveClass('-rotate-90');
-    expect(divElement).not.toHaveClass('-rotate-180');
+    expect(divElement).not.toHaveClass('rotate-270');
+    expect(divElement).not.toHaveClass('rotate-360');
   });
 
   it('applies the correct rotation class based on currentTopSection', () => {
     const testCases = [
-      { section: 'contact', expectedClass: 'rotate-90' },
-      { section: 'projects', expectedClass: 'rotate-180' },
-      { section: 'skills', expectedClass: '-rotate-90' },
-      { section: 'experience', expectedClass: '-rotate-180' },
+      { section: 'skills', expectedClass: 'rotate-90' },
+      { section: 'contact', expectedClass: 'rotate-180' },
+      { section: 'projects', expectedClass: 'rotate-270' },
+      { section: 'experience', expectedClass: 'rotate-360' },
     ];
 
     testCases.forEach(({ section, expectedClass }) => {
