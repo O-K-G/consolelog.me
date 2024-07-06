@@ -32,7 +32,7 @@ export function AlternatingButtons({
         {label}
       </button>
       <button
-        className={`font-montserrat ${buttonsClassNames} ${
+        className={`font-montserrat text-white ${buttonsClassNames} ${
           !open
             ? disabledButtonsClassName
             : 'delay-1000 before:delay-0 before:size-full before:absolute before:bg-black/30 before:focus:bg-black/70 before:-z-10 before:top-0 before:left-0 before:duration-300'
