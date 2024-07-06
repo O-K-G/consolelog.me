@@ -31,7 +31,7 @@ export default function ScrollableSubsection({
   });
 
   return (
-    <div className='z-10 absolute top-0 bottom-0 my-auto h-1/2 md:relative md:h-full left-0 w-full center-elements'>
+    <div className='z-10 absolute top-0 bottom-0 my-auto h-1/2 md:relative md:min-h-full left-0 w-full center-elements'>
       <IconButton
         data-testid={LEFT_BUTTON_TEST_ID}
         disabled={!selectedSubsection}
