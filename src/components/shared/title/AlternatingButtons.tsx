@@ -11,7 +11,7 @@ export function AlternatingButtons({
   alternativeLabel,
 }: AlternatingButtonsProps) {
   const buttonsClassNames =
-    'transition-1000 text-white center-elements size-full absolute top-0 bottom-0 left-0 right-0 my-auto overflow-hidden outline-none';
+    'transition-1000 center-elements size-full absolute top-0 bottom-0 left-0 right-0 my-auto overflow-hidden outline-none';
   const disabledButtonsClassName =
     'opacity-0 pointer-events-none select-none h-0 border-y border-white';
 
@@ -32,7 +32,7 @@ export function AlternatingButtons({
         {label}
       </button>
       <button
-        className={`font-montserrat ${buttonsClassNames} ${
+        className={`font-montserrat text-white ${buttonsClassNames} ${
           !open
             ? disabledButtonsClassName
             : 'delay-1000 before:delay-0 before:size-full before:absolute before:bg-black/30 before:focus:bg-black/70 before:-z-10 before:top-0 before:left-0 before:duration-300'
