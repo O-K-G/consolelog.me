@@ -14,7 +14,6 @@ export default function Contact() {
   return (
     <Section
       paddingClassName='pt-8 md:pt-16 px-4 pb-4'
-      backgroundClassName='bg-center'
       currentSection={CURRENT_SECTION}
     >
       <Title

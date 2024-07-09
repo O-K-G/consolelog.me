@@ -21,7 +21,7 @@ const OPEN_SIZE_CLASSNAME =
 export default function Experience() {
   const t = useText();
   return (
-    <Section backgroundClassName='bg-top-left' currentSection={CURRENT_SECTION}>
+    <Section currentSection={CURRENT_SECTION}>
       <Title
         label={t('mainTitle', experience)}
         labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}

@@ -17,7 +17,6 @@ export default function Section({
   className,
   children,
   currentSection,
-  backgroundClassName,
   heightClassName = 'h-svh lg:h-dvh',
   paddingClassName = 'pt-20 md:pt-40 px-4 pb-4',
 }: SectionProps) {
@@ -34,9 +33,9 @@ export default function Section({
     <section
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
-      className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden bg-fixed bg-cover ${currentBackgroundImage} ${
-        backgroundClassName ?? ''
-      } ${paddingClassName} ${heightClassName} ${className}`}
+      className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden bg-fixed ${currentBackgroundImage} ${paddingClassName} ${heightClassName} ${
+        className ?? ''
+      }`}
     >
       <div
         ref={middleSectionRef}

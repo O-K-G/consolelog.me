@@ -17,7 +17,6 @@ export default function Skills() {
   return (
     <Section
       heightClassName='h-auto lg:h-auto'
-      backgroundClassName='bg-center'
       currentSection={CURRENT_SECTION}
     >
       <Title
