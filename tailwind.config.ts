@@ -57,6 +57,7 @@ const config: Config = {
         'about-background': `url('/about-background.webp?cacheVersion=${CACHE_VERSION}')`,
         'about-small-background': `url('/about-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
         'contact-background': `url('/contact-background.webp?cacheVersion=${CACHE_VERSION}')`,
+        'contact-small-background': `url('/contact-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
         'skills-background': `url('/skills-background.webp?cacheVersion=${CACHE_VERSION}')`,
         'skills-small-background': `url('/skills-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
         'projects-background': `url('/projects-background.webp?cacheVersion=${CACHE_VERSION}')`,
