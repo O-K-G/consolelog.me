@@ -14,11 +14,7 @@ export default function About() {
 
   return (
     <>
-      <Section
-        className='gap-10'
-        backgroundClassName='bg-left-top'
-        currentSection={CURRENT_SECTION}
-      >
+      <Section className='gap-10' currentSection={CURRENT_SECTION}>
         <header className='mt-8 sm:mt-0'>
           <Title
             component='h1'

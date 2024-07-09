@@ -20,7 +20,7 @@ export default function Projects() {
   const t = useText();
 
   return (
-    <Section backgroundClassName='bg-center' currentSection={CURRENT_SECTION}>
+    <Section currentSection={CURRENT_SECTION}>
       <Title
         label={t('mainTitle', projects)}
         labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}

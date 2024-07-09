@@ -50,7 +50,7 @@ describe('Section component', () => {
 
     render(
       <AppContext.Provider value={mockContextValue}>
-        <Section currentSection='about' backgroundClassName='bg-custom'>
+        <Section currentSection='about'>
           <div data-testid={CHILD_TEST_ID}>Content</div>
         </Section>
       </AppContext.Provider>
