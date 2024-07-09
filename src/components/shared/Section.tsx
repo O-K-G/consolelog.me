@@ -10,7 +10,7 @@ const BACKGROUND_IMAGES_CLASSNAMES = {
   contact: 'bg-contact-small-background sm:bg-contact-background',
   skills: 'bg-skills-small-background sm:bg-skills-background',
   projects: 'bg-projects-small-background sm:bg-projects-background',
-  experience: 'bg-experience-background',
+  experience: 'bg-experience-small-background sm:bg-experience-background',
 } as const;
 
 export default function Section({

@@ -63,6 +63,7 @@ const config: Config = {
         'projects-background': `url('/projects-background.webp?cacheVersion=${CACHE_VERSION}')`,
         'projects-small-background': `url('/projects-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
         'experience-background': `url('/experience-background.webp?cacheVersion=${CACHE_VERSION}')`,
+        'experience-small-background': `url('/experience-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
       },
     },
   },
