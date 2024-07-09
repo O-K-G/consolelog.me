@@ -6,7 +6,7 @@ import useHandleObserve from '@hooks/useHandleObserve';
 import useScrollByPathName from '@hooks/useScrollByPathName';
 
 const BACKGROUND_IMAGES_CLASSNAMES = {
-  about: 'bg-about-background',
+  about: 'bg-about-small-background sm:bg-about-background',
   contact: 'bg-contact-background',
   skills: 'bg-skills-background',
   projects: 'bg-projects-small-background sm:bg-projects-background',
