@@ -33,7 +33,9 @@ export default function Section({
     <section
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
-      className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden bg-fixed ${currentBackgroundImage} ${paddingClassName} ${heightClassName} ${className}`}
+      className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden bg-fixed ${currentBackgroundImage} ${paddingClassName} ${heightClassName} ${
+        className ?? ''
+      }`}
     >
       <div
         ref={middleSectionRef}
