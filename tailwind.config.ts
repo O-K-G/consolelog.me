@@ -2,6 +2,25 @@ import type { Config } from 'tailwindcss';
 
 export const CACHE_VERSION = 1;
 
+const backgroundClassNamesMapper = [
+  'about',
+  'contact',
+  'projects',
+  'skills',
+  'experience',
+].map((str) => {
+  const mobileKey = `${str}-small-background`;
+  const regularKey = `${str}-background`;
+  const url = `background.webp?cacheVersion=${CACHE_VERSION}`;
+
+  return {
+    [mobileKey]: `url('/${str}-small-${url}')`,
+    [regularKey]: `url('/${str}-${url}')`,
+  };
+});
+
+const backgroundClassNames = Object.assign({}, ...backgroundClassNamesMapper);
+
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -54,16 +73,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'about-background': `url('/about-background.webp?cacheVersion=${CACHE_VERSION}')`,
-        'about-small-background': `url('/about-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
-        'contact-background': `url('/contact-background.webp?cacheVersion=${CACHE_VERSION}')`,
-        'contact-small-background': `url('/contact-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
-        'skills-background': `url('/skills-background.webp?cacheVersion=${CACHE_VERSION}')`,
-        'skills-small-background': `url('/skills-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
-        'projects-background': `url('/projects-background.webp?cacheVersion=${CACHE_VERSION}')`,
-        'projects-small-background': `url('/projects-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
-        'experience-background': `url('/experience-background.webp?cacheVersion=${CACHE_VERSION}')`,
-        'experience-small-background': `url('/experience-small-background.webp?cacheVersion=${CACHE_VERSION}')`,
+        ...backgroundClassNames,
       },
     },
   },
