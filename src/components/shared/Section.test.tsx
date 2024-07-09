@@ -59,7 +59,7 @@ describe('Section component', () => {
   it('displays the Section component on the screen', () => {
     const sectionElement = screen.getByTestId(SECTION_ABOUT_TEST_ID);
     expect(sectionElement).toBeInTheDocument();
-    expect(sectionElement).toHaveClass('bg-about-background bg-custom');
+    expect(sectionElement).toHaveClass('bg-about-background bg-fixed');
     expect(sectionElement).not.toHaveAttribute('aria-hidden', 'true');
   });
 
