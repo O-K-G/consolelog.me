@@ -1,12 +1,12 @@
 'use client';
 
 import { useContext } from 'react';
-import { AppContext as appContext } from '@components/shared/AppContext';
+import { ModalContext as modalContext } from '@components/shared/ModalContext';
 
 export const DIALOG_TEST_ID = 'dialog-test-id';
 
 export default function Dialog() {
-  const { modalRef, modalContent } = useContext(appContext);
+  const { modalRef, modalContent } = useContext(modalContext);
 
   if (!modalContent) {
     return null;
