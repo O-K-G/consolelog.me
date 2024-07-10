@@ -28,15 +28,16 @@ export default function Projects() {
       />
       <ScrollableSubsection>
         <ScrollableSubsection.Item>
+          {/* TODO: Expand content and move to a JSON. */}
           <Subtitle
             className={SUBTITLE_CLASSNAME}
-            label={t('subtitle', projects)}
-            labelGlowText={SUBTITLE_GLOW_CLASSNAME}
+            label='This Webspage'
+            labelGlowText="before:content-['This_webpage']"
           />
           <div className='size-full absolute center-elements'>
             <ClickToOpenButton
               openSizeClassName={OPEN_SIZE_CLASSNAME}
-              alternativeLabel={t('alternativeLabel', projects)}
+              alternativeLabel="This webpage is a personal just for fun project I've made for myself as a hobby."
             />
           </div>
         </ScrollableSubsection.Item>
