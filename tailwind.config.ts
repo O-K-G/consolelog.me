@@ -2,25 +2,6 @@ import type { Config } from 'tailwindcss';
 
 export const CACHE_VERSION = 1;
 
-const backgroundClassNamesMapper = [
-  'about',
-  'contact',
-  'projects',
-  'skills',
-  'experience',
-].map((str) => {
-  const mobileKey = `${str}-small-background`;
-  const regularKey = `${str}-background`;
-  const url = `background.webp?cacheVersion=${CACHE_VERSION}`;
-
-  return {
-    [mobileKey]: `url('/${str}-small-${url}')`,
-    [regularKey]: `url('/${str}-${url}')`,
-  };
-});
-
-const backgroundClassNames = Object.assign({}, ...backgroundClassNamesMapper);
-
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -73,7 +54,6 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        ...backgroundClassNames,
       },
     },
   },

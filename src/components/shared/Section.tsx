@@ -4,14 +4,7 @@ import { type SectionProps } from '@constants/interfaces';
 import { useRef } from 'react';
 import useHandleObserve from '@hooks/useHandleObserve';
 import useScrollByPathName from '@hooks/useScrollByPathName';
-
-const BACKGROUND_IMAGES_CLASSNAMES = {
-  about: 'bg-about-small-background sm:bg-about-background',
-  contact: 'bg-contact-small-background sm:bg-contact-background',
-  skills: 'bg-skills-small-background sm:bg-skills-background',
-  projects: 'bg-projects-small-background sm:bg-projects-background',
-  experience: 'bg-experience-small-background sm:bg-experience-background',
-} as const;
+import SectionBackground from '@components/shared/SectionBackground';
 
 export default function Section({
   className,
@@ -26,14 +19,11 @@ export default function Section({
   useScrollByPathName({ currentSection, sectionRef });
   useHandleObserve({ currentSection, middleSectionRef });
 
-  const currentBackgroundImage =
-    BACKGROUND_IMAGES_CLASSNAMES[currentSection] || '';
-
   return (
     <section
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
-      className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden bg-fixed ${currentBackgroundImage} ${paddingClassName} ${heightClassName} ${
+      className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden ${paddingClassName} ${heightClassName} ${
         className ?? ''
       }`}
     >
@@ -41,6 +31,7 @@ export default function Section({
         ref={middleSectionRef}
         className='absolute top-0 bottom-0 left-0 my-auto size-0 opacity-0 overflow-hidden'
       />
+      <SectionBackground currentSection={currentSection} />
       {children}
     </section>
   );
