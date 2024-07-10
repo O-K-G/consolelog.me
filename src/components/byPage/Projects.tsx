@@ -31,8 +31,8 @@ export default function Projects() {
           {/* TODO: Expand content and move to a JSON. */}
           <Subtitle
             className={SUBTITLE_CLASSNAME}
-            label='This Webspage'
-            labelGlowText="before:content-['This_webpage']"
+            label='This Webpage'
+            labelGlowText="before:content-['This_Webpage']"
           />
           <div className='size-full absolute center-elements'>
             <ClickToOpenButton
