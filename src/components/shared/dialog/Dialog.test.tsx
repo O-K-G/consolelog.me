@@ -2,7 +2,7 @@ import React, { type ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Dialog, { DIALOG_TEST_ID } from '@components/shared/dialog/Dialog';
-import { AppContext } from '@components/shared/AppContext';
+import { ModalContext } from '@components/shared/ModalContext';
 
 const MODAL_CONTENT = 'Mock Modal Content';
 const ROLE = 'dialog';
@@ -19,9 +19,9 @@ const mockContextValue = {
 
 function renderWithContext(component: ReactNode) {
   return render(
-    <AppContext.Provider value={mockContextValue}>
+    <ModalContext.Provider value={mockContextValue}>
       {component}
-    </AppContext.Provider>
+    </ModalContext.Provider>
   );
 }
 
@@ -41,9 +41,9 @@ describe('Dialog Component', () => {
     };
 
     render(
-      <AppContext.Provider value={mockContextValueWithNullContent}>
+      <ModalContext.Provider value={mockContextValueWithNullContent}>
         <Dialog />
-      </AppContext.Provider>
+      </ModalContext.Provider>
     );
 
     expect(screen.queryByRole(ROLE)).not.toBeInTheDocument();
