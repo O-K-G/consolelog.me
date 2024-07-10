@@ -37,10 +37,6 @@ describe('ContactMeButton', () => {
           onChange: () => null,
           currentTopSection: 'about',
           contactSectionRef,
-          onModalContentChange: jest.fn(),
-          onCloseModal: jest.fn(),
-          modalRef: { current: null },
-          modalContent: null,
         }}
       >
         <ContactMeButton />

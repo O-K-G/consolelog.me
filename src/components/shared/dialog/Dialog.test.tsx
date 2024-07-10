@@ -8,11 +8,8 @@ const MODAL_CONTENT = 'Mock Modal Content';
 const ROLE = 'dialog';
 
 const mockContextValue = {
-  currentTopSection: 'about',
-  onChange: jest.fn(),
   onModalContentChange: jest.fn(),
   onCloseModal: jest.fn(),
-  contactSectionRef: { current: null },
   modalRef: { current: null },
   modalContent: <div>{MODAL_CONTENT}</div>,
 };

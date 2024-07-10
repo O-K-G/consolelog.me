@@ -42,10 +42,6 @@ describe('Section component', () => {
       currentTopSection: 'about',
       onChange: mockSetCurrentTopSection,
       contactSectionRef: { current: null },
-      onModalContentChange: jest.fn(),
-      onCloseModal: jest.fn(),
-      modalRef: { current: null },
-      modalContent: null,
     };
 
     render(
