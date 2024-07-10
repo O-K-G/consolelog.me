@@ -35,7 +35,7 @@ export default function Section({
       />
 
       <div
-        className='absolute top-0 left-0 h-screen w-screen'
+        className='absolute top-0 left-0 min-h-full h-screen w-screen'
         style={{ clipPath: 'inset(0)' }}
       >
         <picture>
