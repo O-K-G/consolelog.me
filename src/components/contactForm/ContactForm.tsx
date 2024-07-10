@@ -7,7 +7,7 @@ import formValidation from '@utils/formValidation';
 import ProgressIndicators from '@components/contactForm/ProgressIndicators';
 import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
 import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
-import { AppContext as appContext } from '@components/shared/AppContext';
+import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import {
   type FormErrorNames,
   type Fields,
@@ -23,7 +23,7 @@ export default function ContactForm() {
   const [dir, setDir] = useState<'ltr' | 'rtl'>('ltr');
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);
-  const { onModalContentChange: setModalContent } = useContext(appContext);
+  const { onModalContentChange: setModalContent } = useContext(modalContext);
 
   const handleValidation = async (formData: FormData) => {
     formData.append('dir', dir);

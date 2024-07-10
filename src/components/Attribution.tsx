@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AppContext as appContext } from '@components/shared/AppContext';
+import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import { useText } from '@hooks/useText';
 import attributionText from '@i18nEn/attributionText.json';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
@@ -9,7 +9,7 @@ const ANCHOR_TAG_CLASSNAME =
   'outline-none focus:bg-white focus:rounded-md text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]';
 
 function AttributionContent() {
-  const { onCloseModal } = useContext(appContext);
+  const { onCloseModal } = useContext(modalContext);
   const t = useText();
   const { figmaAttribution, ccbyLicense } = URLs;
 
@@ -58,7 +58,7 @@ function AttributionContent() {
 }
 
 export default function Attribution() {
-  const { onModalContentChange: setModalContent } = useContext(appContext);
+  const { onModalContentChange: setModalContent } = useContext(modalContext);
   const t = useText();
 
   return (

@@ -1,7 +1,7 @@
 import { Handjet } from 'next/font/google';
 import { useText } from '@hooks/useText';
 import shenanigans from '@i18nEn/shenanigansText.json';
-import { AppContext as appContext } from '@components/shared/AppContext';
+import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
 import { useContext, type MouseEventHandler, type ReactNode } from 'react';
 
@@ -29,7 +29,7 @@ function OldschoolButton({
 }
 
 function ShenanigansComponent() {
-  const { onCloseModal } = useContext(appContext);
+  const { onCloseModal } = useContext(modalContext);
   const t = useText();
 
   const handleClick = (
@@ -97,7 +97,7 @@ function ShenanigansComponent() {
 }
 
 export default function Shenanigans() {
-  const { onModalContentChange: setModalContent } = useContext(appContext);
+  const { onModalContentChange: setModalContent } = useContext(modalContext);
   const t = useText();
 
   return (

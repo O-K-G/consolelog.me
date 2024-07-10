@@ -1,13 +1,13 @@
 import { useText } from '@hooks/useText';
 import errorDialog from '@i18nEn/errorDialog.json';
 import { useContext } from 'react';
-import { AppContext as appContext } from '@components/shared/AppContext';
+import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
 
 const DATA_TEST_ID = 'error-details-test';
 
 export default function ErrorDialogMeesage({ details }: { details: string }) {
-  const { onCloseModal } = useContext(appContext);
+  const { onCloseModal } = useContext(modalContext);
   const t = useText();
 
   return (

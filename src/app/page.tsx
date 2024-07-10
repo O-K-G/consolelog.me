@@ -8,20 +8,23 @@ import Planet from '@components/shared/Planet';
 import Loader from '@components/shared/Loader';
 import ScrollIconComponent from '@components/shared/ScrollIconComponent';
 import Dialog from '@components/shared/dialog/Dialog';
+import ModalContextComponent from '@components/shared/ModalContext';
 
 export default function Home() {
   return (
     <main className='min-h-svh lg:min-h-dvh overflow-hidden'>
       <Loader />
-      <AppContextComponent>
-        <About />
-        <Skills />
-        <Contact />
-        <Projects />
-        <Experience />
-        <Planet />
-        <Dialog />
-      </AppContextComponent>
+      <ModalContextComponent>
+        <AppContextComponent>
+          <About />
+          <Skills />
+          <Contact />
+          <Projects />
+          <Experience />
+          <Planet />
+          <Dialog />
+        </AppContextComponent>
+      </ModalContextComponent>
       <ScrollIconComponent />
     </main>
   );
