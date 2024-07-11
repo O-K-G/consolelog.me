@@ -32,7 +32,7 @@ export default function ScrollableSubsection({
 
   return (
     <div className='relative center-elements size-full'>
-      <div className='z-10 absolute top-0 bottom-0 left-0 size-full center-elements'>
+      <div className='z-10 absolute top-0 left-0 size-full center-elements'>
         <IconButton
           data-testid={LEFT_BUTTON_TEST_ID}
           disabled={!selectedSubsection}
