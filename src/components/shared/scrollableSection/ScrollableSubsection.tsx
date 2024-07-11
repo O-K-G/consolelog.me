@@ -31,55 +31,59 @@ export default function ScrollableSubsection({
   });
 
   return (
-    <div className='z-10 absolute top-0 bottom-0 my-auto h-1/2 sm:h-[60%] md:h-full md:relative left-0 w-full center-elements'>
-      <IconButton
-        data-testid={LEFT_BUTTON_TEST_ID}
-        disabled={!selectedSubsection}
-        onClick={() => {
-          const isZero =
-            selectedSubsection - 1 > 0 ? selectedSubsection - 1 : 0;
-          const id = (childrenWithNewProps?.[isZero]?.props as PropsWithId)?.id;
+    <div className='relative center-elements size-full'>
+      <div className='z-10 absolute top-0 bottom-0 left-0 size-full center-elements'>
+        <IconButton
+          data-testid={LEFT_BUTTON_TEST_ID}
+          disabled={!selectedSubsection}
+          onClick={() => {
+            const isZero =
+              selectedSubsection - 1 > 0 ? selectedSubsection - 1 : 0;
+            const id = (childrenWithNewProps?.[isZero]?.props as PropsWithId)
+              ?.id;
 
-          if (id || id === 0) {
-            setSelectedSubsection(id);
-            handleHorizontalScroll({
-              num: typeof window === 'object' ? window.innerWidth / id : 0,
-              scrollableRef,
-            });
-          }
-        }}
-        className={`${BUTTONS_CLASSNAME} left-0 rotate-180 ml-4`}
-        aria-label={t('scrollLeft', scrollableSectionText)}
-        icon={<ArrowIconComponent />}
-      />
+            if (id || id === 0) {
+              setSelectedSubsection(id);
+              handleHorizontalScroll({
+                num: typeof window === 'object' ? window.innerWidth / id : 0,
+                scrollableRef,
+              });
+            }
+          }}
+          className={`${BUTTONS_CLASSNAME} left-0 rotate-180 ml-4`}
+          aria-label={t('scrollLeft', scrollableSectionText)}
+          icon={<ArrowIconComponent />}
+        />
 
-      <div
-        ref={scrollableRef}
-        className='hide-scrollbars snap-x snap-mandatory size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
-      >
-        {childrenWithNewProps}
+        <div
+          ref={scrollableRef}
+          className='hide-scrollbars snap-x snap-mandatory size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
+        >
+          {childrenWithNewProps}
+        </div>
+
+        <IconButton
+          data-testid={RIGHT_BUTTON_TEST_ID}
+          disabled={selectedSubsection + 1 === childrenWithNewProps?.length}
+          onClick={() => {
+            const id = (
+              childrenWithNewProps?.[selectedSubsection + 1]
+                ?.props as PropsWithId
+            )?.id;
+
+            if (id) {
+              setSelectedSubsection(id);
+              handleHorizontalScroll({
+                num: typeof window === 'object' ? window.innerWidth * id : 0,
+                scrollableRef,
+              });
+            }
+          }}
+          className={`${BUTTONS_CLASSNAME} right-0 mr-4`}
+          aria-label={t('scrollRight', scrollableSectionText)}
+          icon={<ArrowIconComponent />}
+        />
       </div>
-
-      <IconButton
-        data-testid={RIGHT_BUTTON_TEST_ID}
-        disabled={selectedSubsection + 1 === childrenWithNewProps?.length}
-        onClick={() => {
-          const id = (
-            childrenWithNewProps?.[selectedSubsection + 1]?.props as PropsWithId
-          )?.id;
-
-          if (id) {
-            setSelectedSubsection(id);
-            handleHorizontalScroll({
-              num: typeof window === 'object' ? window.innerWidth * id : 0,
-              scrollableRef,
-            });
-          }
-        }}
-        className={`${BUTTONS_CLASSNAME} right-0 mr-4`}
-        aria-label={t('scrollRight', scrollableSectionText)}
-        icon={<ArrowIconComponent />}
-      />
     </div>
   );
 }
