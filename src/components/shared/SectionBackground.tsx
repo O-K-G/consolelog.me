@@ -16,7 +16,7 @@ export default function SectionBackground({ currentSection }: CurrentSection) {
           media='(max-width: 640px)'
         />
         <img
-          className='bg-cover h-screen w-screen bottom-0 left-0 fixed'
+          className='object-cover object-left h-screen w-screen bottom-0 left-0 fixed'
           alt=''
           aria-hidden
           src={`${currentSection}-${SUFFIX}`}
