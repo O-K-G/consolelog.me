@@ -9,6 +9,7 @@ import Subtitle from '@components/shared/Subtitle';
 import experience from '@i18nEn/experience.json';
 import Shenanigans from '@components/Shenanigans';
 import ExpandableButton from '@components/shared/ExpandableButton';
+import clickToOpenButton from '@i18nEn/clickToOpenButton.json';
 
 const CURRENT_SECTION = 'experience';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_work_experience']";
@@ -30,7 +31,10 @@ export default function Experience() {
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />
 
-          <ExpandableButton />
+          <ExpandableButton
+            label={t('clickToOpen', clickToOpenButton)}
+            alternativeLabel={t('alternativeLabel', experience)}
+          />
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
@@ -39,7 +43,10 @@ export default function Experience() {
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />
 
-          <ExpandableButton />
+          <ExpandableButton
+            label={t('clickToOpen', clickToOpenButton)}
+            alternativeLabel={t('alternativeLabel', experience)}
+          />
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
@@ -48,7 +55,10 @@ export default function Experience() {
             labelGlowText={SUBTITLE_GLOW_CLASSNAME}
           />
 
-          <ExpandableButton />
+          <ExpandableButton
+            label={t('clickToOpen', clickToOpenButton)}
+            alternativeLabel={t('alternativeLabel', experience)}
+          />
         </ScrollableSubsection.Item>
       </ScrollableSubsection>
 

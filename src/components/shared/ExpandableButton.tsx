@@ -3,7 +3,13 @@ import { useState } from 'react';
 const OPEN_SIZE_CLASSNAME =
   'data-[open=true]:w-full data-[open=true]:h-[100cqw] data-[open=true]:md:w-2/3 data-[open=true]:md:h-[66.666667cqw] data-[open=true]:lg:w-1/2 data-[open=true]:lg:h-[50cqw] data-[open=true]:border data-[open=true]:border-green-500';
 
-export default function ExpandableButton() {
+export default function ExpandableButton({
+  label,
+  alternativeLabel,
+}: {
+  label: string;
+  alternativeLabel: string;
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -18,7 +24,7 @@ export default function ExpandableButton() {
           type='button'
           onClick={() => setOpen((prevValue) => !prevValue)}
         >
-          xxx
+          {!open ? label : alternativeLabel}
         </button>
         <div className='border border-blue-500 size-4 absolute bottom-0 right-0' />
       </div>
