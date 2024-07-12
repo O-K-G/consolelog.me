@@ -120,7 +120,7 @@ describe('ScrollableSubsection', () => {
     expect(screen.getByText('Item 1')).toBeInTheDocument();
     const item = screen.getByTestId(SCROLLABLE_ITEM_TEST_ID);
     expect(item).toHaveClass(
-      'relative h-full snap-center min-w-full center-elements flex-col'
+      'relative h-full snap-center min-w-full flex justify-end gap-4 items-center flex-col'
     );
   });
 });
