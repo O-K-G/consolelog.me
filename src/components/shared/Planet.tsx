@@ -9,9 +9,9 @@ export const PLANET_TEST_ID = 'planet-test';
 
 const ROTATION_CLASSNAMES_BY_SECTION = {
   skills: 'rotate-90',
-  contact: 'rotate-180',
-  projects: 'rotate-270',
-  experience: 'rotate-360',
+  projects: 'rotate-180',
+  experience: 'rotate-270',
+  contact: 'rotate-360',
 } as const;
 
 export default function Planet() {
