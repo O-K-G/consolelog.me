@@ -251,3 +251,10 @@ export interface ScrollableSubsectionItemProps {
   onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
   id?: number;
 }
+export interface ContactMeButtonProps {
+  onClick: () => void;
+}
+
+export interface ContactProps {
+  onClick: () => void;
+}

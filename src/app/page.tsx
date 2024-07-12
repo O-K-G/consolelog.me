@@ -1,5 +1,4 @@
 import About from '@components/byPage/About';
-import Contact from '@components/byPage/Contact';
 import Projects from '@components/byPage/Projects';
 import Skills from '@components/byPage/Skills';
 import Experience from '@components/byPage/Experience';
@@ -9,6 +8,7 @@ import Loader from '@components/shared/Loader';
 import ScrollIconComponent from '@components/shared/ScrollIconComponent';
 import Dialog from '@components/shared/dialog/Dialog';
 import ModalContextComponent from '@components/shared/ModalContext';
+import Aside from '@components/shared/Aside';
 
 export default function Home() {
   return (
@@ -18,10 +18,10 @@ export default function Home() {
         <AppContextComponent>
           <About />
           <Skills />
-          <Contact />
           <Projects />
           <Experience />
           <Planet />
+          <Aside />
           <Dialog />
         </AppContextComponent>
       </ModalContextComponent>

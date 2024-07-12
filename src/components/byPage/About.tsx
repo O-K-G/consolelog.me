@@ -2,7 +2,6 @@ import Section from '@components/shared/Section';
 import Title from '@components/shared/title/Title';
 import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
-import ContactMeButton from '@components/shared/ContactMeButton';
 import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
 
 const CURRENT_SECTION = 'about';
@@ -35,8 +34,6 @@ export default function About() {
           openSizeClassName='data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3'
           alternativeLabel={t('alternativeLabel', about)}
         />
-
-        <ContactMeButton />
       </Section>
     </>
   );
