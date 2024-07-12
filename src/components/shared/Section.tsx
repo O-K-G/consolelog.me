@@ -23,7 +23,7 @@ export default function Section({
     <section
       ref={sectionRef}
       data-testid={`section-${currentSection}`}
-      className={`min-h-screen relative flex flex-col items-center w-full justify-start overflow-hidden ${paddingClassName} ${heightClassName} ${
+      className={`min-h-screen bg-black relative flex flex-col items-center w-full justify-start overflow-hidden ${paddingClassName} ${heightClassName} ${
         className ?? ''
       }`}
     >
