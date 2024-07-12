@@ -34,12 +34,12 @@ export default function Projects() {
             label='This Webpage'
             labelGlowText="before:content-['This_Webpage']"
           />
-          <div className='container-type-size size-full relative max-h-[80%] center-elements border border-red-500'>
+          <div className='container-type-size size-full relative max-h-[80%] center-elements border border-blue-500'>
             {/* <div className='border border-blue-500 size-' /> */}
             <button
               onClick={() => setOpen((prevValue) => !prevValue)}
               type='button'
-              className={`transition-1000 border border-red-500 center-elements ${
+              className={`transition-1000 border border-red-500 max-h-full center-elements ${
                 !open ? 'w-1/2 h-[50cqw]' : 'w-full h-[100cqw]'
               }`}
             >
