@@ -40,9 +40,9 @@ describe('Planet component', () => {
   it('applies the correct rotation class based on currentTopSection', () => {
     const testCases = [
       { section: 'skills', expectedClass: 'rotate-90' },
-      { section: 'contact', expectedClass: 'rotate-180' },
-      { section: 'projects', expectedClass: 'rotate-270' },
-      { section: 'experience', expectedClass: 'rotate-360' },
+      { section: 'projects', expectedClass: 'rotate-180' },
+      { section: 'experience', expectedClass: 'rotate-270' },
+      { section: 'contact', expectedClass: 'rotate-360' },
     ];
 
     testCases.forEach(({ section, expectedClass }) => {
