@@ -5,21 +5,31 @@ import { CACHE_VERSION } from '@root/tailwind.config';
  * and once the browser hits the bottom - the background flickers for a fraction of a second.
  */
 
-const SUFFIX = `background.webp?cacheVersion=${CACHE_VERSION}`;
+const SUFFIX = `.webp?cacheVersion=${CACHE_VERSION}`;
+const BACKGROUND_SIZES = [
+  { twClassName: 'sm', pxResolution: 640 },
+  { twClassName: 'md', pxResolution: 768 },
+  { twClassName: 'lg', pxResolution: 1024 },
+  { twClassName: 'xl', pxResolution: 1280 },
+  { twClassName: '2xl', pxResolution: 1536 },
+];
 
 export default function SectionBackground({ currentSection }: CurrentSection) {
   return (
     <div className='absolute top-0 left-0 min-h-full h-screen w-screen inset-0'>
       <picture>
-        <source
-          srcSet={`${currentSection}-small-${SUFFIX}`}
-          media='(max-width: 640px)'
-        />
+        {BACKGROUND_SIZES.map(({ twClassName, pxResolution }) => (
+          <source
+            key={`tw-class-${twClassName}`}
+            srcSet={`${currentSection}-${twClassName}${SUFFIX}`}
+            media={`(max-width: ${pxResolution}px)`}
+          />
+        ))}
         <img
-          className='object-cover object-left h-screen w-screen bottom-0 left-0 fixed'
+          className='object-cover object-left h-screen w-screen bottom-0 left-0 fixed opacity-60'
           alt=''
           aria-hidden
-          src={`${currentSection}-${SUFFIX}`}
+          src={`${currentSection}-2xl${SUFFIX}`}
         />
       </picture>
     </div>
