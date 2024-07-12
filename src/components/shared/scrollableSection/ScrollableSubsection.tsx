@@ -31,8 +31,8 @@ export default function ScrollableSubsection({
   });
 
   return (
-    <div className='relative center-elements size-full z-10'>
-      <div className='absolute top-0 left-0 size-full center-elements'>
+    <div className='flex justify-center items-end size-full gap-1 z-10'>
+      <div className='relative h-full max-h-[80%] w-1/3'>
         <IconButton
           data-testid={LEFT_BUTTON_TEST_ID}
           disabled={!selectedSubsection}
@@ -54,14 +54,15 @@ export default function ScrollableSubsection({
           aria-label={t('scrollLeft', scrollableSectionText)}
           icon={<ArrowIconComponent />}
         />
+      </div>
+      <div
+        ref={scrollableRef}
+        className='hide-scrollbars snap-x snap-mandatory size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
+      >
+        {childrenWithNewProps}
+      </div>
 
-        <div
-          ref={scrollableRef}
-          className='hide-scrollbars snap-x snap-mandatory size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
-        >
-          {childrenWithNewProps}
-        </div>
-
+      <div className='relative h-full max-h-[80%] w-1/3'>
         <IconButton
           data-testid={RIGHT_BUTTON_TEST_ID}
           disabled={selectedSubsection + 1 === childrenWithNewProps?.length}

@@ -7,16 +7,18 @@ export default function Subtitle({
   className,
 }: SubtitleProps) {
   return (
-    <Title
-      className={className}
-      label={label}
-      labelGlowText={labelGlowText}
-      beforeBlurClassName='lg:before:blur-[2rem]'
-      fontClassName='font-bebas-neue'
-      textSizeClassName='text-2xl sm:text-3xl lg:text-5xl xl:text-7xl'
-      textColorClassName='text-white'
-      textStrokeClassName='lg:title-text-stroke-purple'
-      beforeTextStrokeClassName='before:lg:title-text-stroke-purple-narrow-dark'
-    />
+    <div className='flex center-elements relative max-h-[10%]'>
+      <Title
+        className={className}
+        label={label}
+        labelGlowText={labelGlowText}
+        beforeBlurClassName='lg:before:blur-[2rem]'
+        fontClassName='font-bebas-neue'
+        textSizeClassName='text-sm sm:text-base lg:text-5xl xl:text-7xl'
+        textColorClassName='text-white'
+        textStrokeClassName='lg:title-text-stroke-purple'
+        beforeTextStrokeClassName='before:lg:title-text-stroke-purple-narrow-dark'
+      />
+    </div>
   );
 }
