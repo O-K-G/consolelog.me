@@ -1,14 +1,14 @@
 'use client';
 
-import type { ContactMeButtonProps } from '@constants/interfaces';
+import type { ContactGoBackButtonProps } from '@constants/interfaces';
 
 export const CONTACT_ME_BUTTON_TEST_ID = 'contact-me-button-test';
 
-export default function ContactMeButton({
+export default function ContactGoBackButton({
   children,
   onClick,
   className = 'right-0 mr-4',
-}: ContactMeButtonProps) {
+}: ContactGoBackButtonProps) {
   return (
     <button
       data-testid={CONTACT_ME_BUTTON_TEST_ID}

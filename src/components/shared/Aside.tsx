@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import Contact from '@components/byPage/Contact';
 import { usePathname } from 'next/navigation';
-import ContactMeButton from '@components/shared/ContactMeButton';
-import contactMe from '@i18nEn/contactMeButton.json';
+import ContactGoBackButton from '@components/shared/ContactGoBackButton';
+import contactGoBackButtonText from '@i18nEn/ContactGoBackButtonText.json';
 import { useText } from '@hooks/useText';
 
 export default function Aside() {
@@ -19,9 +19,9 @@ export default function Aside() {
 
   return (
     <>
-      <ContactMeButton onClick={() => setOpen(true)}>
-        {t('contactMe', contactMe)}
-      </ContactMeButton>
+      <ContactGoBackButton onClick={() => setOpen(true)}>
+        {t('contactMe', contactGoBackButtonText)}
+      </ContactGoBackButton>
       <aside
         aria-hidden={!open}
         className={`z-10 transition-1000 h-svh w-svw lg:h-dvh lg:w-dvw fixed top-0 left-0 ${
