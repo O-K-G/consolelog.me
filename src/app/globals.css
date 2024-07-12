@@ -84,4 +84,8 @@ body {
   .inset-0 {
     clip-path: inset(0);
   }
+
+  .container-type-size {
+    container-type: size;
+  }
 }
