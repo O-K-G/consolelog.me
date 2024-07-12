@@ -7,6 +7,7 @@ import projects from '@i18nEn/projects.json';
 // import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
 import Subtitle from '@components/shared/Subtitle';
 import ScrollableSubsection from '@components/shared/scrollableSection/ScrollableSubsection';
+import { useState } from 'react';
 
 const CURRENT_SECTION = 'projects';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_projects']";
@@ -17,7 +18,7 @@ const SUBTITLE_GLOW_CLASSNAME = "before:content-['project_x']";
 
 export default function Projects() {
   const t = useText();
-
+  const [open, setOpen] = useState(false);
   return (
     <Section currentSection={CURRENT_SECTION}>
       <Title
@@ -32,12 +33,14 @@ export default function Projects() {
             label='This Webpage'
             labelGlowText="before:content-['This_Webpage']"
           />
-          <button
-            type='button'
-            className='center-elements w-full h-full max-h-[90%] border border-green-500'
-          >
-            xxx
-          </button>
+          <div className='size-full max-h-[80%] center-elements border border-red-500'>
+            <button
+              type='button'
+              className='center-elements border border-green-500'
+            >
+              xxx
+            </button>
+          </div>
           {/* <div className='size-full absolute center-elements'>
             <ClickToOpenButton
               openSizeClassName={OPEN_SIZE_CLASSNAME}

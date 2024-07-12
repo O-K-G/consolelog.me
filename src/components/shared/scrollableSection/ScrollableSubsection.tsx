@@ -31,8 +31,8 @@ export default function ScrollableSubsection({
   });
 
   return (
-    <div className='border border-red-500 flex justify-center items-end size-full z-10'>
-      <div className='relative h-full max-h-[90%] w-1/3 border border-blue-500'>
+    <div className='flex justify-center items-end size-full z-10'>
+      <div className='relative h-full max-h-[80%] w-1/3'>
         <IconButton
           data-testid={LEFT_BUTTON_TEST_ID}
           disabled={!selectedSubsection}
@@ -62,7 +62,7 @@ export default function ScrollableSubsection({
         {childrenWithNewProps}
       </div>
 
-      <div className='relative h-full max-h-[90%] w-1/3 border border-blue-500'>
+      <div className='relative h-full max-h-[80%] w-1/3'>
         <IconButton
           data-testid={RIGHT_BUTTON_TEST_ID}
           disabled={selectedSubsection + 1 === childrenWithNewProps?.length}

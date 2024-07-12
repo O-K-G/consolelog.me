@@ -7,7 +7,7 @@ export default function Subtitle({
   className,
 }: SubtitleProps) {
   return (
-    <div className='flex center-elements w-fit h-full relative max-h-[10%]'>
+    <div className='flex center-elements relative max-h-[10%]'>
       <Title
         className={className}
         label={label}
