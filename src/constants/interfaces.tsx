@@ -251,3 +251,12 @@ export interface ScrollableSubsectionItemProps {
   onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
   id?: number;
 }
+export interface ContactGoBackButtonProps {
+  children: ReactNode;
+  onClick: () => void;
+  className?: string;
+}
+
+export interface ContactProps {
+  onClick: () => void;
+}
