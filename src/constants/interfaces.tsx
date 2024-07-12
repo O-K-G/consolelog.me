@@ -252,7 +252,9 @@ export interface ScrollableSubsectionItemProps {
   id?: number;
 }
 export interface ContactMeButtonProps {
+  children: ReactNode;
   onClick: () => void;
+  className?: string;
 }
 
 export interface ContactProps {
