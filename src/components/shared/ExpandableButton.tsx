@@ -21,8 +21,10 @@ export default function ExpandableButton({
       >
         <AboutTargetIcon open={open} />
         <button
-          className={`outline-none drop-shadow-[0px_0px_3px_rgba(175,25,255,1)] text-sm sm:text-2xl md:text-4xl text-transparent title-text-stroke-white font-just-in-the-firestorm uppercase ${
-            !open ? '' : ''
+          className={`outline-none ${
+            !open
+              ? 'text-sm sm:text-2xl md:text-4xl text-transparent title-text-stroke-white font-just-in-the-firestorm uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)]'
+              : ''
           }`}
           type='button'
           onClick={() => setOpen((prevValue) => !prevValue)}
