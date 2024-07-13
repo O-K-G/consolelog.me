@@ -32,7 +32,7 @@ export default function ScrollableSubsection({
 
   return (
     <div className='flex justify-center items-end size-full gap-1 z-10'>
-      <div className='relative h-full max-h-[80%] w-1/3'>
+      <div className='relative h-full max-h-[80%] w-full'>
         <IconButton
           data-testid={LEFT_BUTTON_TEST_ID}
           disabled={!selectedSubsection}
@@ -53,19 +53,19 @@ export default function ScrollableSubsection({
               });
             }
           }}
-          className={`${BUTTONS_CLASSNAME} left-0 rotate-180 ml-4`}
+          className={`${BUTTONS_CLASSNAME} left-0 rotate-180`}
           aria-label={t('scrollLeft', scrollableSectionText)}
           icon={<ArrowIconComponent />}
         />
       </div>
       <div
         ref={scrollableRef}
-        className='hide-scrollbars snap-x snap-mandatory size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
+        className='hide-scrollbars snap-x snap-mandatory min-w-[80%] size-full flex items-center justify-start overflow-y-hidden overflow-x-auto'
       >
         {childrenWithNewProps}
       </div>
 
-      <div className='relative h-full max-h-[80%] w-1/3'>
+      <div className='relative h-full max-h-[80%] w-full'>
         <IconButton
           data-testid={RIGHT_BUTTON_TEST_ID}
           disabled={selectedSubsection + 1 === childrenWithNewProps?.length}
@@ -86,7 +86,7 @@ export default function ScrollableSubsection({
               });
             }
           }}
-          className={`${BUTTONS_CLASSNAME} right-0 mr-4`}
+          className={`${BUTTONS_CLASSNAME} right-0`}
           aria-label={t('scrollRight', scrollableSectionText)}
           icon={<ArrowIconComponent />}
         />
