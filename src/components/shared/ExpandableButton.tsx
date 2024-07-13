@@ -21,7 +21,7 @@ export default function ExpandableButton({
       >
         <AboutTargetIcon open={open} />
         <button
-          className={`outline-none ${
+          className={`outline-none size-full ${
             !open
               ? 'text-sm sm:text-2xl md:text-4xl text-transparent title-text-stroke-white font-just-in-the-firestorm uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)]'
               : ''
