@@ -20,6 +20,10 @@ export default function ExpandableButton({
       >
         <AboutTargetIcon open={open} />
         <button
+          aria-label={
+            !open ? t('clickToOpen', expandableButtonText) : alternativeLabel
+          }
+          aria-expanded={open}
           data-open={open}
           className='transition-1000 outline-none overflow-hidden size-full border data-[open=false]:closed-expandable-button data-[open=false]:closed-expandable-button-focus data-[open=true]:opened-expandable-button'
           type='button'
