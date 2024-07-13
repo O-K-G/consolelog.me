@@ -102,6 +102,6 @@ body {
   }
 
   .opened-expandable-button {
-    @apply text-white font-montserrat text-xl p-2 focus:bg-black/50 animate-expand-button;
+    @apply text-white font-montserrat text-xs sm:text-xl p-2 focus:bg-black/50 animate-expand-button;
   }
 }
