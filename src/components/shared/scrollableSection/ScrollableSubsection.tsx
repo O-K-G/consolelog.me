@@ -45,6 +45,7 @@ export default function ScrollableSubsection({
             if (id || id === 0) {
               const { offsetWidth } =
                 (scrollableRef.current as unknown as HTMLDivElement) || 0;
+
               setSelectedSubsection(id);
               handleHorizontalScroll({
                 num: offsetWidth / id,
@@ -75,9 +76,10 @@ export default function ScrollableSubsection({
             )?.id;
 
             if (id) {
-              setSelectedSubsection(id);
               const { offsetWidth } =
                 (scrollableRef.current as unknown as HTMLDivElement) || 0;
+
+              setSelectedSubsection(id);
               handleHorizontalScroll({
                 num: offsetWidth * id,
                 scrollableRef,
