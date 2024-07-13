@@ -7,7 +7,6 @@ import projects from '@i18nEn/projects.json';
 import Subtitle from '@components/shared/Subtitle';
 import ScrollableSubsection from '@components/shared/scrollableSection/ScrollableSubsection';
 import ExpandableButton from '@components/shared/ExpandableButton';
-import clickToOpenButton from '@i18nEn/clickToOpenButton.json';
 
 const CURRENT_SECTION = 'projects';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['my_projects']";
@@ -29,10 +28,7 @@ export default function Projects() {
             label='This Webpage'
             labelGlowText="before:content-['This_Webpage']"
           />
-          <ExpandableButton
-            label={t('clickToOpen', clickToOpenButton)}
-            alternativeLabel="This webpage is a personal just for fun project I've made for myself as a hobby"
-          />
+          <ExpandableButton alternativeLabel="This webpage is a personal just for fun project I've made for myself as a hobby" />
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
@@ -42,7 +38,6 @@ export default function Projects() {
           />
 
           <ExpandableButton
-            label={t('clickToOpen', clickToOpenButton)}
             alternativeLabel={t('alternativeLabel', projects)}
           />
         </ScrollableSubsection.Item>
@@ -54,7 +49,6 @@ export default function Projects() {
           />
 
           <ExpandableButton
-            label={t('clickToOpen', clickToOpenButton)}
             alternativeLabel={t('alternativeLabel', projects)}
           />
         </ScrollableSubsection.Item>

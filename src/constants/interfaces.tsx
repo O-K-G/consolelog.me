@@ -198,11 +198,6 @@ export interface BoltProps {
   centerPointClassName?: string;
 }
 
-export interface ClickToOpenButtonProps {
-  alternativeLabel: string;
-  openSizeClassName?: string;
-}
-
 export interface ArrowRightIconProps {
   className?: string;
   strokeClassName: string;
@@ -259,4 +254,8 @@ export interface ContactGoBackButtonProps {
 
 export interface ContactProps {
   onClick: () => void;
+}
+
+export interface ExpandableButtonProps {
+  alternativeLabel: string;
 }
