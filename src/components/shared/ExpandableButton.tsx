@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import AboutTargetIcon from '@components/shared/title/AboutTargetIcon';
+import type { ExpandableButtonProps } from '@constants/interfaces';
 
 export default function ExpandableButton({
   label,
   alternativeLabel,
-}: {
-  label: string;
-  alternativeLabel: string;
-}) {
+}: ExpandableButtonProps) {
   const [open, setOpen] = useState(false);
 
   return (
