@@ -94,10 +94,10 @@ body {
   }
 
   .closed-expandable-button {
-    @apply text-sm sm:text-2xl md:text-4xl text-transparent border-transparent title-text-stroke-white font-just-in-the-firestorm uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)];
+    @apply focus:before:bg-black/50 focus:drop-shadow-none focus:before:-z-10 focus:before:absolute focus:before:size-full focus:before:rounded-full focus:before:top-0 focus:before:left-0 text-sm sm:text-2xl md:text-4xl text-transparent border-transparent title-text-stroke-white font-just-in-the-firestorm uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)];
   }
 
   .opened-expandable-button {
-    @apply text-white font-montserrat text-xl border-white p-2;
+    @apply text-white font-montserrat text-xl border-white p-2 focus:bg-black/50;
   }
 }
