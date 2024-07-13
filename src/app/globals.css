@@ -88,4 +88,16 @@ body {
   .container-type-size {
     container-type: size;
   }
+
+  .expandable-button-size-container {
+    @apply w-full h-[100cqw] md:w-[100cqh] md:h-full;
+  }
+
+  .closed-expandable-button {
+    @apply text-sm sm:text-2xl md:text-4xl text-transparent title-text-stroke-white font-just-in-the-firestorm uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)];
+  }
+
+  .opened-expandable-button {
+    @apply text-white font-montserrat text-xl border border-white p-2;
+  }
 }
