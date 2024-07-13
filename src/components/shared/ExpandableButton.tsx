@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import AboutTargetIcon from '@components/shared/title/AboutTargetIcon';
 import type { ExpandableButtonProps } from '@constants/interfaces';
 import expandableButtonText from '@i18nEn/expandableButtonText.json';
@@ -10,7 +10,17 @@ export default function ExpandableButton({
   alternativeLabel,
 }: ExpandableButtonProps) {
   const [open, setOpen] = useState(false);
+  const [isText, setText] = useState(true);
   const t = useText();
+  const buttonRef = useRef(null);
+
+  const handleTextAnimation = () => {
+    setText(true);
+    (buttonRef.current as unknown as HTMLButtonElement).removeEventListener(
+      'animationend',
+      handleTextAnimation
+    );
+  };
 
   return (
     <div className='z-10 container-type-size p-6 size-full relative max-h-[80%] center-elements'>
@@ -20,16 +30,24 @@ export default function ExpandableButton({
       >
         <AboutTargetIcon open={open} />
         <button
+          ref={buttonRef}
           aria-label={
             !open ? t('clickToOpen', expandableButtonText) : alternativeLabel
           }
           aria-expanded={open}
           data-open={open}
-          className='transition-1000 outline-none overflow-hidden size-full border data-[open=false]:closed-expandable-button data-[open=false]:closed-expandable-button-focus data-[open=true]:opened-expandable-button'
+          className='outline-none overflow-hidden size-full data-[open=false]:closed-expandable-button data-[open=false]:closed-expandable-button-focus data-[open=true]:opened-expandable-button'
           type='button'
-          onClick={() => setOpen((prevValue) => !prevValue)}
+          onClick={() => {
+            setOpen((prevValue) => !prevValue);
+            setText(false);
+            (
+              buttonRef.current as unknown as HTMLButtonElement
+            ).addEventListener('animationend', handleTextAnimation);
+          }}
         >
-          {!open ? t('clickToOpen', expandableButtonText) : alternativeLabel}
+          {isText && !open && t('clickToOpen', expandableButtonText)}
+          {isText && open && alternativeLabel}
         </button>
         <AboutTargetIcon bottom open={open} />
       </div>

@@ -14,8 +14,44 @@ const config: Config = {
       animation: {
         'flash-loader-text': 'flash-loader-text 1s linear infinite',
         'left-to-right-bar': 'left-to-right-bar 1s linear infinite',
+        'expand-button': 'expand-button 1s linear forwards',
+        'collapse-button': 'collapse-button 1s linear forwards',
       },
       keyframes: {
+        'expand-button': {
+          '0%': {
+            borderTop: '1px solid transparent',
+            borderBottom: '1px solid transparent',
+            height: '100%',
+          },
+          '50%': {
+            borderTop: '1px solid white',
+            borderBottom: '1px solid white',
+            height: '0%',
+          },
+          '100%': {
+            borderTop: '1px solid white',
+            borderBottom: '1px solid white',
+            height: '100%',
+          },
+        },
+        'collapse-button': {
+          '0%': {
+            borderTop: '1px solid transparent',
+            borderBottom: '1px solid transparent',
+            height: '100%',
+          },
+          '50%': {
+            borderTop: '1px solid white',
+            borderBottom: '1px solid white',
+            height: '0%',
+          },
+          '100%': {
+            borderTop: '1px solid transparent',
+            borderBottom: '1px solid transparent',
+            height: '100%',
+          },
+        },
         'flash-loader-text': {
           '50%': {
             opacity: '0',
