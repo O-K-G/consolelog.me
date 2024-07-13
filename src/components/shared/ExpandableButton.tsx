@@ -17,11 +17,13 @@ export default function ExpandableButton({
     <div className='z-10 container-type-size p-6 size-full relative max-h-[80%] center-elements border border-blue-500'>
       <div
         data-open={open}
-        className={`transition-1000 group relative max-h-full center-elements w-1/2 h-[50cqw] lg:w-1/4 lg:h-[25cqw] border border-red-500  ${OPEN_SIZE_CLASSNAME}`}
+        className={`transition-1000 group relative max-h-full center-elements w-1/2 h-[50cqw] lg:w-1/4 lg:h-[25cqw] ${OPEN_SIZE_CLASSNAME}`}
       >
         <AboutTargetIcon open={open} />
         <button
-          className='size-full'
+          className={`outline-none drop-shadow-[0px_0px_3px_rgba(175,25,255,1)] text-sm sm:text-2xl md:text-4xl text-transparent title-text-stroke-white font-just-in-the-firestorm uppercase ${
+            !open ? '' : ''
+          }`}
           type='button'
           onClick={() => setOpen((prevValue) => !prevValue)}
         >
