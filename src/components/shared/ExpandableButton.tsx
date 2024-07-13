@@ -10,12 +10,12 @@ export default function ExpandableButton({
   alternativeLabel,
 }: ExpandableButtonProps) {
   const [open, setOpen] = useState(false);
-  const [isText, setText] = useState(true);
+  const [isAnimationEnd, setAnimationEnd] = useState(true);
   const t = useText();
   const buttonRef = useRef(null);
 
   const handleTextAnimation = () => {
-    setText(true);
+    setAnimationEnd(true);
     (buttonRef.current as unknown as HTMLButtonElement).removeEventListener(
       'animationend',
       handleTextAnimation
@@ -37,19 +37,19 @@ export default function ExpandableButton({
           aria-expanded={open}
           data-open={open}
           className={`transition-300 border-x border-transparent outline-none overflow-hidden size-full data-[open=false]:closed-expandable-button data-[open=false]:closed-expandable-button-focus data-[open=true]:opened-expandable-button ${
-            !isText ? '' : 'data-[open=true]:border-white'
+            !isAnimationEnd ? '' : 'data-[open=true]:border-white'
           }`}
           type='button'
           onClick={() => {
             setOpen((prevValue) => !prevValue);
-            setText(false);
+            setAnimationEnd(false);
             (
               buttonRef.current as unknown as HTMLButtonElement
             ).addEventListener('animationend', handleTextAnimation);
           }}
         >
-          {isText && !open && t('clickToOpen', expandableButtonText)}
-          {isText && open && alternativeLabel}
+          {isAnimationEnd && !open && t('clickToOpen', expandableButtonText)}
+          {isAnimationEnd && open && alternativeLabel}
         </button>
         <AboutTargetIcon bottom open={open} />
       </div>
