@@ -50,8 +50,8 @@ export default function ExpandableButton({
             ).addEventListener('animationend', handleTextAnimation);
           }}
         >
-          {isAnimationEnd && !open && t('clickToOpen', expandableButtonText)}
-          {isAnimationEnd && open && alternativeLabel}
+          {isAnimationEnd &&
+            (!open ? t('clickToOpen', expandableButtonText) : alternativeLabel)}
         </button>
         <AboutTargetIcon bottom open={open} />
       </div>
