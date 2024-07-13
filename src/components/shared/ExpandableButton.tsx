@@ -36,7 +36,7 @@ export default function ExpandableButton({
           }
           aria-expanded={open}
           data-open={open}
-          className={`transition-300 border-x border-transparent outline-none overflow-hidden size-full data-[open=false]:closed-expandable-button data-[open=false]:closed-expandable-button-focus data-[open=true]:opened-expandable-button ${
+          className={`transition-300 border-x border-transparent outline-none overflow-x-hidden overflow-y-auto size-full data-[open=false]:closed-expandable-button data-[open=false]:closed-expandable-button-focus data-[open=true]:opened-expandable-button ${
             !isAnimationEnd ? '' : 'data-[open=true]:border-white'
           }`}
           type='button'

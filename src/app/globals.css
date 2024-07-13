@@ -90,7 +90,7 @@ body {
   }
 
   .expandable-button-size-container {
-    @apply w-full h-[100cqw] md:w-[100cqh] md:h-full;
+    @apply w-full h-[100cqw] md:w-[100cqh] md:h-full lg:w-3/4 lg:h-full;
   }
 
   .closed-expandable-button {
