@@ -2,7 +2,7 @@ import Section from '@components/shared/Section';
 import Title from '@components/shared/title/Title';
 import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
-import { ClickToOpenButton } from '@components/shared/ClickToOpenButton';
+import ExpandableButton from '@components/shared/ExpandableButton';
 
 const CURRENT_SECTION = 'about';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
@@ -29,10 +29,8 @@ export default function About() {
         label={t('subtitle', about)}
         labelGlowText={SUBTITLE_GLOW_CLASSNAME}
       />
-      <ClickToOpenButton
-        openSizeClassName='data-[open=true]:w-3/4 data-[open=true]:h-[40%] data-[open=true]:lg:h-1/3'
-        alternativeLabel={t('alternativeLabel', about)}
-      />
+
+      <ExpandableButton alternativeLabel={t('alternativeLabel', about)} />
     </Section>
   );
 }

@@ -1,12 +1,16 @@
+'use client';
+
 import { useState } from 'react';
 import AboutTargetIcon from '@components/shared/title/AboutTargetIcon';
 import type { ExpandableButtonProps } from '@constants/interfaces';
+import expandableButtonText from '@i18nEn/expandableButtonText.json';
+import { useText } from '@hooks/useText';
 
 export default function ExpandableButton({
-  label,
   alternativeLabel,
 }: ExpandableButtonProps) {
   const [open, setOpen] = useState(false);
+  const t = useText();
 
   return (
     <div className='z-10 container-type-size p-6 size-full relative max-h-[80%] center-elements'>
@@ -21,7 +25,7 @@ export default function ExpandableButton({
           type='button'
           onClick={() => setOpen((prevValue) => !prevValue)}
         >
-          {!open ? label : alternativeLabel}
+          {!open ? t('clickToOpen', expandableButtonText) : alternativeLabel}
         </button>
         <AboutTargetIcon bottom open={open} />
       </div>
