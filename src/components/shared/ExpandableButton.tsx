@@ -21,7 +21,7 @@ export default function ExpandableButton({
         <AboutTargetIcon open={open} />
         <button
           data-open={open}
-          className='transition-1000 outline-none overflow-hidden size-full data-[open=false]:closed-expandable-button data-[open=true]:opened-expandable-button'
+          className='transition-1000 outline-none overflow-hidden size-full border data-[open=false]:closed-expandable-button data-[open=true]:opened-expandable-button'
           type='button'
           onClick={() => setOpen((prevValue) => !prevValue)}
         >
