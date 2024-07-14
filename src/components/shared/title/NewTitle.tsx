@@ -1,16 +1,11 @@
-import { type ReactNode } from 'react';
+import type { BorderProps, MainTitleProps } from '@/constants/interfaces';
 
 function NewBorder({
   className,
   variant = 'mainTitle',
   leftLabel,
   rightLabel,
-}: {
-  className?: string;
-  variant?: 'mainTitle' | 'subtitle';
-  leftLabel?: string;
-  rightLabel?: string;
-}) {
+}: BorderProps) {
   const selectedVariantBorderClassName = {
     mainTitle:
       'border-[1.5px] border-title-purple drop-shadow-border-purple-glow',
@@ -44,15 +39,7 @@ export default function NewTitle({
   variant = 'mainTitle',
   topLabel,
   bottomLabel,
-}: {
-  children: ReactNode;
-  component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  className?: string;
-  border?: boolean;
-  variant?: 'mainTitle' | 'subtitle';
-  topLabel?: string;
-  bottomLabel?: string;
-}) {
+}: MainTitleProps) {
   const selectedVariantClassName = {
     mainTitle:
       'text-transparent font-just-in-the-firestorm new-purple-text-stroke text-base sm:text-2xl md:text-3xl lg:text-4xl',

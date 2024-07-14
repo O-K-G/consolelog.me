@@ -72,21 +72,6 @@ export interface TitleProps extends TitleLabels {
   textStrokeClassName?: string;
 }
 
-export interface SubtitleProps {
-  label: string;
-  labelGlowText: string;
-  className?: string;
-}
-
-export interface NoDialogProps {
-  open: boolean;
-  onClick: () => void;
-}
-
-export interface OldProps {
-  onClick: () => void;
-}
-
 export interface SVG90DegreesProps {
   className: string;
   pathClassName: string;
@@ -95,19 +80,6 @@ export interface SVG90DegreesProps {
 export interface AboutTargetIconProps {
   open: boolean;
   bottom?: boolean;
-}
-
-export interface AlternatingButtonsProps {
-  className?: string;
-  open?: boolean;
-  onClick?: () => void;
-  label?: string;
-  alternativeLabel?: string;
-}
-
-export interface BorderProps {
-  leftLabel?: boolean;
-  label?: string;
 }
 
 export interface BottomInputComponentButtonsProps {
@@ -251,4 +223,21 @@ export interface ContactProps {
 
 export interface ExpandableButtonProps {
   alternativeLabel: string;
+}
+
+export interface MainTitleProps {
+  children: ReactNode;
+  component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  className?: string;
+  border?: boolean;
+  variant?: 'mainTitle' | 'subtitle';
+  topLabel?: string;
+  bottomLabel?: string;
+}
+
+export interface BorderProps {
+  className?: string;
+  variant?: 'mainTitle' | 'subtitle';
+  leftLabel?: string;
+  rightLabel?: string;
 }
