@@ -6,8 +6,8 @@ import Attribution from '@components/Attribution';
 import ScrollableSubsection from '@components/shared/scrollableSection/ScrollableSubsection';
 import experience from '@i18nEn/experience.json';
 import Shenanigans from '@components/Shenanigans';
-import ExpandableButton from '@components/shared/ExpandableButton';
-import NewTitle from '@components/shared/title/NewTitle';
+import ExpandableButton from '@components/shared/expandableButton/ExpandableButton';
+import Title from '@components/shared/title/Title';
 
 const CURRENT_SECTION = 'experience';
 
@@ -15,24 +15,24 @@ export default function Experience() {
   const t = useText();
   return (
     <Section currentSection={CURRENT_SECTION}>
-      <NewTitle border>{t('mainTitle', experience)}</NewTitle>
+      <Title border>{t('mainTitle', experience)}</Title>
       <ScrollableSubsection>
         <ScrollableSubsection.Item>
-          <NewTitle variant='subtitle'>{t('subtitle', experience)}</NewTitle>
+          <Title variant='subtitle'>{t('subtitle', experience)}</Title>
           <ExpandableButton
             alternativeLabel={t('alternativeLabel', experience)}
           />
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
-          <NewTitle variant='subtitle'>{t('subtitle', experience)}</NewTitle>
+          <Title variant='subtitle'>{t('subtitle', experience)}</Title>
           <ExpandableButton
             alternativeLabel={t('alternativeLabel', experience)}
           />
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
-          <NewTitle variant='subtitle'>{t('subtitle', experience)}</NewTitle>
+          <Title variant='subtitle'>{t('subtitle', experience)}</Title>
           <ExpandableButton
             alternativeLabel={t('alternativeLabel', experience)}
           />

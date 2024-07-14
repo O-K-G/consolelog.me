@@ -1,8 +1,8 @@
 import Section from '@components/shared/Section';
 import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
-import ExpandableButton from '@components/shared/ExpandableButton';
-import NewTitle from '@components/shared/title/NewTitle';
+import ExpandableButton from '@components/shared/expandableButton/ExpandableButton';
+import Title from '@components/shared/title/Title';
 
 const CURRENT_SECTION = 'about';
 
@@ -15,17 +15,17 @@ export default function About() {
       currentSection={CURRENT_SECTION}
     >
       <header className='mt-8 sm:mt-0'>
-        <NewTitle
+        <Title
           component='h1'
           border
           topLabel={t('topLabel', about)}
           bottomLabel={t('bottomLabel', about)}
         >
           {t('mainTitle', about)}
-        </NewTitle>
+        </Title>
       </header>
 
-      <NewTitle>{t('subtitle', about)}</NewTitle>
+      <Title>{t('subtitle', about)}</Title>
 
       <ExpandableButton alternativeLabel={t('alternativeLabel', about)} />
     </Section>

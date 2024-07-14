@@ -5,7 +5,7 @@ import contact from '@i18nEn/contact.json';
 import SideLinks from '@components/shared/SideLinks';
 import type { ContactProps } from '@constants/interfaces';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
-import NewTitle from '@components/shared/title/NewTitle';
+import Title from '@components/shared/title/Title';
 
 export default function Contact({ onClick }: ContactProps) {
   const t = useText();
@@ -16,7 +16,7 @@ export default function Contact({ onClick }: ContactProps) {
       <ContactGoBackButton onClick={onClick} className='left-0 ml-4'>
         {t('goBack', contact)}
       </ContactGoBackButton>
-      <NewTitle border>{t('mainTitle', contact)}</NewTitle>
+      <Title border>{t('mainTitle', contact)}</Title>
       <ContactForm />
       <SideLinks
         className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6 mt-auto'

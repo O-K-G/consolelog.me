@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import AboutTargetIcon from '@components/shared/title/AboutTargetIcon';
+import AboutTargetIcon from '@components/shared/expandableButton/AboutTargetIcon';
 import type { ExpandableButtonProps } from '@constants/interfaces';
 import expandableButtonText from '@i18nEn/expandableButtonText.json';
 import { useText } from '@hooks/useText';
