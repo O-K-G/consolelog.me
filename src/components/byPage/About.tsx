@@ -1,12 +1,10 @@
 import Section from '@components/shared/Section';
-import Title from '@components/shared/title/Title';
 import { useText } from '@hooks/useText';
 import about from '@i18nEn/about.json';
-import ExpandableButton from '@components/shared/ExpandableButton';
+import ExpandableButton from '@components/shared/expandableButton/ExpandableButton';
+import Title from '@components/shared/title/Title';
 
 const CURRENT_SECTION = 'about';
-const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
-const SUBTITLE_GLOW_CLASSNAME = "before:content-['lorem_ipsum_dolor']";
 
 export default function About() {
   const t = useText();
@@ -19,19 +17,15 @@ export default function About() {
       <header className='mt-8 sm:mt-0'>
         <Title
           component='h1'
-          label={t('mainTitle', about)}
-          labelGlowText={MAIN_TITLE_GLOW_CLASSNAME}
+          border
           topLabel={t('topLabel', about)}
           bottomLabel={t('bottomLabel', about)}
-          border
-          className='relative w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36'
-        />
+        >
+          {t('mainTitle', about)}
+        </Title>
       </header>
 
-      <Title
-        label={t('subtitle', about)}
-        labelGlowText={SUBTITLE_GLOW_CLASSNAME}
-      />
+      <Title>{t('subtitle', about)}</Title>
 
       <ExpandableButton alternativeLabel={t('alternativeLabel', about)} />
     </Section>
