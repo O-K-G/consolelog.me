@@ -13,7 +13,7 @@ export default function Contact({ onClick }: ContactProps) {
   const t = useText();
 
   return (
-    <Section className='min-h-screen h-screen fixed bottom-0 left-0'>
+    <Section className='min-h-screen h-screen fixed bottom-0 left-0 lg:gap-4'>
       <div className='absolute bg-cover bg-right top-0 left-0 h-screen w-screen bg-contact-sm md:bg-contact-md lg:bg-contact-lg xl:bg-contact-xl 2xl:bg-contact-2xl opacity-60' />
       <ContactGoBackButton onClick={onClick} className='left-0 ml-4'>
         {t('goBack', contact)}
@@ -25,7 +25,7 @@ export default function Contact({ onClick }: ContactProps) {
       />
       <ContactForm />
       <SideLinks
-        className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6 mt-2'
+        className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6 mt-auto'
         ulClassName='size-full center-elements gap-4'
       />
     </Section>
