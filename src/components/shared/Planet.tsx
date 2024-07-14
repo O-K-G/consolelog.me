@@ -11,7 +11,6 @@ const ROTATION_CLASSNAMES_BY_SECTION = {
   skills: 'rotate-90',
   projects: 'rotate-180',
   experience: 'rotate-270',
-  contact: 'rotate-360',
 } as const;
 
 export default function Planet() {

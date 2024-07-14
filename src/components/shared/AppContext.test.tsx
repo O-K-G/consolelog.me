@@ -1,24 +1,15 @@
-import React, { LegacyRef, act, useContext, useEffect } from 'react';
+import React, { act, useContext } from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { AppContext } from '@components/shared/AppContext';
 import AppContextComponent from '@components/shared/AppContext';
 
 const CURRENT_TOP_SECTION_TEST_ID = 'currentTopSection';
-const CONTACT_SECTION_REF_TEST_ID = 'contactSectionRef';
 const BUTTON_TEXT = 'Change Section';
-const TEXT_CONTEXT = 'Contact Section Element';
 const CONTACT_SECTION_STRING = 'contact';
 
 const ContextConsumer = () => {
-  const { currentTopSection, onChange, contactSectionRef } =
-    useContext(AppContext);
-
-  useEffect(() => {
-    if (contactSectionRef.current) {
-      contactSectionRef.current.textContent = TEXT_CONTEXT;
-    }
-  }, [contactSectionRef]);
+  const { currentTopSection, onChange } = useContext(AppContext);
 
   return (
     <>
@@ -26,10 +17,6 @@ const ContextConsumer = () => {
       <button type='button' onClick={() => onChange(CONTACT_SECTION_STRING)}>
         {BUTTON_TEXT}
       </button>
-      <div
-        ref={contactSectionRef as LegacyRef<HTMLDivElement>}
-        data-testid={CONTACT_SECTION_REF_TEST_ID}
-      />
     </>
   );
 };
@@ -60,19 +47,5 @@ describe('AppContext', () => {
     expect(screen.getByTestId(CURRENT_TOP_SECTION_TEST_ID)).toHaveTextContent(
       'contact'
     );
-  });
-
-  test('updates contactSectionRef correctly', () => {
-    render(
-      <AppContextComponent>
-        <ContextConsumer />
-      </AppContextComponent>
-    );
-
-    const contactSectionElement = screen.getByTestId(
-      CONTACT_SECTION_REF_TEST_ID
-    );
-
-    expect(contactSectionElement).toHaveTextContent('Contact Section Element');
   });
 });

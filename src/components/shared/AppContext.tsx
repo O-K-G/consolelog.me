@@ -4,25 +4,22 @@ import type {
   AppContextProps,
   AppContextComponentProps,
 } from '@constants/interfaces';
-import { createContext, useState, useMemo, useRef } from 'react';
+import { createContext, useState, useMemo } from 'react';
 
 export const AppContext = createContext({
   currentTopSection: 'about',
   onChange: () => null,
-  contactSectionRef: { current: null },
 } as AppContextProps);
 
 export default function AppContextComponent({
   children,
 }: AppContextComponentProps) {
   const [currentTopSection, setCurrentTopSection] = useState('about');
-  const contactSectionRef = useRef(null);
 
   const AppContextData = useMemo(
     () => ({
       currentTopSection,
       onChange: setCurrentTopSection,
-      contactSectionRef,
     }),
     [currentTopSection]
   );

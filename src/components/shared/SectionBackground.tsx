@@ -15,6 +15,10 @@ const BACKGROUND_SIZES = [
 ];
 
 export default function SectionBackground({ currentSection }: CurrentSection) {
+  if (!currentSection) {
+    return null;
+  }
+
   return (
     <div className='absolute top-0 left-0 min-h-full h-screen w-screen inset-0'>
       <picture>

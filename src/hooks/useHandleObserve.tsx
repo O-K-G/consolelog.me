@@ -24,9 +24,18 @@ export default function useHandleObserve({
       }
     };
 
-    const observer = new IntersectionObserver(handleObserve, options);
-    observer.observe(middleSectionRef.current as unknown as HTMLElement);
+    const observer = currentSection
+      ? new IntersectionObserver(handleObserve, options)
+      : null;
 
-    return () => observer.disconnect();
+    if (currentSection) {
+      observer?.observe(middleSectionRef.current as unknown as HTMLElement);
+    }
+
+    return () => {
+      if (currentSection) {
+        observer?.disconnect();
+      }
+    };
   }, [currentSection, middleSectionRef, setCurrentTopSection]);
 }

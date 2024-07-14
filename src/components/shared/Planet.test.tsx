@@ -12,7 +12,6 @@ jest.mock('next/image', () => (props: { alt: string }) => {
 const mockContextValue = {
   currentTopSection: '',
   onChange: () => null,
-  contactSectionRef: { current: null },
 };
 
 describe('Planet component', () => {
@@ -34,7 +33,6 @@ describe('Planet component', () => {
     expect(divElement).not.toHaveClass('rotate-90');
     expect(divElement).not.toHaveClass('rotate-180');
     expect(divElement).not.toHaveClass('rotate-270');
-    expect(divElement).not.toHaveClass('rotate-360');
   });
 
   it('applies the correct rotation class based on currentTopSection', () => {
@@ -42,7 +40,6 @@ describe('Planet component', () => {
       { section: 'skills', expectedClass: 'rotate-90' },
       { section: 'projects', expectedClass: 'rotate-180' },
       { section: 'experience', expectedClass: 'rotate-270' },
-      { section: 'contact', expectedClass: 'rotate-360' },
     ];
 
     testCases.forEach(({ section, expectedClass }) => {
@@ -51,7 +48,6 @@ describe('Planet component', () => {
           value={{
             onChange: () => null,
             currentTopSection: section,
-            contactSectionRef: { current: null },
           }}
         >
           <Planet />

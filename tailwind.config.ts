@@ -10,7 +10,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      rotate: { 270: '270deg', 360: '360deg' },
+      rotate: { 270: '270deg' },
       animation: {
         'flash-loader-text': 'flash-loader-text 1s linear infinite',
         'left-to-right-bar': 'left-to-right-bar 1s linear infinite',
@@ -90,6 +90,11 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'contact-sm': `url('/contact-sm.webp?cacheVersion=${CACHE_VERSION}')`,
+        'contact-md': `url('/contact-md.webp?cacheVersion=${CACHE_VERSION}')`,
+        'contact-lg': `url('/contact-lg.webp?cacheVersion=${CACHE_VERSION}')`,
+        'contact-xl': `url('/contact-xl.webp?cacheVersion=${CACHE_VERSION}')`,
+        'contact-2xl': `url('/contact-2xl.webp?cacheVersion=${CACHE_VERSION}')`,
       },
     },
   },
