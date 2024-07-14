@@ -14,10 +14,10 @@ export default function Contact({ onClick }: ContactProps) {
 
   return (
     <Section paddingClassName='pt-8 md:pt-16 px-4 pb-4'>
+      <div className='absolute bg-cover bg-right top-0 left-0 h-svh w-svw lg:h-dvh lg:w-dvw bg-contact-sm md:bg-contact-md lg:bg-contact-lg xl:bg-contact-xl 2xl:bg-contact-2xl opacity-60' />
       <ContactGoBackButton onClick={onClick} className='left-0 ml-4'>
         {t('goBack', contact)}
       </ContactGoBackButton>
-
       <Title
         label={t('mainTitle', contact)}
         border

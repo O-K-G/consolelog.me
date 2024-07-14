@@ -90,6 +90,11 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'contact-sm': "url('/contact-sm.webp')",
+        'contact-md': "url('/contact-md.webp')",
+        'contact-lg': "url('/contact-lg.webp')",
+        'contact-xl': "url('/contact-xl.webp')",
+        'contact-2xl': "url('/contact-2xl.webp')",
       },
     },
   },
