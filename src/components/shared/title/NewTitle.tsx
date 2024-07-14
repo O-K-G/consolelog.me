@@ -55,15 +55,15 @@ export default function NewTitle({
 }) {
   const selectedVariantClassName = {
     mainTitle:
-      'uppercase drop-shadow-purple-glow new-purple-text-stroke font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl',
-    subtitle: '',
+      'text-transparent font-just-in-the-firestorm new-purple-text-stroke text-base sm:text-2xl md:text-3xl lg:text-4xl',
+    subtitle: 'text-white font-bebas-neue text-2xl sm:text-5xl xl:text-7xl',
   };
 
   return (
-    <div className={`z-10 text-center center-elements flex-col ${className}`}>
+    <div className={`z-10 center-elements flex-col ${className}`}>
       {border && <NewBorder rightLabel={topLabel} variant={variant} />}
       <Component
-        className={`py-2 sm:py-4 px-2 text-transparent ${selectedVariantClassName[variant]}`}
+        className={`py-2 sm:py-4 px-2 uppercase drop-shadow-purple-glow text-center ${selectedVariantClassName[variant]}`}
       >
         {children}
       </Component>

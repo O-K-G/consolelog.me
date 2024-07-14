@@ -2,13 +2,10 @@ import Section from '@components/shared/Section';
 import skills from '@i18nEn/skills.json';
 import { useText } from '@hooks/useText';
 import SkillsList from '@components/SkillsList';
-import Subtitle from '@components/shared/Subtitle';
 import SideLinks from '@components/shared/SideLinks';
 import NewTitle from '@components/shared/title/NewTitle';
 
 const CURRENT_SECTION = 'skills';
-const SUBTITLE_GLOW_CLASSNAME =
-  "before:content-['here_is_a_list_of_some_of_my_skills']";
 
 export default function Skills() {
   const t = useText();
@@ -20,10 +17,7 @@ export default function Skills() {
     >
       <NewTitle border>{t('mainTitle', skills)}</NewTitle>
 
-      <Subtitle
-        label={t('subtitle', skills)}
-        labelGlowText={SUBTITLE_GLOW_CLASSNAME}
-      />
+      <NewTitle variant='subtitle'>{t('subtitle', skills)}</NewTitle>
 
       <SkillsList />
       <SideLinks />
