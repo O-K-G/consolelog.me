@@ -12,7 +12,10 @@ export default function About() {
   const t = useText();
 
   return (
-    <Section className='gap-10' currentSection={CURRENT_SECTION}>
+    <Section
+      className='relative min-h-screen h-svh lg:h-dvh gap-10 pt-20 md:pt-40'
+      currentSection={CURRENT_SECTION}
+    >
       <header className='mt-8 sm:mt-0'>
         <Title
           component='h1'

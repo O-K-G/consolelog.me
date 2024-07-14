@@ -55,7 +55,7 @@ export default function InputComponent({
       <div className='flex items-center justify-start sm:justify-end sm:mt-1.5 sm:w-2/12 md:w-3/12 md:max-w-24'>
         <label
           htmlFor={id}
-          className='uppercase font-bebas-neue text-xl sm:text-3xl'
+          className='uppercase font-bebas-neue text-sm sm:text-3xl'
         >
           {id}:
         </label>
@@ -75,8 +75,10 @@ export default function InputComponent({
             aria-label={ariaLabel}
             id={id}
             name={id}
-            className={`w-full placeholder:uppercase text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none ${
-              !isTextarea ? 'h-[3.188rem] px-4' : 'p-4 resize-none'
+            className={`w-full placeholder:uppercase text-sm sm:text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none ${
+              !isTextarea
+                ? 'h-[3.188rem] px-2 sm:px-4'
+                : 'p-2 sm:p-4 resize-none'
             } ${
               !isError
                 ? 'bg-title-purple/30 hover:bg-black/70 active:bg-black/70 focus:bg-black/70'
