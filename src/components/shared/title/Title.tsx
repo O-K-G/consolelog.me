@@ -20,7 +20,7 @@ export default function Title({
     <div className={`z-10 center-elements flex-col ${className}`}>
       {border && <Border rightLabel={topLabel} variant={variant} />}
       <Component
-        className={`py-2 sm:py-4 px-2 uppercase drop-shadow-purple-glow text-center ${selectedVariantClassName[variant]}`}
+        className={`py-2 sm:py-4 px-2 uppercase drop-shadow-purple-glow-sm sm:drop-shadow-purple-glow text-center ${selectedVariantClassName[variant]}`}
       >
         {children}
       </Component>

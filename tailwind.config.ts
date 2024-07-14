@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       dropShadow: {
         'purple-glow': '0px 0px 0.313rem #B377FF',
+        'purple-glow-sm': '0px 0px 0.125rem #B377FF',
         'border-purple-glow': '0px 0px 0.09rem #B377FF',
       },
       rotate: { 270: '270deg' },
