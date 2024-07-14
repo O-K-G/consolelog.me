@@ -7,17 +7,13 @@ import SideLinks from '@components/shared/SideLinks';
 import type { ContactProps } from '@constants/interfaces';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
 
-const CURRENT_SECTION = 'contact';
 const MAIN_TITLE_GLOW_CLASSNAME = "before:content-['contact_me']";
 
 export default function Contact({ onClick }: ContactProps) {
   const t = useText();
 
   return (
-    <Section
-      paddingClassName='pt-8 md:pt-16 px-4 pb-4'
-      currentSection={CURRENT_SECTION}
-    >
+    <Section paddingClassName='pt-8 md:pt-16 px-4 pb-4'>
       <ContactGoBackButton onClick={onClick} className='left-0 ml-4'>
         {t('goBack', contact)}
       </ContactGoBackButton>

@@ -25,7 +25,6 @@ export interface ModalContextComponentProps {
 export interface AppContextProps {
   currentTopSection: string;
   onChange: Dispatch<SetStateAction<string>>;
-  contactSectionRef: MutableRefObject<HTMLElement | null>;
 }
 
 export interface ModalContextProps {
@@ -43,7 +42,7 @@ export interface DialogTitleProps {
 }
 
 export interface CurrentSection {
-  currentSection: 'about' | 'contact' | 'projects' | 'skills' | 'experience';
+  currentSection?: 'about' | 'projects' | 'skills' | 'experience';
 }
 export interface SectionProps extends CurrentSection {
   children: ReactNode;
@@ -169,10 +168,6 @@ export const BASE_STATUS_CODES = {
   201: true,
   401: false,
 } as const;
-
-export interface UseHandleScrollByPathNameProps extends CurrentSection {
-  sectionRef: MutableRefObject<null>;
-}
 
 export interface UseHandleObserveProps extends CurrentSection {
   middleSectionRef: MutableRefObject<null>;
