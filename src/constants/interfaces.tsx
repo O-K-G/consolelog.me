@@ -47,8 +47,6 @@ export interface CurrentSection {
 export interface SectionProps extends CurrentSection {
   children: ReactNode;
   className?: string;
-  heightClassName?: string;
-  paddingClassName?: string;
 }
 
 interface TitleLabels {

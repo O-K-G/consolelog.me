@@ -6,11 +6,9 @@ import useHandleObserve from '@hooks/useHandleObserve';
 import SectionBackground from '@components/shared/SectionBackground';
 
 export default function Section({
-  className,
+  className = 'relative min-h-screen h-svh lg:h-dvh',
   children,
   currentSection,
-  heightClassName = 'h-svh lg:h-dvh',
-  paddingClassName = 'pt-20 md:pt-40 px-4 pb-4',
 }: SectionProps) {
   const middleSectionRef = useRef(null);
 
@@ -19,7 +17,7 @@ export default function Section({
   return (
     <section
       data-testid={currentSection ? `section-${currentSection}` : null}
-      className={`min-h-screen bg-black relative flex flex-col items-center w-full justify-start overflow-hidden ${paddingClassName} ${heightClassName} ${
+      className={`bg-black flex flex-col items-center w-full justify-start overflow-hidden pt-20 md:pt-40 px-4 pb-4 ${
         className ?? ''
       }`}
     >
