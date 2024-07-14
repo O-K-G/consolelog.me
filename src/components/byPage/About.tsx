@@ -13,7 +13,7 @@ export default function About() {
 
   return (
     <Section
-      className='relative min-h-screen h-svh lg:h-dvh gap-10'
+      className='relative min-h-screen h-svh lg:h-dvh gap-10 pt-20 md:pt-40'
       currentSection={CURRENT_SECTION}
     >
       <header className='mt-8 sm:mt-0'>

@@ -6,7 +6,7 @@ import useHandleObserve from '@hooks/useHandleObserve';
 import SectionBackground from '@components/shared/SectionBackground';
 
 export default function Section({
-  className = 'relative min-h-screen h-svh lg:h-dvh',
+  className = 'relative min-h-screen h-svh lg:h-dvh pt-20 md:pt-40',
   children,
   currentSection,
 }: SectionProps) {
@@ -17,7 +17,7 @@ export default function Section({
   return (
     <section
       data-testid={currentSection ? `section-${currentSection}` : null}
-      className={`bg-black flex flex-col items-center w-full justify-start overflow-hidden pt-20 md:pt-40 px-4 pb-4 ${
+      className={`bg-black flex flex-col items-center w-full justify-start overflow-hidden px-4 pb-4 ${
         className ?? ''
       }`}
     >
