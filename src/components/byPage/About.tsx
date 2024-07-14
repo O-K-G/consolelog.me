@@ -27,7 +27,13 @@ export default function About() {
           className='relative w-fit h-16 sm:h-24 md:h-[6.5rem] lg:h-28 xl:h-32 2xl:h-36'
         /> */}
 
-        <NewTitle border>{t('mainTitle', about)}</NewTitle>
+        <NewTitle
+          border
+          topLabel={t('topLabel', about)}
+          bottomLabel={t('bottomLabel', about)}
+        >
+          {t('mainTitle', about)}
+        </NewTitle>
       </header>
 
       <Title

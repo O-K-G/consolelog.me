@@ -3,20 +3,36 @@ import { type ReactNode } from 'react';
 function NewBorder({
   className,
   variant = 'mainTitle',
+  leftLabel,
+  rightLabel,
 }: {
   className?: string;
   variant?: 'mainTitle' | 'subtitle';
+  leftLabel?: string;
+  rightLabel?: string;
 }) {
-  const selectedVariantClassName = {
+  const selectedVariantBorderClassName = {
     mainTitle:
       'border-[1.5px] border-title-purple drop-shadow-border-purple-glow',
     subtitle: '',
   };
 
+  const selectedVariantLabelClassName = {
+    mainTitle: 'text-sm sm:text-base md:text-lg lg:text-2xl text-title-purple',
+    subtitle: '',
+  };
+
   return (
     <div
-      className={`w-full h-2 shrink-0 ${selectedVariantClassName[variant]} ${className}`}
-    />
+      className={`z-10 uppercase h-3 sm:h-3.5 md:h-4 lg:h-5 leading-none center-elements whitespace-nowrap font-star-date-81316 gap-3 w-full ${
+        selectedVariantLabelClassName[variant]
+      } ${leftLabel ? 'flex-row-reverse' : ''}`}
+    >
+      <div
+        className={`h-[72%] mb-[0.05rem] sm:h-[71.5%] sm:mb-[0.1rem] lg:h-3/4 lg:mb-0.5 w-full ${selectedVariantBorderClassName[variant]} ${className}`}
+      />
+      {rightLabel ?? leftLabel}
+    </div>
   );
 }
 
@@ -26,12 +42,16 @@ export default function NewTitle({
   className,
   border,
   variant = 'mainTitle',
+  topLabel,
+  bottomLabel,
 }: {
   children: ReactNode;
   component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   className?: string;
   border?: boolean;
   variant?: 'mainTitle' | 'subtitle';
+  topLabel?: string;
+  bottomLabel?: string;
 }) {
   const selectedVariantClassName = {
     mainTitle:
@@ -40,12 +60,14 @@ export default function NewTitle({
   };
 
   return (
-    <div
-      className={`z-10 text-center center-elements flex-col text-transparent ${selectedVariantClassName[variant]} ${className}`}
-    >
-      {border && <NewBorder variant={variant} />}
-      <Component className='py-4 px-2'>{children}</Component>
-      {border && <NewBorder variant={variant} />}
+    <div className={`z-10 text-center center-elements flex-col ${className}`}>
+      {border && <NewBorder rightLabel={topLabel} variant={variant} />}
+      <Component
+        className={`py-2 sm:py-4 px-2 text-transparent ${selectedVariantClassName[variant]}`}
+      >
+        {children}
+      </Component>
+      {border && <NewBorder leftLabel={bottomLabel} variant={variant} />}
     </div>
   );
 }
