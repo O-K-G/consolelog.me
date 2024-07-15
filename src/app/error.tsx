@@ -24,7 +24,7 @@ export default function Error({
     <Loader
       open
       label={LABEL}
-      loadingTextAdditionalSlot={
+      loaderTextAdditionalSlot={
         <div
           role='alert'
           aria-label={LABEL}

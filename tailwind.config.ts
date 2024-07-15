@@ -18,7 +18,6 @@ const config: Config = {
       rotate: { 270: '270deg' },
       animation: {
         'flash-loader-text': 'flash-loader-text 1s linear infinite',
-        'left-to-right-bar': 'left-to-right-bar 1s linear infinite',
         'expand-button': 'expand-button 1s linear forwards',
         'collapse-button': 'collapse-button 1s linear forwards',
       },
@@ -60,23 +59,6 @@ const config: Config = {
         'flash-loader-text': {
           '50%': {
             opacity: '0',
-          },
-        },
-        'left-to-right-bar': {
-          '0%': {
-            left: '0',
-            opacity: '0%',
-            backgroundColor: 'white',
-          },
-          '50%': {
-            left: '50%',
-            opacity: '100%',
-            backgroundColor: 'pink',
-          },
-          '100%': {
-            left: '100%',
-            opacity: '0%',
-            backgroundColor: 'white',
           },
         },
       },

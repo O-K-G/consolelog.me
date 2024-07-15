@@ -241,3 +241,14 @@ export interface BorderProps {
   leftLabel?: string;
   rightLabel?: string;
 }
+
+export interface LoaderProps {
+  open?: boolean;
+  label?: string;
+  loaderTextAdditionalSlot?: ReactNode;
+}
+
+export interface LoaderTextProps {
+  label?: string;
+  slot?: ReactNode;
+}

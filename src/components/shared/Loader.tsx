@@ -1,9 +1,13 @@
 'use client';
 
-import type { BoltProps, CogwheelProps } from '@constants/interfaces';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
+import type {
+  BoltProps,
+  CogwheelProps,
+  LoaderProps,
+  LoaderTextProps,
+} from '@constants/interfaces';
 
-const LOADING_TEXT = 'Gearing up... almost there...';
 export const LOADER_TEST_ID = 'loader-test';
 
 function Cogwheel({
@@ -46,29 +50,17 @@ function Bolt({ centerPointClassName = '' }: BoltProps) {
   );
 }
 
-function TextAnimation() {
-  return (
-    <div className='bg-sky-500 h-6 w-full relative overflow-hidden rounded-sm'>
-      <div className='animate-left-to-right-bar absolute h-full w-4' />
-    </div>
-  );
-}
-
-function LoadingText({
-  label = LOADING_TEXT,
-  slot = <TextAnimation />,
-}: {
-  label?: string;
-  slot?: ReactNode;
-}) {
-  return (
-    <div className='flex justify-center items-start flex-col w-full sm:w-auto px-4 sm:px-0'>
-      <div className='font-mono w-full text-center text-base sm:text-xl animate-flash-loader-text text-sky-500'>
-        {label}
+function LoaderText({ label, slot }: LoaderTextProps) {
+  if (label ?? slot) {
+    return (
+      <div className='flex justify-center items-start flex-col w-full sm:w-auto px-4 sm:px-0'>
+        <div className='font-mono w-full text-center text-base sm:text-xl animate-flash-loader-text text-sky-500'>
+          {label}
+        </div>
+        {slot}
       </div>
-      {slot}
-    </div>
-  );
+    );
+  }
 }
 
 function CogwheelsSeparator({ children }: { children: ReactNode }) {
@@ -80,12 +72,8 @@ function CogwheelsSeparator({ children }: { children: ReactNode }) {
 export default function Loader({
   open,
   label,
-  loadingTextAdditionalSlot,
-}: {
-  open?: boolean;
-  label?: string;
-  loadingTextAdditionalSlot?: ReactNode;
-}) {
+  loaderTextAdditionalSlot,
+}: LoaderProps) {
   const [isLoderVisible, setIsLoderVisible] = useState(true);
   const [isLoader, setIsLoader] = useState(true);
   const loaderRef = useRef(null);
@@ -174,7 +162,7 @@ export default function Loader({
           ))}
         </CogwheelsSeparator>
       </Cogwheel>
-      <LoadingText label={label} slot={loadingTextAdditionalSlot} />
+      <LoaderText label={label} slot={loaderTextAdditionalSlot} />
     </div>
   );
 }
