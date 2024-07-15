@@ -5,7 +5,7 @@ import type {
   BoltProps,
   CogwheelProps,
   LoaderProps,
-  LoadingTextProps,
+  LoaderTextProps,
 } from '@constants/interfaces';
 
 export const LOADER_TEST_ID = 'loader-test';
@@ -50,7 +50,7 @@ function Bolt({ centerPointClassName = '' }: BoltProps) {
   );
 }
 
-function LoadingText({ label, slot }: LoadingTextProps) {
+function LoaderText({ label, slot }: LoaderTextProps) {
   if (label ?? slot) {
     return (
       <div className='flex justify-center items-start flex-col w-full sm:w-auto px-4 sm:px-0'>
@@ -72,7 +72,7 @@ function CogwheelsSeparator({ children }: { children: ReactNode }) {
 export default function Loader({
   open,
   label,
-  loadingTextAdditionalSlot,
+  loaderTextAdditionalSlot,
 }: LoaderProps) {
   const [isLoderVisible, setIsLoderVisible] = useState(true);
   const [isLoader, setIsLoader] = useState(true);
@@ -162,7 +162,7 @@ export default function Loader({
           ))}
         </CogwheelsSeparator>
       </Cogwheel>
-      <LoadingText label={label} slot={loadingTextAdditionalSlot} />
+      <LoaderText label={label} slot={loaderTextAdditionalSlot} />
     </div>
   );
 }

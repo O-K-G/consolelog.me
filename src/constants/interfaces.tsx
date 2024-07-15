@@ -245,10 +245,10 @@ export interface BorderProps {
 export interface LoaderProps {
   open?: boolean;
   label?: string;
-  loadingTextAdditionalSlot?: ReactNode;
+  loaderTextAdditionalSlot?: ReactNode;
 }
 
-export interface LoadingTextProps {
+export interface LoaderTextProps {
   label?: string;
   slot?: ReactNode;
 }
