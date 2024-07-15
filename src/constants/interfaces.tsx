@@ -42,7 +42,7 @@ export interface DialogTitleProps {
 }
 
 export interface CurrentSection {
-  currentSection?: 'about' | 'projects' | 'skills' | 'experience';
+  currentSection?: 'about' | 'projects' | 'skills' | 'experience' | 'contact';
 }
 export interface SectionProps extends CurrentSection {
   children: ReactNode;
@@ -219,6 +219,7 @@ export interface ContactGoBackButtonProps {
 
 export interface ContactProps {
   onClick: () => void;
+  open: boolean;
 }
 
 export interface ExpandableButtonProps {
