@@ -49,7 +49,7 @@ export default function Aside() {
       <aside
         ref={asideRef}
         aria-hidden={!open}
-        className={`z-10 transition-1000 fixed flex items-start justify-start h-svh w-svw lg:h-dvh lg:w-dvw top-0 ${
+        className={`z-10 transition-1000 fixed flex items-start justify-start h-screen w-screen top-0 ${
           !open
             ? '-left-[100svw] lg:-left-[100dvw] size-0 overflow-hidden'
             : 'left-0'
