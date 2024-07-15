@@ -14,7 +14,7 @@ export default function Contact({ onClick, open }: ContactProps) {
   const t = useText();
 
   return (
-    <Section className='min-h-screen h-screen lg:gap-4 pt-20 md:pt-10'>
+    <Section className='min-h-screen h-screen justify-around'>
       <SectionBackground currentSection={CURRENT_SECTION} />
       {open && (
         <>
@@ -27,7 +27,7 @@ export default function Contact({ onClick, open }: ContactProps) {
           <Title border>{t('mainTitle', contact)}</Title>
           <ContactForm />
           <SideLinks
-            className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6 mt-auto'
+            className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6'
             ulClassName='size-full center-elements gap-4'
           />
         </>

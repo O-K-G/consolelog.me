@@ -50,9 +50,7 @@ export default function Aside() {
         ref={asideRef}
         aria-hidden={!open}
         className={`z-10 transition-1000 fixed flex items-start justify-start h-screen w-screen top-0 ${
-          !open
-            ? '-left-[100svw] lg:-left-[100dvw] size-0 overflow-hidden'
-            : 'left-0'
+          !open ? '-left-[100vw] size-0 overflow-hidden' : 'left-0'
         }`}
       >
         <Contact open={openAtTransitionEnd} onClick={() => setOpen(false)} />
