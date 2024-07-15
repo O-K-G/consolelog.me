@@ -1,5 +1,5 @@
 import { SKILLS_LISTS } from '@constants/skillsLists';
-import SectionBackground from './shared/SectionBackground';
+import SectionBackground from '@components/shared/SectionBackground';
 
 function Column({ children }: { children: any }) {
   return (
