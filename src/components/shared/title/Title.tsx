@@ -12,7 +12,7 @@ export default function Title({
 }: MainTitleProps) {
   const selectedVariantClassName = {
     mainTitle:
-      'text-transparent font-just-in-the-firestorm new-purple-text-stroke text-base sm:text-2xl md:text-3xl lg:text-4xl',
+      'text-transparent font-just-in-the-firestorm purple-text-stroke text-base sm:text-2xl md:text-3xl lg:text-4xl',
     subtitle: 'text-white font-bebas-neue text-2xl sm:text-5xl xl:text-7xl',
   };
 
@@ -20,7 +20,7 @@ export default function Title({
     <div className={`z-10 center-elements flex-col ${className}`}>
       {border && <Border rightLabel={topLabel} variant={variant} />}
       <Component
-        className={`py-2 sm:py-4 px-2 uppercase drop-shadow-purple-glow text-center ${selectedVariantClassName[variant]}`}
+        className={`py-2 sm:py-4 px-2 uppercase drop-shadow-purple-glow sm:drop-shadow-purple-glow-sm text-center ${selectedVariantClassName[variant]}`}
       >
         {children}
       </Component>

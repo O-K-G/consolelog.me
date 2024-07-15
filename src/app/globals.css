@@ -47,7 +47,7 @@ body {
 }
 
 @layer components {
-  .new-purple-text-stroke {
+  .purple-text-stroke {
     -webkit-text-stroke: 0.125rem #ceb7ff;
   }
 
@@ -72,7 +72,7 @@ body {
   }
 
   @media screen and (max-width: 640px) {
-    .new-purple-text-stroke {
+    .purple-text-stroke {
       -webkit-text-stroke: 0.07rem #ceb7ff;
     }
   }
