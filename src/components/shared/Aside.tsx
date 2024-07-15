@@ -24,8 +24,8 @@ export default function Aside() {
       </ContactGoBackButton>
       <aside
         aria-hidden={!open}
-        className={`z-10 transition-1000 h-svh w-svw lg:h-dvh lg:w-dvw fixed top-0 left-0 ${
-          !open ? '-translate-x-full' : ''
+        className={`z-10 transition-1000 flex items-start justify-start h-svh w-svw lg:h-dvh lg:w-dvw fixed top-0 ${
+          !open ? '-left-[100svw] lg:-left-[100dvw]' : 'left-0'
         }`}
       >
         <Contact onClick={() => setOpen(false)} />

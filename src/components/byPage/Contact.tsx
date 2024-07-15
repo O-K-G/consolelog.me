@@ -11,9 +11,9 @@ export default function Contact({ onClick }: ContactProps) {
   const t = useText();
 
   return (
-    <Section className='min-h-screen h-screen fixed left-0 lg:gap-4 pt-20 md:pt-10'>
+    <Section className='min-h-screen h-screen lg:gap-4 pt-20 md:pt-10'>
       <div className='absolute bg-cover bg-right top-0 left-0 h-screen w-screen bg-contact-sm md:bg-contact-md lg:bg-contact-lg xl:bg-contact-xl 2xl:bg-contact-2xl opacity-60' />
-      <ContactGoBackButton onClick={onClick} className='left-0 ml-4'>
+      <ContactGoBackButton onClick={onClick} className='left-0 ml-4 absolute'>
         {t('goBack', contact)}
       </ContactGoBackButton>
       <Title border>{t('mainTitle', contact)}</Title>
