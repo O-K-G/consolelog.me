@@ -10,7 +10,7 @@ function Column({ children }: { children: any }) {
 
 function SkillBlock({ str }: { str: string }) {
   return (
-    <div className='transition-300 bg-black/30 hover:bg-black/70 relative group w-full h-[4.92225rem] lg:h-[6.563rem] p-1 shrink-0 center-elements overflow-hidden border-2 border-title-purple'>
+    <div className='transition-300 bg-black/30 hover:bg-black/70 w-full h-[4.92225rem] lg:h-[6.563rem] p-1 shrink-0 center-elements overflow-hidden border-2 border-title-purple'>
       <li className='size-full break-words text-center center-elements text-white font-montserrat text-sm sm:text-base md:text-xl'>
         {str}
       </li>
