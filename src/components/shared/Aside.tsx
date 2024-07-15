@@ -12,11 +12,11 @@ export default function Aside() {
   const [open, setOpen] = useState<boolean | null>(null);
   const pathname = usePathname();
   const asideRef = useRef(null);
-  const [display, setDisplay] = useState(false);
+  const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
 
   useEffect(() => {
     if (open === null && pathname?.substring(1) === 'contact') {
-      setDisplay(true);
+      setOpenAtTransitionEnd(true);
       setOpen(true);
     }
   }, [open, pathname]);
@@ -26,7 +26,7 @@ export default function Aside() {
 
     const handleTransition = () => {
       if (!open) {
-        setDisplay(false);
+        setOpenAtTransitionEnd(false);
       }
     };
 
@@ -40,7 +40,7 @@ export default function Aside() {
     <>
       <ContactGoBackButton
         onClick={() => {
-          setDisplay(true);
+          setOpenAtTransitionEnd(true);
           setOpen(true);
         }}
       >
@@ -55,7 +55,7 @@ export default function Aside() {
             : 'left-0 fixed'
         }`}
       >
-        {display && <Contact onClick={() => setOpen(false)} />}
+        {openAtTransitionEnd && <Contact onClick={() => setOpen(false)} />}
       </aside>
     </>
   );
