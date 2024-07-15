@@ -18,13 +18,13 @@ export default function Title({
 
   return (
     <div className={`z-10 center-elements flex-col ${className}`}>
-      {border && <Border rightLabel={topLabel} variant={variant} />}
+      {border && <Border rightLabel={topLabel} />}
       <Component
         className={`py-2 sm:py-4 px-2 uppercase drop-shadow-purple-glow sm:drop-shadow-purple-glow-sm text-center ${selectedVariantClassName[variant]}`}
       >
         {children}
       </Component>
-      {border && <Border leftLabel={bottomLabel} variant={variant} />}
+      {border && <Border leftLabel={bottomLabel} />}
     </div>
   );
 }

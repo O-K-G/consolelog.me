@@ -238,7 +238,6 @@ export interface MainTitleProps {
 
 export interface BorderProps {
   className?: string;
-  variant?: 'mainTitle' | 'subtitle';
   leftLabel?: string;
   rightLabel?: string;
 }
