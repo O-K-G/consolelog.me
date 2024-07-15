@@ -12,7 +12,7 @@ export default function Skills() {
 
   return (
     <Section
-      className='relative justify-start min-h-screen h-auto lg:h-auto pt-20 md:pt-40'
+      className='relative min-h-screen h-auto lg:h-auto pt-20 md:pt-40'
       currentSection={CURRENT_SECTION}
     >
       <Title border>{t('mainTitle', skills)}</Title>
