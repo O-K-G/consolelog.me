@@ -42,7 +42,7 @@ export interface DialogTitleProps {
 }
 
 export interface CurrentSection {
-  currentSection?: 'about' | 'projects' | 'skills' | 'experience' | 'contact';
+  currentSection?: 'about' | 'projects' | 'skills' | 'experience';
 }
 export interface SectionProps extends CurrentSection {
   children: ReactNode;
