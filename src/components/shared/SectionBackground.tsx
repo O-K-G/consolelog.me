@@ -20,7 +20,7 @@ export default function SectionBackground({ currentSection }: CurrentSection) {
   }
 
   return (
-    <div className='absolute top-0 left-0 min-h-full h-screen w-screen inset-0'>
+    <div className='absolute top-0 left-0 min-h-full h-screen w-screen clip-path-inset-0'>
       <picture>
         {BACKGROUND_SIZES.map(({ twClassName, pxResolution }) => (
           <source
