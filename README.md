@@ -1,5 +1,19 @@
 The repo for [http://consolelog.me](http://consolelog.me).
 
+### Version 0.9.0 changes
+
+- Remaining sections
+- Tests
+- A11y fixes
+- General refactor and removal of deprecated code
+- Various mobile devices fixes
+- Move the contact section to a different location
+- Add parallax
+- Make the HTML email template easier to edit
+- Redo, simplify, and make several components more generic and responsive
+- Remove certain hardcoded values
+- Scrollable subsection
+
 ### Version 0.2.0 changes
 
 - Section 3 Contact form
