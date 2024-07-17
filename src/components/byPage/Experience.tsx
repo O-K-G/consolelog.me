@@ -8,6 +8,7 @@ import experience from '@i18nEn/experience.json';
 import Shenanigans from '@components/Shenanigans';
 import ExpandableButton from '@components/shared/expandableButton/ExpandableButton';
 import Title from '@components/shared/title/Title';
+import ScrollToTopComponent from '@components/shared/ScrollToTopComponent';
 
 const CURRENT_SECTION = 'experience';
 
@@ -39,6 +40,7 @@ export default function Experience() {
         </ScrollableSubsection.Item>
       </ScrollableSubsection>
 
+      <ScrollToTopComponent />
       <footer className='mt-auto z-10 center-elements flex-col gap-2'>
         <Attribution />
         <Shenanigans />
