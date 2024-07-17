@@ -1,8 +1,7 @@
 import React, { act, useContext } from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { AppContext } from '@components/shared/AppContext';
-import AppContextComponent from '@components/shared/AppContext';
+import AppContextComponent, { AppContext } from '@components/shared/AppContext';
 
 const CURRENT_TOP_SECTION_TEST_ID = 'currentTopSection';
 const BUTTON_TEXT = 'Change Section';
