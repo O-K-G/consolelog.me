@@ -32,9 +32,9 @@ export default function ScrollToTopComponent() {
               });
             }
           }}
-          className='h-full focus:bg-black/70 rounded-full p-1'
+          className='focus:bg-black/70 rounded-full p-1'
           icon={
-            <ScrollToTopIcon className='h-full min-h-11 fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple' />
+            <ScrollToTopIcon className='size-12 fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple' />
           }
         />
       }
