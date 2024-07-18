@@ -8,7 +8,7 @@ export default function ScrollIconComponent() {
 
   return (
     <FixedBottomComponent
-      className='right-0 mr-4 z-10'
+      className='right-0 mr-4'
       label={t('scroll', scrollIconText)}
       slot={
         <ScrollIcon className='h-full stroke-title-purple fill-title-purple' />

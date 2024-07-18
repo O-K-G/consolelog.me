@@ -101,14 +101,12 @@ export default function Shenanigans() {
   const t = useText();
 
   return (
-    <>
-      <button
-        type='button'
-        className='uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl'
-        onClick={() => setModalContent(<ShenanigansComponent />)}
-      >
-        {t('shenanigansButton', shenanigans)}
-      </button>
-    </>
+    <button
+      type='button'
+      className='z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl'
+      onClick={() => setModalContent(<ShenanigansComponent />)}
+    >
+      {t('shenanigansButton', shenanigans)}
+    </button>
   );
 }
