@@ -12,6 +12,7 @@ const CURRENT_SECTION = 'experience';
 
 export default function Experience() {
   const t = useText();
+
   return (
     <Section currentSection={CURRENT_SECTION}>
       <Title border>{t('mainTitle', experience)}</Title>
