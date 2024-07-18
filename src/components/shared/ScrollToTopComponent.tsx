@@ -13,7 +13,7 @@ export default function ScrollToTopComponent() {
 
   return (
     <FixedBottomComponent
-      className={`left-0 ml-4 z-10 transition-1000 ${
+      className={`left-0 ml-4 transition-1000 ${
         currentTopSection !== 'about'
           ? ''
           : 'pointer-events-none select-none opacity-0'
