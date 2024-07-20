@@ -9,23 +9,23 @@ const KEYS_MAP = [
   'PageDown',
 ];
 
-/** This function must be on a more global scope,
- * or it creates another instance and the event isn't removed (at least on Chrome Dev Tools - mobile resolution). */
+/** These functions must be on a module scope,
+ * or they create more instances and the events aren't removed (at least on Chrome Dev Tools - mobile resolution). */
 const handleDefault = (e: TouchEvent | WheelEvent) => e.preventDefault();
+
+const handleKeys = (e: { key: string; preventDefault: () => void }) => {
+  const { key } = e || {};
+
+  if (KEYS_MAP.includes(key)) {
+    e.preventDefault();
+    return false;
+  }
+};
 
 export default function useHandleScroll() {
   const passive = {
     passive: false,
   } as EventListenerOptions;
-
-  const handleKeys = (e: { key: string; preventDefault: () => void }) => {
-    const { key } = e || {};
-
-    if (KEYS_MAP.includes(key)) {
-      e.preventDefault();
-      return false;
-    }
-  };
 
   const disableScroll = () => {
     window.addEventListener('wheel', handleDefault, passive);
