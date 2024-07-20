@@ -5,6 +5,7 @@ import Contact from '@components/byPage/Contact';
 import { usePathname } from 'next/navigation';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
 import contactGoBackButtonText from '@i18nEn/ContactGoBackButtonText.json';
+import useHandleScroll from '@hooks/useHandleScroll';
 import { useText } from '@hooks/useText';
 
 export default function Aside() {
@@ -13,6 +14,7 @@ export default function Aside() {
   const pathname = usePathname();
   const asideRef = useRef(null);
   const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
+  const { disableScroll, enableScroll } = useHandleScroll();
 
   useEffect(() => {
     if (open === null && pathname?.substring(1) === 'contact') {
@@ -40,6 +42,7 @@ export default function Aside() {
     <>
       <ContactGoBackButton
         onClick={() => {
+          disableScroll();
           setOpenAtTransitionEnd(true);
           setOpen(true);
         }}
@@ -53,7 +56,13 @@ export default function Aside() {
           !open ? '-left-[100vw] size-0 overflow-hidden' : 'left-0'
         }`}
       >
-        <Contact open={openAtTransitionEnd} onClick={() => setOpen(false)} />
+        <Contact
+          open={openAtTransitionEnd}
+          onClick={() => {
+            enableScroll();
+            setOpen(false);
+          }}
+        />
       </aside>
     </>
   );

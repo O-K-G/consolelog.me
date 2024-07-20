@@ -1,3 +1,4 @@
+import useHandleScroll from '@hooks/useHandleScroll';
 import {
   type MutableRefObject,
   type MouseEvent,
@@ -15,6 +16,7 @@ export default function useHandleModal({
   modalContent: ReactNode;
   onModalChange: (val: ReactNode | null) => void;
 }) {
+  const { disableScroll, enableScroll } = useHandleScroll();
   const handleCloseModal = useCallback(
     (e: Event | MouseEvent<HTMLElement>, val?: 'close') => {
       const modalEl = modalRef.current as unknown as HTMLDialogElement;
@@ -28,12 +30,12 @@ export default function useHandleModal({
           if (open) {
             modalEl.close();
           }
-
+          enableScroll();
           setModalContent(null);
         }
       }
     },
-    [modalContent, modalRef, setModalContent]
+    [enableScroll, modalContent, modalRef, setModalContent]
   );
 
   useEffect(() => {
@@ -43,10 +45,11 @@ export default function useHandleModal({
     if (modalContent && !open) {
       modalEl?.showModal();
       modalEl?.addEventListener('click', handleCloseModal);
+      disableScroll();
     }
 
     return () => modalEl?.removeEventListener('click', handleCloseModal);
-  }, [handleCloseModal, modalContent, modalRef]);
+  }, [disableScroll, handleCloseModal, modalContent, modalRef]);
 
   return { handleCloseModal };
 }
