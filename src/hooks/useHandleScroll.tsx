@@ -18,10 +18,7 @@ export default function useHandleScroll() {
     passive: false,
   } as EventListenerOptions;
 
-  const preventDefaultForScrollKeys = (e: {
-    key: string;
-    preventDefault: () => void;
-  }) => {
+  const handleKeys = (e: { key: string; preventDefault: () => void }) => {
     const { key } = e || {};
 
     if (KEYS_MAP.includes(key)) {
@@ -33,13 +30,13 @@ export default function useHandleScroll() {
   const disableScroll = () => {
     window.addEventListener('wheel', handleDefault, passive);
     window.addEventListener('touchmove', handleDefault, passive);
-    window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+    window.addEventListener('keydown', handleKeys, false);
   };
 
   const enableScroll = () => {
     window.removeEventListener('wheel', handleDefault, passive);
     window.removeEventListener('touchmove', handleDefault, passive);
-    window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+    window.removeEventListener('keydown', handleKeys, false);
   };
 
   return { disableScroll, enableScroll };
