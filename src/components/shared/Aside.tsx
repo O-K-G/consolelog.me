@@ -18,10 +18,11 @@ export default function Aside() {
 
   useEffect(() => {
     if (open === null && pathname?.substring(1) === 'contact') {
+      disableScroll();
       setOpenAtTransitionEnd(true);
       setOpen(true);
     }
-  }, [open, pathname]);
+  }, [disableScroll, open, pathname]);
 
   useEffect(() => {
     const { current } = asideRef as RefObject<HTMLDivElement>;
