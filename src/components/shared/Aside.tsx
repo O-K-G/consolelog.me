@@ -28,8 +28,28 @@ export default function Aside() {
     const { current } = asideRef as RefObject<HTMLDivElement>;
 
     const handleTransition = () => {
+      let touchX = 0;
+
+      const handleTouchMove = (e: TouchEvent) => {
+        const sensitivityFactor = touchX - e.touches[0].clientX > 50;
+
+        if (touchX > e.touches[0].clientX && sensitivityFactor) {
+          current?.removeEventListener('touchmove', handleTouchMove);
+          enableScroll();
+          setOpen(false);
+        }
+      };
+
+      const handleTouchStart = (e: TouchEvent) => {
+        touchX = e.touches[0].clientX;
+        current?.removeEventListener('touchstart', handleTouchStart);
+        current?.addEventListener('touchmove', handleTouchMove);
+      };
+
       if (!open) {
         setOpenAtTransitionEnd(false);
+      } else {
+        current?.addEventListener('touchstart', handleTouchStart);
       }
     };
 
@@ -37,7 +57,7 @@ export default function Aside() {
 
     return () =>
       current?.removeEventListener('transitionend', handleTransition);
-  }, [open]);
+  }, [enableScroll, open]);
 
   return (
     <>
@@ -53,7 +73,7 @@ export default function Aside() {
       <aside
         ref={asideRef}
         aria-hidden={!open}
-        className={`z-10 transition-1000 fixed flex items-start justify-start h-screen w-screen top-0 ${
+        className={`z-10 transition-all ease-in-out duration-700 lg:duration-1000 fixed flex items-start justify-start h-screen w-screen top-0 ${
           !open ? '-left-[100vw] size-0 overflow-hidden' : 'left-0'
         }`}
       >
