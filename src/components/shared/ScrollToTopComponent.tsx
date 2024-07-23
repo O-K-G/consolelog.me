@@ -25,13 +25,11 @@ export default function ScrollToTopComponent() {
           <ArrowUpIcon className='h-5 md:h-7 lg:h-[1.8rem] fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple' />
         }
         onClick={() => {
-          if (typeof window === 'object') {
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth',
-            });
-          }
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+          });
         }}
       />
     </FixedBottomComponent>
