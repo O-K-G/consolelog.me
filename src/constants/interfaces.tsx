@@ -254,9 +254,8 @@ export interface LoaderTextProps {
 }
 
 export interface BottomComponentProps {
-  component?: 'div';
   label: string;
   slot?: ReactNode;
-  children?: ReactNode;
   className?: string;
+  children?: ReactNode;
 }

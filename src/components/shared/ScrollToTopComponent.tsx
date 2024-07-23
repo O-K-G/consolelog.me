@@ -1,16 +1,26 @@
-import ScrollToTopIcon from '@components/icons/ScrollToTopIcon';
 import { useText } from '@hooks/useText';
 import scrollToTopText from '@i18nEn/scrollToTopText.json';
-// import FixedBottomComponent from '@components/shared/FixedBottomComponent';
+import BottomComponent from '@components/shared/BottomComponent';
 import IconButton from '@components/shared/IconButton';
 import { AppContext as appContext } from '@components/shared/AppContext';
+import ArrowUpIcon from '@components/icons/ArrowUpIcon';
 import { useContext } from 'react';
 
 export default function ScrollToTopComponent() {
   const { currentTopSection } = useContext(appContext);
 
   const t = useText();
-  return null;
+
+  return (
+    <BottomComponent
+      className='left-0 ml-4'
+      label={t('scrollToTop', scrollToTopText)}
+      slot={
+        <ArrowUpIcon className='h-5 md:h-7 lg:h-[1.8rem] stroke-title-purple fill-title-purple' />
+      }
+    />
+  );
+
   // return (
   //   <FixedBottomComponent
   //     className={`left-0 ml-4 transition-1000 ${
