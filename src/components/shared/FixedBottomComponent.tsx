@@ -1,11 +1,11 @@
-import type { BottomComponentProps } from '@constants/interfaces';
+import type { FixedBottomComponentProps } from '@constants/interfaces';
 
-export default function BottomComponent({
+export default function FixedBottomComponent({
   label,
   slot,
   className = 'right-0 mr-4',
   children,
-}: BottomComponentProps) {
+}: FixedBottomComponentProps) {
   return (
     <div
       className={`fixed bottom-0 mb-4 center-elements flex-col ${className}`}

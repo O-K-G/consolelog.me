@@ -1,6 +1,6 @@
 import { useText } from '@hooks/useText';
 import scrollToTopText from '@i18nEn/scrollToTopText.json';
-import BottomComponent from '@components/shared/BottomComponent';
+import FixedBottomComponent from '@components/shared/FixedBottomComponent';
 import IconButton from '@components/shared/IconButton';
 import { AppContext as appContext } from '@components/shared/AppContext';
 import ArrowUpIcon from '@components/icons/ArrowUpIcon';
@@ -12,7 +12,7 @@ export default function ScrollToTopComponent() {
   const t = useText();
 
   return (
-    <BottomComponent
+    <FixedBottomComponent
       className={`transition-1000 left-0 ml-4 ${isAbout ? 'opacity-0' : ''}`}
       label={t('scrollToTop', scrollToTopText)}
     >
@@ -34,6 +34,6 @@ export default function ScrollToTopComponent() {
           }
         }}
       />
-    </BottomComponent>
+    </FixedBottomComponent>
   );
 }

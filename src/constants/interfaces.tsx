@@ -253,7 +253,7 @@ export interface LoaderTextProps {
   slot?: ReactNode;
 }
 
-export interface BottomComponentProps {
+export interface FixedBottomComponentProps {
   label: string;
   slot?: ReactNode;
   className?: string;
