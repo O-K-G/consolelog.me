@@ -255,6 +255,7 @@ export interface LoaderTextProps {
 
 export interface FixedBottomComponentProps {
   label: string;
-  slot: ReactNode;
+  slot?: ReactNode;
   className?: string;
+  children?: ReactNode;
 }
