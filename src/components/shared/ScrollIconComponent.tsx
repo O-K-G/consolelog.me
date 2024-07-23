@@ -10,7 +10,7 @@ export default function ScrollIconComponent() {
     <BottomComponent
       label={t('scroll', scrollIconText)}
       slot={
-        <DoubleArrowIcon className='h-5 md:h-7 lg:h-[1.8rem] stroke-title-purple fill-title-purple' />
+        <DoubleArrowIcon className='h-5 md:h-7 lg:h-[1.8rem] fill-title-purple' />
       }
     />
   );

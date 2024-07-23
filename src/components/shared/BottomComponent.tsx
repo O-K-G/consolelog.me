@@ -10,7 +10,7 @@ export default function BottomComponent({
     <div
       className={`fixed bottom-0 mb-4 w-[2.246rem] md:w-[2.808rem] lg:w-[3.369rem] h-fit center-elements flex-col ${className}`}
     >
-      <div className='uppercase text-title-purple text-base md:text-xl lg:text-2xl text-center w-full font-bebas-neue'>
+      <div className='uppercase whitespace-nowrap text-title-purple text-base md:text-xl lg:text-2xl text-center w-full font-bebas-neue'>
         {label}
       </div>
       {!children ? (
