@@ -26,7 +26,7 @@ export default function ExpandableButton({
     <div className='z-10 container-type-size p-6 size-full relative max-h-[80%] center-elements'>
       <div
         data-open={open}
-        className='transition-1000 group relative max-h-full center-elements w-1/2 h-[50cqw] lg:w-1/4 lg:h-[25cqw] data-[open=true]:expandable-button-size-container'
+        className='transition-1000 backface-hidden group relative max-h-full center-elements w-1/2 h-[50cqw] lg:w-1/4 lg:h-[25cqw] data-[open=true]:expandable-button-size-container'
       >
         <AboutTargetIcon open={open} />
         <button
