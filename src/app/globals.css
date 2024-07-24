@@ -67,6 +67,10 @@ body {
     clip-path: inset(0);
   }
 
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
   .container-type-size {
     container-type: size;
   }
@@ -86,7 +90,7 @@ body {
   }
 
   .closed-expandable-button-focus {
-    @apply focus:before:bg-black/50 focus:drop-shadow-none focus:before:-z-10 focus:before:absolute focus:before:size-[15vh] focus:before:md:size-[25vh] focus:before:rounded-full focus:before:top-0 focus:before:bottom-0 focus:before:left-0 focus:before:right-0 focus:before:m-auto;
+    @apply focus:before:bg-black/50 focus:drop-shadow-none focus:before:-z-10 focus:before:absolute focus:before:size-full focus:before:max-w-[100cqh] focus:before:rounded-full focus:before:top-0 focus:before:bottom-0 focus:before:left-0 focus:before:right-0 focus:before:m-auto;
   }
 
   .opened-expandable-button {
