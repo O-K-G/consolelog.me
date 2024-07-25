@@ -67,10 +67,6 @@ body {
     clip-path: inset(0);
   }
 
-  .backface-hidden {
-    backface-visibility: hidden;
-  }
-
   .container-type-size {
     container-type: size;
   }
