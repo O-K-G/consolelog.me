@@ -64,8 +64,6 @@ const config: Config = {
       },
       colors: {
         'title-purple': '#ceb7ff',
-        'title-orange': 'orange',
-        'title-red': 'red',
       },
       fontFamily: {
         'just-in-the-firestorm': ['var(--font-just-in-the-firestorm)'],
