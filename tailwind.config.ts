@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       dropShadow: {
         'purple-glow': '0px 0px 0.125rem #B377FF',
+        'white-glow-sm': '0px 0px 0.313rem #FFFFFF',
         'purple-glow-sm': '0px 0px 0.313rem #B377FF',
         'border-purple-glow': '0px 0px 0.09rem #B377FF',
       },
@@ -64,8 +65,6 @@ const config: Config = {
       },
       colors: {
         'title-purple': '#ceb7ff',
-        'title-orange': 'orange',
-        'title-red': 'red',
       },
       fontFamily: {
         'just-in-the-firestorm': ['var(--font-just-in-the-firestorm)'],
