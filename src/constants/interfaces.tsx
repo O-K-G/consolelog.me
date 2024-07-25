@@ -72,11 +72,6 @@ export interface TitleProps extends TitleLabels {
   textStrokeClassName?: string;
 }
 
-export interface SVG90DegreesProps {
-  className: string;
-  pathClassName: string;
-}
-
 export interface AboutTargetIconProps {
   open: boolean;
   bottom?: boolean;
