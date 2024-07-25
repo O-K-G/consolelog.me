@@ -73,6 +73,7 @@ export interface TitleProps extends TitleLabels {
 }
 
 export interface AboutTargetIconProps {
+  open: boolean;
   bottom?: boolean;
 }
 

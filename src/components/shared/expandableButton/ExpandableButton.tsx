@@ -28,7 +28,7 @@ export default function ExpandableButton({
         data-open={open}
         className='transition-1000 group relative max-h-full center-elements w-1/2 h-[50cqw] lg:w-1/4 lg:h-[25cqw] data-[open=true]:expandable-button-size-container'
       >
-        <AboutTargetIcon />
+        <AboutTargetIcon open={open} />
         <button
           ref={buttonRef}
           aria-label={
@@ -53,7 +53,7 @@ export default function ExpandableButton({
           {isAnimationEnd &&
             (!open ? t('clickToOpen', expandableButtonText) : alternativeLabel)}
         </button>
-        <AboutTargetIcon bottom />
+        <AboutTargetIcon bottom open={open} />
       </div>
     </div>
   );
