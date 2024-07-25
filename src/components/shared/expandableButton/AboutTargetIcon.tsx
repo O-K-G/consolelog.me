@@ -9,7 +9,7 @@ export default function AboutTargetIcon({ bottom }: AboutTargetIconProps) {
     <div
       className={`group absolute overflow-hidden drop-shadow-border-purple-glow w-[3.837rem] h-[3.404rem] ${className}`}
     >
-      <div className='transition-1000 before:transition-1000 after:transition-1000 group-hover:before:bg-orange-500 group-active:before:bg-red-500 before:bg-white before:w-1 before:h-2 before:absolute before:-top-2 before:right-0 border-double border-t-8 border-l-8 border-white group-hover:border-orange-500 group-active:border-red-500 size-full relative group-hover:after:bg-orange-500 group-active:after:bg-red-500 after:bg-white after:w-2 after:h-1 after:absolute after:bottom-0 after:-left-2' />
+      <div className='transition-1000 before:transition-1000 after:transition-1000 group-hover:before:bg-orange-300 group-active:before:bg-red-400 before:bg-white before:w-1 before:h-2 before:absolute before:-top-2 before:right-0 border-double border-t-8 border-l-8 border-white group-hover:border-orange-300 group-active:border-red-400 size-full relative group-hover:after:bg-orange-300 group-active:after:bg-red-400 after:bg-white after:w-2 after:h-1 after:absolute after:bottom-0 after:-left-2' />
     </div>
   );
 }
