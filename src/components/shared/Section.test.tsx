@@ -38,6 +38,7 @@ describe('Section component', () => {
     }));
 
     const mockContextValue = {
+      topSectionRefs: { current: [] },
       currentTopSection: 'about',
       onChange: mockSetCurrentTopSection,
     };

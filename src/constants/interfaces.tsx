@@ -23,8 +23,14 @@ export interface ModalContextComponentProps {
 }
 
 export interface AppContextProps {
+  topSectionRefs: MutableRefObject<object>;
   currentTopSection: string;
   onChange: Dispatch<SetStateAction<string>>;
+}
+
+export interface UseScrollByPathnameProps {
+  topSectionRefs: MutableRefObject<object>;
+  currentTopSection: string;
 }
 
 export interface ModalContextProps {
