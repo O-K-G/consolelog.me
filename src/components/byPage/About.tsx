@@ -1,13 +1,12 @@
 import Section from '@components/shared/Section';
-import { useText } from '@hooks/useText';
-import about from '@i18nEn/about.json';
 import ExpandableButton from '@components/shared/expandableButton/ExpandableButton';
 import Title from '@components/shared/title/Title';
+import { useTranslations } from 'next-intl';
 
 const CURRENT_SECTION = 'about';
 
 export default function About() {
-  const t = useText();
+  const t = useTranslations('about');
 
   return (
     <Section
@@ -18,16 +17,16 @@ export default function About() {
         <Title
           component='h1'
           border
-          topLabel={t('topLabel', about)}
-          bottomLabel={t('bottomLabel', about)}
+          topLabel={t('topLabel')}
+          bottomLabel={t('bottomLabel')}
         >
-          {t('mainTitle', about)}
+          {t('mainTitle')}
         </Title>
       </header>
 
-      <Title>{t('subtitle', about)}</Title>
+      <Title>{t('subtitle')}</Title>
 
-      <ExpandableButton alternativeLabel={t('alternativeLabel', about)} />
+      <ExpandableButton alternativeLabel={t('alternativeLabel')} />
     </Section>
   );
 }

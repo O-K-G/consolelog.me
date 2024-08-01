@@ -1,7 +1,6 @@
 import Section from '@components/shared/Section';
 import ContactForm from '@components/contactForm/ContactForm';
-import { useText } from '@hooks/useText';
-import contact from '@i18nEn/contact.json';
+import { useTranslations } from 'next-intl';
 import SideLinks from '@components/shared/SideLinks';
 import type { ContactProps } from '@constants/interfaces';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
@@ -11,7 +10,7 @@ import SectionBackground from '@components/shared/SectionBackground';
 const CURRENT_SECTION = 'contact';
 
 export default function Contact({ onClick, open }: ContactProps) {
-  const t = useText();
+  const t = useTranslations('contact');
 
   return (
     <Section className='min-h-screen h-screen pt-20 md:pt-10'>
@@ -22,9 +21,9 @@ export default function Contact({ onClick, open }: ContactProps) {
             onClick={onClick}
             className='left-0 ml-4 absolute'
           >
-            {t('goBack', contact)}
+            {t('goBack')}
           </ContactGoBackButton>
-          <Title border>{t('mainTitle', contact)}</Title>
+          <Title border>{t('mainTitle')}</Title>
           <div className='center-elements flex-col size-full gap-2 sm:gap-6 lg:gap-4'>
             <ContactForm />
             <SideLinks

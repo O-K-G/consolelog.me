@@ -2,8 +2,7 @@
 
 import { handleA11y1000FirstNumbers } from '@utils/handleA11y1000FirstNumbers';
 import type { InputComponentProps } from '@constants/interfaces';
-import inputComponentText from '@i18nEn/inputComponentText.json';
-import { useText } from '@hooks/useText';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
 export default function InputComponent({
@@ -21,7 +20,7 @@ export default function InputComponent({
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
   const [value, setValue] = useState('');
-  const t = useText();
+  const t = useTranslations('inputComponentText');
 
   useEffect(() => {
     if (isReset) {
@@ -30,9 +29,9 @@ export default function InputComponent({
   }, [isReset]);
 
   const ariaLabelErrorValueById = {
-    email: t('emailAriaLabelError', inputComponentText),
-    subject: t('subjectAriaLabelError', inputComponentText),
-    content: t('contentAriaLabelError', inputComponentText),
+    email: t('emailAriaLabelError'),
+    subject: t('subjectAriaLabelError'),
+    content: t('contentAriaLabelError'),
   };
 
   const ariaLabel = !isError
@@ -43,10 +42,9 @@ export default function InputComponent({
       } ${t(
         maxLength - value.length !== 1
           ? 'charactersAriaLabelError'
-          : 'characterAriaLabelError',
-        inputComponentText
-      )} ${t('remain', inputComponentText)}`
-    : `${t('error', inputComponentText)} - ${
+          : 'characterAriaLabelError'
+      )} ${t('remain')}`
+    : `${t('error')} - ${
         ariaLabelErrorValueById[id as keyof typeof ariaLabelErrorValueById]
       }`;
 

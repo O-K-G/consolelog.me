@@ -1,8 +1,7 @@
 'use client';
 
 import Section from '@components/shared/Section';
-import { useText } from '@hooks/useText';
-import projects from '@i18nEn/projects.json';
+import { useTranslations } from 'next-intl';
 import ScrollableSubsection from '@components/shared/scrollableSection/ScrollableSubsection';
 import ExpandableButton from '@components/shared/expandableButton/ExpandableButton';
 import Title from '@components/shared/title/Title';
@@ -10,11 +9,11 @@ import Title from '@components/shared/title/Title';
 const CURRENT_SECTION = 'projects';
 
 export default function Projects() {
-  const t = useText();
+  const t = useTranslations('projects');
 
   return (
     <Section currentSection={CURRENT_SECTION}>
-      <Title border>{t('mainTitle', projects)}</Title>
+      <Title border>{t('mainTitle')}</Title>
       <ScrollableSubsection>
         <ScrollableSubsection.Item>
           <Title variant='subtitle'>This Webpage</Title>
@@ -22,17 +21,13 @@ export default function Projects() {
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
-          <Title variant='subtitle'>{t('subtitle', projects)}</Title>
-          <ExpandableButton
-            alternativeLabel={t('alternativeLabel', projects)}
-          />
+          <Title variant='subtitle'>{t('subtitle')}</Title>
+          <ExpandableButton alternativeLabel={t('alternativeLabel')} />
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
-          <Title variant='subtitle'>{t('subtitle', projects)}</Title>
-          <ExpandableButton
-            alternativeLabel={t('alternativeLabel', projects)}
-          />
+          <Title variant='subtitle'>{t('subtitle')}</Title>
+          <ExpandableButton alternativeLabel={t('alternativeLabel')} />
         </ScrollableSubsection.Item>
       </ScrollableSubsection>
     </Section>

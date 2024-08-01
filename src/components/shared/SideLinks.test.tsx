@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import SideLinks from '@components/shared/SideLinks';
-import { useText } from '@hooks/useText';
+import { useTranslations } from 'next-intl';
 import { URLs } from '@constants/urls';
 
 jest.mock(`${process.cwd()}/src/hooks/useText`);

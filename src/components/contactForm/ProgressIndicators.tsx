@@ -1,9 +1,8 @@
 'use client';
 
-import { useText } from '@hooks/useText';
+import { useTranslations } from 'next-intl';
 import { useFormStatus } from 'react-dom';
 import ProgressIcon from '@components/contactForm/ProgressIcon';
-import inputComponentText from '@i18nEn/inputComponentText.json';
 import formValidation from '@utils/formValidation';
 
 export default function ProgressIndicators({
@@ -12,7 +11,7 @@ export default function ProgressIndicators({
   isMessageSent: boolean;
 }) {
   const { pending: isLoading, data } = useFormStatus(); // TODO: Experimental, revisit in the future.
-  const t = useText();
+  const t = useTranslations('inputComponentText');
   const { isValidated } = formValidation({
     email: data?.get('email') as string,
     subject: data?.get('subject') as string,
@@ -22,10 +21,8 @@ export default function ProgressIndicators({
   return (
     <div className='min-h-8 w-full relative'>
       <div className='sr-only' aria-live='assertive' role='status'>
-        {isValidated && isLoading
-          ? t('sendingMessage', inputComponentText)
-          : ''}
-        {isMessageSent ? t('messageSent', inputComponentText) : ''}
+        {isValidated && isLoading ? t('sendingMessage') : ''}
+        {isMessageSent ? t('messageSent') : ''}
       </div>
 
       <ProgressIcon
@@ -40,7 +37,7 @@ export default function ProgressIndicators({
           !isMessageSent ? 'opacity-0 -z-10' : 'opacity-100'
         }`}
       >
-        {t('messageSent', inputComponentText)}
+        {t('messageSent')}
       </div>
     </div>
   );
