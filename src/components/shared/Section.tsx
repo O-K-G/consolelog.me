@@ -15,11 +15,16 @@ export default function Section({
   const middleSectionRef = useRef(null);
   const { topSectionRefs } = useContext(appContext);
   useHandleObserve({ currentSection, middleSectionRef });
+  const { current } = topSectionRefs ?? {};
+  const isTopSectionRefInContext =
+    current[currentSection as keyof typeof current];
 
-  topSectionRefs.current = {
-    ...topSectionRefs.current,
-    [currentSection as string]: topSectionRef,
-  };
+  if (!isTopSectionRefInContext) {
+    topSectionRefs.current = {
+      ...topSectionRefs.current,
+      [currentSection as string]: topSectionRef,
+    };
+  }
 
   return (
     <section
