@@ -1,21 +1,18 @@
 import type { Metadata, Viewport } from 'next';
 import '@locale/globals.css';
 import localFont from 'next/font/local';
-import { Bebas_Neue, Montserrat } from 'next/font/google';
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 
-const bebasNeue = Bebas_Neue({
-  weight: '400',
-  subsets: ['latin'],
+const bebasNeue = localFont({
+  src: '../../../public/fonts/Bebas_Neue/BebasNeue-Regular.ttf',
   variable: '--font-bebas-neue',
 });
 
-const montserrat = Montserrat({
-  weight: 'variable',
-  subsets: ['latin'],
+const montserrat = localFont({
+  src: '../../../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf',
   variable: '--font-montserrat',
 });
 
