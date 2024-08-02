@@ -25,7 +25,7 @@ export default function SectionBackground({ currentSection }: CurrentSection) {
         {BACKGROUND_SIZES.map(({ twClassName, pxResolution }) => (
           <source
             key={`tw-class-${twClassName}`}
-            srcSet={`${currentSection}-${twClassName}${SUFFIX}`}
+            srcSet={`images/${currentSection}-${twClassName}${SUFFIX}`}
             media={`(max-width: ${pxResolution}px)`}
           />
         ))}
