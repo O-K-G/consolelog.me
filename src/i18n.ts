@@ -16,7 +16,6 @@ export default getRequestConfig(async ({ locale }) => {
     ...(await import(`./i18n/${locale}/expandableButtonText.json`)).default,
     ...(await import(`./i18n/${locale}/experience.json`)).default,
     ...(await import(`./i18n/${locale}/inputComponentText.json`)).default,
-    ...(await import(`./i18n/${locale}/mailHTMLText.json`)).default,
     ...(await import(`./i18n/${locale}/projects.json`)).default,
     ...(await import(`./i18n/${locale}/scrollableSectionText.json`)).default,
     ...(await import(`./i18n/${locale}/scrollIconText.json`)).default,
