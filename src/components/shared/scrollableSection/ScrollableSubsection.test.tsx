@@ -3,6 +3,7 @@ import { SCROLLABLE_ITEM_TEST_ID } from '@components/shared/scrollableSection/Sc
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { IntlProvider } from 'next-intl';
+import { default as messages } from '@i18nEn/scrollableSectionText.json';
 import ScrollableSubsection, {
   LEFT_BUTTON_TEST_ID,
   RIGHT_BUTTON_TEST_ID,
@@ -21,12 +22,6 @@ beforeAll(() => {
   })) as any;
 });
 
-const handleIntlError = () => {
-  // Known error message, irrelevant to the tests.
-
-  return null;
-};
-
 beforeEach(() => {
   global.HTMLDivElement.prototype.scrollTo = jest.fn();
 });
@@ -34,11 +29,7 @@ beforeEach(() => {
 describe('ScrollableSubsection', () => {
   test('renders children properly', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={{}}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -60,11 +51,7 @@ describe('ScrollableSubsection', () => {
 
   test('Initially the left button is disabled and the right button is enabled', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={{}}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -88,11 +75,7 @@ describe('ScrollableSubsection', () => {
 
   test('updates selected subsection when clicking the right button and the left button is enabled', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={{}}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -115,11 +98,7 @@ describe('ScrollableSubsection', () => {
 
   test('right button is enabled when clicking the left button and it updates the selected subsection', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={{}}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -145,11 +124,7 @@ describe('ScrollableSubsection', () => {
 
   test('ScrollableSubsectionItem renders properly', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={{}}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>Item 1</ScrollableSubsection.Item>
         </ScrollableSubsection>

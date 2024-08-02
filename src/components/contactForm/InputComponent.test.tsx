@@ -3,11 +3,10 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import InputComponent from '@components/contactForm/InputComponent';
 import { IntlProvider } from 'next-intl';
-import inputComponentText from '@i18nEn/inputComponentText.json';
+import { default as messages } from '@i18nEn/inputComponentText.json';
 
 const PLACEHOLDER_TEST_VALUE = 'email - placeholder test value';
 const EMAIL_TEST_VALUE = 'test@test.test';
-const { inputComponentText: messages } = inputComponentText;
 const DEFAULT_LOCALE = 'en';
 
 describe('InputComponent', () => {
@@ -23,19 +22,9 @@ describe('InputComponent', () => {
     onClick: jest.fn(),
   };
 
-  const handleIntlError = () => {
-    // Known error message, irrelevant to the tests.
-
-    return null;
-  };
-
   it('renders InputComponent with the correct placeholder', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={messages}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent {...defaultProps} />
       </IntlProvider>
     );
@@ -46,11 +35,7 @@ describe('InputComponent', () => {
 
   it('updates value onChange', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={messages}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent {...defaultProps} />
       </IntlProvider>
     );
@@ -61,11 +46,7 @@ describe('InputComponent', () => {
 
   it('value changes when onChange is called ', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={messages}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent {...defaultProps} />
       </IntlProvider>
     );
@@ -76,11 +57,7 @@ describe('InputComponent', () => {
 
   it('isReset being true resets the value', () => {
     const { rerender } = render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={messages}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent {...defaultProps} />
       </IntlProvider>
     );
@@ -88,11 +65,7 @@ describe('InputComponent', () => {
     fireEvent.change(input, { target: { value: EMAIL_TEST_VALUE } });
     expect((input as HTMLInputElement).value).toBe(EMAIL_TEST_VALUE);
     rerender(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={messages}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent {...defaultProps} isReset={true} />
       </IntlProvider>
     );
@@ -101,43 +74,30 @@ describe('InputComponent', () => {
 
   it('displays the correct aria-label based on error state and input length', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={messages}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent {...defaultProps} />
       </IntlProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
     fireEvent.change(input, { target: { value: 'test' } });
-    const expectedAriaLabel =
-      '96 inputComponentText.charactersAriaLabelError inputComponentText.remain';
+    const expectedAriaLabel = '96 characters remain';
     expect(input).toHaveAttribute('aria-label', expectedAriaLabel);
   });
 
   it('displays an error aria-label if isError is true', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={messages}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent {...defaultProps} isError={true} />
       </IntlProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
-    const expectedAriaLabel = `inputComponentText.error - inputComponentText.emailAriaLabelError`;
+    const expectedAriaLabel = `Error - email is invalid`;
     expect(input).toHaveAttribute('aria-label', expectedAriaLabel);
   });
 
   it('fires onClick handler when the user click on an input', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={messages}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent {...defaultProps} />
       </IntlProvider>
     );
@@ -148,11 +108,7 @@ describe('InputComponent', () => {
 
   it('renders textarea when InputComponent is textarea', () => {
     render(
-      <IntlProvider
-        onError={handleIntlError}
-        locale={DEFAULT_LOCALE}
-        messages={messages}
-      >
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent {...defaultProps} component='textarea' />
       </IntlProvider>
     );
