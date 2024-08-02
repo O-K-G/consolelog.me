@@ -20,13 +20,13 @@ const montserrat = Montserrat({
 
 /** https://www.fontspace.com/just-in-the-firestorm-font-f31017 */
 const justInTheFirestormRegular = localFont({
-  src: '../../../public/fonts/JustInTheFirestormRegular-z291.ttf',
+  src: '../../public/fonts/JustInTheFirestormRegular-z291.ttf',
   variable: '--font-just-in-the-firestorm',
 });
 
 /** https://www.fontspace.com/stardate-81316-font-f28430  */
 const starDate81316 = localFont({
-  src: '../../../public/fonts/Stardate81316-aolE.ttf',
+  src: '../../public/fonts/Stardate81316-aolE.ttf',
   variable: '--font-star-date-81316',
 });
 
