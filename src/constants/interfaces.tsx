@@ -149,6 +149,7 @@ export interface AnchorLinkProps {
   icon: ReactNode;
   isRounded?: boolean;
   'aria-label': string;
+  'data-testid': string;
 }
 
 export interface CogwheelProps {
