@@ -27,7 +27,7 @@ describe('Planet component', () => {
     expect(planetElement).toBeInTheDocument();
     expect(planetElement).toHaveAttribute(
       'src',
-      `/planet.webp?cacheVersion=${CACHE_VERSION}`
+      `/images/planet.webp?cacheVersion=${CACHE_VERSION}`
     );
 
     const divElement = planetElement.parentElement;

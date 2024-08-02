@@ -29,7 +29,7 @@ export default function Planet() {
     >
       <Image
         data-testid={PLANET_TEST_ID}
-        src={`/planet.webp?cacheVersion=${CACHE_VERSION}`}
+        src={`/images/planet.webp?cacheVersion=${CACHE_VERSION}`}
         fill
         sizes='(max-width: 767px) 100svw, (min-width: 768px) 100dvw'
         loading='eager'

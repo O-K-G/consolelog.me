@@ -40,13 +40,13 @@ export const metadata: Metadata = {
   keywords: ['TBD'],
   manifest: '/manifest.json',
   icons: {
-    icon: `/icon.png?cacheVersion=${CACHE_VERSION}`,
-    shortcut: `/shortcut-icon?cacheVersion=${CACHE_VERSION}`,
-    apple: `/apple-icon.png?cacheVersion=${CACHE_VERSION}`,
+    icon: `/images/icon.png?cacheVersion=${CACHE_VERSION}`,
+    shortcut: `/images/shortcut-icon?cacheVersion=${CACHE_VERSION}`,
+    apple: `/images/apple-icon.png?cacheVersion=${CACHE_VERSION}`,
     other: [
       {
         rel: 'mask-icon',
-        url: `/safari-pinned-tab.svg?cacheVersion=${CACHE_VERSION}`,
+        url: `/images/safari-pinned-tab.svg?cacheVersion=${CACHE_VERSION}`,
         type: 'image/svg+xml',
         sizes: 'any',
       },
