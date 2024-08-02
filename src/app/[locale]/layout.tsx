@@ -5,6 +5,7 @@ import { Bebas_Neue, Montserrat } from 'next/font/google';
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
@@ -20,13 +21,13 @@ const montserrat = Montserrat({
 
 /** https://www.fontspace.com/just-in-the-firestorm-font-f31017 */
 const justInTheFirestormRegular = localFont({
-  src: '../../public/fonts/JustInTheFirestormRegular-z291.ttf',
+  src: '../../../public/fonts/JustInTheFirestormRegular-z291.ttf',
   variable: '--font-just-in-the-firestorm',
 });
 
 /** https://www.fontspace.com/stardate-81316-font-f28430  */
 const starDate81316 = localFont({
-  src: '../../public/fonts/Stardate81316-aolE.ttf',
+  src: '../../../public/fonts/Stardate81316-aolE.ttf',
   variable: '--font-star-date-81316',
 });
 
@@ -68,14 +69,14 @@ export default async function RootLayout({
 }>) {
   const className = `${justInTheFirestormRegular.variable} ${starDate81316.variable} ${bebasNeue.variable} ${montserrat.variable}`;
   const messages = await getMessages();
-
-  const direction = {
-    en: 'ltr',
-    he: 'rtl',
-  };
-
+  console.log(
+    DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE]
+  );
   return (
-    <html dir={direction[locale as keyof typeof direction]} lang={locale}>
+    <html
+      dir={DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE]}
+      lang={locale}
+    >
       <NextIntlClientProvider messages={messages}>
         <body className={className}>{children}</body>
       </NextIntlClientProvider>
