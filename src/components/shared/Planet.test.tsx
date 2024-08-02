@@ -10,6 +10,7 @@ jest.mock('next/image', () => (props: { alt: string }) => {
 });
 
 const mockContextValue = {
+  topSectionRefs: { current: [] },
   currentTopSection: '',
   onChange: () => null,
 };
@@ -46,6 +47,7 @@ describe('Planet component', () => {
       render(
         <AppContext.Provider
           value={{
+            topSectionRefs: { current: [] },
             onChange: () => null,
             currentTopSection: section,
           }}
