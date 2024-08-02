@@ -33,7 +33,7 @@ export default function SectionBackground({ currentSection }: CurrentSection) {
           className='object-cover object-left h-screen w-screen bottom-0 left-0 fixed opacity-60'
           alt=''
           aria-hidden
-          src={`${currentSection}-2xl${SUFFIX}`}
+          src={`images/${currentSection}-2xl${SUFFIX}`}
         />
       </picture>
     </div>
