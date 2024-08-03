@@ -13,7 +13,7 @@ export function useScrollByPathname({
   useEffect(() => {
     let value = 0;
 
-    if (pathname.length >= 4) {
+    if (pathname?.length >= 4) {
       pathname.split('/').find((str) => {
         const obj = dirObj[str as keyof typeof dirObj];
 
@@ -25,10 +25,12 @@ export function useScrollByPathname({
       });
     }
 
-    const slicedPathname = pathname.substring(value + 1);
+    const slicedPathname = pathname?.substring(value + 1);
 
     const isNotInView =
       !isScrolled.current &&
+      pathname &&
+      slicedPathname &&
       pathname !== '/' &&
       pathname !== currentTopSection &&
       pathname !== `/${slicedPathname}` &&
