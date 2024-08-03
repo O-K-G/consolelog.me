@@ -1,11 +1,12 @@
 'use client';
 
-import { type RefObject, useEffect, useRef, useState } from 'react';
+import { type RefObject, useEffect, useRef, useState, useContext } from 'react';
 import Contact from '@components/byPage/Contact';
 import { usePathname } from 'next/navigation';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
 import useHandleScroll from '@hooks/useHandleScroll';
 import { useTranslations } from 'next-intl';
+import { AppContext as appContext } from '@components/shared/AppContext';
 
 export default function Aside() {
   const t = useTranslations('contactGoBackButtonText');
@@ -14,6 +15,7 @@ export default function Aside() {
   const asideRef = useRef(null);
   const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
   const { disableScroll, enableScroll } = useHandleScroll();
+  const { dir } = useContext(appContext);
 
   useEffect(() => {
     if (open === null && pathname?.substring(1) === 'contact') {
@@ -29,13 +31,19 @@ export default function Aside() {
     const handleTransition = () => {
       let touchX = 0;
 
-      // touchX - e.touches[0].clientX < -50
-      // touchX < e.touches[0].clientX && sensitivityFactor
-
       const handleTouchMove = (e: TouchEvent) => {
-        const sensitivityFactor = touchX - e.touches[0].clientX > 50;
+        const isLTR = dir === 'ltr';
+        const slideDifference = touchX - e.touches[0].clientX;
 
-        if (touchX > e.touches[0].clientX && sensitivityFactor) {
+        const sensitivityFactor = isLTR
+          ? slideDifference > 50
+          : slideDifference < 50;
+
+        const touchEnd = isLTR
+          ? touchX > e.touches[0].clientX
+          : touchX < e.touches[0].clientX;
+
+        if (touchEnd && sensitivityFactor) {
           current?.removeEventListener('touchmove', handleTouchMove);
           enableScroll();
           setOpen(false);
