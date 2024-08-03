@@ -1,6 +1,7 @@
 import { type UseScrollByPathnameProps } from '@constants/interfaces';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, type MutableRefObject } from 'react';
+import { DIRECTION_BY_LANGUAGE as dirObj } from '@/constants/LocaleDirection';
 
 export function useScrollByPathname({
   currentTopSection,
@@ -10,12 +11,35 @@ export function useScrollByPathname({
   const pathname = usePathname();
 
   useEffect(() => {
+    let value = 0;
+
+    if (pathname?.length >= 4) {
+      pathname.split('/').find((str) => {
+        const obj = dirObj[str as keyof typeof dirObj];
+
+        if (obj) {
+          value = obj.length;
+        }
+
+        return value;
+      });
+    }
+
+    const slicedPathname = pathname?.substring(value + 1);
+
     const isNotInView =
-      !isScrolled.current && pathname !== '/' && pathname !== currentTopSection;
+      !isScrolled.current &&
+      pathname &&
+      slicedPathname &&
+      pathname !== '/' &&
+      pathname !== currentTopSection &&
+      pathname !== `/${slicedPathname}` &&
+      slicedPathname !== currentTopSection;
 
     if (isNotInView) {
       const { current: currentTopSectionRefs } = topSectionRefs;
-      const key = pathname?.substring(1) as keyof typeof currentTopSectionRefs;
+      const key = slicedPathname as keyof typeof currentTopSectionRefs;
+
       const refToScrollTo = currentTopSectionRefs[
         key
       ] as MutableRefObject<HTMLDivElement>;
