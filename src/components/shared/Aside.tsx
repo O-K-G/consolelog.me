@@ -73,7 +73,9 @@ export default function Aside() {
         ref={asideRef}
         aria-hidden={!open}
         className={`z-10 transition-all ease-in-out duration-700 lg:duration-1000 fixed flex items-start justify-start h-screen w-screen top-0 ${
-          !open ? '-left-[100vw] size-0 overflow-hidden' : 'left-0'
+          !open
+            ? '-left-[100vw] rtl:-right-[100vw] size-0 overflow-hidden'
+            : 'left-0 rtl:right-0'
         }`}
       >
         <Contact

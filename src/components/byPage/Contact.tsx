@@ -19,7 +19,7 @@ export default function Contact({ onClick, open }: ContactProps) {
         <>
           <ContactGoBackButton
             onClick={onClick}
-            className='left-0 ml-4 absolute'
+            className='ltr:left-0 rtl:right-0 ltr:ml-4 rtl:mr-4 absolute'
           >
             {t('goBack')}
           </ContactGoBackButton>

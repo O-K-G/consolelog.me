@@ -7,7 +7,7 @@ export const CONTACT_ME_BUTTON_TEST_ID = 'contact-me-button-test';
 export default function ContactGoBackButton({
   children,
   onClick,
-  className = 'right-0 mr-4 fixed',
+  className = 'ltr:right-0 rtl:left-0 ltr:mr-4 rtl:ml-4 fixed',
 }: ContactGoBackButtonProps) {
   return (
     <button
