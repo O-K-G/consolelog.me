@@ -66,12 +66,13 @@ export default async function RootLayout({
 }>) {
   const className = `${justInTheFirestormRegular.variable} ${starDate81316.variable} ${bebasNeue.variable} ${montserrat.variable}`;
   const messages = await getMessages();
+  const selectedLocale = locale || 'en';
+  const dir =
+    DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE] ||
+    'ltr';
 
   return (
-    <html
-      dir={DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE]}
-      lang={locale}
-    >
+    <html dir={dir} lang={selectedLocale}>
       <NextIntlClientProvider messages={messages}>
         <body className={className}>{children}</body>
       </NextIntlClientProvider>
