@@ -22,7 +22,7 @@ export default function ExpandableButton({
   };
 
   return (
-    <div className='z-10 container-type-size p-6 size-full relative max-h-[80%] center-elements'>
+    <div className='z-10 container-type-size p-6 h-full w-full sm:w-9/12 md:w-10/12 relative max-h-[80%] center-elements'>
       <div
         data-open={open}
         className='transition-1000 group relative max-h-full center-elements w-1/2 h-[50cqw] lg:w-1/4 lg:h-[25cqw] data-[open=true]:expandable-button-size-container'
