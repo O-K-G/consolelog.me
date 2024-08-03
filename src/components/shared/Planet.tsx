@@ -7,18 +7,20 @@ import Image from 'next/image';
 
 export const PLANET_TEST_ID = 'planet-test';
 
-const ROTATION_CLASSNAMES_BY_SECTION = {
-  skills: 'rotate-90',
-  projects: 'rotate-180',
-  experience: 'rotate-270',
-} as const;
-
 export default function Planet() {
-  const { currentTopSection } = useContext(appContext);
+  const { currentTopSection, dir } = useContext(appContext);
+
+  const isLtr = dir === 'ltr';
+
+  const rotationClassNameBySection = {
+    skills: isLtr ? 'rotate-90' : '-rotate-90',
+    projects: isLtr ? 'rotate-180' : '-rotate-180',
+    experience: isLtr ? 'rotate-270' : '-rotate-270',
+  } as const;
 
   const rotationClasses =
-    ROTATION_CLASSNAMES_BY_SECTION[
-      currentTopSection as keyof typeof ROTATION_CLASSNAMES_BY_SECTION
+    rotationClassNameBySection[
+      currentTopSection as keyof typeof rotationClassNameBySection
     ];
 
   return (

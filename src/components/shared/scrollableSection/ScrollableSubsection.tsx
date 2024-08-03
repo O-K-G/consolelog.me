@@ -52,7 +52,7 @@ export default function ScrollableSubsection({
               });
             }
           }}
-          className={`${BUTTONS_CLASSNAME} left-0 rotate-180`}
+          className={`${BUTTONS_CLASSNAME} left-0 ltr:rotate-180 rtl:rotate-0`}
           aria-label={t('scrollLeft')}
           icon={<ArrowIconComponent />}
         />
@@ -85,7 +85,7 @@ export default function ScrollableSubsection({
               });
             }
           }}
-          className={`${BUTTONS_CLASSNAME} right-0`}
+          className={`${BUTTONS_CLASSNAME} right-0 ltr:rotate-0 rtl:rotate-180`}
           aria-label={t('scrollRight')}
           icon={<ArrowIconComponent />}
         />
