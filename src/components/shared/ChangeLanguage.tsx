@@ -2,7 +2,7 @@
 
 import IconButton from '@components/shared/IconButton';
 import LanguageIcon from '@components/icons/LanguageIcon';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter, useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import type {
@@ -11,18 +11,22 @@ import type {
 } from '@constants/interfaces';
 import { useState } from 'react';
 
-function SelectLanguageButton({
-  label,
-  onClick,
-  value,
-}: SelectLanguageButtonProps) {
+function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
+  const { locale } = useParams() || {};
   const pathname = usePathname();
-  const isCurrentLocale = pathname?.substring(1) === value;
+  const isCurrentLocale = locale === value;
+  const router = useRouter();
 
   return (
     <li className='w-full'>
       <button
-        onClick={onClick}
+        onClick={() => {
+          if (!isCurrentLocale) {
+            router.push(
+              pathname.replace(`/${locale as string}/`, `/${value}/`)
+            );
+          }
+        }}
         className={`px-4 hover:bg-white/30 ltr:text-left rtl:text-right active:bg-white/50 focus:bg-white/30 w-full text-base outline-none ${
           !isCurrentLocale ? 'text-white' : ' text-title-purple'
         }`}
@@ -43,7 +47,7 @@ export default function ChangeLanguage({ className }: ChangeLanguageProps) {
     <div className='relative'>
       <IconButton
         className='transition-300 hover:scale-150 active:scale-150 focus:scale-150'
-        onClick={() => setOpen(true)}
+        onClick={() => setOpen((prevValue) => !prevValue)}
         icon={<LanguageIcon className={className} />}
         aria-label='Change language'
       />
@@ -53,7 +57,6 @@ export default function ChangeLanguage({ className }: ChangeLanguageProps) {
             <SelectLanguageButton
               key={`${str}-language`}
               label={t(str)}
-              onClick={() => console.log('x')}
               value={str as keyof typeof DIRECTION_BY_LANGUAGE}
             />
           ))}

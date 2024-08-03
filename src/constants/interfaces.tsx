@@ -266,7 +266,6 @@ export interface FixedBottomComponentProps {
 
 export interface SelectLanguageButtonProps {
   label: string;
-  onClick: () => void;
   value: keyof typeof DIRECTION_BY_LANGUAGE;
 }
 
