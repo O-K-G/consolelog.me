@@ -272,3 +272,7 @@ export interface SelectLanguageButtonProps {
 export interface ChangeLanguageProps {
   className: string;
 }
+
+export interface LanguagesListProps {
+  open: boolean;
+}

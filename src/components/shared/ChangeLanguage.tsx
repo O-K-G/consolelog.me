@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import type {
   ChangeLanguageProps,
+  LanguagesListProps,
   SelectLanguageButtonProps,
 } from '@constants/interfaces';
 import { useState } from 'react';
@@ -22,6 +23,7 @@ function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
       <button
         onClick={() => {
           if (!isCurrentLocale) {
+            // TODO: Proceed from here.
             router.push(
               pathname.replace(`/${locale as string}/`, `/${value}/`)
             );
@@ -39,8 +41,27 @@ function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
   );
 }
 
-export default function ChangeLanguage({ className }: ChangeLanguageProps) {
+function LanguagesList({ open }: LanguagesListProps) {
   const t = useTranslations('changeLanguage');
+
+  if (!open) {
+    return null;
+  }
+
+  return (
+    <ul className='absolute top-[100%] sm:bottom-[100%] ltr:left-0 rtl:right-0 py-4 font-montserrat flex flex-col items-start justify-start h-fit bg-black/70 border border-white'>
+      {Object.keys(DIRECTION_BY_LANGUAGE).map((str: string) => (
+        <SelectLanguageButton
+          key={`${str}-language`}
+          label={t(str)}
+          value={str as keyof typeof DIRECTION_BY_LANGUAGE}
+        />
+      ))}
+    </ul>
+  );
+}
+
+export default function ChangeLanguage({ className }: ChangeLanguageProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -51,17 +72,7 @@ export default function ChangeLanguage({ className }: ChangeLanguageProps) {
         icon={<LanguageIcon className={className} />}
         aria-label='Change language'
       />
-      {open && (
-        <ul className='absolute top-[100%] sm:bottom-[100%] ltr:left-0 rtl:right-0 py-4 font-montserrat flex flex-col items-start justify-start h-fit bg-black/70 border border-white'>
-          {Object.keys(DIRECTION_BY_LANGUAGE).map((str: string) => (
-            <SelectLanguageButton
-              key={`${str}-language`}
-              label={t(str)}
-              value={str as keyof typeof DIRECTION_BY_LANGUAGE}
-            />
-          ))}
-        </ul>
-      )}
+      <LanguagesList open={open} />
     </div>
   );
 }
