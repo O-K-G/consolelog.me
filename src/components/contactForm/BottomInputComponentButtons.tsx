@@ -1,5 +1,4 @@
-import { useText } from '@hooks/useText';
-import inputComponentText from '@i18nEn/inputComponentText.json';
+import { useTranslations } from 'next-intl';
 import AlignLeftIcon from '@components/contactForm/AlignLeftIcon';
 import type { BottomInputComponentButtonsProps } from '@constants/interfaces';
 import { useFormStatus } from 'react-dom';
@@ -13,7 +12,7 @@ export default function BottomInputComponentButtons({
 }: BottomInputComponentButtonsProps) {
   const { pending: isLoading } = useFormStatus(); // TODO: Experimental, revisit in the future.
   const isBusy = isLoading ?? isSubmitDisabled;
-  const t = useText();
+  const t = useTranslations('inputComponentText');
   const isLTR = dir === 'ltr';
 
   return (
@@ -32,15 +31,12 @@ export default function BottomInputComponentButtons({
               : 'hover:text-title-purple focus:text-title-purple'
           }`}
         >
-          {t('send', inputComponentText as object)}
+          {t('send')}
         </button>
       </div>
       <div className='w-1/3 overflow-hidden flex items-center justify-end'>
         <button
-          aria-label={`${t('alignFormText', inputComponentText)} ${t(
-            isLTR ? 'right' : 'left',
-            inputComponentText
-          )}`}
+          aria-label={`${t('alignFormText')} ${t(isLTR ? 'right' : 'left')}`}
           onClick={() => onClick?.(isLTR ? 'rtl' : 'ltr')}
           type='button'
           className='group size-8 shrink-0 hover:bg-black/70 active:bg-black/70 focus:bg-black/70 rounded-full center-elements outline-none'

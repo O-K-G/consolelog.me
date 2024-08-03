@@ -3,15 +3,14 @@
 import { useRef, useState } from 'react';
 import AboutTargetIcon from '@components/shared/expandableButton/AboutTargetIcon';
 import type { ExpandableButtonProps } from '@constants/interfaces';
-import expandableButtonText from '@i18nEn/expandableButtonText.json';
-import { useText } from '@hooks/useText';
+import { useTranslations } from 'next-intl';
 
 export default function ExpandableButton({
   alternativeLabel,
 }: ExpandableButtonProps) {
   const [open, setOpen] = useState(false);
   const [isAnimationEnd, setAnimationEnd] = useState(true);
-  const t = useText();
+  const t = useTranslations('expandableButtonText');
   const buttonRef = useRef(null);
 
   const handleTextAnimation = () => {
@@ -31,9 +30,7 @@ export default function ExpandableButton({
         <AboutTargetIcon open={open} />
         <button
           ref={buttonRef}
-          aria-label={
-            !open ? t('clickToOpen', expandableButtonText) : alternativeLabel
-          }
+          aria-label={!open ? t('clickToOpen') : alternativeLabel}
           aria-expanded={open}
           data-open={open}
           className={`transition-300 border-x border-transparent outline-none overflow-x-hidden overflow-y-auto size-full data-[open=false]:closed-expandable-button data-[open=true]:opened-expandable-button ${
@@ -50,8 +47,7 @@ export default function ExpandableButton({
             ).addEventListener('animationend', handleTextAnimation);
           }}
         >
-          {isAnimationEnd &&
-            (!open ? t('clickToOpen', expandableButtonText) : alternativeLabel)}
+          {isAnimationEnd && (!open ? t('clickToOpen') : alternativeLabel)}
         </button>
         <AboutTargetIcon bottom open={open} />
       </div>

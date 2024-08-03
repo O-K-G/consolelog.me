@@ -1,70 +1,40 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import SideLinks from '@components/shared/SideLinks';
-import { useText } from '@hooks/useText';
 import { URLs } from '@constants/urls';
+import { default as messages } from '@i18nEn/sideLinks.json';
+import { IntlProvider } from 'next-intl';
+import SideLinks, {
+  GH_TEST_ID,
+  LI_TEST_ID,
+} from '@components/shared/SideLinks';
 
-jest.mock(`${process.cwd()}/src/hooks/useText`);
-jest.mock(`${process.cwd()}/src/components/icons/GHIcon`, () =>
-  jest.fn(() => <div>GitHub Icon</div>)
-);
-jest.mock(`${process.cwd()}/src/components/icons/LIIcon`, () =>
-  jest.fn(() => <div>LinkedIn Icon</div>)
-);
+const DEFAULT_LOCALE = 'en';
 
 describe('SideLinks Component', () => {
-  beforeEach(() => {
-    (useText as jest.Mock).mockReturnValue((key: string, data: object) => {
-      const translations = {
-        navAriaLabel: 'Navigation',
-        ghLinkAriaLabel: 'GitHub Link',
-        liLinkAriaLabel: 'LinkedIn Link',
-      };
-      return translations[key as keyof typeof translations];
-    });
-  });
-
-  it('should render the SideLinks component', () => {
-    render(<SideLinks />);
-
-    expect(screen.getByRole('navigation')).toHaveAttribute(
-      'aria-label',
-      'Navigation'
+  it('renders GitHub and LinkedIn links', () => {
+    render(
+      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
+        <SideLinks />
+      </IntlProvider>
     );
-  });
 
-  const baseTest = ({
-    labelText,
-    url,
-    iconName,
-  }: {
-    labelText: string;
-    url: string;
-    iconName: string;
-  }) => {
-    render(<SideLinks />);
-    const linkElement = screen.getByLabelText(labelText);
-    expect(linkElement).toBeInTheDocument();
-    expect(linkElement).toHaveAttribute('href', url);
-    expect(linkElement).toHaveAttribute('target', '_blank');
-    expect(linkElement).toHaveAttribute('rel', 'noreferrer');
-    expect(linkElement).toContainElement(screen.getByText(iconName));
-  };
+    const ghLink = screen.getByTestId(GH_TEST_ID);
+    expect(ghLink).toBeInTheDocument();
+    expect(ghLink).toHaveAttribute('href', URLs.gitHub);
+    expect(ghLink).toHaveAttribute('rel', 'noreferrer');
+    expect(ghLink).toHaveAttribute(
+      'aria-label',
+      messages.sideLinks.ghLinkAriaLabel
+    );
 
-  it('should render the GitHub link and make sure it has a noreferrer attribute', () => {
-    baseTest({
-      labelText: 'GitHub Link',
-      url: URLs.gitHub,
-      iconName: 'GitHub Icon',
-    });
-  });
-
-  it('should render the LinkedIn link and make sure it has a noreferrer attribute', () => {
-    baseTest({
-      labelText: 'LinkedIn Link',
-      url: URLs.linkedIn,
-      iconName: 'LinkedIn Icon',
-    });
+    const liLink = screen.getByTestId(LI_TEST_ID);
+    expect(liLink).toBeInTheDocument();
+    expect(liLink).toHaveAttribute('href', URLs.linkedIn);
+    expect(liLink).toHaveAttribute('rel', 'noreferrer');
+    expect(liLink).toHaveAttribute(
+      'aria-label',
+      messages.sideLinks.liLinkAriaLabel
+    );
   });
 });

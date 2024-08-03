@@ -2,8 +2,10 @@ import type { AnchorLinkProps, SideLinksProps } from '@constants/interfaces';
 import GHIcon from '@components/icons/GHIcon';
 import LIIcon from '@components/icons/LIIcon';
 import { URLs } from '@constants/urls';
-import sideLinks from '@i18nEn/sideLinks.json';
-import { useText } from '@hooks/useText';
+import { useTranslations } from 'next-intl';
+
+export const GH_TEST_ID = 'gh-test';
+export const LI_TEST_ID = 'li-test';
 
 const ICONS_CLASSNAME =
   'fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple size-full';
@@ -13,10 +15,12 @@ function AnchorLink({
   icon,
   isRounded,
   'aria-label': ariaLabel,
+  'data-testid': dataTestId,
 }: AnchorLinkProps) {
   return (
     <li>
       <a
+        data-testid={dataTestId}
         href={url}
         aria-label={ariaLabel}
         rel='noreferrer'
@@ -35,19 +39,21 @@ export default function SideLinks({
   className = 'fixed left-0 top-0 sm:bottom-0 w-16 h-fit mt-[1.35rem] sm:my-auto ml-4',
   ulClassName = 'size-full center-elements sm:flex-col gap-4 sm:gap-10',
 }: SideLinksProps) {
-  const t = useText();
+  const t = useTranslations('sideLinks');
 
   return (
-    <nav aria-label={t('navAriaLabel', sideLinks)} className={className}>
+    <nav aria-label={t('navAriaLabel')} className={className}>
       <ul className={ulClassName}>
         <AnchorLink
           isRounded
-          aria-label={t('ghLinkAriaLabel', sideLinks)}
+          data-testid={GH_TEST_ID}
+          aria-label={t('ghLinkAriaLabel')}
           url={URLs.gitHub}
           icon={<GHIcon className={ICONS_CLASSNAME} />}
         />
         <AnchorLink
-          aria-label={t('liLinkAriaLabel', sideLinks)}
+          data-testid={LI_TEST_ID}
+          aria-label={t('liLinkAriaLabel')}
           url={URLs.linkedIn}
           icon={<LIIcon className={ICONS_CLASSNAME} />}
         />

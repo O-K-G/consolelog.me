@@ -1,6 +1,5 @@
 import { Handjet } from 'next/font/google';
-import { useText } from '@hooks/useText';
-import shenanigans from '@i18nEn/shenanigansText.json';
+import { useTranslations } from 'next-intl';
 import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
 import { useContext, type MouseEventHandler, type ReactNode } from 'react';
@@ -30,7 +29,7 @@ function OldschoolButton({
 
 function ShenanigansComponent() {
   const { onCloseModal } = useContext(modalContext);
-  const t = useText();
+  const t = useTranslations('shenanigansText');
 
   const handleClick = (
     e:
@@ -58,7 +57,7 @@ function ShenanigansComponent() {
       >
         <DialogTitle
           className='text-xl bg-gray-600 text-white px-4'
-          label={t('mainTitle', shenanigans)}
+          label={t('mainTitle')}
           onClick={onCloseModal}
           closeButtonIcon={
             <div className='rounded-full center-elements bg-red-300 size-7 border-1.5 shadow-inner shadow-black rotate-180 border-[#b4b3b3] group-hover:bg-white group-active:bg-white group-focus:bg-white' />
@@ -67,26 +66,26 @@ function ShenanigansComponent() {
         <div className='size-full p-4 text-black'>
           <div className='border-2 border-t-gray-600 border-l-gray-600 border-r-white border-b-white center-elements flex-col size-full p-4 bg-white'>
             <h2 className='text-lg sm:text-xl text-center font-bold'>
-              {t('wow', shenanigans)}
+              {t('wow')}
             </h2>
             <h3 className='text-lg sm:text-xl text-center semi-bold'>
-              {t('make', shenanigans)}
+              {t('make')}
             </h3>
-            <div className='sr-only'>{t('graphics', shenanigans)}</div>
+            <div className='sr-only'>{t('graphics')}</div>
             <p className='mt-2 text-base'>
-              {t('yourApp', shenanigans)}
+              {t('yourApp')}
               <br />
-              {t('nineties', shenanigans)}
+              {t('nineties')}
               <br />
-              {t('fax', shenanigans)}
+              {t('fax')}
               <br />
-              {t('like', shenanigans)}
+              {t('like')}
               <br />
-              {t('quit', shenanigans)}
+              {t('quit')}
             </p>
             <div className='w-full center-elements mt-2'>
               <OldschoolButton onClick={onCloseModal}>
-                {t('quitShenanigans', shenanigans)}
+                {t('quitShenanigans')}
               </OldschoolButton>
             </div>
           </div>
@@ -98,7 +97,7 @@ function ShenanigansComponent() {
 
 export default function Shenanigans() {
   const { onModalContentChange: setModalContent } = useContext(modalContext);
-  const t = useText();
+  const t = useTranslations('shenanigansText');
 
   return (
     <button
@@ -106,7 +105,7 @@ export default function Shenanigans() {
       className='z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl'
       onClick={() => setModalContent(<ShenanigansComponent />)}
     >
-      {t('shenanigansButton', shenanigans)}
+      {t('shenanigansButton')}
     </button>
   );
 }

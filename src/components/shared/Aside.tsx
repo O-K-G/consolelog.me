@@ -4,12 +4,11 @@ import { type RefObject, useEffect, useRef, useState } from 'react';
 import Contact from '@components/byPage/Contact';
 import { usePathname } from 'next/navigation';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
-import contactGoBackButtonText from '@i18nEn/ContactGoBackButtonText.json';
 import useHandleScroll from '@hooks/useHandleScroll';
-import { useText } from '@hooks/useText';
+import { useTranslations } from 'next-intl';
 
 export default function Aside() {
-  const t = useText();
+  const t = useTranslations('contactGoBackButtonText');
   const [open, setOpen] = useState<boolean | null>(null);
   const pathname = usePathname();
   const asideRef = useRef(null);
@@ -68,7 +67,7 @@ export default function Aside() {
           setOpen(true);
         }}
       >
-        {t('contactMe', contactGoBackButtonText)}
+        {t('contactMe')}
       </ContactGoBackButton>
       <aside
         ref={asideRef}

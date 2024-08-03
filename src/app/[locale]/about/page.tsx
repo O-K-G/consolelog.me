@@ -1,4 +1,4 @@
-import Home from '@/app/page';
+import Home from '@locale/page';
 
 export default function AboutPage() {
   return <Home />;

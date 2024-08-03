@@ -10,6 +10,7 @@ jest.mock('next/image', () => (props: { alt: string }) => {
 });
 
 const mockContextValue = {
+  topSectionRefs: { current: [] },
   currentTopSection: '',
   onChange: () => null,
 };
@@ -26,7 +27,7 @@ describe('Planet component', () => {
     expect(planetElement).toBeInTheDocument();
     expect(planetElement).toHaveAttribute(
       'src',
-      `/planet.webp?cacheVersion=${CACHE_VERSION}`
+      `/images/planet.webp?cacheVersion=${CACHE_VERSION}`
     );
 
     const divElement = planetElement.parentElement;
@@ -46,6 +47,7 @@ describe('Planet component', () => {
       render(
         <AppContext.Provider
           value={{
+            topSectionRefs: { current: [] },
             onChange: () => null,
             currentTopSection: section,
           }}

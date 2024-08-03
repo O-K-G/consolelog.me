@@ -21,6 +21,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@root/*": ["./*"],
+      "@locale/*": ["./src/app/[locale]/*"],
+      "@locales/*": ["./src/i18n/*"],
       "@components/*": ["./src/components/*"],
       "@constants/*": ["./src/constants/*"],
       "@hooks/*": ["./src/hooks/*"],

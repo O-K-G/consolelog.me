@@ -1,3 +1,5 @@
 {
-  "clickToOpen": "click to open"
+  "expandableButtonText": {
+    "clickToOpen": "click to open"
+  }
 }

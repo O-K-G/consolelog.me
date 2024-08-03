@@ -5,8 +5,7 @@ import useHandleChildrenWithNewProps from '@hooks/useHandleChildrenWithNewProps'
 import type { PropsWithId } from '@constants/interfaces';
 import { ScrollableSubsectionItem } from '@components/shared/scrollableSection/ScrollableSubsectionItem';
 import ArrowIconComponent from '@components/icons/ArrowIconComponent';
-import { useText } from '@hooks/useText';
-import scrollableSectionText from '@i18nEn/scrollableSectionText.json';
+import { useTranslations } from 'next-intl';
 
 export const LEFT_BUTTON_TEST_ID = 'left-button-test-id';
 export const RIGHT_BUTTON_TEST_ID = 'right-button-test-id';
@@ -20,7 +19,7 @@ export default function ScrollableSubsection({
   children: ReactNode;
 }) {
   const scrollableRef = useRef(null);
-  const t = useText();
+  const t = useTranslations('scrollableSectionText');
   const { handleHorizontalScroll } = useHandleHorizontalScroll();
   const [selectedSubsection, setSelectedSubsection] = useState(0);
   const { handleChildrenWithNewProps } = useHandleChildrenWithNewProps();
@@ -54,7 +53,7 @@ export default function ScrollableSubsection({
             }
           }}
           className={`${BUTTONS_CLASSNAME} left-0 rotate-180`}
-          aria-label={t('scrollLeft', scrollableSectionText)}
+          aria-label={t('scrollLeft')}
           icon={<ArrowIconComponent />}
         />
       </div>
@@ -87,7 +86,7 @@ export default function ScrollableSubsection({
             }
           }}
           className={`${BUTTONS_CLASSNAME} right-0`}
-          aria-label={t('scrollRight', scrollableSectionText)}
+          aria-label={t('scrollRight')}
           icon={<ArrowIconComponent />}
         />
       </div>
