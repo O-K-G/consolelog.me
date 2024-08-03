@@ -7,6 +7,7 @@ import type {
   ReactNode,
   SetStateAction,
 } from 'react';
+import { type DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import { z } from 'zod';
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
 export const CONTACT_FORM_SUBJECT_MIN_LENGTH = 1;
@@ -261,4 +262,14 @@ export interface FixedBottomComponentProps {
   slot?: ReactNode;
   className?: string;
   children?: ReactNode;
+}
+
+export interface SelectLanguageButtonProps {
+  label: string;
+  onClick: () => void;
+  value: keyof typeof DIRECTION_BY_LANGUAGE;
+}
+
+export interface ChangeLanguageProps {
+  className: string;
 }
