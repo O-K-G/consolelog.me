@@ -13,6 +13,7 @@ const mockContextValue = {
   topSectionRefs: { current: [] },
   currentTopSection: '',
   onChange: () => null,
+  dir: 'ltr' as 'ltr',
 };
 
 describe('Planet component', () => {
@@ -50,6 +51,7 @@ describe('Planet component', () => {
             topSectionRefs: { current: [] },
             onChange: () => null,
             currentTopSection: section,
+            dir: 'ltr' as 'ltr',
           }}
         >
           <Planet />
