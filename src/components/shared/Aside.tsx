@@ -29,6 +29,9 @@ export default function Aside() {
     const handleTransition = () => {
       let touchX = 0;
 
+      // touchX - e.touches[0].clientX < -50
+      // touchX < e.touches[0].clientX && sensitivityFactor
+
       const handleTouchMove = (e: TouchEvent) => {
         const sensitivityFactor = touchX - e.touches[0].clientX > 50;
 
