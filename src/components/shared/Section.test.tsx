@@ -41,6 +41,7 @@ describe('Section component', () => {
       topSectionRefs: { current: [] },
       currentTopSection: 'about',
       onChange: mockSetCurrentTopSection,
+      dir: 'ltr' as 'ltr',
     };
 
     render(

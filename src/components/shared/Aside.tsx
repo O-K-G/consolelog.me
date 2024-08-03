@@ -1,11 +1,12 @@
 'use client';
 
-import { type RefObject, useEffect, useRef, useState } from 'react';
+import { type RefObject, useEffect, useRef, useState, useContext } from 'react';
 import Contact from '@components/byPage/Contact';
 import { usePathname } from 'next/navigation';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
 import useHandleScroll from '@hooks/useHandleScroll';
 import { useTranslations } from 'next-intl';
+import { AppContext as appContext } from '@components/shared/AppContext';
 
 export default function Aside() {
   const t = useTranslations('contactGoBackButtonText');
@@ -14,6 +15,7 @@ export default function Aside() {
   const asideRef = useRef(null);
   const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
   const { disableScroll, enableScroll } = useHandleScroll();
+  const { dir } = useContext(appContext);
 
   useEffect(() => {
     if (open === null && pathname?.substring(1) === 'contact') {
@@ -30,9 +32,18 @@ export default function Aside() {
       let touchX = 0;
 
       const handleTouchMove = (e: TouchEvent) => {
-        const sensitivityFactor = touchX - e.touches[0].clientX > 50;
+        const isLTR = dir === 'ltr';
+        const slideDifference = touchX - e.touches[0].clientX;
 
-        if (touchX > e.touches[0].clientX && sensitivityFactor) {
+        const sensitivityFactor = isLTR
+          ? slideDifference > 50
+          : slideDifference < 50;
+
+        const touchEnd = isLTR
+          ? touchX > e.touches[0].clientX
+          : touchX < e.touches[0].clientX;
+
+        if (touchEnd && sensitivityFactor) {
           current?.removeEventListener('touchmove', handleTouchMove);
           enableScroll();
           setOpen(false);
@@ -73,7 +84,9 @@ export default function Aside() {
         ref={asideRef}
         aria-hidden={!open}
         className={`z-10 transition-all ease-in-out duration-700 lg:duration-1000 fixed flex items-start justify-start h-screen w-screen top-0 ${
-          !open ? '-left-[100vw] size-0 overflow-hidden' : 'left-0'
+          !open
+            ? 'ltr:-left-[100vw] rtl:-right-[100vw] size-0 overflow-hidden'
+            : 'ltr:left-0 rtl:right-0'
         }`}
       >
         <Contact

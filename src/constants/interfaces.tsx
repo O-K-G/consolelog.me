@@ -26,6 +26,7 @@ export interface AppContextProps {
   topSectionRefs: MutableRefObject<object>;
   currentTopSection: string;
   onChange: Dispatch<SetStateAction<string>>;
+  dir: 'ltr' | 'rtl';
 }
 
 export interface UseScrollByPathnameProps {

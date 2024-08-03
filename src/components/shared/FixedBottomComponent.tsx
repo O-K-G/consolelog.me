@@ -3,7 +3,7 @@ import type { FixedBottomComponentProps } from '@constants/interfaces';
 export default function FixedBottomComponent({
   label,
   slot,
-  className = 'right-0 mr-4',
+  className = 'ltr:right-0 ltr:mr-4 rtl:left-0 rtl:ml-4',
   children,
 }: FixedBottomComponentProps) {
   return (

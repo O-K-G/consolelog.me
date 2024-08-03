@@ -1,6 +1,9 @@
-import { type MutableRefObject } from 'react';
+import { type MutableRefObject, useContext } from 'react';
+import { AppContext as appContext } from '@components/shared/AppContext';
 
 export default function useHandleHorizontalScroll() {
+  const { dir } = useContext(appContext);
+
   const handleHorizontalScroll = ({
     num,
     scrollableRef,
@@ -8,9 +11,11 @@ export default function useHandleHorizontalScroll() {
     num: number;
     scrollableRef: MutableRefObject<null>;
   }) => {
+    const numByDir = dir === 'ltr' ? num : -num;
+
     (scrollableRef.current as unknown as HTMLDivElement).scrollTo({
       top: 0,
-      left: num,
+      left: numByDir,
       behavior: 'smooth',
     });
   };

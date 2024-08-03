@@ -5,8 +5,8 @@ export default function AboutTargetIcon({
   open,
 }: AboutTargetIconProps) {
   const className = !bottom
-    ? '-top-5 -left-5'
-    : '-bottom-5 -right-5 rotate-180';
+    ? '-top-5 ltr:-left-5 rtl:-right-5 rtl:rotate-90'
+    : '-bottom-5 ltr:-right-5 rtl:-left-5 ltr:rotate-180 rtl:rotate-270';
 
   return (
     <div

@@ -12,7 +12,9 @@ export default function ScrollToTopComponent() {
 
   return (
     <FixedBottomComponent
-      className={`transition-1000 left-0 ml-4 ${isAbout ? 'opacity-0' : ''}`}
+      className={`transition-1000 ltr:left-0 ltr:ml-4 rtl:right-0 rtl:mr-4 ${
+        isAbout ? 'opacity-0' : ''
+      }`}
       label={t('scrollToTop')}
     >
       <IconButton
