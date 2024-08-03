@@ -8,6 +8,7 @@ import ProgressIndicators from '@components/contactForm/ProgressIndicators';
 import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
 import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
 import { ModalContext as modalContext } from '@components/shared/ModalContext';
+import { AppContext as appContext } from '@components/shared/AppContext';
 import {
   type FormErrorNames,
   type Fields,
@@ -20,7 +21,8 @@ import {
 } from '@constants/interfaces';
 
 export default function ContactForm() {
-  const [dir, setDir] = useState<'ltr' | 'rtl'>('ltr');
+  const { dir: direction } = useContext(appContext);
+  const [dir, setDir] = useState<'ltr' | 'rtl'>(direction);
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);
   const { onModalContentChange: setModalContent } = useContext(modalContext);
