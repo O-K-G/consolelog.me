@@ -18,11 +18,13 @@ function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
   const pathname = usePathname();
   const isCurrentLocale = locale === value;
   const router = useRouter();
+  const { onCloseModal } = useContext(modalContext);
 
   return (
     <li className='w-full'>
       <button
-        onClick={() => {
+        onClick={(e) => {
+          onCloseModal(e);
           if (!isCurrentLocale) {
             router.push(pathname.replace(`/${locale as string}`, `/${value}`));
           }
