@@ -1,17 +1,17 @@
 {
   "inputComponentText": {
-    "send": "SEND",
-    "sendingMessage": "sending message",
-    "messageSent": "MESSAGE SENT",
-    "emailAriaLabelError": "email is invalid",
-    "subjectAriaLabelError": "subject field is empty",
-    "contentAriaLabelError": "message text area is empty",
-    "characterAriaLabelError": "character",
-    "charactersAriaLabelError": "characters",
-    "remain": "remain",
-    "error": "Error",
-    "alignFormText": "Align form text to the",
-    "right": "right",
-    "left": "left"
+    "send": "שליחה",
+    "sendingMessage": "שולח הודעה",
+    "messageSent": "ההודעה נשלחה",
+    "emailAriaLabelError": "הכתובת אינה תקינה",
+    "subjectAriaLabelError": "שורת הנושא ריקה",
+    "contentAriaLabelError": "גוף ההודעה ריק",
+    "characterAriaLabelError": "אות",
+    "charactersAriaLabelError": "אותיות",
+    "remain": "נותרו",
+    "error": "שגיאה",
+    "alignFormText": "יישור טקסט ל",
+    "right": "ימין",
+    "left": "שמאל"
   }
 }

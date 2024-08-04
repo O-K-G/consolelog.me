@@ -1,8 +1,8 @@
 {
   "errorDialog": {
-    "error": "Error",
-    "errorMessage": "Sorry, but something went wrong. You can either close this window and try again, or read the error details below, if available.",
-    "errorDetails": "Error details: ",
-    "noErrorDetailsFound": "No error details found."
+    "error": "שגיאה",
+    "errorMessage": "סליחה, אבל משהו השתבש. ניתן לסגור את החלון ולנסות שוב, או לקרוא את פרטי השגיאה המופיעים מטה, אם הם קיימים.",
+    "errorDetails": "פרטי השגיאה: ",
+    "noErrorDetailsFound": "לא נמצאו פרטי שגיאה."
   }
 }
