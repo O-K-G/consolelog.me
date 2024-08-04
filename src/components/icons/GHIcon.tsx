@@ -1,6 +1,6 @@
 import type { IconsProps } from '@constants/interfaces';
 
-export default function GHIcon({ className }: IconsProps) {
+export default function GHIcon({ className = '' }: IconsProps) {
   return (
     <svg
       viewBox='0 0 47 45'
