@@ -7,6 +7,7 @@ import type {
   ReactNode,
   SetStateAction,
 } from 'react';
+import { type DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import { z } from 'zod';
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
 export const CONTACT_FORM_SUBJECT_MIN_LENGTH = 1;
@@ -26,7 +27,6 @@ export interface AppContextProps {
   topSectionRefs: MutableRefObject<object>;
   currentTopSection: string;
   onChange: Dispatch<SetStateAction<string>>;
-  dir: 'ltr' | 'rtl';
 }
 
 export interface UseScrollByPathnameProps {
@@ -261,4 +261,17 @@ export interface FixedBottomComponentProps {
   slot?: ReactNode;
   className?: string;
   children?: ReactNode;
+}
+
+export interface SelectLanguageButtonProps {
+  label: string;
+  value: keyof typeof DIRECTION_BY_LANGUAGE;
+}
+
+export interface ChangeLanguageProps {
+  className: string;
+}
+
+export interface LanguagesListProps {
+  open: boolean;
 }

@@ -4,14 +4,17 @@ import { CACHE_VERSION } from '@root/tailwind.config';
 import { useContext } from 'react';
 import { AppContext as appContext } from '@components/shared/AppContext';
 import Image from 'next/image';
+import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
+import { useParams } from 'next/navigation';
 
 export const PLANET_TEST_ID = 'planet-test';
 
 export default function Planet() {
-  const { currentTopSection, dir } = useContext(appContext);
-
+  const { currentTopSection } = useContext(appContext);
+  const { locale } = useParams() || {};
+  const dir =
+    DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE];
   const isLtr = dir === 'ltr';
-
   const rotationClassNameBySection = {
     skills: isLtr ? 'rotate-90' : '-rotate-90',
     projects: isLtr ? 'rotate-180' : '-rotate-180',

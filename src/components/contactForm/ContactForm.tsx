@@ -8,7 +8,8 @@ import ProgressIndicators from '@components/contactForm/ProgressIndicators';
 import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
 import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
 import { ModalContext as modalContext } from '@components/shared/ModalContext';
-import { AppContext as appContext } from '@components/shared/AppContext';
+import { useParams } from 'next/navigation';
+import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import {
   type FormErrorNames,
   type Fields,
@@ -21,7 +22,9 @@ import {
 } from '@constants/interfaces';
 
 export default function ContactForm() {
-  const { dir: direction } = useContext(appContext);
+  const { locale } = useParams() || {};
+  const direction =
+    DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE];
   const [dir, setDir] = useState<'ltr' | 'rtl'>(direction);
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);

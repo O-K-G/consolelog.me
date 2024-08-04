@@ -3,6 +3,7 @@ import GHIcon from '@components/icons/GHIcon';
 import LIIcon from '@components/icons/LIIcon';
 import { URLs } from '@constants/urls';
 import { useTranslations } from 'next-intl';
+import ChangeLanguage from '@components/shared/ChangeLanguage';
 
 export const GH_TEST_ID = 'gh-test';
 export const LI_TEST_ID = 'li-test';
@@ -57,6 +58,7 @@ export default function SideLinks({
           url={URLs.linkedIn}
           icon={<LIIcon className={ICONS_CLASSNAME} />}
         />
+        <ChangeLanguage className={ICONS_CLASSNAME} />
       </ul>
     </nav>
   );

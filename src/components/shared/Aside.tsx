@@ -1,12 +1,12 @@
 'use client';
 
-import { type RefObject, useEffect, useRef, useState, useContext } from 'react';
+import { type RefObject, useEffect, useRef, useState } from 'react';
 import Contact from '@components/byPage/Contact';
-import { usePathname } from 'next/navigation';
+import { usePathname, useParams } from 'next/navigation';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
 import useHandleScroll from '@hooks/useHandleScroll';
 import { useTranslations } from 'next-intl';
-import { AppContext as appContext } from '@components/shared/AppContext';
+import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 
 export default function Aside() {
   const t = useTranslations('contactGoBackButtonText');
@@ -15,7 +15,7 @@ export default function Aside() {
   const asideRef = useRef(null);
   const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
   const { disableScroll, enableScroll } = useHandleScroll();
-  const { dir } = useContext(appContext);
+  const { locale } = useParams() || {};
 
   useEffect(() => {
     if (open === null && pathname?.substring(1) === 'contact') {
@@ -32,6 +32,8 @@ export default function Aside() {
       let touchX = 0;
 
       const handleTouchMove = (e: TouchEvent) => {
+        const dir =
+          DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE];
         const isLTR = dir === 'ltr';
         const slideDifference = touchX - e.touches[0].clientX;
 
@@ -67,7 +69,7 @@ export default function Aside() {
 
     return () =>
       current?.removeEventListener('transitionend', handleTransition);
-  }, [enableScroll, open]);
+  }, [enableScroll, locale, open]);
 
   return (
     <>

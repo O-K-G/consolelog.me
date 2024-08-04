@@ -1,8 +1,9 @@
-import { type MutableRefObject, useContext } from 'react';
-import { AppContext as appContext } from '@components/shared/AppContext';
+import { type MutableRefObject } from 'react';
+import { useParams } from 'next/navigation';
+import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 
 export default function useHandleHorizontalScroll() {
-  const { dir } = useContext(appContext);
+  const { locale } = useParams() || {};
 
   const handleHorizontalScroll = ({
     num,
@@ -11,6 +12,8 @@ export default function useHandleHorizontalScroll() {
     num: number;
     scrollableRef: MutableRefObject<null>;
   }) => {
+    const dir =
+      DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE];
     const numByDir = dir === 'ltr' ? num : -num;
 
     (scrollableRef.current as unknown as HTMLDivElement).scrollTo({
