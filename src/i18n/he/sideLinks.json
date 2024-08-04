@@ -1,7 +1,7 @@
 {
   "sideLinks": {
-    "navAriaLabel": "External links",
-    "ghLinkAriaLabel": "The GitHub repository for this page",
-    "liLinkAriaLabel": "My LinkedIn"
+    "navAriaLabel": "קישורים חיצוניים",
+    "ghLinkAriaLabel": "הריפו בגיטהאב של הדף הזה",
+    "liLinkAriaLabel": "הלינקדאין שלי"
   }
 }
