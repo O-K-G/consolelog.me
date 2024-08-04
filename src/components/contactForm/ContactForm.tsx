@@ -85,12 +85,18 @@ export default function ContactForm() {
     }
   };
 
+  const ltrPaddingClassName =
+    direction === 'ltr' && (dir === 'ltr' ? 'sm:pr-24' : 'sm:pl-36');
+
+  const rtlPaddingClassName =
+    direction === 'rtl' && (dir === 'rtl' ? 'sm:pl-36' : 'sm:pr-24');
+
   return (
     <form
       dir={dir}
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       action={handleValidation}
-      className='w-full center-elements flex-col z-10 sm:pr-24 mt-2'
+      className={`w-full center-elements flex-col z-10 mt-2 ${ltrPaddingClassName} ${rtlPaddingClassName}`}
     >
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
         {[
