@@ -63,16 +63,21 @@ function LanguagesList() {
   );
 }
 
-export default function ChangeLanguage({ className }: ChangeLanguageProps) {
+export default function ChangeLanguage({
+  className,
+  hide,
+}: ChangeLanguageProps) {
   const { onModalContentChange: setModalContent } = useContext(modalContext);
   const t = useTranslations('languageSelect');
 
-  return (
-    <IconButton
-      className='transition-300 hover:scale-150 active:scale-150 focus:scale-150'
-      onClick={() => setModalContent(<LanguagesList />)}
-      icon={<LanguageIcon className={className} />}
-      aria-label={t('changeLanguage')}
-    />
-  );
+  if (!hide) {
+    return (
+      <IconButton
+        className='transition-300 hover:scale-150 active:scale-150 focus:scale-150'
+        onClick={() => setModalContent(<LanguagesList />)}
+        icon={<LanguageIcon className={className} />}
+        aria-label={t('changeLanguage')}
+      />
+    );
+  }
 }

@@ -184,6 +184,7 @@ export interface IconButtonProps {
 export interface SideLinksProps {
   className?: string;
   ulClassName?: string;
+  hideChangeLanguageButton?: boolean;
 }
 
 export interface HandleChildrenWithNewPropsProps {
@@ -270,4 +271,5 @@ export interface SelectLanguageButtonProps {
 
 export interface ChangeLanguageProps {
   className: string;
+  hide?: boolean;
 }
