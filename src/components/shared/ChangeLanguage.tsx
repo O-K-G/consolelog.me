@@ -42,7 +42,7 @@ function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
 }
 
 function LanguagesList({ open }: LanguagesListProps) {
-  const t = useTranslations('changeLanguage');
+  const t = useTranslations('languageSelect');
 
   if (!open) {
     return null;
