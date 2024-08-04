@@ -1,1 +1,7 @@
-{ "languageSelect": { "en": "English", "he": "עברית" } }
+{
+  "languageSelect": {
+    "en": "English",
+    "he": "עברית",
+    "changeLanguage": "Language"
+  }
+}
