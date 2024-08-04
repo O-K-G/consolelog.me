@@ -23,10 +23,7 @@ function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
       <button
         onClick={() => {
           if (!isCurrentLocale) {
-            // TODO: Proceed from here.
-            router.push(
-              pathname.replace(`/${locale as string}/`, `/${value}/`)
-            );
+            router.push(pathname.replace(`/${locale as string}`, `/${value}`));
           }
         }}
         className={`px-4 hover:bg-white/30 ltr:text-left rtl:text-right active:bg-white/50 focus:bg-white/30 w-full text-base outline-none ${
