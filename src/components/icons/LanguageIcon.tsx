@@ -1,6 +1,6 @@
 import type { IconsProps } from '@constants/interfaces';
 
-export default function LanguageIcon({ className }: IconsProps) {
+export default function LanguageIcon({ className = '' }: IconsProps) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'

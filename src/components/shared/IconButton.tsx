@@ -6,7 +6,7 @@ export default function IconButton({
   'aria-label': ariaLabel,
   'data-testid': dataTestId,
   icon,
-  className,
+  className = '',
   ...rest
 }: IconButtonProps) {
   return (

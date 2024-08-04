@@ -1,9 +1,9 @@
 import type { ArrowRightIconProps } from '@constants/interfaces';
 
 export default function ArrowRightIcon({
-  className,
-  strokeClassName,
-  fillClassName,
+  className = '',
+  strokeClassName = '',
+  fillClassName = '',
 }: ArrowRightIconProps) {
   return (
     <svg

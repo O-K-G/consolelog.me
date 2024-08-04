@@ -1,6 +1,6 @@
 import type { IconsProps } from '@constants/interfaces';
 
-export default function LIIcon({ className }: IconsProps) {
+export default function LIIcon({ className = '' }: IconsProps) {
   return (
     <svg
       viewBox='0 0 45 45'

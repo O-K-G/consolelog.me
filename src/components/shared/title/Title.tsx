@@ -4,7 +4,7 @@ import Border from '@components/shared/title/Border';
 export default function Title({
   children,
   component: Component = 'h2',
-  className,
+  className = '',
   border,
   variant = 'mainTitle',
   topLabel,

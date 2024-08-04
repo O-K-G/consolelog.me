@@ -1,7 +1,7 @@
 import type { BorderProps } from '@constants/interfaces';
 
 export default function Border({
-  className,
+  className = '',
   leftLabel,
   rightLabel,
 }: BorderProps) {
