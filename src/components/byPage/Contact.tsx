@@ -27,6 +27,7 @@ export default function Contact({ onClick, open }: ContactProps) {
           <div className='center-elements flex-col size-full gap-2 sm:gap-6 lg:gap-4'>
             <ContactForm />
             <SideLinks
+              hideChangeLanguageButton
               className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6'
               ulClassName='size-full center-elements gap-4'
             />
