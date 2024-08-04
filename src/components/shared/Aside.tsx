@@ -35,11 +35,11 @@ export default function Aside() {
         const dir =
           DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE];
         const isLTR = dir === 'ltr';
-        const slideDifference = touchX - e.touches[0].clientX;
+        const slideDifference = isLTR
+          ? touchX - e.touches[0].clientX
+          : e.touches[0].clientX - touchX;
 
-        const sensitivityFactor = isLTR
-          ? slideDifference > 50
-          : slideDifference < 50;
+        const sensitivityFactor = slideDifference > 50;
 
         const touchEnd = isLTR
           ? touchX > e.touches[0].clientX
