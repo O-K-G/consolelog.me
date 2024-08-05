@@ -18,12 +18,12 @@ export default function Aside() {
   const { locale } = useParams() || {};
 
   useEffect(() => {
-    if (open === null && pathname?.substring(1) === 'contact') {
+    if (open === null && pathname?.includes(`${locale as string}/contact`)) {
       disableScroll();
       setOpenAtTransitionEnd(true);
       setOpen(true);
     }
-  }, [disableScroll, open, pathname]);
+  }, [disableScroll, locale, open, pathname]);
 
   useEffect(() => {
     const { current } = asideRef as RefObject<HTMLDivElement>;
