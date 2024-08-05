@@ -24,6 +24,7 @@ export default getRequestConfig(async ({ locale }) => {
     ...(await import(`./i18n/${locale}/sideLinks.json`)).default,
     ...(await import(`./i18n/${locale}/skills.json`)).default,
     ...(await import(`./i18n/${locale}/languageSelect.json`)).default,
+    ...(await import(`./i18n/${locale}/planet.json`)).default,
   };
 
   return {
