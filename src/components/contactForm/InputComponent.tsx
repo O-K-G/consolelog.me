@@ -4,6 +4,7 @@ import { handleA11y1000FirstNumbers } from '@utils/handleA11y1000FirstNumbers';
 import type { InputComponentProps } from '@constants/interfaces';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
+import DOMPurify from 'dompurify';
 
 export default function InputComponent({
   component: Component = 'input',
@@ -63,7 +64,7 @@ export default function InputComponent({
           <Component
             type='text'
             onChange={({ target: { value } }) => {
-              setValue(value);
+              setValue(DOMPurify.sanitize(value));
               onChange?.();
             }}
             onClick={onClick}

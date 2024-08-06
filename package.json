@@ -10,7 +10,10 @@
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
+    "@types/dompurify": "^3.0.5",
     "@types/nodemailer": "^6.4.15",
+    "dompurify": "^3.1.6",
+    "jsdom": "^24.1.1",
     "next": "14.2.5",
     "next-intl": "^3.17.2",
     "nodemailer": "^6.9.13",
