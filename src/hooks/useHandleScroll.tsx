@@ -14,11 +14,13 @@ const KEYS_MAP = [
 const handleDefault = (e: TouchEvent | WheelEvent) => e.preventDefault();
 
 const handleKeys = (e: { key: string; preventDefault: () => void }) => {
-  const { key } = e || {};
+  const { key, target } = (e as KeyboardEvent) || {};
+  const { tagName } = (target as HTMLElement) || {};
 
   if (KEYS_MAP.includes(key)) {
-    e.preventDefault();
-    return false;
+    if (tagName !== 'INPUT' && tagName !== 'TEXTAREA') {
+      e.preventDefault();
+    }
   }
 };
 
