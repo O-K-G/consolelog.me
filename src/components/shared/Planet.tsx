@@ -25,27 +25,15 @@ export default function Planet() {
       currentTopSection as keyof typeof rotationClassNameBySection
     ];
 
-  const sizeAndPositionClassName = {
-    containerPositionClassName:
-      '-bottom-[30%] sm:-bottom-[50%] md:-bottom-[70%] lg:-bottom-[60%] xl:-bottom-[100%] 2xl:-bottom-[100%]',
-    imageSizeClassName:
-      'max-h-[50vh] sm:max-h-[80vh] md:max-h-screen lg:max-h-none lg:max-w-[60dvw] xl:max-w-[90dvw] 2xl:w-[100dvw]',
-  };
-
-  const { containerPositionClassName, imageSizeClassName } =
-    sizeAndPositionClassName;
-
   return (
-    <div
-      className={`h-fit w-fit fixed right-0 left-0 center-elements mx-auto rounded-full ${containerPositionClassName}`}
-    >
+    <div className='h-fit w-fit fixed right-0 left-0 bottom-0 translate-y-[60%] center-elements mx-auto rounded-full'>
       <div
         className={`size-full center-elements transition-1000 before:absolute before:-z-10 before:size-full before:rounded-full before:blur-lg before:-translate-y-[5%] before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] before:from-[#00B1FF] before:to-transparent ${
           rotationClasses || ''
         }`}
       >
         <img
-          className={`rounded-full ${imageSizeClassName}`}
+          className='rounded-full max-h-[50svh] sm:max-h-[80svh] md:max-h-[100svh] lg:max-h-none lg:max-w-[70dvw] xl:max-w-[70dvw] 2xl:w-[100dvw]'
           alt={t('alt')}
           src={`/images/planet.webp?cacheVersion=${CACHE_VERSION}`}
         />
