@@ -25,9 +25,13 @@ export async function middleware(request: NextRequest) {
 
   const noNoncePrevEnv = isPrevEnv ? `${ALLOWED_DOMAINS} 'unsafe-inline'` : '';
 
+  /** Backwards compatibility at script-src: 'unsafe inline' is ignored if there's a nonce or hash in CSP2+.
+   * It's also ignored in CSP3 if there's 'strict-dynamic'.
+   * http: and https: are also ignored in CSP3+ if there's 'strict-dynamic'. */
+
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' ${
+    script-src 'self' 'unsafe-inline' http: https: 'nonce-${nonce}' ${
     isPrevEnv ? '' : 'strict-dynamic'
   } ${devEnv} ${noNoncePrevEnv};
     style-src 'self' ${prevEnv};
