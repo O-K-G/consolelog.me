@@ -6,13 +6,11 @@ import { AppContext as appContext } from '@components/shared/AppContext';
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { TAILWIND_SIZES } from '@constants/imagesConfig';
 
 export default function Planet() {
   const { currentTopSection } = useContext(appContext);
   const { locale } = useParams() || {};
   const t = useTranslations('planet');
-  const SUFFIX = `.webp?cacheVersion=${CACHE_VERSION}`;
   const dir =
     DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE];
   const isLtr = dir === 'ltr';
@@ -41,24 +39,17 @@ export default function Planet() {
     <div
       className={`h-fit w-fit fixed right-0 left-0 center-elements mx-auto rounded-full ${containerPositionClassName}`}
     >
-      <picture
+      <div
         className={`size-full center-elements transition-1000 before:absolute before:-z-10 before:size-full before:rounded-full before:blur-lg before:-translate-y-[5%] before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] before:from-[#00B1FF] before:to-transparent ${
           rotationClasses || ''
         }`}
       >
-        {TAILWIND_SIZES.map(({ twClassName, pxResolution }) => (
-          <source
-            key={`planet-tw-class-${twClassName}`}
-            srcSet={`/images/planet-${twClassName}${SUFFIX}`}
-            media={`(max-width: ${pxResolution}px)`}
-          />
-        ))}
         <img
           className={`rounded-full ${imageSizeClassName}`}
           alt={t('alt')}
-          src={`/images/planet-2xl${SUFFIX}`}
+          src={`/images/planet.webp?cacheVersion=${CACHE_VERSION}`}
         />
-      </picture>
+      </div>
     </div>
   );
 }
