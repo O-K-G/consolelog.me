@@ -1,9 +1,5 @@
 import createIntlMiddleware from 'next-intl/middleware';
-import {
-  type NextFetchEvent,
-  type NextRequest,
-  NextResponse,
-} from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 const intlMiddleware = createIntlMiddleware({
   locales: ['en', 'he'],
@@ -13,7 +9,7 @@ const intlMiddleware = createIntlMiddleware({
 const ALLOWED_DOMAINS =
   '*.vercel.live vercel.live *.vercel.com vercel.com *.pusher.com pusher.com wss://*.pusher.com wss://pusher.com';
 
-export async function middleware(request: NextRequest, event: NextFetchEvent) {
+export async function middleware(request: NextRequest) {
   const intlResponse = intlMiddleware(request);
 
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
@@ -31,12 +27,13 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
 
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' ${devEnv};
+    script-src 'self' 'nonce-${nonce}' ${
+    isPrevEnv ? '' : 'strict-dynamic'
+  } ${devEnv} ${noNoncePrevEnv};
     style-src 'self' ${prevEnv};
     img-src 'self' blob: data: ${noNoncePrevEnv};
     font-src 'self';
     connect-src 'self' ${prevEnv};
-    script-src-elem 'self' ${prevEnv};
     frame-src 'self' ${prevEnv};
     object-src 'none';
     base-uri 'self';
