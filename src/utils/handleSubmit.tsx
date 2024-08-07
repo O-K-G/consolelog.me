@@ -6,6 +6,8 @@ import { JSDOM } from 'jsdom';
 import DOMPurify from 'dompurify';
 
 export async function handleSubmit(formData: FormData) {
+  const fields = { dir: '', email: '', subject: '', content: '' };
+
   const handleSanitation = (val: string) => {
     const win = new JSDOM('').window;
     const purify = DOMPurify(win);
@@ -13,10 +15,14 @@ export async function handleSubmit(formData: FormData) {
     return purify.sanitize(val);
   };
 
-  const dir = handleSanitation(formData.get('dir') as string);
-  const email = handleSanitation(formData.get('email') as string);
-  const subject = handleSanitation(formData.get('subject') as string);
-  const content = handleSanitation(formData.get('content') as string);
+  Object.keys(fields).map(
+    (key: string) =>
+      (fields[key as keyof typeof fields] = handleSanitation(
+        formData.get(key) as string
+      ))
+  );
+
+  const { dir, email, subject, content } = fields;
   const { isValidated } = formValidation({ email, subject, content });
 
   if (!isValidated) {
