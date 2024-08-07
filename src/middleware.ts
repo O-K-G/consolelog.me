@@ -51,6 +51,12 @@ export async function middleware(request: NextRequest) {
 
   const response = intlResponse || NextResponse.next();
   response.headers.set('x-nonce', nonce);
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('Referrer-Policy', 'no-referrer');
+  response.headers.set(
+    'Permissions-Policy',
+    'camera=(), microphone=(), geolocation=()'
+  );
   response.headers.set(
     'Content-Security-Policy',
     contentSecurityPolicyHeaderValue
