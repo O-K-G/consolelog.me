@@ -11,8 +11,7 @@ export default function Title({
   bottomLabel,
 }: MainTitleProps) {
   const selectedVariantClassName = {
-    mainTitle:
-      'text-transparent font-just-in-the-firestorm purple-text-stroke text-base sm:text-2xl md:text-3xl lg:text-4xl',
+    mainTitle: 'text-transparent main-title-font-classes purple-text-stroke',
     subtitle: 'text-white font-bebas-neue text-2xl sm:text-5xl xl:text-7xl',
   };
 

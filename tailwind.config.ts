@@ -71,6 +71,7 @@ const config: Config = {
         'star-date-81316': ['var(--font-star-date-81316)'],
         'bebas-neue': ['var(--font-bebas-neue)'],
         montserrat: ['var(--font-montserrat)'],
+        'stop-motion': ['var(--font-stop-motion)'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

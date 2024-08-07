@@ -1,32 +1,12 @@
-import type { Metadata, Viewport } from 'next';
 import '@locale/globals.css';
-import localFont from 'next/font/local';
+import type { Metadata, Viewport } from 'next';
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
+import handleFontsByLocale from '@utils/handleFontsByLocale';
 
-const bebasNeue = localFont({
-  src: '../../../public/fonts/Bebas_Neue/BebasNeue-Regular.ttf',
-  variable: '--font-bebas-neue',
-});
-
-const montserrat = localFont({
-  src: '../../../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf',
-  variable: '--font-montserrat',
-});
-
-/** https://www.fontspace.com/just-in-the-firestorm-font-f31017 */
-const justInTheFirestormRegular = localFont({
-  src: '../../../public/fonts/JustInTheFirestormRegular-z291.ttf',
-  variable: '--font-just-in-the-firestorm',
-});
-
-/** https://www.fontspace.com/stardate-81316-font-f28430  */
-const starDate81316 = localFont({
-  src: '../../../public/fonts/Stardate81316-aolE.ttf',
-  variable: '--font-star-date-81316',
-});
+const { fontsByLocale } = handleFontsByLocale();
 
 // TODO: Set metadada.
 
@@ -64,17 +44,25 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
-  const className = `${justInTheFirestormRegular.variable} ${starDate81316.variable} ${bebasNeue.variable} ${montserrat.variable}`;
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
+
+  const { mainTitle, borderTitle, infoText, regularText } =
+    fontsByLocale[selectedLocale as keyof typeof fontsByLocale];
+
   const dir =
-    DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE] ||
-    'ltr';
+    DIRECTION_BY_LANGUAGE[
+      selectedLocale as keyof typeof DIRECTION_BY_LANGUAGE
+    ] || 'ltr';
 
   return (
     <html dir={dir} lang={selectedLocale}>
       <NextIntlClientProvider messages={messages}>
-        <body className={className}>{children}</body>
+        <body
+          className={`${mainTitle} ${borderTitle} ${infoText} ${regularText}`}
+        >
+          {children}
+        </body>
       </NextIntlClientProvider>
     </html>
   );
