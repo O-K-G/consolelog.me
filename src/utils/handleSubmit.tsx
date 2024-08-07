@@ -16,7 +16,7 @@ export async function handleSubmit(formData: FormData) {
   };
 
   Object.keys(fields).map(
-    (key: string) =>
+    (key) =>
       (fields[key as keyof typeof fields] = handleSanitation(
         formData.get(key) as string
       ))
