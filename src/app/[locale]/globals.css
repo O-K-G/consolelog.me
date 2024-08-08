@@ -109,8 +109,12 @@ body {
     @apply w-full h-[100cqw] md:w-[100cqh] md:h-full lg:w-3/4 lg:h-full;
   }
 
-  .closed-expandable-button {
+  .closed-expandable-button:lang(en) {
     @apply text-sm sm:text-2xl sm:!leading-[3.5rem] md:text-4xl text-transparent title-text-stroke-white animate-collapse-button font-just-in-the-firestorm uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)];
+  }
+
+  .closed-expandable-button:lang(he) {
+    @apply text-lg sm:text-3xl md:text-4xl sm:!leading-[3.5rem] text-transparent title-text-stroke-white animate-collapse-button font-stop-motion tracking-wider uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)];
   }
 
   .closed-expandable-button-focus {
