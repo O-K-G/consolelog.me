@@ -18,6 +18,7 @@ export default function InputComponent({
   bottomSlot,
   isReset,
   onClick,
+  label,
   placeholderFontClassName = 'placeholder:info-text-font-classNames',
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
@@ -55,9 +56,9 @@ export default function InputComponent({
       <div className='flex items-center justify-start sm:justify-end sm:mt-1.5 sm:w-2/12 md:w-3/12 md:max-w-24'>
         <label
           htmlFor={id}
-          className='uppercase info-text-font-classNames text-sm sm:text-3xl'
+          className='uppercase info-text-font-classNames text-sm sm:text-3xl w-12 sm:w-24'
         >
-          {id}:
+          {label}:
         </label>
       </div>
       <div className='center-elements flex-col w-full'>

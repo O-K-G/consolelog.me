@@ -105,6 +105,7 @@ export interface InputComponentProps {
   bottomSlot?: ReactNode;
   isReset?: boolean;
   placeholderFontClassName?: string;
+  label: string;
 }
 
 export interface IconsProps {

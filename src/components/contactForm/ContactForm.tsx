@@ -8,6 +8,7 @@ import ProgressIndicators from '@components/contactForm/ProgressIndicators';
 import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
 import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
 import { ModalContext as modalContext } from '@components/shared/ModalContext';
+import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import {
@@ -21,6 +22,10 @@ import {
   BASE_STATUS_CODES,
 } from '@constants/interfaces';
 
+const EMAIL_ID = 'email';
+const SUBJECT_ID = 'subject';
+const CONTENT_ID = 'content';
+
 export default function ContactForm() {
   const { locale } = useParams() || {};
   const direction =
@@ -29,13 +34,14 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);
   const { onModalContentChange: setModalContent } = useContext(modalContext);
+  const t = useTranslations('contact');
 
   const handleValidation = async (formData: FormData) => {
     formData.append('dir', dir);
 
     const { isValidated, error } = formValidation({
-      email: formData.get('email') as string,
-      subject: formData.get('subject') as string,
+      email: formData.get(EMAIL_ID) as string,
+      subject: formData.get(SUBJECT_ID) as string,
       content: formData.get('content') as string,
     });
 
@@ -101,26 +107,29 @@ export default function ContactForm() {
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
         {[
           {
-            id: 'email',
-            placeholder: 'EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM',
+            id: EMAIL_ID,
+            label: t('emailLabel'),
+            placeholder: t('emailPlaceholder'),
             maxLength: CONTACT_FORM_EMAIL_MAX_LENGTH,
-            onChange: () => handleOnChange('email'),
+            onChange: () => handleOnChange(EMAIL_ID),
             onClick: handleOnClick,
-            isError: fieldError('email'),
+            isError: fieldError(EMAIL_ID),
             placeholderFontClassName: 'placeholder:font-bebas-neue',
           },
           {
-            id: 'subject',
-            placeholder: 'SUBJECT',
+            id: SUBJECT_ID,
+            label: t('subjectLabel'),
+            placeholder: t('subjectPlaceholder'),
             minLength: CONTACT_FORM_SUBJECT_MIN_LENGTH,
             maxLength: CONTACT_FORM_SUBJECT_MAX_LENGTH,
-            onChange: () => handleOnChange('subject'),
+            onChange: () => handleOnChange(SUBJECT_ID),
             onClick: handleOnClick,
-            isError: fieldError('subject'),
+            isError: fieldError(SUBJECT_ID),
           },
           {
-            id: 'content',
-            placeholder: 'YOUR MESSAGE',
+            id: CONTENT_ID,
+            label: t('contentLabel'),
+            placeholder: t('contentPlaceholder'),
             minLength: CONTACT_FORM_CONTENT_MIN_LENGTH,
             maxLength: CONTACT_FORM_CONTENT_MAX_LENGTH,
             rows: 5,
@@ -141,13 +150,14 @@ export default function ContactForm() {
                 leftSlot={<ProgressIndicators isMessageSent={isMessageSent} />}
               />
             ),
-            onChange: () => handleOnChange('content'),
+            onChange: () => handleOnChange(CONTENT_ID),
             onClick: handleOnClick,
-            isError: fieldError('content'),
+            isError: fieldError(CONTENT_ID),
           },
         ].map(
           ({
             id,
+            label,
             placeholder,
             minLength,
             maxLength,
@@ -162,6 +172,7 @@ export default function ContactForm() {
             <InputComponent
               key={`input-component-${id}`}
               id={id}
+              label={label}
               isReset={isMessageSent}
               placeholder={placeholder}
               minLength={minLength}

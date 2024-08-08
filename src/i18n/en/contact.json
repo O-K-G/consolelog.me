@@ -1,1 +1,12 @@
-{ "contact": { "mainTitle": "contact me", "goBack": "< GO BACK" } }
+{
+  "contact": {
+    "mainTitle": "contact me",
+    "goBack": "< GO BACK",
+    "emailPlaceholder": "EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM",
+    "subjectPlaceholder": "SUBJECT",
+    "contentPlaceholder": "YOUR MESSAGE",
+    "emailLabel": "EMAIL",
+    "subjectLabel": "SUBJECT",
+    "contentLabel": "CONTENT"
+  }
+}
