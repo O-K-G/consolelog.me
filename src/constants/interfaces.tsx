@@ -239,7 +239,7 @@ export interface MainTitleProps {
   variant?: 'mainTitle' | 'subtitle';
   topLabel?: string;
   bottomLabel?: string;
-  subtitleFont?: string;
+  subtitleFontClassName?: string;
 }
 
 export interface BorderProps {

@@ -16,7 +16,7 @@ export default function Projects() {
       <Title border>{t('mainTitle')}</Title>
       <ScrollableSubsection>
         <ScrollableSubsection.Item>
-          <Title variant='subtitle' subtitleFont='font-bebas-neue'>
+          <Title variant='subtitle' subtitleFontClassName='font-bebas-neue'>
             This Webpage
           </Title>
           <ExpandableButton alternativeLabel="This webpage is a personal just for fun project I've made for myself as a hobby" />
