@@ -1,1 +1,12 @@
-{ "contact": { "mainTitle": "יצירת קשר", "goBack": "< אחורה" } }
+{
+  "contact": {
+    "mainTitle": "יצירת קשר",
+    "goBack": "< אחורה",
+    "emailPlaceholder": "EMAILADDRESS@YOUR-EMAIL-DOMAIN.COM",
+    "subjectPlaceholder": "נושא",
+    "contentPlaceholder": "ההודעה שלך",
+    "emailLabel": "אימייל",
+    "subjectLabel": "נושא",
+    "contentLabel": "תוכן"
+  }
+}
