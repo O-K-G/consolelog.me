@@ -55,20 +55,16 @@ body {
     @apply font-stop-motion tracking-wider text-2xl sm:text-3xl md:text-5xl md:tracking-normal;
   }
 
-  .contact-go-button-font-classNames:lang(en) {
+  .info-text-font-classNames:lang(en) {
     @apply font-bebas-neue;
+  }
+
+  .info-text-font-classNames:lang(he) {
+    @apply font-sans font-bold;
   }
 
   .contact-go-button-font-classNames:lang(he) {
     @apply font-sans font-bold leading-[1rem] sm:leading-5 md:leading-8;
-  }
-
-  .error-font-classNames:lang(en) {
-    @apply font-bebas-neue;
-  }
-
-  .error-font-classNames:lang(he) {
-    @apply font-sans font-bold;
   }
 
   .purple-text-stroke {

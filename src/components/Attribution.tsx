@@ -13,7 +13,10 @@ function AttributionContent() {
   const { figmaAttribution, ccbyLicense } = URLs;
 
   return (
-    <div className='flex flex-col justify-start items-center min-w-[100svw] max-w-[100svw] sm:min-w-[50svw] sm:max-w-[50svw] md:min-w-[20dvw] md:min-h-[20dvw] lg:min-w-[10dvw] lg:min-h-[10dvw] bg-black text-white p-4 lg:cursor-default'>
+    <div
+      dir='ltr'
+      className='flex flex-col justify-start items-center min-w-[100svw] max-w-[100svw] sm:min-w-[50svw] sm:max-w-[50svw] md:min-w-[20dvw] md:min-h-[20dvw] lg:min-w-[10dvw] lg:min-h-[10dvw] bg-black text-white p-4 lg:cursor-default'
+    >
       <DialogTitle
         className='text-xl'
         label={t('title')}

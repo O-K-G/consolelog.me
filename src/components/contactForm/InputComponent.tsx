@@ -18,6 +18,7 @@ export default function InputComponent({
   bottomSlot,
   isReset,
   onClick,
+  placeholderFontClassName = 'placeholder:info-text-font-classNames',
 }: InputComponentProps) {
   const isTextarea = Component === 'textarea';
   const [value, setValue] = useState('');
@@ -54,7 +55,7 @@ export default function InputComponent({
       <div className='flex items-center justify-start sm:justify-end sm:mt-1.5 sm:w-2/12 md:w-3/12 md:max-w-24'>
         <label
           htmlFor={id}
-          className='uppercase font-bebas-neue text-sm sm:text-3xl'
+          className='uppercase info-text-font-classNames text-sm sm:text-3xl'
         >
           {id}:
         </label>
@@ -74,7 +75,7 @@ export default function InputComponent({
             aria-label={ariaLabel}
             id={id}
             name={id}
-            className={`w-full placeholder:uppercase text-sm sm:text-xl placeholder:text-white/30 font-montserrat placeholder:font-bebas-neue outline-none ${
+            className={`w-full placeholder:uppercase text-sm sm:text-xl placeholder:text-white/30 font-montserrat outline-none ${placeholderFontClassName} ${
               !isTextarea
                 ? 'h-[3.188rem] px-2 sm:px-4'
                 : 'p-2 sm:p-4 resize-none'

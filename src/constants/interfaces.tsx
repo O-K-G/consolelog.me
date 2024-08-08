@@ -104,6 +104,7 @@ export interface InputComponentProps {
   isError?: boolean;
   bottomSlot?: ReactNode;
   isReset?: boolean;
+  placeholderFontClassName?: string;
 }
 
 export interface IconsProps {
@@ -238,6 +239,7 @@ export interface MainTitleProps {
   variant?: 'mainTitle' | 'subtitle';
   topLabel?: string;
   bottomLabel?: string;
+  subtitleFontClassName?: string;
 }
 
 export interface BorderProps {

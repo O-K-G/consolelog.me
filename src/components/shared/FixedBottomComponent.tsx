@@ -10,7 +10,7 @@ export default function FixedBottomComponent({
     <div
       className={`fixed bottom-0 mb-4 center-elements flex-col ${className}`}
     >
-      <div className='uppercase whitespace-nowrap text-title-purple text-base md:text-xl lg:text-2xl text-center w-full font-bebas-neue'>
+      <div className='uppercase whitespace-nowrap text-title-purple text-base md:text-xl lg:text-2xl text-center w-full info-text-font-classNames'>
         {label}
       </div>
       {children ?? (

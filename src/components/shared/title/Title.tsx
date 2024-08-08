@@ -9,10 +9,11 @@ export default function Title({
   variant = 'mainTitle',
   topLabel,
   bottomLabel,
+  subtitleFontClassName = 'info-text-font-classNames',
 }: MainTitleProps) {
   const selectedVariantClassName = {
     mainTitle: 'text-transparent main-title-font-classNames purple-text-stroke',
-    subtitle: 'text-white font-bebas-neue text-2xl sm:text-5xl xl:text-7xl',
+    subtitle: `text-white text-2xl sm:text-5xl xl:text-7xl ${subtitleFontClassName}`,
   };
 
   return (

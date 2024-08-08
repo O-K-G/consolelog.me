@@ -39,7 +39,7 @@ export default function Error({
           />
           <h2
             aria-hidden
-            className='error-font-classNames text-center text-3xl'
+            className='info-text-font-classNames text-center text-3xl'
           >
             {t('subtitle')}
           </h2>
