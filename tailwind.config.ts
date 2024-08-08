@@ -73,6 +73,7 @@ const config: Config = {
         montserrat: ['var(--font-montserrat)'],
         'stop-motion': ['var(--font-stop-motion)'],
         'karantina-regular': ['var(--font-karantina-regular)'],
+        'varela-round-regular': ['var(--font-varela-round-regular)'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
