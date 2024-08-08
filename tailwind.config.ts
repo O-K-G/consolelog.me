@@ -72,6 +72,7 @@ const config: Config = {
         'bebas-neue': ['var(--font-bebas-neue)'],
         montserrat: ['var(--font-montserrat)'],
         'stop-motion': ['var(--font-stop-motion)'],
+        'karantina-regular': ['var(--font-karantina-regular)'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

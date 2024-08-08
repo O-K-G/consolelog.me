@@ -27,6 +27,11 @@ const stopMotion = localFont({
   variable: '--font-stop-motion',
 });
 
+const karantinaRegular = localFont({
+  src: '../../public/fonts/Karantina/Karantina-Regular.ttf',
+  variable: '--font-karantina-regular',
+});
+
 export default function handleFontsByLocale() {
   const fontsByLocale = {
     en: {
@@ -37,7 +42,7 @@ export default function handleFontsByLocale() {
     },
     he: {
       mainTitle: stopMotion.variable,
-      borderTitle: starDate81316.variable,
+      borderTitle: karantinaRegular.variable,
       infoText: bebasNeue.variable,
       regularText: montserrat.variable,
     },
