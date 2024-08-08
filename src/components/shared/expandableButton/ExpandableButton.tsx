@@ -33,7 +33,7 @@ export default function ExpandableButton({
           aria-label={!open ? t('clickToOpen') : alternativeLabel}
           aria-expanded={open}
           data-open={open}
-          className={`transition-300 border-x border-transparent outline-none overflow-x-hidden overflow-y-auto size-full data-[open=false]:closed-expandable-button data-[open=true]:opened-expandable-button ${
+          className={`transition-300 border-x border-transparent outline-none overflow-x-hidden data-[open=false]:overflow-y-hidden data-[open=true]:overflow-y-auto size-full data-[open=false]:closed-expandable-button data-[open=true]:opened-expandable-button data-[open=true]:regular-text-font-by-locale ${
             !isAnimationEnd
               ? ''
               : 'data-[open=true]:border-white data-[open=false]:closed-expandable-button-focus'

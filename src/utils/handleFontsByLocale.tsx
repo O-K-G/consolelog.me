@@ -32,6 +32,11 @@ const karantinaRegular = localFont({
   variable: '--font-karantina-regular',
 });
 
+const varelaRound = localFont({
+  src: '../../public/fonts/Varela_Round/VarelaRound-Regular.ttf',
+  variable: '--font-varela-round-regular',
+});
+
 export default function handleFontsByLocale() {
   const fontsByLocale = {
     en: {
@@ -44,7 +49,7 @@ export default function handleFontsByLocale() {
       mainTitle: stopMotion.variable,
       borderTitle: karantinaRegular.variable,
       infoText: bebasNeue.variable,
-      regularText: montserrat.variable,
+      regularText: varelaRound.variable,
     },
   } as const;
 
