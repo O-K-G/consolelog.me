@@ -55,11 +55,11 @@ body {
     @apply font-stop-motion tracking-wider text-2xl sm:text-3xl md:text-5xl md:tracking-normal;
   }
 
-  .info-text-font-classes:lang(en) {
+  .contact-go-button-font-classNames:lang(en) {
     @apply font-bebas-neue;
   }
 
-  .info-text-font-classes:lang(he) {
+  .contact-go-button-font-classNames:lang(he) {
     @apply font-sans font-bold leading-[1rem] sm:leading-5 md:leading-8;
   }
 
