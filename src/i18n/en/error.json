@@ -1,0 +1,7 @@
+{
+  "error": {
+    "label": "Oops! Something just broke somewhere...",
+    "ariaLabel": "Click to try and refresh",
+    "subtitle": "Click the button to try and refresh"
+  }
+}
