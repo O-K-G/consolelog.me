@@ -26,7 +26,7 @@ export default function Planet() {
     ];
 
   return (
-    <div className='h-fit w-fit fixed right-0 left-0 bottom-0 translate-y-[60%] center-elements mx-auto rounded-full'>
+    <div className='h-fit w-fit fixed right-0 left-0 bottom-0 translate-y-[65%] center-elements mx-auto rounded-full'>
       <div
         className={`size-full center-elements transition-1000 before:absolute before:-z-10 before:size-full before:rounded-full before:blur-lg before:-translate-y-[5%] before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] before:from-[#00B1FF] before:to-transparent ${
           rotationClasses || ''

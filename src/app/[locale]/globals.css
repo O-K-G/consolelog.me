@@ -68,7 +68,7 @@ body {
   }
 
   .border-font-classNames:lang(en) {
-    @apply font-star-date-81316 sm:pt-[0.1rem] text-[135%] leading-[135%] md:text-[130%] md:leading-[130%];
+    @apply font-star-date-81316 pt-[0.1rem] text-[135%] leading-[135%] md:text-[130%] md:leading-[130%];
   }
 
   .border-font-classNames:lang(he) {
