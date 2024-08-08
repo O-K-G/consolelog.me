@@ -75,6 +75,14 @@ body {
     @apply font-karantina-regular pb-0.5 text-[130%] leading-[130%] md:text-[140%] md:leading-[140%];
   }
 
+  .regular-text-font-by-locale:lang(en) {
+    @apply font-montserrat;
+  }
+
+  .regular-text-font-by-locale:lang(he) {
+    @apply font-varela-round-regular;
+  }
+
   .purple-text-stroke {
     -webkit-text-stroke: 0.125rem #ceb7ff;
   }
@@ -122,6 +130,6 @@ body {
   }
 
   .opened-expandable-button {
-    @apply text-white font-montserrat text-base text-center sm:text-xl p-2 focus:bg-black/50 animate-expand-button;
+    @apply text-white text-base text-center sm:text-xl p-2 focus:bg-black/50 animate-expand-button;
   }
 }

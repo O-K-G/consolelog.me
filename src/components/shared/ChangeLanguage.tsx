@@ -46,7 +46,7 @@ function LanguagesList() {
   const { onCloseModal } = useContext(modalContext);
 
   return (
-    <div className='bg-black/70 pb-4 text-white w-svw sm:w-[50svw] md:w-[25svw] center-elements flex-col font-montserrat'>
+    <div className='bg-black/70 pb-4 text-white w-svw sm:w-[50svw] md:w-[25svw] center-elements flex-col regular-text-font-by-locale'>
       <DialogTitle
         className='text-xl'
         label={t('changeLanguage')}

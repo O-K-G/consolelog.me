@@ -14,7 +14,7 @@ export default function ErrorDialogMeesage({ details }: { details: string }) {
       <DialogTitle label={t('error')} onClick={onCloseModal} />
       <p
         role='alert'
-        className='font-montserrat pb-4 w-full h-1/2 flex items-start lg:items-center justify-start text-center overflow-auto'
+        className='regular-text-font-by-locale pb-4 w-full h-1/2 flex items-start lg:items-center justify-start text-center overflow-auto'
       >
         {t('errorMessage')}
       </p>
