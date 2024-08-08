@@ -37,7 +37,10 @@ export default function Error({
               <ProgressIcon className='size-full animate-spin fill-title-purple group-hover:fill-[#75629f] group-active:fill-white group-focus:fill-red-300 stroke-title-purple group-hover:stroke-[#75629f] group-active:stroke-white group-focus:stroke-red-300' />
             }
           />
-          <h2 aria-hidden className='font-bebas-neue text-center text-3xl'>
+          <h2
+            aria-hidden
+            className='error-font-classNames text-center text-3xl'
+          >
             {t('subtitle')}
           </h2>
         </div>

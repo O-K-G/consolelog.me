@@ -47,11 +47,11 @@ body {
 }
 
 @layer components {
-  .main-title-font-classes:lang(en) {
+  .main-title-font-classNames:lang(en) {
     @apply font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl;
   }
 
-  .main-title-font-classes:lang(he) {
+  .main-title-font-classNames:lang(he) {
     @apply font-stop-motion tracking-wider text-2xl sm:text-3xl md:text-5xl md:tracking-normal;
   }
 
@@ -61,6 +61,14 @@ body {
 
   .contact-go-button-font-classNames:lang(he) {
     @apply font-sans font-bold leading-[1rem] sm:leading-5 md:leading-8;
+  }
+
+  .error-font-classNames:lang(en) {
+    @apply font-bebas-neue;
+  }
+
+  .error-font-classNames:lang(he) {
+    @apply font-sans font-bold;
   }
 
   .purple-text-stroke {
