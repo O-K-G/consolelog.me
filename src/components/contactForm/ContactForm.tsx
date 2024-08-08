@@ -107,6 +107,7 @@ export default function ContactForm() {
             onChange: () => handleOnChange('email'),
             onClick: handleOnClick,
             isError: fieldError('email'),
+            placeholderFontClassName: 'placeholder:font-bebas-neue',
           },
           {
             id: 'subject',
@@ -153,6 +154,7 @@ export default function ContactForm() {
             rows,
             component,
             bottomSlot,
+            placeholderFontClassName,
             onChange,
             onClick,
             isError,
@@ -170,6 +172,7 @@ export default function ContactForm() {
               onChange={onChange}
               onClick={onClick}
               isError={isError}
+              placeholderFontClassName={placeholderFontClassName}
             />
           )
         )}

@@ -33,7 +33,7 @@ export default function ProgressIndicators({
 
       <div
         aria-hidden
-        className={`absolute top-0 bottom-0 left-0 rtl:right-0 my-auto transition-300 uppercase text-white h-full flex items-center justify-start font-bebas-neue text-lg md:text-2xl sm:text-3xl ${
+        className={`absolute top-0 bottom-0 left-0 rtl:right-0 my-auto transition-300 uppercase text-white h-full flex items-center justify-start info-text-font-classNames text-lg md:text-2xl sm:text-3xl ${
           !isMessageSent ? 'opacity-0 -z-10' : 'opacity-100'
         }`}
       >

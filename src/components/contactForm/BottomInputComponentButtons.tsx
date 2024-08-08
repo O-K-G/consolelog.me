@@ -25,7 +25,7 @@ export default function BottomInputComponentButtons({
           disabled={isBusy}
           type='submit'
           onClick={onSubmit}
-          className={`relative h-full p-2 before:-z-10 before:size-full before:absolute before:hover:bg-black/70 before:active:bg-black/70 before:focus:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full font-bebas-neue text-xl sm:text-3xl uppercase active:text-white outline-none ${
+          className={`relative h-full p-2 before:-z-10 before:size-full before:absolute before:hover:bg-black/70 before:active:bg-black/70 before:focus:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full info-text-font-classNames text-xl sm:text-3xl uppercase active:text-white outline-none ${
             isBusy
               ? 'text-white opacity-50 before:hidden cursor-not-allowed'
               : 'hover:text-title-purple focus:text-title-purple'
