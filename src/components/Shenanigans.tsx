@@ -1,11 +1,9 @@
-import { Handjet } from 'next/font/google';
 import { useTranslations } from 'next-intl';
 import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
 import { useContext, type MouseEventHandler, type ReactNode } from 'react';
 
 const COMPONENT_ID = 'shenanigans-id';
-const handjet = Handjet({ subsets: ['latin'] });
 
 function OldschoolButton({
   children,
@@ -52,9 +50,7 @@ function ShenanigansComponent() {
       role='presentation'
       className='bg-[#4cae9a] lg:cursor-crosshair h-screen w-screen fixed top-0 left-0 center-elements'
     >
-      <div
-        className={`flex flex-col justify-start items-center border-2 border-t-white border-l-white border-r-gray-600 border-b-gray-600 bg-[#b4b3b3] text-black lg:cursor-default ${handjet.className}`}
-      >
+      <div className='flex flex-col justify-start items-center border-2 border-t-white border-l-white border-r-gray-600 border-b-gray-600 bg-[#b4b3b3] text-black lg:cursor-default font-handjet'>
         <DialogTitle
           className='text-xl bg-gray-600 text-white px-4'
           label={t('mainTitle')}

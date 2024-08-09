@@ -75,6 +75,7 @@ const config: Config = {
         'stop-motion': ['var(--font-stop-motion)'],
         'karantina-regular': ['var(--font-karantina-regular)'],
         'varela-round-regular': ['var(--font-varela-round-regular)'],
+        handjet: ['var(--font-handjet)'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
