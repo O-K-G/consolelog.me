@@ -14,7 +14,11 @@ export default function Border({
       <div
         className={`size-full border-[1.5px] border-title-purple drop-shadow-border-purple-glow ${className}`}
       />
-      <span className='border-font-classNames'>{rightLabel ?? leftLabel}</span>
+      {(rightLabel ?? leftLabel) && (
+        <span className='border-font-classNames'>
+          {rightLabel ?? leftLabel}
+        </span>
+      )}
     </div>
   );
 }
