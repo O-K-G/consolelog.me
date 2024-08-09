@@ -47,7 +47,7 @@ export default async function RootLayout({
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
 
-  const { mainTitle, borderTitle, infoText, regularText } =
+  const { mainTitle, borderTitle, infoText, regularText, shenanigansText } =
     fontsByLocale[selectedLocale as keyof typeof fontsByLocale];
 
   const dir =
@@ -59,7 +59,7 @@ export default async function RootLayout({
     <html dir={dir} lang={selectedLocale}>
       <NextIntlClientProvider messages={messages}>
         <body
-          className={`${mainTitle} ${borderTitle} ${infoText} ${regularText}`}
+          className={`has-[dialog[data-open=true]]:overflow-hidden has-[main_aside[data-open=true]]:overflow-hidden ${mainTitle} ${borderTitle} ${infoText} ${regularText} ${shenanigansText}`}
         >
           {children}
         </body>

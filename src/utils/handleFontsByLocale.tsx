@@ -37,6 +37,11 @@ const varelaRound = localFont({
   variable: '--font-varela-round-regular',
 });
 
+const handjet = localFont({
+  src: '../../public/fonts/Handjet/Handjet-VariableFont_ELGR,ELSH,wght.ttf',
+  variable: '--font-handjet',
+});
+
 export default function handleFontsByLocale() {
   const fontsByLocale = {
     en: {
@@ -44,12 +49,14 @@ export default function handleFontsByLocale() {
       borderTitle: starDate81316.variable,
       infoText: bebasNeue.variable,
       regularText: montserrat.variable,
+      shenanigansText: handjet.variable,
     },
     he: {
       mainTitle: stopMotion.variable,
       borderTitle: karantinaRegular.variable,
       infoText: bebasNeue.variable,
       regularText: varelaRound.variable,
+      shenanigansText: handjet.variable,
     },
   } as const;
 

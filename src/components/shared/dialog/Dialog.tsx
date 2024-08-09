@@ -14,6 +14,7 @@ export default function Dialog() {
 
   return (
     <dialog
+      data-open={!!modalContent}
       data-testid={DIALOG_TEST_ID}
       ref={modalRef}
       className='backdrop:hidden lg:cursor-pointer min-h-[100vh] min-w-[100vw] bg-black/50'
