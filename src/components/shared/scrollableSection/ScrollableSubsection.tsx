@@ -10,9 +10,6 @@ import { useTranslations } from 'next-intl';
 export const LEFT_BUTTON_TEST_ID = 'left-button-test-id';
 export const RIGHT_BUTTON_TEST_ID = 'right-button-test-id';
 
-const BUTTONS_CLASSNAME =
-  'z-10 h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30';
-
 export default function ScrollableSubsection({
   children,
 }: {
@@ -52,7 +49,7 @@ export default function ScrollableSubsection({
               });
             }
           }}
-          className={`${BUTTONS_CLASSNAME} left-0 ltr:rotate-180 rtl:rotate-0`}
+          className='scrollable-subsection-buttons left-0 ltr:rotate-180 rtl:rotate-0'
           aria-label={t('scrollLeft')}
           icon={<ArrowIconComponent />}
         />
@@ -85,7 +82,7 @@ export default function ScrollableSubsection({
               });
             }
           }}
-          className={`${BUTTONS_CLASSNAME} right-0 ltr:rotate-0 rtl:rotate-180`}
+          className='scrollable-subsection-buttons right-0 ltr:rotate-0 rtl:rotate-180'
           aria-label={t('scrollRight')}
           icon={<ArrowIconComponent />}
         />

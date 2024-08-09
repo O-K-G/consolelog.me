@@ -4,9 +4,6 @@ import { useTranslations } from 'next-intl';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
 import { URLs } from '@constants/urls';
 
-const ANCHOR_TAG_CLASSNAME =
-  'outline-none focus:bg-white focus:rounded-md text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]';
-
 function AttributionContent() {
   const { onCloseModal } = useContext(modalContext);
   const t = useTranslations('attributionText');
@@ -26,7 +23,7 @@ function AttributionContent() {
         <span className='inline-block'>{t('designBasedOn')}</span>
         <br />
         <a
-          className={ANCHOR_TAG_CLASSNAME}
+          className='attribution-anchor-tag'
           target='_blank'
           rel='noreferrer'
           href={figmaAttribution}
@@ -37,7 +34,7 @@ function AttributionContent() {
         <span className='inline-block'>{t('andUsedUnderThe')}</span>
         &nbsp;
         <a
-          className={ANCHOR_TAG_CLASSNAME}
+          className='attribution-anchor-tag'
           target='_blank'
           rel='noreferrer'
           href={ccbyLicense}
@@ -60,7 +57,7 @@ export default function Attribution() {
   return (
     <button
       type='button'
-      className='z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl'
+      className='z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-title-purple-dark focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl'
       onClick={() => setModalContent(<AttributionContent />)}
     >
       {t('title')}

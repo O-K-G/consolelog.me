@@ -102,7 +102,7 @@ export default function Shenanigans() {
   return (
     <button
       type='button'
-      className='z-10 uppercase outline-none info-text-font-classNames text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl'
+      className='z-10 uppercase outline-none info-text-font-classNames text-white hover:text-title-purple active:text-title-purple-dark focus:text-title-purple text-base sm:text-xl'
       onClick={() => setModalContent(<ShenanigansComponent />)}
     >
       {t('shenanigansButton')}

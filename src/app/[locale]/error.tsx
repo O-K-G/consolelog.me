@@ -34,7 +34,7 @@ export default function Error({
             className='size-24 border border-white rounded-lg'
             aria-label={t('ariaLabel')}
             icon={
-              <ProgressIcon className='size-full animate-spin fill-title-purple group-hover:fill-[#75629f] group-active:fill-white group-focus:fill-red-300 stroke-title-purple group-hover:stroke-[#75629f] group-active:stroke-white group-focus:stroke-red-300' />
+              <ProgressIcon className='size-full animate-spin fill-title-purple group-hover:fill-title-purple-dark group-active:fill-white group-focus:fill-red-300 stroke-title-purple group-hover:stroke-title-purple-dark group-active:stroke-white group-focus:stroke-red-300' />
             }
           />
           <h2

@@ -65,6 +65,7 @@ const config: Config = {
       },
       colors: {
         'title-purple': '#ceb7ff',
+        'title-purple-dark': '#75629f',
       },
       fontFamily: {
         'just-in-the-firestorm': ['var(--font-just-in-the-firestorm)'],
