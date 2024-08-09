@@ -2,7 +2,7 @@
   "inputComponentText": {
     "send": "שליחה",
     "sendingMessage": "שולח הודעה",
-    "messageSent": "ההודעה נשלחה",
+    "messageSent": "נשלח",
     "emailAriaLabelError": "הכתובת אינה תקינה",
     "subjectAriaLabelError": "שורת הנושא ריקה",
     "contentAriaLabelError": "גוף ההודעה ריק",
