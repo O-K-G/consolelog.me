@@ -13,7 +13,7 @@ export default function Contact({ onClick, open }: ContactProps) {
   const t = useTranslations('contact');
 
   return (
-    <Section className='min-h-screen h-screen pt-20 md:pt-10'>
+    <Section className='min-h-screen h-screen pt-20 md:pt-10 overscroll-contain'>
       <SectionBackground currentSection={CURRENT_SECTION} />
       {open && (
         <>

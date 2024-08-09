@@ -4,7 +4,6 @@ import { type RefObject, useEffect, useRef, useState } from 'react';
 import Contact from '@components/byPage/Contact';
 import { usePathname, useParams } from 'next/navigation';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
-import useHandleScroll from '@hooks/useHandleScroll';
 import { useTranslations } from 'next-intl';
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 
@@ -14,16 +13,14 @@ export default function Aside() {
   const pathname = usePathname();
   const asideRef = useRef(null);
   const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
-  const { disableScroll, enableScroll } = useHandleScroll();
   const { locale } = useParams() || {};
 
   useEffect(() => {
     if (open === null && pathname?.includes(`${locale as string}/contact`)) {
-      disableScroll();
       setOpenAtTransitionEnd(true);
       setOpen(true);
     }
-  }, [disableScroll, locale, open, pathname]);
+  }, [locale, open, pathname]);
 
   useEffect(() => {
     const { current } = asideRef as RefObject<HTMLDivElement>;
@@ -47,7 +44,6 @@ export default function Aside() {
 
         if (touchEnd && sensitivityFactor) {
           current?.removeEventListener('touchmove', handleTouchMove);
-          enableScroll();
           setOpen(false);
         }
       };
@@ -69,13 +65,12 @@ export default function Aside() {
 
     return () =>
       current?.removeEventListener('transitionend', handleTransition);
-  }, [enableScroll, locale, open]);
+  }, [locale, open]);
 
   return (
     <>
       <ContactGoBackButton
         onClick={() => {
-          disableScroll();
           setOpenAtTransitionEnd(true);
           setOpen(true);
         }}
@@ -91,13 +86,7 @@ export default function Aside() {
             : 'ltr:left-0 rtl:right-0'
         }`}
       >
-        <Contact
-          open={openAtTransitionEnd}
-          onClick={() => {
-            enableScroll();
-            setOpen(false);
-          }}
-        />
+        <Contact open={openAtTransitionEnd} onClick={() => setOpen(false)} />
       </aside>
     </>
   );
