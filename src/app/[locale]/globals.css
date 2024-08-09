@@ -26,6 +26,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+body:has(main aside[data-open='true']) {
+  overflow: hidden;
+}
+
 @layer utilities {
   .hide-scrollbars {
     scrollbar-width: none;
