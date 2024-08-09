@@ -4,9 +4,6 @@ import { useTranslations } from 'next-intl';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
 import { URLs } from '@constants/urls';
 
-const ANCHOR_TAG_CLASSNAME =
-  'outline-none focus:bg-white focus:rounded-md text-title-purple hover:text-title-purple-dark active:text-black focus:text-title-purple-dark';
-
 function AttributionContent() {
   const { onCloseModal } = useContext(modalContext);
   const t = useTranslations('attributionText');
@@ -26,7 +23,7 @@ function AttributionContent() {
         <span className='inline-block'>{t('designBasedOn')}</span>
         <br />
         <a
-          className={ANCHOR_TAG_CLASSNAME}
+          className='attribution-anchor-tag'
           target='_blank'
           rel='noreferrer'
           href={figmaAttribution}
@@ -37,7 +34,7 @@ function AttributionContent() {
         <span className='inline-block'>{t('andUsedUnderThe')}</span>
         &nbsp;
         <a
-          className={ANCHOR_TAG_CLASSNAME}
+          className='attribution-anchor-tag'
           target='_blank'
           rel='noreferrer'
           href={ccbyLicense}

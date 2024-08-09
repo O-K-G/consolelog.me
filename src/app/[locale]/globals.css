@@ -39,7 +39,35 @@ body {
     -webkit-text-stroke: 0.125rem #ffffff;
   }
 
+  .purple-text-stroke {
+    -webkit-text-stroke: 0.125rem #ceb7ff;
+  }
+
+  .center-elements {
+    @apply flex items-center justify-center;
+  }
+
+  .transition-300 {
+    @apply transition-all ease-in-out duration-300;
+  }
+
+  .transition-1000 {
+    @apply transition-all ease-in-out duration-1000;
+  }
+
+  .clip-path-inset-0 {
+    clip-path: inset(0);
+  }
+
+  .container-type-size {
+    container-type: size;
+  }
+
   @media screen and (max-width: 640px) {
+    .purple-text-stroke {
+      -webkit-text-stroke: 0.07rem #ceb7ff;
+    }
+
     .title-text-stroke-white {
       -webkit-text-stroke: 0.05rem #ffffff;
     }
@@ -83,36 +111,6 @@ body {
     @apply font-varela-round-regular;
   }
 
-  .purple-text-stroke {
-    -webkit-text-stroke: 0.125rem #ceb7ff;
-  }
-
-  .center-elements {
-    @apply flex items-center justify-center;
-  }
-
-  .transition-300 {
-    @apply transition-all ease-in-out duration-300;
-  }
-
-  .transition-1000 {
-    @apply transition-all ease-in-out duration-1000;
-  }
-
-  .clip-path-inset-0 {
-    clip-path: inset(0);
-  }
-
-  .container-type-size {
-    container-type: size;
-  }
-
-  @media screen and (max-width: 640px) {
-    .purple-text-stroke {
-      -webkit-text-stroke: 0.07rem #ceb7ff;
-    }
-  }
-
   .expandable-button-size-container {
     @apply w-full h-[100cqw] md:w-[100cqh] md:h-full lg:w-3/4 lg:h-full;
   }
@@ -131,5 +129,21 @@ body {
 
   .opened-expandable-button {
     @apply text-white text-base text-center sm:text-xl p-2 focus:bg-black/50 animate-expand-button;
+  }
+
+  .side-links-clickable-elements-size {
+    @apply size-8 sm:size-10 md:size-12 lg:size-14 xl:size-16 2xl:h-[4.5rem] 2xl:w-[4.5rem];
+  }
+
+  .side-links-icons {
+    @apply fill-title-purple group-hover:fill-white group-active:fill-title-purple-dark group-focus:fill-title-purple size-full;
+  }
+
+  .attribution-anchor-tag {
+    @apply outline-none focus:bg-white focus:rounded-md text-title-purple hover:text-title-purple-dark active:text-black focus:text-title-purple-dark;
+  }
+
+  .scrollable-subsection-buttons {
+    @apply z-10 h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30;
   }
 }
