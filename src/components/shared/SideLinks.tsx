@@ -9,7 +9,10 @@ export const GH_TEST_ID = 'gh-test';
 export const LI_TEST_ID = 'li-test';
 
 const ICONS_CLASSNAME =
-  'fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple size-full';
+  'fill-title-purple group-hover:fill-white group-active:fill-title-purple-dark group-focus:fill-title-purple size-full';
+
+const SIZE_CLASSNAMES =
+  'size-8 sm:size-10 md:size-12 lg:size-14 xl:size-16 2xl:h-[4.5rem] 2xl:w-[4.5rem]';
 
 function AnchorLink({
   url,
@@ -26,7 +29,7 @@ function AnchorLink({
         aria-label={ariaLabel}
         rel='noreferrer'
         target='_blank'
-        className={`transition-300 hover:scale-150 active:scale-150 focus:scale-150 overflow-hidden size-full center-elements group outline-none ${
+        className={`transition-300 hover:scale-150 active:scale-150 focus:scale-150 overflow-hidden center-elements group outline-none ${SIZE_CLASSNAMES} ${
           !isRounded ? '' : 'rounded-full'
         }`}
       >
@@ -37,7 +40,7 @@ function AnchorLink({
 }
 
 export default function SideLinks({
-  className = 'fixed ltr:left-0 rtl:right-0 top-0 sm:bottom-0 w-16 h-fit mt-[1.35rem] sm:my-auto ltr:ml-4 rtl:mr-4',
+  className = 'fixed ltr:left-0 rtl:right-0 top-0 sm:bottom-0 mt-[1.35rem] sm:my-auto ltr:ml-4 rtl:mr-4',
   ulClassName = 'size-full center-elements sm:flex-col gap-4 sm:gap-10',
   hideChangeLanguageButton,
 }: SideLinksProps) {
@@ -60,8 +63,9 @@ export default function SideLinks({
           icon={<LIIcon className={ICONS_CLASSNAME} />}
         />
         <ChangeLanguage
+          className={SIZE_CLASSNAMES}
+          iconClassName={ICONS_CLASSNAME}
           hide={hideChangeLanguageButton}
-          className={ICONS_CLASSNAME}
         />
       </ul>
     </nav>

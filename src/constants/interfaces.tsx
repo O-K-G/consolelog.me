@@ -275,4 +275,5 @@ export interface SelectLanguageButtonProps {
 export interface ChangeLanguageProps {
   className: string;
   hide?: boolean;
+  iconClassName: string;
 }

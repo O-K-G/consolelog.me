@@ -67,6 +67,7 @@ function LanguagesList() {
 
 export default function ChangeLanguage({
   className,
+  iconClassName,
   hide,
 }: ChangeLanguageProps) {
   const { onModalContentChange: setModalContent } = useContext(modalContext);
@@ -75,9 +76,9 @@ export default function ChangeLanguage({
   if (!hide) {
     return (
       <IconButton
-        className='transition-300 hover:scale-150 active:scale-150 focus:scale-150'
+        className={`transition-300 hover:scale-150 active:scale-150 focus:scale-150 ${className}`}
         onClick={() => setModalContent(<LanguagesList />)}
-        icon={<LanguageIcon className={className} />}
+        icon={<LanguageIcon className={iconClassName} />}
         aria-label={t('changeLanguage')}
       />
     );

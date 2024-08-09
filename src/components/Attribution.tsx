@@ -5,7 +5,7 @@ import DialogTitle from '@components/shared/dialog/DialogTitle';
 import { URLs } from '@constants/urls';
 
 const ANCHOR_TAG_CLASSNAME =
-  'outline-none focus:bg-white focus:rounded-md text-title-purple hover:text-[#75629f] active:text-black focus:text-[#75629f]';
+  'outline-none focus:bg-white focus:rounded-md text-title-purple hover:text-title-purple-dark active:text-black focus:text-title-purple-dark';
 
 function AttributionContent() {
   const { onCloseModal } = useContext(modalContext);
@@ -60,7 +60,7 @@ export default function Attribution() {
   return (
     <button
       type='button'
-      className='z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-[#75629f] focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl'
+      className='z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-title-purple-dark focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl'
       onClick={() => setModalContent(<AttributionContent />)}
     >
       {t('title')}

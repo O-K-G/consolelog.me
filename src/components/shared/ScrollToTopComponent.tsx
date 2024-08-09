@@ -18,12 +18,12 @@ export default function ScrollToTopComponent() {
       label={t('scrollToTop')}
     >
       <IconButton
-        className={` before:focus:absolute before:focus:-top-2 before:focus:h-[125%] before:focus:w-[125%] before:focus:rounded-full before:focus:bg-black/70 before:focus:-z-10 relative p-0.5 flex items-start justify-center rounded-2xl md:rounded-[1.5rem] lg:rounded-full h-12 md:h-14 w-[2.246rem] md:w-[2.808rem] lg:w-[3.369rem] lg:h-16 border-0 border-t-4 md:border-t-[0.3rem] lg:border-t-[0.438rem] border-title-purple hover:border-white active:border-[#75629f] focus:border-title-purple
+        className={` before:focus:absolute before:focus:-top-2 before:focus:h-[125%] before:focus:w-[125%] before:focus:rounded-full before:focus:bg-black/70 before:focus:-z-10 relative p-0.5 flex items-start justify-center rounded-2xl md:rounded-[1.5rem] lg:rounded-full h-12 md:h-14 w-[2.246rem] md:w-[2.808rem] lg:w-[3.369rem] lg:h-16 border-0 border-t-4 md:border-t-[0.3rem] lg:border-t-[0.438rem] border-title-purple hover:border-white active:border-title-purple-dark focus:border-title-purple
           ${isAbout ? 'pointer-events-none select-none' : ''}`}
         aria-label={t('scrollToTop')}
         aria-hidden={isAbout}
         icon={
-          <ArrowUpIcon className='h-5 md:h-7 lg:h-[1.8rem] fill-title-purple group-hover:fill-white group-active:fill-[#75629f] group-focus:fill-title-purple' />
+          <ArrowUpIcon className='h-5 md:h-7 lg:h-[1.8rem] fill-title-purple group-hover:fill-white group-active:fill-title-purple-dark group-focus:fill-title-purple' />
         }
         onClick={() => {
           window.scrollTo({
