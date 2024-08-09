@@ -1,5 +1,12 @@
 The repo for [http://consolelog.me](http://consolelog.me).
 
+### Version 0.9.5 changes
+
+- CSP and additional headers
+- Sanitize user input
+- i18n and language switch
+- Minor visual fixes
+
 ### Version 0.9.0 changes
 
 - Remaining sections
