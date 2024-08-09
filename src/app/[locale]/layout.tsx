@@ -59,7 +59,7 @@ export default async function RootLayout({
     <html dir={dir} lang={selectedLocale}>
       <NextIntlClientProvider messages={messages}>
         <body
-          className={`has-[dialog]:overflow-hidden has-[main_aside[data-open=true]]:overflow-hidden ${mainTitle} ${borderTitle} ${infoText} ${regularText}`}
+          className={`has-[dialog[data-open=true]]:overflow-hidden has-[main_aside[data-open=true]]:overflow-hidden ${mainTitle} ${borderTitle} ${infoText} ${regularText}`}
         >
           {children}
         </body>
