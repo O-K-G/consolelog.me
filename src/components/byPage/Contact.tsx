@@ -13,8 +13,11 @@ export default function Contact({ onClick, open }: ContactProps) {
   const t = useTranslations('contact');
 
   return (
-    <Section className='min-h-screen h-screen pt-20 md:pt-10'>
-      <SectionBackground currentSection={CURRENT_SECTION} />
+    <Section className='min-h-[46.875rem] h-screen pt-20 md:pt-10'>
+      <SectionBackground
+        minHeightClassName='min-h-[46.875rem]'
+        currentSection={CURRENT_SECTION}
+      />
       {open && (
         <>
           <ContactGoBackButton

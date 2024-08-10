@@ -81,7 +81,7 @@ export default function Aside() {
         data-open={open}
         ref={asideRef}
         aria-hidden={!open}
-        className={`z-10 transition-all ease-in-out duration-700 lg:duration-1000 fixed flex items-start justify-start h-screen w-screen top-0 ${
+        className={`z-10 transition-all ease-in-out duration-700 lg:duration-1000 fixed overflow-x-hidden overflow-y-auto flex items-start justify-start h-screen w-screen top-0 ${
           !open
             ? 'ltr:-left-[100vw] rtl:-right-[100vw] size-0 overflow-hidden'
             : 'ltr:left-0 rtl:right-0'

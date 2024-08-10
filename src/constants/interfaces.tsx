@@ -50,6 +50,7 @@ export interface DialogTitleProps {
 
 export interface CurrentSection {
   currentSection?: 'about' | 'projects' | 'skills' | 'experience' | 'contact';
+  minHeightClassName?: string;
 }
 export interface SectionProps extends CurrentSection {
   children: ReactNode;

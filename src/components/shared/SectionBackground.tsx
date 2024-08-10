@@ -8,13 +8,18 @@ import { TAILWIND_SIZES } from '@constants/imagesConfig';
 
 const SUFFIX = `.webp?cacheVersion=${CACHE_VERSION}`;
 
-export default function SectionBackground({ currentSection }: CurrentSection) {
+export default function SectionBackground({
+  currentSection,
+  minHeightClassName = 'min-h-full',
+}: CurrentSection) {
   if (!currentSection) {
     return null;
   }
 
   return (
-    <div className='absolute top-0 left-0 min-h-full h-screen w-screen clip-path-inset-0'>
+    <div
+      className={`absolute top-0 left-0 h-screen w-screen clip-path-inset-0 ${minHeightClassName}`}
+    >
       <picture>
         {TAILWIND_SIZES.map(({ twClassName, pxResolution }) => (
           <source
