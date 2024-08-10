@@ -30,7 +30,7 @@ export default function Section({
     <section
       ref={topSectionRef}
       data-testid={currentSection ? `section-${currentSection}` : null}
-      className={`bg-black flex flex-col items-center justify-start w-full overflow-x-hidden overflow-y-auto px-4 pb-4 ${
+      className={`bg-black flex flex-col items-center justify-start w-full overflow-hidden px-4 pb-4 ${
         className ?? ''
       }`}
     >
