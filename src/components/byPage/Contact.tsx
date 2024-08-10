@@ -13,9 +13,9 @@ export default function Contact({ onClick, open }: ContactProps) {
   const t = useTranslations('contact');
 
   return (
-    <Section className='min-h-[46.875rem] h-screen pt-20 md:pt-10'>
+    <Section className='min-h-[40rem] h-screen pt-20 md:pt-10'>
       <SectionBackground
-        minHeightClassName='min-h-[46.875rem]'
+        minHeightClassName='min-h-[40rem]'
         currentSection={CURRENT_SECTION}
       />
       {open && (
@@ -27,14 +27,12 @@ export default function Contact({ onClick, open }: ContactProps) {
             {t('goBack')}
           </ContactGoBackButton>
           <Title border>{t('mainTitle')}</Title>
-          <div className='center-elements flex-col size-full gap-2 sm:gap-6 lg:gap-4'>
-            <ContactForm />
-            <SideLinks
-              hideChangeLanguageButton
-              className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6'
-              ulClassName='size-full center-elements gap-4'
-            />
-          </div>
+          <ContactForm />
+          <SideLinks
+            hideChangeLanguageButton
+            className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6'
+            ulClassName='size-full center-elements gap-4'
+          />
         </>
       )}
     </Section>
