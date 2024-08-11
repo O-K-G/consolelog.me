@@ -1,8 +1,16 @@
 import type { IconsProps } from '@constants/interfaces';
 
-export default function ProgressIcon({ className = '' }: IconsProps) {
+interface DataLoading {
+  'data-loading': boolean;
+}
+
+export default function ProgressIcon({
+  className = '',
+  'data-loading': dataLoading,
+}: IconsProps & DataLoading) {
   return (
     <svg
+      data-loading={dataLoading}
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 -960 960 960'
       className={`shrink-0 ${className}`}

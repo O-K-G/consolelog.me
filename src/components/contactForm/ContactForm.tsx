@@ -91,11 +91,11 @@ export default function ContactForm() {
     }
   };
 
-  const ltrPaddingClassName =
-    direction === 'ltr' && (dir === 'ltr' ? 'sm:pr-24' : 'sm:pl-36');
+  const isLtr = dir === 'ltr' ? 'sm:pr-24' : 'sm:pl-36';
+  const isRtl = dir === 'rtl' ? 'sm:pl-36' : 'sm:pr-24';
 
-  const rtlPaddingClassName =
-    direction === 'rtl' && (dir === 'rtl' ? 'sm:pl-36' : 'sm:pr-24');
+  const ltrPaddingClassName = direction === 'ltr' ? isLtr : '';
+  const rtlPaddingClassName = direction === 'rtl' ? isRtl : '';
 
   return (
     <form

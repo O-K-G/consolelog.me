@@ -76,7 +76,7 @@ export default function ChangeLanguage({
   if (!hide) {
     return (
       <IconButton
-        className={`transition-300 hover:scale-150 active:scale-150 focus:scale-150 ${className}`}
+        className={`rounded-full transition-300 hover:scale-150 active:scale-150 focus:scale-150 ${className}`}
         onClick={() => setModalContent(<LanguagesList />)}
         icon={<LanguageIcon className={iconClassName} />}
         aria-label={t('changeLanguage')}

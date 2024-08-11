@@ -147,6 +147,14 @@ body {
     @apply z-10 h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30;
   }
 
+  .aside-closed {
+    @apply ltr:-left-[100vw] rtl:-right-[100vw] w-0 data-[open=false]:overflow-y-hidden;
+  }
+
+  .aside-open {
+    @apply ltr:left-0 rtl:right-0 w-screen overflow-y-auto;
+  }
+
   @media screen and (max-width: 768px) {
     .animate-scroll-icon {
       --scroll-icon-top: -0.7rem;
