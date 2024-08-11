@@ -1,13 +1,11 @@
 import type { IconsProps } from '@constants/interfaces';
 
-interface DataLoading {
-  'data-loading': boolean;
-}
-
 export default function ProgressIcon({
   className = '',
   'data-loading': dataLoading,
-}: IconsProps & DataLoading) {
+}: IconsProps & {
+  'data-loading'?: boolean;
+}) {
   return (
     <svg
       data-loading={dataLoading}
