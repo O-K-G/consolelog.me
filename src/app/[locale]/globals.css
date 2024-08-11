@@ -148,11 +148,11 @@ body {
   }
 
   .aside-closed {
-    @apply ltr:-left-[100vw] rtl:-right-[100vw] w-0 overflow-y-hidden;
+    @apply ltr:-left-[100vw] rtl:-right-[100vw] overflow-y-hidden;
   }
 
   .aside-open {
-    @apply ltr:left-0 rtl:right-0 w-screen overflow-y-auto;
+    @apply ltr:left-0 rtl:right-0 overflow-y-auto;
   }
 
   @media screen and (max-width: 768px) {
