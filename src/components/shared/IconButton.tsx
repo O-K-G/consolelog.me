@@ -5,6 +5,7 @@ export default function IconButton({
   disabled,
   'aria-label': ariaLabel,
   'data-testid': dataTestId,
+  'data-pointer-events': dataPointerEvents,
   icon,
   className = '',
   ...rest
@@ -12,6 +13,7 @@ export default function IconButton({
   return (
     <button
       data-testid={dataTestId}
+      data-pointer-events={dataPointerEvents}
       onClick={onClick}
       disabled={disabled}
       type='button'

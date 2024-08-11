@@ -117,10 +117,9 @@ export default function Loader({
 
   return (
     <div
+      data-open={!!(isLoderVisible || open)}
       ref={loaderRef}
-      className={`transition-1000 fixed text-white text-lg center-elements flex-col gap-10 z-50 top-0 left-0 size-full bg-[#111111] ${
-        isLoderVisible || open ? 'opacity-100' : 'opacity-0'
-      }`}
+      className='data-[open=false]:opacity-0 data-[open=true]:opacity-100 transition-1000 fixed text-white text-lg center-elements flex-col gap-10 z-50 top-0 left-0 size-full bg-[#111111]'
     >
       <Cogwheel
         data-testid={LOADER_TEST_ID}

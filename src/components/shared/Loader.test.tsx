@@ -17,7 +17,7 @@ describe('Loader Component - start', () => {
     render(<Loader />);
     const loader = screen.getByTestId(LOADER_TEST_ID);
     expect(loader).toBeInTheDocument();
-    expect(loader.parentElement).toHaveClass('opacity-100');
+    expect(loader.parentElement).toHaveClass('data-[open=true]:opacity-100');
   });
 });
 
@@ -36,7 +36,7 @@ describe('Loader Component - end', () => {
     render(<Loader />);
     const loader = screen.getByTestId(LOADER_TEST_ID);
 
-    expect(loader.parentElement).toHaveClass('opacity-0');
+    expect(loader.parentElement).toHaveClass('data-[open=false]:opacity-0');
   });
 
   it('should remove the loader from the DOM after the transition ends', async () => {

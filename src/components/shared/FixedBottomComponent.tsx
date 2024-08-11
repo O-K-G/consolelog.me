@@ -9,9 +9,8 @@ export default function FixedBottomComponent({
 }: FixedBottomComponentProps) {
   return (
     <div
-      className={`transition-1000 fixed bottom-0 mb-4 center-elements flex-col ${className} ${
-        isTransparent ? 'opacity-0' : ''
-      }`}
+      data-transparent={isTransparent}
+      className={`transition-1000 fixed bottom-0 mb-4 center-elements flex-col data-[transparent=true]:opacity-0 ${className}`}
     >
       <div
         aria-hidden={isTransparent}

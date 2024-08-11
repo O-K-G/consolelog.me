@@ -17,8 +17,8 @@ export default function ScrollToTopComponent() {
       label={t('scrollToTop')}
     >
       <IconButton
-        className={` before:focus:absolute before:focus:-top-2 before:focus:h-[125%] before:focus:w-[125%] before:focus:rounded-full before:focus:bg-black/70 before:focus:-z-10 relative p-0.5 flex items-start justify-center rounded-2xl md:rounded-[1.5rem] lg:rounded-full h-12 md:h-14 w-[2.246rem] md:w-[2.808rem] lg:w-[3.369rem] lg:h-16 border-0 border-t-4 md:border-t-[0.3rem] lg:border-t-[0.438rem] border-title-purple hover:border-white active:border-title-purple-dark focus:border-title-purple
-          ${isAbout ? 'pointer-events-none select-none' : ''}`}
+        data-pointer-events={isAbout}
+        className='data-[pointer-events=true]:pointer-events-none data-[pointer-events=true]:select-none before:focus:absolute before:focus:-top-2 before:focus:h-[125%] before:focus:w-[125%] before:focus:rounded-full before:focus:bg-black/70 before:focus:-z-10 relative p-0.5 flex items-start justify-center rounded-2xl md:rounded-[1.5rem] lg:rounded-full h-12 md:h-14 w-[2.246rem] md:w-[2.808rem] lg:w-[3.369rem] lg:h-16 border-0 border-t-4 md:border-t-[0.3rem] lg:border-t-[0.438rem] border-title-purple hover:border-white active:border-title-purple-dark focus:border-title-purple'
         aria-label={t('scrollToTop')}
         aria-hidden={isAbout}
         icon={

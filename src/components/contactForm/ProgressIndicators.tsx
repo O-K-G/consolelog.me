@@ -26,16 +26,14 @@ export default function ProgressIndicators({
       </div>
 
       <ProgressIcon
-        className={`absolute top-0 bottom-0 left-0 rtl:right-0 my-auto transition-300 h-full rounded-full fill-white animate-spin ${
-          !isLoading ? 'opacity-0 -z-10' : 'opacity-100'
-        }`}
+        data-loading={isLoading}
+        className='data-[loading=false]:opacity-0 data-[loading=false]:-z-10 data-[loading=true]:opacity-100 absolute top-0 bottom-0 left-0 rtl:right-0 my-auto transition-300 h-full rounded-full fill-white animate-spin'
       />
 
       <div
+        data-sent={isMessageSent}
         aria-hidden
-        className={`absolute top-0 bottom-0 left-0 rtl:right-0 my-auto transition-300 uppercase text-white h-full flex items-center justify-start info-text-font-classNames text-lg md:text-2xl sm:text-3xl ${
-          !isMessageSent ? 'opacity-0 -z-10' : 'opacity-100'
-        }`}
+        className='data-[sent=false]:opacity-0 data-[sent=false]:-z-10 data-[sent=true]:opacity-100 absolute top-0 bottom-0 left-0 rtl:right-0 my-auto transition-300 uppercase text-white h-full flex items-center justify-start info-text-font-classNames text-lg md:text-2xl sm:text-3xl'
       >
         {t('messageSent')}
       </div>

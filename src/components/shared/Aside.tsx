@@ -78,14 +78,10 @@ export default function Aside() {
         {t('contactMe')}
       </ContactGoBackButton>
       <aside
-        data-open={open}
+        data-open={!!open}
         ref={asideRef}
         aria-hidden={!open}
-        className={`z-10 transition-all ease-in-out duration-700 lg:duration-1000 fixed overflow-x-hidden overflow-y-auto flex items-start justify-start h-screen w-screen top-0 ${
-          !open
-            ? 'ltr:-left-[100vw] rtl:-right-[100vw] size-0 overflow-hidden'
-            : 'ltr:left-0 rtl:right-0'
-        }`}
+        className='data-[open=false]:aside-closed w-full data-[open=true]:aside-open z-10 transition-all ease-in-out duration-700 lg:duration-1000 overflow-x-hidden fixed flex items-start justify-start h-screen top-0'
       >
         <Contact open={openAtTransitionEnd} onClick={() => setOpen(false)} />
       </aside>

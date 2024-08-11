@@ -179,6 +179,7 @@ export interface IconButtonProps {
   onClick: MouseEventHandler<HTMLButtonElement>;
   'aria-label': string;
   'data-testid'?: string;
+  'data-pointer-events'?: boolean;
   icon: ReactNode;
   className?: string;
   disabled?: boolean;
