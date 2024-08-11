@@ -30,7 +30,7 @@ export default function Contact({ onClick, open }: ContactProps) {
           <ContactForm />
           <SideLinks
             hideChangeLanguageButton
-            className='center-elements w-16 md:w-24 h-fit z-10 sm:ml-4 md:ml-6'
+            className='center-elements h-fit z-10 sm:ml-4 md:ml-6'
             ulClassName='size-full center-elements gap-4'
           />
         </>
