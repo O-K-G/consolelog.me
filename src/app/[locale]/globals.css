@@ -148,7 +148,7 @@ body {
   }
 
   .aside-closed {
-    @apply ltr:-left-[100vw] rtl:-right-[100vw] w-0 data-[open=false]:overflow-y-hidden;
+    @apply ltr:-left-[100vw] rtl:-right-[100vw] w-0 overflow-y-hidden;
   }
 
   .aside-open {
