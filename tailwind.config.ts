@@ -21,8 +21,13 @@ const config: Config = {
         'flash-loader-text': 'flash-loader-text 1s linear infinite',
         'expand-button': 'expand-button 1s linear forwards',
         'collapse-button': 'collapse-button 1s linear forwards',
+        'scroll-icon': 'scroll-icon 2s linear 3 alternate',
       },
       keyframes: {
+        'scroll-icon': {
+          '0%, 100%': { top: '0.125rem' },
+          '50%': { top: 'var(--scroll-icon-top)' },
+        },
         'expand-button': {
           '0%': {
             borderTop: '1px solid transparent',
