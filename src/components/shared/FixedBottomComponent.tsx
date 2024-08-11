@@ -14,7 +14,7 @@ export default function FixedBottomComponent({
         {label}
       </div>
       {children ?? (
-        <div className='p-0.5 flex items-start justify-center rounded-2xl md:rounded-[1.5rem] lg:rounded-full h-12 md:h-14 w-[2.246rem] md:w-[2.808rem] lg:w-[3.369rem] lg:h-16 border-4 md:border-[0.3rem] lg:border-[0.438rem] border-title-purple'>
+        <div className='relative p-0.5 flex items-start justify-center rounded-2xl md:rounded-[1.5rem] lg:rounded-full h-12 md:h-14 w-[2.246rem] md:w-[2.808rem] lg:w-[3.369rem] lg:h-16 border-4 md:border-[0.3rem] lg:border-[0.438rem] border-title-purple'>
           {slot}
         </div>
       )}
