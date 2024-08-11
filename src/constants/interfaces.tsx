@@ -266,6 +266,7 @@ export interface FixedBottomComponentProps {
   slot?: ReactNode;
   className?: string;
   children?: ReactNode;
+  isTransparent?: boolean;
 }
 
 export interface SelectLanguageButtonProps {
