@@ -11,6 +11,7 @@ const SUFFIX = `.webp?cacheVersion=${CACHE_VERSION}`;
 export default function SectionBackground({
   currentSection,
   minHeightClassName = 'min-h-full',
+  noSectionBackground,
 }: CurrentSection) {
   if (!currentSection) {
     return null;
@@ -18,7 +19,7 @@ export default function SectionBackground({
 
   return (
     <div
-      className={`absolute top-0 left-0 h-screen w-screen clip-path-inset-0 ${minHeightClassName}`}
+      className={`absolute top-0 left-0 h-screen w-screen ${minHeightClassName}`}
     >
       <picture>
         {TAILWIND_SIZES.map(({ twClassName, pxResolution }) => (
@@ -29,7 +30,8 @@ export default function SectionBackground({
           />
         ))}
         <img
-          className='object-cover object-left h-screen w-screen bottom-0 left-0 fixed opacity-60'
+          data-relative={!!noSectionBackground}
+          className='object-cover object-left data-[relative=false]:h-screen data-[relative=true]:h-full w-screen bottom-0 left-0 data-[relative=false]:fixed opacity-60'
           alt=''
           aria-hidden
           src={`/images/${currentSection}-2xl${SUFFIX}`}
