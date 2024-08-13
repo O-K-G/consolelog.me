@@ -10,7 +10,6 @@ export default function Section({
   className = 'relative min-h-screen h-svh lg:h-dvh pt-20 md:pt-40',
   children,
   currentSection,
-  absoluteBackground,
 }: SectionProps) {
   const topSectionRef = useRef(null);
   const middleSectionRef = useRef(null);
@@ -31,7 +30,7 @@ export default function Section({
     <section
       ref={topSectionRef}
       data-testid={currentSection ? `section-${currentSection}` : null}
-      className={`bg-black flex flex-col items-center justify-start w-full overflow-clip px-4 pb-4 ${
+      className={`bg-black flex flex-col items-center justify-start w-full overflow-hidden px-4 pb-4 ${
         className ?? ''
       }`}
     >
@@ -39,10 +38,7 @@ export default function Section({
         ref={middleSectionRef}
         className='absolute top-0 bottom-0 left-0 my-auto size-0 opacity-0 overflow-hidden'
       />
-      <SectionBackground
-        absoluteBackground={!!absoluteBackground}
-        currentSection={currentSection}
-      />
+      <SectionBackground currentSection={currentSection} />
       {children}
     </section>
   );
