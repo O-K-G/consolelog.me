@@ -56,7 +56,7 @@ describe('Section component', () => {
     expect(sectionElement).toBeInTheDocument();
     expect(sectionElement).not.toHaveAttribute('aria-hidden', 'true');
     expect(sectionElement).toHaveClass(
-      'bg-black flex flex-col items-center justify-start w-full overflow-hidden px-4 pb-4'
+      'bg-black data-[clip=false]:clip-path-inset-0 flex flex-col items-center justify-start w-full overflow-clip px-4 pb-4'
     );
   });
 
