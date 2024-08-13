@@ -19,7 +19,8 @@ export default function SectionBackground({
 
   return (
     <div
-      className={`absolute top-0 left-0 h-screen w-screen ${minHeightClassName}`}
+      data-clip={!!absoluteBackground}
+      className={`absolute top-0 left-0 h-screen w-screen data-[clip=false]:clip-path-inset-0 ${minHeightClassName}`}
     >
       <picture>
         {TAILWIND_SIZES.map(({ twClassName, pxResolution }) => (

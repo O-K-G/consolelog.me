@@ -29,10 +29,9 @@ export default function Section({
 
   return (
     <section
-      data-clip={!!absoluteBackground}
       ref={topSectionRef}
       data-testid={currentSection ? `section-${currentSection}` : null}
-      className={`bg-black data-[clip=false]:clip-path-inset-0 flex flex-col items-center justify-start w-full overflow-clip px-4 pb-4 ${
+      className={`bg-black flex flex-col items-center justify-start w-full overflow-clip px-4 pb-4 ${
         className ?? ''
       }`}
     >
