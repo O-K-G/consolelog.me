@@ -11,7 +11,7 @@ const SUFFIX = `.webp?cacheVersion=${CACHE_VERSION}`;
 export default function SectionBackground({
   currentSection,
   minHeightClassName = 'min-h-full',
-  noSectionBackground,
+  absoluteBackground,
 }: CurrentSection) {
   if (!currentSection) {
     return null;
@@ -30,7 +30,7 @@ export default function SectionBackground({
           />
         ))}
         <img
-          data-relative={!!noSectionBackground}
+          data-relative={!!absoluteBackground}
           className='object-cover object-left data-[relative=false]:h-screen data-[relative=true]:h-full w-screen bottom-0 left-0 data-[relative=false]:fixed opacity-60'
           alt=''
           aria-hidden

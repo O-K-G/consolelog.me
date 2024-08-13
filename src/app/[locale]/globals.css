@@ -31,6 +31,10 @@ body {
     scrollbar-width: none;
   }
 
+  .overflow-clip-margin-10 {
+    overflow-clip-margin: 10rem;
+  }
+
   .hide-scrollbars::-webkit-scrollbar {
     display: none;
   }

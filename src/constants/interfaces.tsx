@@ -51,12 +51,12 @@ export interface DialogTitleProps {
 export interface CurrentSection {
   currentSection?: 'about' | 'projects' | 'skills' | 'experience' | 'contact';
   minHeightClassName?: string;
-  noSectionBackground?: boolean;
+  absoluteBackground?: boolean;
 }
 export interface SectionProps extends CurrentSection {
   children: ReactNode;
   className?: string;
-  noSectionBackground?: boolean;
+  absoluteBackground?: boolean;
 }
 
 interface TitleLabels {
