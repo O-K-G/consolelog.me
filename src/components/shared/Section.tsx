@@ -1,43 +1,40 @@
 'use client';
 
 import { type SectionProps } from '@constants/interfaces';
-import { useRef, useContext } from 'react';
-import useHandleObserve from '@hooks/useHandleObserve';
 import SectionBackground from '@components/shared/SectionBackground';
-import { AppContext as appContext } from '@components/shared/AppContext';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 
 export default function Section({
   className = 'relative min-h-screen h-svh lg:h-dvh pt-20 md:pt-40',
   children,
   currentSection,
 }: SectionProps) {
-  const topSectionRef = useRef(null);
-  const middleSectionRef = useRef(null);
-  const { topSectionRefs } = useContext(appContext);
-  useHandleObserve({ currentSection, middleSectionRef });
-  const { current } = topSectionRefs ?? {};
-  const isTopSectionRefInContext =
-    current[currentSection as keyof typeof current];
+  const pathname = usePathname();
+  const sectionRef = useRef(null);
 
-  if (!isTopSectionRefInContext) {
-    topSectionRefs.current = {
-      ...topSectionRefs.current,
-      [currentSection as string]: topSectionRef,
-    };
-  }
+  useEffect(() => {
+    const isScroll =
+      ['skills', 'experience'].includes(currentSection as string) &&
+      pathname.includes(currentSection as string);
+
+    if (isScroll) {
+      (sectionRef.current as unknown as HTMLElement).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'start',
+      });
+    }
+  }, [currentSection, pathname]);
 
   return (
     <section
-      ref={topSectionRef}
-      data-testid={currentSection ? `section-${currentSection}` : null}
+      ref={sectionRef}
       className={`bg-black flex flex-col items-center justify-start w-full overflow-hidden px-4 pb-4 ${
         className ?? ''
       }`}
     >
-      <div
-        ref={middleSectionRef}
-        className='absolute top-0 bottom-0 left-0 my-auto size-0 opacity-0 overflow-hidden'
-      />
+      <div className='absolute top-0 bottom-0 left-0 my-auto size-0 opacity-0 overflow-hidden' />
       <SectionBackground currentSection={currentSection} />
       {children}
     </section>
