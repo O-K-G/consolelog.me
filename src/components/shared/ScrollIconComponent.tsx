@@ -5,6 +5,8 @@ import DoubleArrowIcon from '@components/icons/DoubleArrowIcon';
 export default function ScrollIconComponent() {
   const t = useTranslations('scrollIconText');
 
+  // TODO: Proceed from here.
+
   return (
     <FixedBottomComponent
       // isTransparent={!isAbout}

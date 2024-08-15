@@ -6,6 +6,8 @@ import ArrowUpIcon from '@components/icons/ArrowUpIcon';
 export default function ScrollToTopComponent() {
   const t = useTranslations('scrollToTopText');
 
+  // TODO: Proceed from here.
+
   return (
     <FixedBottomComponent
       // isTransparent={isAbout}
