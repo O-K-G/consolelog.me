@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import plugin from 'tailwindcss/plugin';
 
 export const CACHE_VERSION = 1;
 
@@ -23,14 +22,8 @@ const config: Config = {
         'expand-button': 'expand-button 1s linear forwards',
         'collapse-button': 'collapse-button 1s linear forwards',
         'scroll-icon': 'scroll-icon 2s linear 3 alternate',
-        rotate: 'rotate 1s linear infinite',
       },
       keyframes: {
-        rotate: {
-          to: {
-            transform: 'rotate(360deg)',
-          },
-        },
         'scroll-icon': {
           '0%, 100%': { top: '0.125rem' },
           '50%': { top: 'var(--scroll-icon-top)' },
@@ -101,21 +94,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    plugin(({ matchUtilities, theme }) => {
-      matchUtilities(
-        {
-          'animation-delay': (value) => {
-            return {
-              'animation-delay': value,
-            };
-          },
-        },
-        {
-          values: theme('transitionDelay'),
-        }
-      );
-    }),
-  ],
+  plugins: [],
 };
 export default config;
