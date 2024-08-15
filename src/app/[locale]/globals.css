@@ -83,6 +83,11 @@ body {
         animation-delay: calc(var(--scroll) * -1s);
         animation-play-state: paused;
       }
+      @media screen and (max-width: 768px) {
+        .animate-rotate-polyfill {
+          scale: 0.5;
+        }
+      }
 
       .animate-background-polyfill {
         animation: background-scale 1s linear forwards;
@@ -98,6 +103,11 @@ body {
         animation: rotate linear;
         animation-timeline: scroll();
       }
+      @media screen and (max-width: 768px) {
+        .animate-rotate {
+          scale: 0.5;
+        }
+      }
 
       .animate-background-scale {
         animation: background-scale linear;
@@ -112,7 +122,14 @@ body {
       transform: rotate(360deg);
     }
   }
-
+  @media screen and (max-width: 768px) {
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+        scale: 2;
+      }
+    }
+  }
   @keyframes background-scale {
     to {
       scale: 1.3;
