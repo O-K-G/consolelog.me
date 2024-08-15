@@ -8,6 +8,11 @@ export default function Planet() {
   const t = useTranslations('planet');
   const planetRef = useRef(null);
 
+  /** In the future once Firefox and Safari support it, the CSS' scroll-timeline -
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-timeline
+   * should be better to use than this useEffect.
+   */
+
   useEffect(() => {
     const handleScroll = () => {
       const el = planetRef.current as unknown as HTMLDivElement;

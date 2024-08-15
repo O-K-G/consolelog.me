@@ -15,23 +15,8 @@ export const CONTACT_FORM_SUBJECT_MAX_LENGTH = 100;
 export const CONTACT_FORM_CONTENT_MIN_LENGTH = 1;
 export const CONTACT_FORM_CONTENT_MAX_LENGTH = 1000;
 
-export interface AppContextComponentProps {
-  children: ReactNode;
-}
-
 export interface ModalContextComponentProps {
   children: ReactNode;
-}
-
-export interface AppContextProps {
-  topSectionRefs: MutableRefObject<object>;
-  currentTopSection: string;
-  onChange: Dispatch<SetStateAction<string>>;
-}
-
-export interface UseScrollByPathnameProps {
-  topSectionRefs: MutableRefObject<object>;
-  currentTopSection: string;
 }
 
 export interface ModalContextProps {
