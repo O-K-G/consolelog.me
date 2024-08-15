@@ -144,10 +144,6 @@ export const BASE_STATUS_CODES = {
   401: false,
 } as const;
 
-export interface UseHandleObserveProps extends CurrentSection {
-  middleSectionRef: MutableRefObject<null>;
-}
-
 export interface AnchorLinkProps {
   url: string;
   icon: ReactNode;
