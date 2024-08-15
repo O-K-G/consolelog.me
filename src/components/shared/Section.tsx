@@ -2,14 +2,34 @@
 
 import { type SectionProps } from '@constants/interfaces';
 import SectionBackground from '@components/shared/SectionBackground';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 
 export default function Section({
   className = 'relative min-h-screen h-svh lg:h-dvh pt-20 md:pt-40',
   children,
   currentSection,
 }: SectionProps) {
+  const pathname = usePathname();
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const isScroll =
+      ['skills', 'experience'].includes(currentSection as string) &&
+      pathname.includes(currentSection as string);
+
+    if (isScroll) {
+      (sectionRef.current as unknown as HTMLElement).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'start',
+      });
+    }
+  }, [currentSection, pathname]);
+
   return (
     <section
+      ref={sectionRef}
       className={`bg-black flex flex-col items-center justify-start w-full overflow-hidden px-4 pb-4 ${
         className ?? ''
       }`}
