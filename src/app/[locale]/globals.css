@@ -75,33 +75,35 @@ body {
 }
 
 @layer components {
-  /* Animations polyfill, for cases in which 'animation-timeline' isn't supported. */
-  @supports not (animation-timeline: scroll()) {
-    .animate-rotate-polyfill {
-      animation: rotate 1s linear forwards;
-      animation-delay: calc(var(--scroll) * -1s);
-      animation-play-state: paused;
+  @media (prefers-reduced-motion: no-preference) {
+    /* Animations polyfill, for cases in which 'animation-timeline' isn't supported. */
+    @supports not (animation-timeline: scroll()) {
+      .animate-rotate-polyfill {
+        animation: rotate 1s linear forwards;
+        animation-delay: calc(var(--scroll) * -1s);
+        animation-play-state: paused;
+      }
+
+      .animate-background-polyfill {
+        animation: background-scale 1s linear forwards;
+        animation-delay: calc(var(--scroll) * -1s);
+        animation-play-state: paused;
+        scale: 1;
+      }
     }
 
-    .animate-background-polyfill {
-      animation: background-scale 1s linear forwards;
-      animation-delay: calc(var(--scroll) * -1s);
-      animation-play-state: paused;
-      scale: 1;
-    }
-  }
+    /* The animations can be moved to tailwind.config once the polyfill is removed. */
+    @supports (animation-timeline: scroll()) {
+      .animate-rotate {
+        animation: rotate linear;
+        animation-timeline: scroll();
+      }
 
-  /* The animations can be moved to tailwind.config once the polyfill is removed. */
-  @supports (animation-timeline: scroll()) {
-    .animate-rotate {
-      animation: rotate linear;
-      animation-timeline: scroll();
-    }
-
-    .animate-background-scale {
-      animation: background-scale linear;
-      scale: 1;
-      animation-timeline: scroll();
+      .animate-background-scale {
+        animation: background-scale linear;
+        scale: 1;
+        animation-timeline: scroll();
+      }
     }
   }
 
