@@ -14,6 +14,14 @@ export default function Planet() {
   const dir =
     DIRECTION_BY_LANGUAGE[locale as keyof typeof DIRECTION_BY_LANGUAGE];
   const isLtr = dir === 'ltr';
+
+  /** TODO: In the future once Firefox and Safari support it,
+   * it should be better to use CSS' 'scroll-timeline'.
+   * This will allow to remove JS' observer, refs, and React's context,
+   * partially or fully, with a simple CSS animation.
+   * The current polyfill that can be used with it, is currently limited and problematic.
+   * **/
+
   const rotationClassNameBySection = {
     skills: isLtr ? 'rotate-90' : '-rotate-90',
     projects: isLtr ? 'rotate-180' : '-rotate-180',
