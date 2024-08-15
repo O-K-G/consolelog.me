@@ -75,20 +75,29 @@ body {
 }
 
 @layer components {
-  /* Planet image rotation polyfill, for cases where animation-timeline isn't supported */
+  /* Planet image rotation polyfill, for cases where animation-timeline isn't supported. */
   @supports not (animation-timeline: scroll()) {
     .animate-rotate-polyfill {
       animation: rotate 1s linear infinite;
       animation-delay: calc(var(--scroll) * -1s);
       animation-play-state: paused;
     }
+  }
 
-    @keyframes rotate {
-      to {
-        transform: rotate(360deg);
-      }
+  /* Animation can be moved to tailwind.config once the polyfill is removed. */
+  @supports (animation-timeline: scroll()) {
+    .animate-rotate {
+      animation: rotate linear;
+      animation-timeline: scroll();
     }
   }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .main-title-font-classNames:lang(en) {
     @apply font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl;
   }
