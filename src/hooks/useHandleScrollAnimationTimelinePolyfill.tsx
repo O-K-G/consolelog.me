@@ -14,20 +14,21 @@ export default function useHandleScrollAnimationTimelinePolyfill({
     typeof window === 'object' && CSS.supports('animation-timeline: scroll()');
 
   useEffect(() => {
+    const el = ref.current as unknown as HTMLDivElement;
+
     const handleScroll = () => {
-      const el = ref.current as unknown as HTMLDivElement;
       const num =
         window.scrollY / (document.body.offsetHeight - window.innerHeight);
 
       el.style.setProperty('--scroll', num?.toString());
     };
 
-    if (!isAnimationTimeLineSupported) {
+    if (!isAnimationTimeLineSupported && el) {
       window.addEventListener('scroll', handleScroll);
     }
 
     return () => {
-      if (!isAnimationTimeLineSupported) {
+      if (!isAnimationTimeLineSupported && el) {
         window.removeEventListener('scroll', handleScroll);
       }
     };
