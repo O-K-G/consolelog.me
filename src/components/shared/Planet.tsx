@@ -1,5 +1,3 @@
-'use client';
-
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { useTranslations } from 'next-intl';
 
