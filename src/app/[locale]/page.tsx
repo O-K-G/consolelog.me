@@ -2,7 +2,6 @@ import About from '@components/byPage/About';
 import Projects from '@components/byPage/Projects';
 import Skills from '@components/byPage/Skills';
 import Experience from '@components/byPage/Experience';
-import Planet from '@components/shared/Planet';
 import Loader from '@components/shared/Loader';
 import Dialog from '@components/shared/dialog/Dialog';
 import ModalContextComponent from '@components/shared/ModalContext';
@@ -17,7 +16,6 @@ export default function Home() {
         <Skills />
         <Projects />
         <Experience />
-        <Planet />
         <Aside />
         <Dialog />
       </ModalContextComponent>
