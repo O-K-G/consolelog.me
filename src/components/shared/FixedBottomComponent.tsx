@@ -1,20 +1,23 @@
 import type { FixedBottomComponentProps } from '@constants/interfaces';
 
+const POLYFILL_CLASSNAMES =
+  'data-[hide-on-scroll=true]:animate-hide-components-polyfill data-[show-on-scroll=true]:animate-show-components-polyfill';
+
 export default function FixedBottomComponent({
   label,
   slot,
   className = 'ltr:right-0 ltr:mr-4 rtl:left-0 rtl:ml-4',
   children,
+  hideOnScroll,
+  showOnScroll,
 }: FixedBottomComponentProps) {
   return (
     <div
-      data-transparent={false}
-      className={`transition-1000 fixed bottom-0 mb-4 center-elements flex-col data-[transparent=true]:opacity-0 ${className}`}
+      data-hide-on-scroll={hideOnScroll}
+      data-show-on-scroll={showOnScroll}
+      className={`transition-1000 fixed bottom-0 mb-4 center-elements flex-col data-[hide-on-scroll=true]:animate-hide-components data-[show-on-scroll=true]:animate-show-components ${POLYFILL_CLASSNAMES} ${className}`}
     >
-      <div
-        aria-hidden={false}
-        className='uppercase whitespace-nowrap text-title-purple text-base md:text-xl lg:text-2xl text-center w-full info-text-font-classNames'
-      >
+      <div className='uppercase whitespace-nowrap text-title-purple text-base md:text-xl lg:text-2xl text-center w-full info-text-font-classNames'>
         {label}
       </div>
       {children ?? (

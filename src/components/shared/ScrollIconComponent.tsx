@@ -7,6 +7,7 @@ export default function ScrollIconComponent() {
 
   return (
     <FixedBottomComponent
+      hideOnScroll
       label={t('scroll')}
       slot={
         <DoubleArrowIcon className='h-5 absolute top-0.5 left-0 right-0 mx-auto animate-scroll-icon md:h-7 lg:h-[1.8rem] fill-title-purple' />

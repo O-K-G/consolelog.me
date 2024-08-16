@@ -249,6 +249,8 @@ export interface FixedBottomComponentProps {
   className?: string;
   children?: ReactNode;
   isTransparent?: boolean;
+  hideOnScroll?: boolean;
+  showOnScroll?: boolean;
 }
 
 export interface SelectLanguageButtonProps {
