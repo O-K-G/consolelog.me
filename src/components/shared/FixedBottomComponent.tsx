@@ -5,15 +5,14 @@ export default function FixedBottomComponent({
   slot,
   className = 'ltr:right-0 ltr:mr-4 rtl:left-0 rtl:ml-4',
   children,
-  isTransparent,
 }: FixedBottomComponentProps) {
   return (
     <div
-      data-transparent={isTransparent}
+      data-transparent={false}
       className={`transition-1000 fixed bottom-0 mb-4 center-elements flex-col data-[transparent=true]:opacity-0 ${className}`}
     >
       <div
-        aria-hidden={isTransparent}
+        aria-hidden={false}
         className='uppercase whitespace-nowrap text-title-purple text-base md:text-xl lg:text-2xl text-center w-full info-text-font-classNames'
       >
         {label}

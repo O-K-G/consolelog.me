@@ -5,7 +5,6 @@ import type {
   MutableRefObject,
   PropsWithChildren,
   ReactNode,
-  RefObject,
   SetStateAction,
 } from 'react';
 import { type DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
@@ -18,10 +17,6 @@ export const CONTACT_FORM_CONTENT_MAX_LENGTH = 1000;
 
 export interface ModalContextComponentProps {
   children: ReactNode;
-}
-
-export interface UseHandleScrollAnimationTimelinePolyfillProps {
-  ref: RefObject<HTMLElement>;
 }
 
 export interface ModalContextProps {

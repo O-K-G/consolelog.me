@@ -1,4 +1,3 @@
-import type { UseHandleScrollAnimationTimelinePolyfillProps } from '@constants/interfaces';
 import { useEffect } from 'react';
 
 /** In the future once Firefox and Safari fully support CSS' animation-timeline -
@@ -7,30 +6,26 @@ import { useEffect } from 'react';
  * Polyfill: 'useHandleScrollAnimationTimelinePolyfill' hook + 'animate-rotate-polyfill' CSS class.
  */
 
-export default function useHandleScrollAnimationTimelinePolyfill({
-  ref,
-}: UseHandleScrollAnimationTimelinePolyfillProps) {
+export default function useHandleScrollAnimationTimelinePolyfill() {
   const isAnimationTimeLineSupported =
     typeof window === 'object' && CSS.supports('animation-timeline: scroll()');
 
   useEffect(() => {
-    const el = ref.current as unknown as HTMLDivElement;
-
     const handleScroll = () => {
       const num =
         window.scrollY / (document.body.offsetHeight - window.innerHeight);
 
-      el.style.setProperty('--scroll', num?.toString());
+      document.body.style.setProperty('--scroll', num?.toString());
     };
 
-    if (!isAnimationTimeLineSupported && el) {
+    if (!isAnimationTimeLineSupported) {
       window.addEventListener('scroll', handleScroll);
     }
 
     return () => {
-      if (!isAnimationTimeLineSupported && el) {
+      if (!isAnimationTimeLineSupported) {
         window.removeEventListener('scroll', handleScroll);
       }
     };
-  }, [isAnimationTimeLineSupported, ref]);
+  }, [isAnimationTimeLineSupported]);
 }
