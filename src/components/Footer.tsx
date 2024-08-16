@@ -9,7 +9,8 @@ export default function Footer() {
   /** In the future once Firefox and Safari fully support CSS' animation-timeline -
    * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline ,
    * it should be better to use it rather than this useHandleScrollAnimationTimelinePolyfill hook.
-   * Polyfill: 'useHandleScrollAnimationTimelinePolyfill' hook + 'animate-rotate-polyfill' + 'animate-background-polyfill' CSS classes.
+   * Polyfills to remove: 'useHandleScrollAnimationTimelinePolyfill' hook + 'animate-rotate-polyfill'
+   * + 'animate-hide-components-polyfill' + 'animate-show-components-polyfill' CSS classes.
    */
 
   useHandleScrollAnimationTimelinePolyfill();
