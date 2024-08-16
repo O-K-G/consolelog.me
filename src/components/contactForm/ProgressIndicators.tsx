@@ -1,5 +1,3 @@
-'use client';
-
 import { useTranslations } from 'next-intl';
 import { useFormStatus } from 'react-dom';
 import ProgressIcon from '@components/contactForm/ProgressIcon';

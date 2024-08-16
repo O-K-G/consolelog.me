@@ -1,5 +1,3 @@
-'use client';
-
 import { handleA11y1000FirstNumbers } from '@utils/handleA11y1000FirstNumbers';
 import type { InputComponentProps } from '@constants/interfaces';
 import { useTranslations } from 'next-intl';

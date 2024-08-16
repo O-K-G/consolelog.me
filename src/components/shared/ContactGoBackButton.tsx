@@ -1,5 +1,3 @@
-'use client';
-
 import type { ContactGoBackButtonProps } from '@constants/interfaces';
 
 export const CONTACT_ME_BUTTON_TEST_ID = 'contact-me-button-test';
