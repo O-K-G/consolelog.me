@@ -1,12 +1,8 @@
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { useTranslations } from 'next-intl';
 
-export default function Planet({ open }: { open: boolean }) {
+export default function Planet() {
   const t = useTranslations('planet');
-
-  if (!open) {
-    return null;
-  }
 
   return (
     <div className='h-fit w-fit fixed right-0 left-0 bottom-0 translate-y-[65%] md:translate-y-[85%] center-elements mx-auto rounded-full'>
