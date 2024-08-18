@@ -16,7 +16,7 @@ export default function Footer() {
   useHandleScrollAnimationTimelinePolyfill();
 
   return (
-    <footer className='mt-auto z-10 center-elements flex-col gap-2'>
+    <footer className='mt-auto center-elements flex-col gap-2'>
       <Planet />
       <ScrollIconComponent />
       <ScrollToTopComponent />
