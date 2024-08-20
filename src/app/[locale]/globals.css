@@ -78,11 +78,16 @@ body {
   @media (prefers-reduced-motion: no-preference) {
     /* Animations polyfill, for cases in which 'animation-timeline' isn't supported. */
     @supports not (animation-timeline: scroll()) {
-      .animate-rotate-polyfill {
-        animation: rotate 1s linear forwards;
+      .animate-scroll-polyfill {
+        animation: 1s linear forwards;
         animation-delay: calc(var(--scroll) * -1s);
         animation-play-state: paused;
       }
+
+      .animate-rotate-polyfill {
+        animation-name: rotate;
+      }
+
       @media screen and (max-width: 768px) {
         .animate-rotate-polyfill {
           scale: 0.5;
@@ -90,33 +95,72 @@ body {
       }
 
       .animate-background-polyfill {
-        animation: background-scale 1s linear forwards;
-        animation-delay: calc(var(--scroll) * -1s);
-        animation-play-state: paused;
+        animation-name: background-scale;
         scale: 1;
       }
 
       .animate-hide-components-polyfill {
-        animation: hide-components 1s linear forwards;
-        animation-delay: calc(var(--scroll) * -1s);
-        animation-play-state: paused;
-        animation-timeline: scroll();
+        animation-name: hide-components;
       }
 
       .animate-show-components-polyfill {
-        animation: show-components 1s linear forwards;
-        animation-delay: calc(var(--scroll) * -1s);
+        animation-name: show-components;
+      }
+    }
+
+    @supports not (animation-timeline: view()) {
+      .animate-view-polyfill {
+        animation: 1s linear forwards;
         animation-play-state: paused;
-        animation-timeline: scroll();
+      }
+
+      .animate-skills-1-polyfill {
+        animation-name: skills-1;
+        animation-delay: calc(var(--scroll) * -4s);
+      }
+
+      .animate-skills-2-polyfill {
+        animation-name: skills-2;
+        animation-delay: calc(var(--scroll) * -3.5s);
+      }
+
+      .animate-skills-3-polyfill {
+        animation-name: skills-3;
+        animation-delay: calc(var(--scroll) * -3s);
+      }
+
+      .animate-skills-4-polyfill {
+        animation-name: skills-4;
+        animation-delay: calc(var(--scroll) * -2.5s);
+      }
+
+      .animate-skills-5-polyfill {
+        animation-name: skills-5;
+        animation-delay: calc(var(--scroll) * -2.25s);
+      }
+
+      .animate-skills-6-polyfill {
+        animation-name: skills-6;
+        animation-delay: calc(var(--scroll) * -2s);
+      }
+
+      .animate-skills-7-polyfill {
+        animation-name: skills-7;
+        animation-delay: calc(var(--scroll) * -1.75s);
       }
     }
 
     /* The animations can be moved to tailwind.config once the polyfill is removed. */
     @supports (animation-timeline: scroll()) {
-      .animate-rotate {
-        animation: rotate linear;
+      .animate-scroll {
+        animation: linear;
         animation-timeline: scroll();
       }
+
+      .animate-rotate {
+        animation-name: rotate;
+      }
+
       @media screen and (max-width: 768px) {
         .animate-rotate {
           scale: 0.5;
@@ -124,19 +168,163 @@ body {
       }
 
       .animate-background-scale {
-        animation: background-scale linear;
+        animation-name: background-scale;
         scale: 1;
-        animation-timeline: scroll();
       }
 
       .animate-hide-components {
-        animation: hide-components linear;
-        animation-timeline: scroll();
+        animation-name: hide-components;
       }
 
       .animate-show-components {
-        animation: show-components linear;
-        animation-timeline: scroll();
+        animation-name: show-components;
+      }
+    }
+
+    @supports (animation-timeline: view()) {
+      .animate-skills {
+        animation: linear forwards;
+        animation-timeline: view();
+        animation-range-start: 0;
+        animation-range-end: 200vh;
+      }
+
+      .animate-skills-1 {
+        animation-name: skills-1;
+      }
+
+      .animate-skills-2 {
+        animation-name: skills-2;
+      }
+
+      .animate-skills-3 {
+        animation-name: skills-3;
+      }
+
+      .animate-skills-4 {
+        animation-name: skills-4;
+      }
+
+      .animate-skills-5 {
+        animation-name: skills-5;
+      }
+
+      .animate-skills-6 {
+        animation-name: skills-6;
+      }
+
+      .animate-skills-7 {
+        animation-name: skills-7;
+      }
+    }
+  }
+
+  @keyframes skills-1 {
+    from {
+      top: 120vh;
+    }
+    to {
+      top: 12vh;
+    }
+  }
+
+  @keyframes skills-2 {
+    from {
+      top: 120vh;
+    }
+    to {
+      top: 25vh;
+    }
+  }
+
+  @keyframes skills-3 {
+    from {
+      top: 120vh;
+    }
+    to {
+      top: 32vh;
+    }
+  }
+
+  @keyframes skills-4 {
+    from {
+      top: 120vh;
+    }
+    to {
+      top: 40vh;
+    }
+  }
+
+  @keyframes skills-5 {
+    from {
+      top: 120vh;
+    }
+    to {
+      top: 48vh;
+    }
+  }
+
+  @keyframes skills-6 {
+    from {
+      top: 120vh;
+    }
+    to {
+      top: 56vh;
+    }
+  }
+
+  @keyframes skills-7 {
+    from {
+      top: 120vh;
+    }
+    to {
+      top: 64vh;
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    @keyframes skills-3 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 37vh;
+      }
+    }
+
+    @keyframes skills-4 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 49vh;
+      }
+    }
+
+    @keyframes skills-5 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 61vh;
+      }
+    }
+
+    @keyframes skills-6 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 73vh;
+      }
+    }
+
+    @keyframes skills-7 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 85vh;
       }
     }
   }

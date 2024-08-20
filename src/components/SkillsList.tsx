@@ -1,16 +1,38 @@
 import { SKILLS_LISTS } from '@constants/skillsLists';
+import type {
+  SkillBlockProps,
+  SkillsListRowProps,
+} from '@constants/interfaces';
 
-function Column({ children }: { children: any }) {
+const CLASSNAME_BY_ROW = {
+  row1: 'animate-skills-3 animate-skills-3-polyfill',
+  row2: 'animate-skills-4 animate-skills-4-polyfill',
+  row3: 'animate-skills-5 animate-skills-5-polyfill',
+  row4: 'animate-skills-6 animate-skills-6-polyfill',
+  mobileRow: 'animate-skills-7 animate-skills-7-polyfill',
+} as const;
+
+function Row({
+  children,
+  className = '',
+  'data-mobile': dataIsMobile,
+}: SkillsListRowProps) {
   return (
-    <ul className='w-[45%] max-w-[10.047rem] sm:max-w-[auto] sm:w-[10.047rem] lg:w-[13.396rem] flex justify-start items-center flex-col gap-y-4 z-10 min-w-1/4'>
+    <ul
+      data-mobile={dataIsMobile}
+      className={`data-[mobile=true]:sm:hidden data-[mobile=true]:flex-wrap animate-skills fixed top-[110vh] left-0 w-full center-elements gap-4 px-4 ${className}`}
+    >
       {children}
     </ul>
   );
 }
 
-function SkillBlock({ str }: { str: string }) {
+function SkillBlock({ str, 'data-last-item': lastItem }: SkillBlockProps) {
   return (
-    <li className='transition-300 bg-black/30 hover:bg-black/70 w-full h-[4.92225rem] lg:h-[6.563rem] p-1 shrink-0 center-elements overflow-hidden border-2 border-title-purple'>
+    <li
+      data-last-item={lastItem}
+      className='data-[last-item=true]:hidden data-[last-item=true]:sm:block transition-300 bg-black/30 hover:bg-black/70 w-1/4 lg:w-[10rem] h-10 sm:h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple'
+    >
       <div className='size-full break-words text-center center-elements text-white font-montserrat text-sm sm:text-base md:text-xl'>
         {str}
       </div>
@@ -19,19 +41,25 @@ function SkillBlock({ str }: { str: string }) {
 }
 
 export default function SkillsList() {
-  return (
-    <div className='flex items-start justify-center flex-wrap p-2.5 gap-4 h-full'>
-      {SKILLS_LISTS.map((obj) => {
-        const col = Object.keys(obj)[0];
+  return SKILLS_LISTS.map((row) => {
+    const key = Object.keys(row)[0];
+    const rowItems = row[key as keyof typeof row] as string[];
+    const rowClassName = CLASSNAME_BY_ROW[key as keyof typeof CLASSNAME_BY_ROW];
 
-        return (
-          <Column key={col}>
-            {(obj[col as keyof typeof obj] as string[]).map((str) => (
-              <SkillBlock key={str} str={str} />
-            ))}
-          </Column>
-        );
-      })}
-    </div>
-  );
+    return (
+      <Row
+        key={`skills-${key}`}
+        data-mobile={key === 'mobileRow'}
+        className={`animate-view-polyfill ${rowClassName}`}
+      >
+        {rowItems.map((str: string) => (
+          <SkillBlock
+            data-last-item={key !== 'mobileRow' && str === rowItems[3]}
+            key={`skill-item-${str}`}
+            str={str}
+          />
+        ))}
+      </Row>
+    );
+  });
 }
