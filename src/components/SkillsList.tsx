@@ -2,7 +2,14 @@ import { SKILLS_LISTS } from '@constants/skillsLists';
 import { type ReactNode } from 'react';
 // TODO: Delete Old types.
 
-function Col({
+const CLASSNAME_BY_ROW = {
+  row1: 'animate-skills-1 animate-skills-1-polyfill',
+  row2: 'animate-skills-2 animate-skills-2-polyfill',
+  row3: 'animate-skills-3 animate-skills-3-polyfill',
+  row4: 'animate-skills-4 animate-skills-4-polyfill',
+} as const;
+
+function Row({
   children,
   className = '',
 }: {
@@ -29,32 +36,20 @@ function SkillBlock({ str }: { str: string }) {
 }
 
 export default function SkillsList() {
-  return (
-    <>
-      <Col className='animate-skills-1 animate-view-polyfill animate-skills-1-polyfill'>
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-      </Col>
-      <Col className='animate-skills-2 animate-view-polyfill animate-skills-2-polyfill'>
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-      </Col>
-      <Col className='animate-skills-3 animate-view-polyfill animate-skills-3-polyfill'>
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-      </Col>
-      <Col className='animate-skills-4 animate-view-polyfill animate-skills-4-polyfill'>
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-        <SkillBlock str='TBD' />
-      </Col>
-    </>
-  );
+  return SKILLS_LISTS.map((row) => {
+    const key = Object.keys(row)[0];
+    const rowItems = row[key as keyof typeof row] as string[];
+    const rowClassName = CLASSNAME_BY_ROW[key as keyof typeof CLASSNAME_BY_ROW];
+
+    return (
+      <Row
+        key={`skills-${key}`}
+        className={`animate-view-polyfill ${rowClassName}`}
+      >
+        {rowItems.map((str: string) => (
+          <SkillBlock key={`skill-item-${str}`} str={str} />
+        ))}
+      </Row>
+    );
+  });
 }
