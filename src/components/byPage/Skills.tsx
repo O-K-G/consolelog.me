@@ -11,11 +11,21 @@ export default function Skills() {
 
   return (
     <Section
-      className='relative min-h-screen h-[150svh] lg:h-[150dvh] pt-20 md:pt-40'
+      className='relative min-h-screen h-[175svh] lg:h-[175dvh] pt-20 md:pt-40'
       currentSection={CURRENT_SECTION}
     >
-      <Title border>{t('mainTitle')}</Title>
-      <Title variant='subtitle'>{t('subtitle')}</Title>
+      <Title
+        className='animate-skills fixed top-[110vh] animate-skills-1'
+        border
+      >
+        {t('mainTitle')}
+      </Title>
+      <Title
+        className='animate-skills fixed top-[110vh] animate-skills-2'
+        variant='subtitle'
+      >
+        {t('subtitle')}
+      </Title>
       <SkillsList />
 
       <SideLinks />

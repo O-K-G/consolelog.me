@@ -5,10 +5,10 @@ import type {
 } from '@constants/interfaces';
 
 const CLASSNAME_BY_ROW = {
-  row1: 'animate-skills-1 animate-skills-1-polyfill',
-  row2: 'animate-skills-2 animate-skills-2-polyfill',
-  row3: 'animate-skills-3 animate-skills-3-polyfill',
-  row4: 'animate-skills-4 animate-skills-4-polyfill',
+  row1: 'animate-skills-3 animate-skills-3-polyfill',
+  row2: 'animate-skills-4 animate-skills-4-polyfill',
+  row3: 'animate-skills-5 animate-skills-5-polyfill',
+  row4: 'animate-skills-6 animate-skills-6-polyfill',
 } as const;
 
 function Row({ children, className = '' }: SkillsListRowProps) {

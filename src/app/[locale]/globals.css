@@ -114,23 +114,23 @@ body {
         animation-play-state: paused;
       }
 
-      .animate-skills-1-polyfill {
-        animation-name: skills-1;
-        animation-delay: calc(var(--scroll) * -3s);
-      }
-
-      .animate-skills-2-polyfill {
-        animation-name: skills-2;
-        animation-delay: calc(var(--scroll) * -2.5s);
-      }
-
       .animate-skills-3-polyfill {
         animation-name: skills-3;
-        animation-delay: calc(var(--scroll) * -2.25s);
+        animation-delay: calc(var(--scroll) * -3s);
       }
 
       .animate-skills-4-polyfill {
         animation-name: skills-4;
+        animation-delay: calc(var(--scroll) * -2.5s);
+      }
+
+      .animate-skills-5-polyfill {
+        animation-name: skills-5;
+        animation-delay: calc(var(--scroll) * -2.25s);
+      }
+
+      .animate-skills-6-polyfill {
+        animation-name: skills-6;
         animation-delay: calc(var(--scroll) * -2s);
       }
     }
@@ -170,8 +170,8 @@ body {
       .animate-skills {
         animation: linear forwards;
         animation-timeline: view();
-        animation-range-start: 100vh;
-        animation-range-end: 230vh;
+        animation-range-start: 50vh;
+        animation-range-end: 200vh;
       }
 
       .animate-skills-1 {
@@ -188,6 +188,14 @@ body {
 
       .animate-skills-4 {
         animation-name: skills-4;
+      }
+
+      .animate-skills-5 {
+        animation-name: skills-5;
+      }
+
+      .animate-skills-6 {
+        animation-name: skills-6;
       }
     }
   }
@@ -206,7 +214,7 @@ body {
       top: 110vh;
     }
     to {
-      top: 22vh;
+      top: 25vh;
     }
   }
 
@@ -215,7 +223,7 @@ body {
       top: 110vh;
     }
     to {
-      top: 32vh;
+      top: 37vh;
     }
   }
 
@@ -224,7 +232,25 @@ body {
       top: 110vh;
     }
     to {
-      top: 42vh;
+      top: 49vh;
+    }
+  }
+
+  @keyframes skills-5 {
+    from {
+      top: 110vh;
+    }
+    to {
+      top: 61vh;
+    }
+  }
+
+  @keyframes skills-6 {
+    from {
+      top: 110vh;
+    }
+    to {
+      top: 73vh;
     }
   }
 
