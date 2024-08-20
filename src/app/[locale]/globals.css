@@ -143,6 +143,11 @@ body {
         animation-name: skills-6;
         animation-delay: calc(var(--scroll) * -2s);
       }
+
+      .animate-skills-7-polyfill {
+        animation-name: skills-7;
+        animation-delay: calc(var(--scroll) * -1.75s);
+      }
     }
 
     /* The animations can be moved to tailwind.config once the polyfill is removed. */
