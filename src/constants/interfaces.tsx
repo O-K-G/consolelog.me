@@ -271,4 +271,5 @@ export interface SkillsListRowProps {
 
 export interface SkillBlockProps {
   str: string;
+  'data-last-item'?: boolean;
 }

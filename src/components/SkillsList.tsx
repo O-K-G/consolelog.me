@@ -21,9 +21,12 @@ function Row({ children, className = '' }: SkillsListRowProps) {
   );
 }
 
-function SkillBlock({ str }: SkillBlockProps) {
+function SkillBlock({ str, 'data-last-item': lastItem }: SkillBlockProps) {
   return (
-    <li className='transition-300 bg-black/30 hover:bg-black/70 w-full lg:w-[10rem] h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple'>
+    <li
+      data-last-item={lastItem}
+      className='data-[last-item=true]:hidden data-[last-item=true]:sm:block transition-300 bg-black/30 hover:bg-black/70 w-full lg:w-[10rem] h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple'
+    >
       <div className='size-full break-words text-center center-elements text-white font-montserrat text-sm sm:text-base md:text-xl'>
         {str}
       </div>
@@ -42,9 +45,15 @@ export default function SkillsList() {
         key={`skills-${key}`}
         className={`animate-view-polyfill ${rowClassName}`}
       >
-        {rowItems.map((str: string) => (
-          <SkillBlock key={`skill-item-${str}`} str={str} />
-        ))}
+        {rowItems.map((str: string) => {
+          return (
+            <SkillBlock
+              data-last-item={str === rowItems[3]}
+              key={`skill-item-${str}`}
+              str={str}
+            />
+          );
+        })}
       </Row>
     );
   });

@@ -180,7 +180,7 @@ body {
       .animate-skills {
         animation: linear forwards;
         animation-timeline: view();
-        animation-range-start: 50vh;
+        animation-range-start: 0;
         animation-range-end: 200vh;
       }
 
