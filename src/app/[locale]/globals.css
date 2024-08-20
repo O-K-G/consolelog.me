@@ -246,34 +246,12 @@ body {
     }
   }
 
-  @media screen and (min-width: 640px) {
-    @keyframes skills-3 {
-      from {
-        top: 120vh;
-      }
-      to {
-        top: 37vh;
-      }
-    }
-  }
-
   @keyframes skills-4 {
     from {
       top: 120vh;
     }
     to {
       top: 40vh;
-    }
-  }
-
-  @media screen and (min-width: 640px) {
-    @keyframes skills-4 {
-      from {
-        top: 120vh;
-      }
-      to {
-        top: 49vh;
-      }
     }
   }
 
@@ -286,34 +264,12 @@ body {
     }
   }
 
-  @media screen and (min-width: 640px) {
-    @keyframes skills-5 {
-      from {
-        top: 120vh;
-      }
-      to {
-        top: 61vh;
-      }
-    }
-  }
-
   @keyframes skills-6 {
     from {
       top: 120vh;
     }
     to {
       top: 56vh;
-    }
-  }
-
-  @media screen and (min-width: 640px) {
-    @keyframes skills-6 {
-      from {
-        top: 120vh;
-      }
-      to {
-        top: 73vh;
-      }
     }
   }
 
@@ -327,6 +283,42 @@ body {
   }
 
   @media screen and (min-width: 640px) {
+    @keyframes skills-3 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 37vh;
+      }
+    }
+
+    @keyframes skills-4 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 49vh;
+      }
+    }
+
+    @keyframes skills-5 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 61vh;
+      }
+    }
+
+    @keyframes skills-6 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 73vh;
+      }
+    }
+
     @keyframes skills-7 {
       from {
         top: 120vh;
