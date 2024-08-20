@@ -111,24 +111,28 @@ body {
     @supports not (animation-timeline: view()) {
       .animate-view-polyfill {
         animation: 1s linear forwards;
-        animation-delay: calc(var(--scroll) * -2.5s);
+
         animation-play-state: paused;
       }
 
       .animate-skills-1-polyfill {
         animation-name: skills-1;
+        animation-delay: calc(var(--scroll) * -3s);
       }
 
       .animate-skills-2-polyfill {
         animation-name: skills-2;
+        animation-delay: calc(var(--scroll) * -2.5s);
       }
 
       .animate-skills-3-polyfill {
         animation-name: skills-3;
+        animation-delay: calc(var(--scroll) * -2.25s);
       }
 
       .animate-skills-4-polyfill {
         animation-name: skills-4;
+        animation-delay: calc(var(--scroll) * -2s);
       }
     }
 
