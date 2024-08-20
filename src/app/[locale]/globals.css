@@ -138,6 +138,64 @@ body {
         animation: show-components linear;
         animation-timeline: scroll();
       }
+
+      .animate-skills {
+        animation: linear forwards;
+        animation-timeline: view();
+        animation-range-start: 100vh;
+        animation-range-end: 230vh;
+      }
+
+      .animate-skills-1 {
+        animation-name: skills-1;
+      }
+
+      .animate-skills-2 {
+        animation-name: skills-2;
+      }
+
+      .animate-skills-3 {
+        animation-name: skills-3;
+      }
+      .animate-skills-4 {
+        animation-name: skills-4;
+      }
+    }
+  }
+
+  @keyframes skills-1 {
+    from {
+      top: 110vh;
+    }
+    to {
+      top: 12vh;
+    }
+  }
+
+  @keyframes skills-2 {
+    from {
+      top: 110vh;
+    }
+    to {
+      top: 22vh;
+    }
+  }
+
+  @keyframes skills-3 {
+    from {
+      top: 110vh;
+    }
+    to {
+      top: 32vh;
+    }
+  }
+
+  @keyframes skills-4 {
+    from {
+      top: 110vh;
+    }
+    to {
+      top: 42vh;
     }
   }
 

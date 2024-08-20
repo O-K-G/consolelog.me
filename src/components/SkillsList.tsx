@@ -1,16 +1,26 @@
 import { SKILLS_LISTS } from '@constants/skillsLists';
+import { type ReactNode } from 'react';
+// TODO: Delete Old types.
 
-function Column({ children }: { children: any }) {
+function Col({
+  children,
+  className = '',
+}: {
+  children: ReactNode;
+  className: string;
+}) {
   return (
-    <ul className='w-[45%] max-w-[10.047rem] sm:max-w-[auto] sm:w-[10.047rem] lg:w-[13.396rem] flex justify-start items-center flex-col gap-y-4 z-10 min-w-1/4'>
+    <div
+      className={`animate-skills fixed top-[110vh] left-0 w-full center-elements gap-1 px-4 ${className}`}
+    >
       {children}
-    </ul>
+    </div>
   );
 }
 
 function SkillBlock({ str }: { str: string }) {
   return (
-    <li className='transition-300 bg-black/30 hover:bg-black/70 w-full h-[4.92225rem] lg:h-[6.563rem] p-1 shrink-0 center-elements overflow-hidden border-2 border-title-purple'>
+    <li className='transition-300 bg-black/30 hover:bg-black/70 w-full lg:w-[10rem] h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple'>
       <div className='size-full break-words text-center center-elements text-white font-montserrat text-sm sm:text-base md:text-xl'>
         {str}
       </div>
@@ -20,18 +30,31 @@ function SkillBlock({ str }: { str: string }) {
 
 export default function SkillsList() {
   return (
-    <div className='flex items-start justify-center flex-wrap p-2.5 gap-4 h-full'>
-      {SKILLS_LISTS.map((obj) => {
-        const col = Object.keys(obj)[0];
-
-        return (
-          <Column key={col}>
-            {(obj[col as keyof typeof obj] as string[]).map((str) => (
-              <SkillBlock key={str} str={str} />
-            ))}
-          </Column>
-        );
-      })}
-    </div>
+    <>
+      <Col className='animate-skills-1'>
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+      </Col>
+      <Col className='animate-skills-2'>
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+      </Col>
+      <Col className='animate-skills-3'>
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+      </Col>
+      <Col className='animate-skills-4'>
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+        <SkillBlock str='TBD' />
+      </Col>
+    </>
   );
 }
