@@ -114,6 +114,16 @@ body {
         animation-play-state: paused;
       }
 
+      .animate-skills-1-polyfill {
+        animation-name: skills-1;
+        animation-delay: calc(var(--scroll) * -4s);
+      }
+
+      .animate-skills-2-polyfill {
+        animation-name: skills-2;
+        animation-delay: calc(var(--scroll) * -3.5s);
+      }
+
       .animate-skills-3-polyfill {
         animation-name: skills-3;
         animation-delay: calc(var(--scroll) * -3s);

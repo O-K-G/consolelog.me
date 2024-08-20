@@ -15,13 +15,13 @@ export default function Skills() {
       currentSection={CURRENT_SECTION}
     >
       <Title
-        className='animate-skills fixed top-[110vh] animate-skills-1'
+        className='animate-skills animate-view-polyfill fixed top-[110vh] animate-skills-1 animate-skills-1-polyfill'
         border
       >
         {t('mainTitle')}
       </Title>
       <Title
-        className='animate-skills fixed top-[110vh] animate-skills-2'
+        className='animate-skills animate-view-polyfill fixed top-[110vh] animate-skills-2 animate-skills-2-polyfill'
         variant='subtitle'
       >
         {t('subtitle')}
