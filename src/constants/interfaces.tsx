@@ -263,3 +263,12 @@ export interface ChangeLanguageProps {
   hide?: boolean;
   iconClassName: string;
 }
+
+export interface SkillsListRowProps {
+  children: ReactNode;
+  className: string;
+}
+
+export interface SkillBlockProps {
+  str: string;
+}

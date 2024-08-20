@@ -1,6 +1,8 @@
 import { SKILLS_LISTS } from '@constants/skillsLists';
-import { type ReactNode } from 'react';
-// TODO: Delete Old types.
+import type {
+  SkillBlockProps,
+  SkillsListRowProps,
+} from '@constants/interfaces';
 
 const CLASSNAME_BY_ROW = {
   row1: 'animate-skills-1 animate-skills-1-polyfill',
@@ -9,13 +11,7 @@ const CLASSNAME_BY_ROW = {
   row4: 'animate-skills-4 animate-skills-4-polyfill',
 } as const;
 
-function Row({
-  children,
-  className = '',
-}: {
-  children: ReactNode;
-  className: string;
-}) {
+function Row({ children, className = '' }: SkillsListRowProps) {
   return (
     <div
       className={`animate-skills fixed top-[110vh] left-0 w-full center-elements gap-1 px-4 ${className}`}
@@ -25,7 +21,7 @@ function Row({
   );
 }
 
-function SkillBlock({ str }: { str: string }) {
+function SkillBlock({ str }: SkillBlockProps) {
   return (
     <li className='transition-300 bg-black/30 hover:bg-black/70 w-full lg:w-[10rem] h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple'>
       <div className='size-full break-words text-center center-elements text-white font-montserrat text-sm sm:text-base md:text-xl'>
