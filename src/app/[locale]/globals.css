@@ -207,12 +207,16 @@ body {
       .animate-skills-6 {
         animation-name: skills-6;
       }
+
+      .animate-skills-7 {
+        animation-name: skills-7;
+      }
     }
   }
 
   @keyframes skills-1 {
     from {
-      top: 110vh;
+      top: 120vh;
     }
     to {
       top: 12vh;
@@ -221,7 +225,7 @@ body {
 
   @keyframes skills-2 {
     from {
-      top: 110vh;
+      top: 120vh;
     }
     to {
       top: 25vh;
@@ -230,37 +234,101 @@ body {
 
   @keyframes skills-3 {
     from {
-      top: 110vh;
+      top: 120vh;
     }
     to {
-      top: 37vh;
+      top: 32vh;
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    @keyframes skills-3 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 37vh;
+      }
     }
   }
 
   @keyframes skills-4 {
     from {
-      top: 110vh;
+      top: 120vh;
     }
     to {
-      top: 49vh;
+      top: 40vh;
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    @keyframes skills-4 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 49vh;
+      }
     }
   }
 
   @keyframes skills-5 {
     from {
-      top: 110vh;
+      top: 120vh;
     }
     to {
-      top: 61vh;
+      top: 48vh;
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    @keyframes skills-5 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 61vh;
+      }
     }
   }
 
   @keyframes skills-6 {
     from {
-      top: 110vh;
+      top: 120vh;
     }
     to {
-      top: 73vh;
+      top: 56vh;
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    @keyframes skills-6 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 73vh;
+      }
+    }
+  }
+
+  @keyframes skills-7 {
+    from {
+      top: 120vh;
+    }
+    to {
+      top: 64vh;
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    @keyframes skills-7 {
+      from {
+        top: 120vh;
+      }
+      to {
+        top: 85vh;
+      }
     }
   }
 

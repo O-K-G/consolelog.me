@@ -267,6 +267,7 @@ export interface ChangeLanguageProps {
 export interface SkillsListRowProps {
   children: ReactNode;
   className: string;
+  'data-mobile'?: boolean;
 }
 
 export interface SkillBlockProps {

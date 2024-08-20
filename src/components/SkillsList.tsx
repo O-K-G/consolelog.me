@@ -9,12 +9,18 @@ const CLASSNAME_BY_ROW = {
   row2: 'animate-skills-4 animate-skills-4-polyfill',
   row3: 'animate-skills-5 animate-skills-5-polyfill',
   row4: 'animate-skills-6 animate-skills-6-polyfill',
+  mobileRow: 'animate-skills-7 animate-skills-7-polyfill',
 } as const;
 
-function Row({ children, className = '' }: SkillsListRowProps) {
+function Row({
+  children,
+  className = '',
+  'data-mobile': dataIsMobile,
+}: SkillsListRowProps) {
   return (
     <ul
-      className={`animate-skills fixed top-[110vh] left-0 w-full center-elements gap-1 px-4 ${className}`}
+      data-mobile={dataIsMobile}
+      className={`data-[mobile=true]:sm:hidden animate-skills fixed top-[110vh] left-0 w-full center-elements gap-1 px-4 ${className}`}
     >
       {children}
     </ul>
@@ -25,7 +31,7 @@ function SkillBlock({ str, 'data-last-item': lastItem }: SkillBlockProps) {
   return (
     <li
       data-last-item={lastItem}
-      className='data-[last-item=true]:hidden data-[last-item=true]:sm:block transition-300 bg-black/30 hover:bg-black/70 w-full lg:w-[10rem] h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple'
+      className='data-[last-item=true]:hidden data-[last-item=true]:sm:block transition-300 bg-black/30 hover:bg-black/70 w-full lg:w-[10rem] h-10 sm:h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple'
     >
       <div className='size-full break-words text-center center-elements text-white font-montserrat text-sm sm:text-base md:text-xl'>
         {str}
@@ -43,17 +49,16 @@ export default function SkillsList() {
     return (
       <Row
         key={`skills-${key}`}
+        data-mobile={key === 'mobileRow'}
         className={`animate-view-polyfill ${rowClassName}`}
       >
-        {rowItems.map((str: string) => {
-          return (
-            <SkillBlock
-              data-last-item={str === rowItems[3]}
-              key={`skill-item-${str}`}
-              str={str}
-            />
-          );
-        })}
+        {rowItems.map((str: string) => (
+          <SkillBlock
+            data-last-item={str === rowItems[3]}
+            key={`skill-item-${str}`}
+            str={str}
+          />
+        ))}
       </Row>
     );
   });
