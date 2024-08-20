@@ -78,10 +78,14 @@ body {
   @media (prefers-reduced-motion: no-preference) {
     /* Animations polyfill, for cases in which 'animation-timeline' isn't supported. */
     @supports not (animation-timeline: scroll()) {
-      .animate-rotate-polyfill {
-        animation: rotate 1s linear forwards;
+      .animate-scroll-polyfill {
+        animation: 1s linear forwards;
         animation-delay: calc(var(--scroll) * -1s);
         animation-play-state: paused;
+      }
+
+      .animate-rotate-polyfill {
+        animation-name: rotate;
       }
       @media screen and (max-width: 768px) {
         .animate-rotate-polyfill {
@@ -90,33 +94,30 @@ body {
       }
 
       .animate-background-polyfill {
-        animation: background-scale 1s linear forwards;
-        animation-delay: calc(var(--scroll) * -1s);
-        animation-play-state: paused;
+        animation-name: background-scale;
         scale: 1;
       }
 
       .animate-hide-components-polyfill {
-        animation: hide-components 1s linear forwards;
-        animation-delay: calc(var(--scroll) * -1s);
-        animation-play-state: paused;
-        animation-timeline: scroll();
+        animation-name: hide-components;
       }
 
       .animate-show-components-polyfill {
-        animation: show-components 1s linear forwards;
-        animation-delay: calc(var(--scroll) * -1s);
-        animation-play-state: paused;
-        animation-timeline: scroll();
+        animation-name: show-components;
       }
     }
 
     /* The animations can be moved to tailwind.config once the polyfill is removed. */
     @supports (animation-timeline: scroll()) {
-      .animate-rotate {
-        animation: rotate linear;
+      .animate-scroll {
+        animation: linear;
         animation-timeline: scroll();
       }
+
+      .animate-rotate {
+        animation-name: rotate;
+      }
+
       @media screen and (max-width: 768px) {
         .animate-rotate {
           scale: 0.5;
@@ -124,21 +125,20 @@ body {
       }
 
       .animate-background-scale {
-        animation: background-scale linear;
+        animation-name: background-scale;
         scale: 1;
-        animation-timeline: scroll();
       }
 
       .animate-hide-components {
-        animation: hide-components linear;
-        animation-timeline: scroll();
+        animation-name: hide-components;
       }
 
       .animate-show-components {
-        animation: show-components linear;
-        animation-timeline: scroll();
+        animation-name: show-components;
       }
+    }
 
+    @supports (animation-timeline: view()) {
       .animate-skills {
         animation: linear forwards;
         animation-timeline: view();
