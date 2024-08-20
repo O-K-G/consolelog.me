@@ -13,11 +13,11 @@ const CLASSNAME_BY_ROW = {
 
 function Row({ children, className = '' }: SkillsListRowProps) {
   return (
-    <div
+    <ul
       className={`animate-skills fixed top-[110vh] left-0 w-full center-elements gap-1 px-4 ${className}`}
     >
       {children}
-    </div>
+    </ul>
   );
 }
 
