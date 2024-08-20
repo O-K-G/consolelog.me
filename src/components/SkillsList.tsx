@@ -31,25 +31,25 @@ function SkillBlock({ str }: { str: string }) {
 export default function SkillsList() {
   return (
     <>
-      <Col className='animate-skills-1 animate-skills-1-polyfill'>
+      <Col className='animate-skills-1 animate-view-polyfill animate-skills-1-polyfill'>
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
       </Col>
-      <Col className='animate-skills-2 animate-skills-2-polyfill'>
+      <Col className='animate-skills-2 animate-view-polyfill animate-skills-2-polyfill'>
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
       </Col>
-      <Col className='animate-skills-3 animate-skills-3-polyfill'>
+      <Col className='animate-skills-3 animate-view-polyfill animate-skills-3-polyfill'>
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
       </Col>
-      <Col className='animate-skills-4 animate-skills-4-polyfill'>
+      <Col className='animate-skills-4 animate-view-polyfill animate-skills-4-polyfill'>
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
         <SkillBlock str='TBD' />
