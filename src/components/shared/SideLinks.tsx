@@ -16,7 +16,7 @@ function AnchorLink({
   'data-testid': dataTestId,
 }: AnchorLinkProps) {
   return (
-    <li>
+    <li data-rounded={isRounded} className='data-[rounded=true]:rounded-full'>
       <a
         data-testid={dataTestId}
         data-rounded={isRounded}
