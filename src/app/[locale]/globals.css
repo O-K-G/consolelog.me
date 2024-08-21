@@ -109,7 +109,7 @@ body {
     }
 
     @supports not (animation-timeline: view()) {
-      .animate-view-polyfill {
+      .animate-skills-polyfill {
         animation: 1s linear forwards;
         animation-play-state: paused;
       }
