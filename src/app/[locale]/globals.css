@@ -121,32 +121,32 @@ body {
 
       .animate-skills-2-polyfill {
         animation-name: skills-2;
-        animation-delay: calc(var(--scroll) * -3.5s);
+        animation-delay: calc(var(--scroll) * -3.75s);
       }
 
       .animate-skills-3-polyfill {
         animation-name: skills-3;
-        animation-delay: calc(var(--scroll) * -3s);
+        animation-delay: calc(var(--scroll) * -3.5s);
       }
 
       .animate-skills-4-polyfill {
         animation-name: skills-4;
-        animation-delay: calc(var(--scroll) * -2.5s);
+        animation-delay: calc(var(--scroll) * -3.25s);
       }
 
       .animate-skills-5-polyfill {
         animation-name: skills-5;
-        animation-delay: calc(var(--scroll) * -2.25s);
+        animation-delay: calc(var(--scroll) * -3s);
       }
 
       .animate-skills-6-polyfill {
         animation-name: skills-6;
-        animation-delay: calc(var(--scroll) * -2s);
+        animation-delay: calc(var(--scroll) * -2.75s);
       }
 
       .animate-skills-7-polyfill {
         animation-name: skills-7;
-        animation-delay: calc(var(--scroll) * -1.75s);
+        animation-delay: calc(var(--scroll) * -2.5s);
       }
     }
 
@@ -186,7 +186,13 @@ body {
         animation: linear forwards;
         animation-timeline: view();
         animation-range-start: 0;
-        animation-range-end: 200vh;
+        animation-range-end: 200svh;
+      }
+
+      @media screen and (min-width: 1024px) {
+        .animate-skills {
+          animation-range-end: 200dvh;
+        }
       }
 
       .animate-skills-1 {
@@ -221,110 +227,157 @@ body {
 
   @keyframes skills-1 {
     from {
-      top: 120vh;
+      top: 120svh;
     }
     to {
-      top: 12vh;
+      top: 12svh;
     }
   }
 
   @keyframes skills-2 {
     from {
-      top: 120vh;
+      top: 120svh;
     }
     to {
-      top: 25vh;
+      top: 25svh;
     }
   }
 
   @keyframes skills-3 {
     from {
-      top: 120vh;
+      top: 120svh;
     }
     to {
-      top: 32vh;
+      top: 32svh;
     }
   }
 
   @keyframes skills-4 {
     from {
-      top: 120vh;
+      top: 120svh;
     }
     to {
-      top: 40vh;
+      top: 40svh;
     }
   }
 
   @keyframes skills-5 {
     from {
-      top: 120vh;
+      top: 120svh;
     }
     to {
-      top: 48vh;
+      top: 48svh;
     }
   }
 
   @keyframes skills-6 {
     from {
-      top: 120vh;
+      top: 120svh;
     }
     to {
-      top: 56vh;
+      top: 56svh;
     }
   }
 
   @keyframes skills-7 {
     from {
-      top: 120vh;
+      top: 120svh;
     }
     to {
-      top: 64vh;
+      top: 64svh;
     }
   }
 
   @media screen and (min-width: 640px) {
     @keyframes skills-3 {
       from {
-        top: 120vh;
+        top: 120svh;
       }
       to {
-        top: 37vh;
+        top: 37svh;
       }
     }
 
     @keyframes skills-4 {
       from {
-        top: 120vh;
+        top: 120svh;
       }
       to {
-        top: 49vh;
+        top: 49svh;
       }
     }
 
     @keyframes skills-5 {
       from {
-        top: 120vh;
+        top: 120svh;
       }
       to {
-        top: 61vh;
+        top: 61svh;
       }
     }
 
     @keyframes skills-6 {
       from {
-        top: 120vh;
+        top: 120svh;
       }
       to {
-        top: 73vh;
+        top: 73svh;
       }
     }
 
     @keyframes skills-7 {
       from {
-        top: 120vh;
+        top: 120svh;
       }
       to {
-        top: 85vh;
+        top: 85svh;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    @keyframes skills-3 {
+      from {
+        top: 120dvh;
+      }
+      to {
+        top: 37dvh;
+      }
+    }
+
+    @keyframes skills-4 {
+      from {
+        top: 120dvh;
+      }
+      to {
+        top: 49dvh;
+      }
+    }
+
+    @keyframes skills-5 {
+      from {
+        top: 120dvh;
+      }
+      to {
+        top: 61dvh;
+      }
+    }
+
+    @keyframes skills-6 {
+      from {
+        top: 120dvh;
+      }
+      to {
+        top: 73dvh;
+      }
+    }
+
+    @keyframes skills-7 {
+      from {
+        top: 120dvh;
+      }
+      to {
+        top: 85dvh;
       }
     }
   }
