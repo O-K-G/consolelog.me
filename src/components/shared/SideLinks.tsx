@@ -16,17 +16,15 @@ function AnchorLink({
   'data-testid': dataTestId,
 }: AnchorLinkProps) {
   return (
-    <li
-      data-rounded={isRounded}
-      className='data-[rounded=true]:rounded-full overflow-hidden transition-300 hover:scale-150 active:scale-150 focus:scale-150'
-    >
+    <li data-rounded={isRounded} className='data-[rounded=true]:rounded-full'>
       <a
         data-testid={dataTestId}
+        data-rounded={isRounded}
         href={url}
         aria-label={ariaLabel}
         rel='noreferrer'
         target='_blank'
-        className='center-elements group outline-none side-links-clickable-elements-size'
+        className='data-[rounded=true]:rounded-full overflow-hidden transition-300 hover:scale-150 active:scale-150 focus:scale-150 center-elements group outline-none side-links-clickable-elements-size'
       >
         {icon}
       </a>

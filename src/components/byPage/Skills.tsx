@@ -11,17 +11,17 @@ export default function Skills() {
 
   return (
     <Section
-      className='relative min-h-screen h-[300svh] lg:h-[200dvh] pt-20 md:pt-40'
+      className='relative min-h-screen h-[200svh] lg:h-[200dvh] pt-20 md:pt-40'
       currentSection={CURRENT_SECTION}
     >
       <Title
-        className='animate-skills animate-view-polyfill fixed top-[110vh] animate-skills-1 animate-skills-1-polyfill'
+        className='animate-skills animate-skills-polyfill fixed top-[110vh] animate-skills-1 animate-skills-1-polyfill'
         border
       >
         {t('mainTitle')}
       </Title>
       <Title
-        className='animate-skills animate-view-polyfill fixed top-[110vh] animate-skills-2 animate-skills-2-polyfill'
+        className='animate-skills animate-skills-polyfill fixed top-[110vh] animate-skills-2 animate-skills-2-polyfill'
         variant='subtitle'
       >
         {t('subtitle')}

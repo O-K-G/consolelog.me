@@ -20,7 +20,7 @@ function Row({
   return (
     <ul
       data-mobile={dataIsMobile}
-      className={`data-[mobile=true]:sm:hidden data-[mobile=true]:flex-wrap animate-skills fixed top-[110vh] left-0 w-full center-elements gap-4 px-4 ${className}`}
+      className={`data-[mobile=true]:sm:hidden data-[mobile=true]:flex-wrap animate-skills animate-skills-polyfill fixed top-[110vh] left-0 w-full center-elements gap-4 px-4 ${className}`}
     >
       {children}
     </ul>
@@ -50,7 +50,7 @@ export default function SkillsList() {
       <Row
         key={`skills-${key}`}
         data-mobile={key === 'mobileRow'}
-        className={`animate-view-polyfill ${rowClassName}`}
+        className={rowClassName}
       >
         {rowItems.map((str: string) => (
           <SkillBlock
