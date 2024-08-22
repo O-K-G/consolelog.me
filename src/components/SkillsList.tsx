@@ -31,11 +31,9 @@ function SkillBlock({ str, 'data-last-item': lastItem }: SkillBlockProps) {
   return (
     <li
       data-last-item={lastItem}
-      className='data-[last-item=true]:hidden data-[last-item=true]:sm:block transition-300 bg-black/30 hover:bg-black/70 w-1/4 lg:w-[10rem] h-10 sm:h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple'
+      className='data-[last-item=true]:hidden data-[last-item=true]:sm:flex transition-300 bg-black/30 hover:bg-black/70 w-1/4 lg:w-[10rem] h-10 sm:h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple break-words text-center text-white font-montserrat text-sm sm:text-base md:text-xl'
     >
-      <div className='size-full break-words text-center center-elements text-white font-montserrat text-sm sm:text-base md:text-xl'>
-        {str}
-      </div>
+      {str}
     </li>
   );
 }
