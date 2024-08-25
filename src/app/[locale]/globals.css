@@ -63,6 +63,11 @@ body {
     container-type: size;
   }
 
+  .text-fill-transparent {
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
+
   @media screen and (max-width: 640px) {
     .purple-text-stroke {
       -webkit-text-stroke: 0.07rem #ceb7ff;

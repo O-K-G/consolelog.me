@@ -19,6 +19,7 @@ function Row({
 }: SkillsListRowProps) {
   return (
     <ul
+      dir='ltr'
       data-mobile={dataIsMobile}
       className={`data-[mobile=true]:sm:hidden data-[mobile=true]:flex-wrap animate-skills animate-skills-polyfill fixed top-[110vh] left-0 w-full center-elements gap-4 px-4 ${className}`}
     >
@@ -31,7 +32,7 @@ function SkillBlock({ str, 'data-last-item': lastItem }: SkillBlockProps) {
   return (
     <li
       data-last-item={lastItem}
-      className='data-[last-item=true]:hidden data-[last-item=true]:sm:flex transition-300 bg-black/30 hover:bg-black/70 w-1/4 lg:w-[10rem] h-10 sm:h-16 lg:h-20 center-elements overflow-hidden border-2 border-title-purple break-words text-center text-white font-montserrat text-sm sm:text-base md:text-xl'
+      className='relative before:-z-10 before:bg-slate-800/40 before:backdrop-blur-sm shadow-sm shadow-black rounded-xl before:top-0 before:left-0 before:size-full text-fill-transparent before:absolute bg-gradient-skills bg-clip-text bg-[400%_auto] bg-[right_center] hover:bg-[left_center] hover:text-[#ef9671] data-[last-item=true]:hidden data-[last-item=true]:sm:flex transition-1000 w-1/3 sm:w-1/4 lg:w-[10rem] h-10 sm:h-16 lg:h-20 center-elements overflow-hidden break-words text-center text-white font-montserrat text-sm sm:text-base md:text-xl'
     >
       {str}
     </li>
