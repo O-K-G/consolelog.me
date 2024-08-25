@@ -86,6 +86,8 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-skills':
+          'linear-gradient(90deg, white 25%, #fde071 37.5%, #ef9671, #996a6e 62.5%, white 75%)',
         'contact-sm': `url('/images/contact-sm.webp?cacheVersion=${CACHE_VERSION}')`,
         'contact-md': `url('/images/contact-md.webp?cacheVersion=${CACHE_VERSION}')`,
         'contact-lg': `url('/images/contact-lg.webp?cacheVersion=${CACHE_VERSION}')`,
