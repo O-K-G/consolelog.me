@@ -259,9 +259,11 @@ export interface SelectLanguageButtonProps {
 }
 
 export interface ChangeLanguageProps {
-  className: string;
   hide?: boolean;
-  iconClassName: string;
+}
+
+export interface CvProps {
+  hide?: boolean;
 }
 
 export interface SkillsListRowProps {
