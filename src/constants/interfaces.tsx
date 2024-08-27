@@ -276,3 +276,11 @@ export interface SkillBlockProps {
   str: string;
   'data-last-item'?: boolean;
 }
+
+export interface handleDownloadProps {
+  url: string | URL | Request;
+  init?: RequestInit | undefined;
+  fileName?: string;
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  headers?: Record<string, string>;
+}
