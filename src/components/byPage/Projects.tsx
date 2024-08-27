@@ -20,9 +20,11 @@ export default function Projects() {
       <ScrollableSubsection>
         <ScrollableSubsection.Item>
           <Title variant='subtitle' subtitleFontClassName='font-bebas-neue'>
-            This Webpage
+            {t('thisLandingPageTitle')}
           </Title>
-          <ExpandableButton alternativeLabel="This webpage is a personal just for fun project I've made for myself as a hobby" />
+          <ExpandableButton
+            alternativeLabel={t('thisLandingPageDescription')}
+          />
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>

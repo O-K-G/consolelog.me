@@ -1,6 +1,8 @@
 {
   "projects": {
     "mainTitle": "my projects",
+    "thisLandingPageTitle": "THIS LANDING PAGE",
+    "thisLandingPageDescription": "I've made this landing page just for fun as a hobby. I wanted to experiment with different approaches and try new things I haven't tried with previous projects.",
     "subtitle": "project x",
     "alternativeLabel": "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
   }
