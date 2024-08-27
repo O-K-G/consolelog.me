@@ -259,9 +259,11 @@ export interface SelectLanguageButtonProps {
 }
 
 export interface ChangeLanguageProps {
-  className: string;
   hide?: boolean;
-  iconClassName: string;
+}
+
+export interface CvProps {
+  hide?: boolean;
 }
 
 export interface SkillsListRowProps {
@@ -273,4 +275,13 @@ export interface SkillsListRowProps {
 export interface SkillBlockProps {
   str: string;
   'data-last-item'?: boolean;
+}
+
+export interface handleDownloadProps {
+  url: string | URL | Request;
+  init?: RequestInit | undefined;
+  fileName?: string;
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  headers?: Record<string, string>;
+  errorModalContent: ReactNode;
 }
