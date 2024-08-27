@@ -98,8 +98,9 @@ export default function ContactForm() {
   return (
     <form
       dir={dir}
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      action={handleValidation}
+      action={(formData) => {
+        void handleValidation(formData);
+      }}
       className={`w-full center-elements flex-col z-10 mt-2 ${ltrPaddingClassName} ${rtlPaddingClassName}`}
     >
       <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
