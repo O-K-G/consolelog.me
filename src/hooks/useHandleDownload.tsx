@@ -12,6 +12,7 @@ export default function useHandleDownload() {
     headers = {
       'Content-Type': 'application/json',
     },
+    errorModalContent,
   }: handleDownloadProps) => {
     void (async () => {
       try {
@@ -23,9 +24,7 @@ export default function useHandleDownload() {
         const { base64PDFfile } = (await data.json()) || {};
 
         if (!base64PDFfile) {
-          return setModalContent(
-            <div className='text-red-500 size-4'>TODO 1</div>
-          );
+          return setModalContent(errorModalContent);
         }
 
         const el = document.createElement('a');
@@ -33,7 +32,7 @@ export default function useHandleDownload() {
         el.download = `${fileName}.pdf`;
         el.click();
       } catch (err) {
-        setModalContent(<div className='text-red-500 size-4'>TODO 2</div>);
+        setModalContent(errorModalContent);
       }
     })();
   };

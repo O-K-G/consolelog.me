@@ -283,4 +283,5 @@ export interface handleDownloadProps {
   fileName?: string;
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
   headers?: Record<string, string>;
+  errorModalContent: ReactNode;
 }

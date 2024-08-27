@@ -5,12 +5,13 @@ import { useTranslations } from 'next-intl';
 import useHandleDownload from '@hooks/useHandleDownload';
 import CvIcon from '@components/icons/Cv';
 import type { CvProps } from '@constants/interfaces';
-
-const URL = '/cv';
+import { DownloadError } from '@components/DownloadError';
+import { URLs } from '@constants/urls';
 
 export default function DownloadButton({ hide }: CvProps) {
   const t = useTranslations('cv');
   const { handleDownload } = useHandleDownload();
+  const { cvFileURL } = URLs;
 
   if (hide) {
     return null;
@@ -21,7 +22,13 @@ export default function DownloadButton({ hide }: CvProps) {
       className='rounded-full transition-300 hover:scale-150 active:scale-150 focus:scale-150 side-links-clickable-elements-size'
       icon={<CvIcon className='side-links-icons' />}
       aria-label={t('download')}
-      onClick={() => handleDownload({ url: URL, fileName: t('filename') })}
+      onClick={() =>
+        handleDownload({
+          url: cvFileURL,
+          fileName: t('filename'),
+          errorModalContent: <DownloadError />,
+        })
+      }
     />
   );
 }
