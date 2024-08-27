@@ -13,7 +13,7 @@ export default function Title({
 }: MainTitleProps) {
   const selectedVariantClassName = {
     mainTitle: 'text-transparent main-title-font-classNames purple-text-stroke',
-    subtitle: `text-white subtitle-font-classNames ${subtitleFontClassName}`,
+    subtitle: `text-white text-2xl sm:text-5xl xl:text-7xl ${subtitleFontClassName}`,
   };
 
   return (

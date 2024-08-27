@@ -449,14 +449,6 @@ body {
     @apply font-stop-motion tracking-wider text-2xl sm:text-3xl md:text-5xl md:tracking-normal;
   }
 
-  .subtitle-font-classNames:lang(en) {
-    @apply text-2xl sm:text-5xl xl:text-7xl;
-  }
-
-  .subtitle-font-classNames:lang(he) {
-    @apply text-4xl sm:text-7xl xl:text-9xl;
-  }
-
   .info-text-font-classNames:lang(en) {
     @apply font-bebas-neue;
   }

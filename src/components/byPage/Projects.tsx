@@ -19,22 +19,17 @@ export default function Projects() {
       <Title border>{t('mainTitle')}</Title>
       <ScrollableSubsection>
         <ScrollableSubsection.Item>
-          <Title variant='subtitle' subtitleFontClassName='font-bebas-neue'>
-            {t('thisLandingPageTitle')}
-          </Title>
+          <Title variant='subtitle'>{t('thisLandingPageTitle')}</Title>
           <ExpandableButton
             alternativeLabel={t('thisLandingPageDescription')}
           />
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
-          <Title variant='subtitle'>{t('subtitle')}</Title>
-          <ExpandableButton alternativeLabel={t('alternativeLabel')} />
-        </ScrollableSubsection.Item>
-
-        <ScrollableSubsection.Item>
-          <Title variant='subtitle'>{t('subtitle')}</Title>
-          <ExpandableButton alternativeLabel={t('alternativeLabel')} />
+          <Title variant='subtitle'>{t('i18nCoordinatorTitle')}</Title>
+          <ExpandableButton
+            alternativeLabel={t('i18nCoordinatorDescription')}
+          />
         </ScrollableSubsection.Item>
       </ScrollableSubsection>
     </Section>
