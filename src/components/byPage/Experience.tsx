@@ -14,7 +14,7 @@ export default function Experience() {
 
   return (
     <Section
-      className='min-h-[40rem] relative h-svh lg:h-dvh pt-20 md:pt-40'
+      className='min-h-[100svh] lg:min-h-[100dvh] relative h-svh lg:h-dvh pt-20 md:pt-40'
       currentSection={CURRENT_SECTION}
     >
       <Title border>{t('mainTitle')}</Title>
