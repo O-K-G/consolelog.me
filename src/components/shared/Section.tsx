@@ -30,7 +30,7 @@ export default function Section({
   return (
     <section
       ref={sectionRef}
-      className={`bg-black flex flex-col items-center justify-start w-full overflow-hidden px-4 pb-4 ${
+      className={`bg-black min-h-screen flex flex-col items-center justify-start w-full overflow-hidden px-4 pb-4 ${
         className ?? ''
       }`}
     >

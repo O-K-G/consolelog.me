@@ -13,7 +13,7 @@ export default function Projects() {
 
   return (
     <Section
-      className='min-h-[46.875rem] relative h-svh lg:h-dvh pt-20 md:pt-40'
+      className='relative h-svh lg:h-dvh pt-20 md:pt-40'
       currentSection={CURRENT_SECTION}
     >
       <Title border>{t('mainTitle')}</Title>
