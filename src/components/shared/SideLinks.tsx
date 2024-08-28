@@ -4,7 +4,7 @@ import LIIcon from '@components/icons/LIIcon';
 import { URLs } from '@constants/urls';
 import { useTranslations } from 'next-intl';
 import ChangeLanguage from '@components/shared/ChangeLanguage';
-import DownloadButton from '@components/shared/DownloadButton';
+// import DownloadButton from '@components/shared/DownloadButton';
 
 export const GH_TEST_ID = 'gh-test';
 export const LI_TEST_ID = 'li-test';
@@ -57,7 +57,8 @@ export default function SideLinks({
           icon={<LIIcon className='side-links-icons' />}
         />
         <ChangeLanguage hide={hideChangeLanguageButton} />
-        <DownloadButton />
+        {/* TODO: Uncomment once a CV file is ready. */}
+        {/* <DownloadButton /> */}
       </ul>
     </nav>
   );

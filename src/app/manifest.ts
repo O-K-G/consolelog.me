@@ -3,9 +3,9 @@ import { CACHE_VERSION } from '@root/tailwind.config';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'TBD',
-    short_name: 'TBD',
-    description: 'TBD',
+    name: 'console.log(me)',
+    short_name: 'console.log(me)',
+    description: 'My landing page',
     start_url: '/',
     display: 'browser',
     background_color: '#ffffff',

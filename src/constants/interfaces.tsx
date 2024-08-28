@@ -269,12 +269,11 @@ export interface CvProps {
 export interface SkillsListRowProps {
   children: ReactNode;
   className: string;
-  'data-mobile'?: boolean;
 }
 
 export interface SkillBlockProps {
   str: string;
-  'data-last-item'?: boolean;
+  'data-visible-mobile': boolean;
 }
 
 export interface handleDownloadProps {

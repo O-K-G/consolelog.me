@@ -8,13 +8,31 @@ import handleFontsByLocale from '@utils/handleFontsByLocale';
 
 const { fontsByLocale } = handleFontsByLocale();
 
-// TODO: Set metadada.
-
 export const metadata: Metadata = {
-  title: 'TBD',
-  description: 'TBD',
+  title: 'console.log(me)',
+  description: 'My landing page',
   applicationName: 'consolelogme',
-  keywords: ['TBD'],
+  keywords: [
+    'console',
+    'log',
+    'HTML',
+    'React.js',
+    'Async JS',
+    'A11y',
+    'JavaScript',
+    'tailwindcss',
+    'REST API',
+    'i18n',
+    'CSS',
+    'Next.js',
+    'Microservices',
+    'Zod',
+    'TypeScript',
+    'Node.js',
+    'MongoDB',
+    'Unit tests',
+    'Web development',
+  ],
   manifest: '/manifest.json',
   icons: {
     icon: `/images/icon.png?cacheVersion=${CACHE_VERSION}`,

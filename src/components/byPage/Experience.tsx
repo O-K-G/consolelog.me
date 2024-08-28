@@ -14,24 +14,19 @@ export default function Experience() {
 
   return (
     <Section
-      className='min-h-[55rem] relative h-svh lg:h-dvh pt-20 md:pt-40'
+      className='min-h-screen relative h-svh lg:h-dvh pt-20 md:pt-40'
       currentSection={CURRENT_SECTION}
     >
       <Title border>{t('mainTitle')}</Title>
       <ScrollableSubsection>
         <ScrollableSubsection.Item>
-          <Title variant='subtitle'>{t('subtitle')}</Title>
-          <ExpandableButton alternativeLabel={t('alternativeLabel')} />
+          <Title variant='subtitle'>{t('faiMainTitle')}</Title>
+          <ExpandableButton alternativeLabel={t('faiDescription')} />
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
-          <Title variant='subtitle'>{t('subtitle')}</Title>
-          <ExpandableButton alternativeLabel={t('alternativeLabel')} />
-        </ScrollableSubsection.Item>
-
-        <ScrollableSubsection.Item>
-          <Title variant='subtitle'>{t('subtitle')}</Title>
-          <ExpandableButton alternativeLabel={t('alternativeLabel')} />
+          <Title variant='subtitle'>{t('bankMainTitle')}</Title>
+          <ExpandableButton alternativeLabel={t('bankMainTitleDescription')} />
         </ScrollableSubsection.Item>
       </ScrollableSubsection>
       <Footer />

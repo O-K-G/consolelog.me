@@ -1,4 +1,10 @@
-The repo for [http://consolelog.me](http://consolelog.me).
+The repo for my landing page at [http://consolelog.me](http://consolelog.me).
+
+### Version 1.0.0 changes
+
+- Add base content
+- Ready for a CV file download
+- Visual updates
 
 ### Version 0.9.5 changes
 
