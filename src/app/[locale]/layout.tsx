@@ -1,4 +1,4 @@
-import '@locale/globals.css';
+import '@locale/CSS/globals.css';
 import type { Metadata, Viewport } from 'next';
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { NextIntlClientProvider } from 'next-intl';
