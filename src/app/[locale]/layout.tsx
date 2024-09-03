@@ -4,7 +4,7 @@ import { CACHE_VERSION } from '@root/tailwind.config';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import handleFontsByLocale from '@utils/handleFontsByLocale';
-import getDirByLang from '@utils/getDirByLang';
+import getDirByLocale from '@utils/getDirByLocale';
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -64,7 +64,7 @@ export default async function RootLayout({
 }>) {
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
-  const dir = getDirByLang({ locale: selectedLocale }) || 'ltr';
+  const dir = getDirByLocale({ locale: selectedLocale }) || 'ltr';
 
   const { mainTitle, borderTitle, infoText, regularText, shenanigansText } =
     fontsByLocale[selectedLocale as keyof typeof fontsByLocale];

@@ -285,6 +285,6 @@ export interface handleDownloadProps {
   errorModalContent: ReactNode;
 }
 
-export interface GetDirByLangProps {
+export interface GetDirByLocaleProps {
   locale: string | string[];
 }

@@ -8,7 +8,7 @@ import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
 import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
-import getDirByLang from '@utils/getDirByLang';
+import getDirByLocale from '@utils/getDirByLocale';
 import {
   type FormErrorNames,
   type Fields,
@@ -26,7 +26,7 @@ const CONTENT_ID = 'content';
 
 export default function ContactForm() {
   const { locale } = useParams() || {};
-  const direction = getDirByLang({ locale });
+  const direction = getDirByLocale({ locale });
   const [dir, setDir] = useState<'ltr' | 'rtl'>(direction);
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);
