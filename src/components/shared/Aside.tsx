@@ -5,7 +5,7 @@ import Contact from '@components/byPage/Contact';
 import { usePathname, useParams } from 'next/navigation';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
 import { useTranslations } from 'next-intl';
-import getDirByLang from '@utils/getDirByLang';
+import getDirByLocale from '@utils/getDirByLocale';
 
 export default function Aside() {
   const t = useTranslations('contactGoBackButtonText');
@@ -29,7 +29,7 @@ export default function Aside() {
       let touchX = 0;
 
       const handleTouchMove = (e: TouchEvent) => {
-        const dir = getDirByLang({ locale });
+        const dir = getDirByLocale({ locale });
         const isLTR = dir === 'ltr';
         const slideDifference = isLTR
           ? touchX - e.touches[0].clientX
