@@ -52,7 +52,9 @@ export default function ExpandableButton({
           onClick={handleClick}
           onKeyDown={handleClick}
         >
-          {isAnimationEnd && (!open ? t('clickToOpen') : alternativeLabel)}
+          <span className='my-auto'>
+            {isAnimationEnd && (!open ? t('clickToOpen') : alternativeLabel)}
+          </span>
         </div>
         <AboutTargetIcon bottom open={open} />
       </div>
