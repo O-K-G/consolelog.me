@@ -284,3 +284,7 @@ export interface handleDownloadProps {
   headers?: Record<string, string>;
   errorModalContent: ReactNode;
 }
+
+export interface GetDirByLangProps {
+  locale: string | string[];
+}
