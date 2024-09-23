@@ -26,10 +26,25 @@ export default function Projects() {
         </ScrollableSubsection.Item>
 
         <ScrollableSubsection.Item>
+          <Title variant='subtitle'>{t('onboardingTitle')}</Title>
+          <ExpandableButton alternativeLabel={t('onboardingDescription')} />
+        </ScrollableSubsection.Item>
+
+        <ScrollableSubsection.Item>
+          <Title variant='subtitle'>{t('sharedUITitle')}</Title>
+          <ExpandableButton alternativeLabel={t('sharedUIDescription')} />
+        </ScrollableSubsection.Item>
+
+        <ScrollableSubsection.Item>
           <Title variant='subtitle'>{t('i18nCoordinatorTitle')}</Title>
           <ExpandableButton
             alternativeLabel={t('i18nCoordinatorDescription')}
           />
+        </ScrollableSubsection.Item>
+
+        <ScrollableSubsection.Item>
+          <Title variant='subtitle'>{t('scrumMaster')}</Title>
+          <ExpandableButton alternativeLabel={t('scrumMasterDescription')} />
         </ScrollableSubsection.Item>
       </ScrollableSubsection>
     </Section>
