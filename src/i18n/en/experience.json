@@ -1,9 +1,9 @@
 {
   "experience": {
-    "mainTitle": "my work experience",
-    "bankMainTitle": "FRONTEND TEAM LEADER",
-    "bankMainTitleDescription": "Frontend developer, Scrum Master, and team leader at 'Bank Leumi', one of the largest banks in Israel. Started as one of the first developers of the bank's new main business website, all the way from POC to MVP, public release and beyond.",
-    "faiMainTitle": "FAI SYSTEMS - FRONTEND DEV",
-    "faiDescription": "An on-site advisor in a Toronto based startup. Previously I remotely developed a POC customer website with users registration and a login page."
+    "mainTitle": "Professional Experience",
+    "bankMainTitle": "Frontend Team Leader",
+    "bankMainTitleDescription": "Frontend developer, Scrum Master, and team leader at Bank Leumi, one of Israel's largest banks. I played a key role in developing the bank's new main business website, starting from the proof of concept (POC) phase through to the minimum viable product (MVP), public launch, and ongoing development.",
+    "faiMainTitle": "Frontend Developer - FAI Systems",
+    "faiDescription": "Served as an on-site advisor at a Toronto-based startup. Prior to that, I remotely developed a proof of concept (POC) customer portal with user registration and login functionality."
   }
 }

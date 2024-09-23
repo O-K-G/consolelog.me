@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   icons: {
     icon: `/images/icon.png?cacheVersion=${CACHE_VERSION}`,
-    shortcut: `/images/shortcut-icon?cacheVersion=${CACHE_VERSION}`,
+    shortcut: `/images/shortcut-icon.png?cacheVersion=${CACHE_VERSION}`,
     apple: `/images/apple-icon.png?cacheVersion=${CACHE_VERSION}`,
     other: [
       {
