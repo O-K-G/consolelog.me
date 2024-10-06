@@ -8,8 +8,6 @@ import ModalContextComponent from '@components/shared/ModalContext';
 import Aside from '@components/shared/Aside';
 
 export default function Home() {
-  const a = 1;
-  const b = { a: a };
   return (
     <main className='min-h-svh lg:min-h-dvh overflow-hidden'>
       <Loader />
