@@ -11,6 +11,7 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   jsxA11y.flatConfigs.recommended,
+  { ignores: ['**/*.test.tsx'] },
   {
     rules: {
       'no-unused-vars': 'warn',
