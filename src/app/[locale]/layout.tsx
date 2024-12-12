@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import handleFontsByLocale from '@utils/handleFontsByLocale';
 import getDirByLocale from '@utils/getDirByLocale';
+import { type ReactNode } from 'react';
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -56,21 +57,12 @@ export const viewport: Viewport = {
 };
 
 export default async function RootLayout(
-  props: Readonly<{
-    children: React.ReactNode;
-    params: { locale: string };
-  }>
+  {
+    children,
+    params
+  }: {children: ReactNode, params: Promise<{ locale: string }>}
 ) {
-  const params = await props.params;
-
-  const {
-    locale
-  } = params;
-
-  const {
-    children
-  } = props;
-
+  const { locale } = await params;
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
   const dir = getDirByLocale({ locale: selectedLocale }) || 'ltr';
