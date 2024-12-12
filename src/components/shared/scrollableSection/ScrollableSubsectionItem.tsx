@@ -1,13 +1,11 @@
-import { type ForwardedRef, forwardRef, useRef } from 'react';
+import { useRef } from 'react';
 import useObserveScrollSubsection from '@hooks/useObserveScrollSubsection';
 import type { ScrollableSubsectionItemProps } from '@constants/interfaces';
 
 export const SCROLLABLE_ITEM_TEST_ID = 'scrollable-item-test-id';
 
-export const ScrollableSubsectionItem = forwardRef(
-  function ScrollableSubsectionItem(
-    { children, onSubsectionSelectChange, id }: ScrollableSubsectionItemProps,
-    ref: ForwardedRef<HTMLDivElement>
+export function ScrollableSubsectionItem( 
+    { children, onSubsectionSelectChange, id, ref }: ScrollableSubsectionItemProps,
   ) {
     const scrollableRef = ref;
     const scrollableItemRef = useRef(null);
@@ -29,4 +27,3 @@ export const ScrollableSubsectionItem = forwardRef(
       </div>
     );
   }
-);

@@ -9,7 +9,6 @@ import {
   type ReactNode,
   createContext,
   useState,
-  useMemo,
   useRef,
 } from 'react';
 
@@ -32,19 +31,14 @@ export default function ModalContextComponent({
     onModalChange: setModalContent,
   });
 
-  const ModalContextData = useMemo(
-    () => ({
+  return (
+    <ModalContext.Provider value={{
       onModalContentChange: setModalContent,
       onCloseModal: (e: Event | React.MouseEvent<HTMLElement>) =>
         handleCloseModal(e, 'close'),
       modalRef,
       modalContent,
-    }),
-    [handleCloseModal, modalContent]
-  );
-
-  return (
-    <ModalContext.Provider value={ModalContextData}>
+    }}>
       {children}
     </ModalContext.Provider>
   );

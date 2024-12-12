@@ -5,6 +5,7 @@ import type {
   MutableRefObject,
   PropsWithChildren,
   ReactNode,
+  RefObject,
   SetStateAction,
 } from 'react';
 import { type DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
@@ -189,7 +190,7 @@ export interface PropsWithId extends PropsWithChildren {
 }
 
 export interface UseObserveScrollSubsectionProps {
-  scrollableRef: ForwardedRef<HTMLDivElement>;
+  scrollableRef?: RefObject<HTMLDivElement>;
   id?: number;
   onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
   scrollableItemRef: MutableRefObject<null>;
@@ -199,6 +200,7 @@ export interface ScrollableSubsectionItemProps {
   children: ReactNode;
   onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
   id?: number;
+  ref?: RefObject<HTMLDivElement>
 }
 export interface ContactGoBackButtonProps {
   children: ReactNode;

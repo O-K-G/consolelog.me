@@ -23,7 +23,7 @@ export default function Aside() {
   }, [locale, open, pathname]);
 
   useEffect(() => {
-    const { current } = asideRef as RefObject<HTMLDivElement>;
+    const { current } = asideRef as RefObject<HTMLDivElement | null>;
 
     const handleTransition = () => {
       let touchX = 0;
