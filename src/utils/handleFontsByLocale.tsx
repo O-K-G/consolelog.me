@@ -40,6 +40,7 @@ const varelaRound = localFont({
 const handjet = localFont({
   src: '../../public/fonts/Handjet/Handjet-VariableFont_ELGR,ELSH,wght.ttf',
   variable: '--font-handjet',
+  preload: false
 });
 
 export default function handleFontsByLocale() {
