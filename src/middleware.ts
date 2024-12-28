@@ -1,17 +1,13 @@
-import createIntlMiddleware from "next-intl/middleware";
-import { type NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 
-const intlMiddleware = createIntlMiddleware({
-  locales: ["en", "he"],
-  defaultLocale: "en",
-});
+export default createMiddleware(routing);
 
 // const ALLOWED_DOMAINS =
 //   "*.vercel.live vercel.live *.vercel.com vercel.com *.pusher.com pusher.com wss://*.pusher.com wss://pusher.com";
 
-export async function middleware(request: NextRequest) {
-  const intlResponse = intlMiddleware(request);
-
+export async function middleware() {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
 
   const isDevEnv = process.env.NODE_ENV === "development";
@@ -65,7 +61,7 @@ export async function middleware(request: NextRequest) {
     .replace(/\s{2,}/g, " ")
     .trim();
 
-  const response = intlResponse || NextResponse.next();
+  const response = NextResponse.next();
   response.headers.set("x-nonce", nonce);
   response.headers.set("X-Content-Type-Options", "nosniff");
   response.headers.set("Referrer-Policy", "no-referrer");
@@ -82,14 +78,18 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    {
-      source:
-        "/((?!api|_next/static|_next/image|images|favicon.ico|icon.ico|apple-icon.png|manifest.webmanifest|manifest.json).*)",
-      missing: [
-        { type: "header", key: "next-router-prefetch" },
-        { type: "header", key: "purpose", value: "prefetch" },
-      ],
-    },
-  ],
+  matcher: ["/", "/(he|en)/:path*"],
 };
+
+// export const config = {
+//   matcher: [
+//     {
+//       source:
+//         "/((?!api|_next/static|_next/image|images|favicon.ico|icon.ico|apple-icon.png|manifest.webmanifest|manifest.json).*)",
+//       missing: [
+//         { type: "header", key: "next-router-prefetch" },
+//         { type: "header", key: "purpose", value: "prefetch" },
+//       ],
+//     },
+//   ],
+// };
