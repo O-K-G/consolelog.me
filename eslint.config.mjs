@@ -1,24 +1,25 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { FlatCompat } from "@eslint/eslintrc";
 
-export default [
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
-  { languageOptions: { globals: globals.browser } },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  jsxA11y.flatConfigs.recommended,
-  { ignores: ['**/*.test.tsx'] },
-  {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const eslintConfig = [
+  ...compat.config({
+    extends: ["next/core-web-vitals", "next/typescript"],
     rules: {
-      'no-unused-vars': 'warn',
-      '@typescript-eslint/no-unused-vars': 'warn',
-      'no-undef': 'warn',
-      'object-shorthand': ['warn'],
-      'react/react-in-jsx-scope': 'off',
+      "no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "no-undef": "warn",
+      "object-shorthand": ["warn"],
+      "react/react-in-jsx-scope": "off",
     },
-  },
+  }),
 ];
+
+export default eslintConfig;
