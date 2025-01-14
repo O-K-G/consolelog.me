@@ -65,11 +65,6 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-
-  if (!routing.locales.includes(locale as 'en' | 'he')) {
-    notFound();
-  }
-
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
   const dir = getDirByLocale({ locale: selectedLocale }) || 'ltr';
