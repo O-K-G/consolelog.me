@@ -1,14 +1,14 @@
-import IconButton from "@components/shared/IconButton";
-import { useState, useRef, type ReactNode } from "react";
-import useHandleHorizontalScroll from "@hooks/useHandleHorizontalScroll";
-import useHandleChildrenWithNewProps from "@hooks/useHandleChildrenWithNewProps";
-import type { PropsWithId } from "@constants/interfaces";
-import { ScrollableSubsectionItem } from "@components/shared/scrollableSection/ScrollableSubsectionItem";
-import ArrowIconComponent from "@components/icons/ArrowIconComponent";
-import { useTranslations } from "next-intl";
+import IconButton from '@components/shared/IconButton';
+import { useState, useRef, type ReactNode } from 'react';
+import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
+import useHandleChildrenWithNewProps from '@hooks/useHandleChildrenWithNewProps';
+import type { PropsWithId } from '@constants/interfaces';
+import { ScrollableSubsectionItem } from '@components/shared/scrollableSection/ScrollableSubsectionItem';
+import ArrowIconComponent from '@components/icons/ArrowIconComponent';
+import { useTranslations } from 'next-intl';
 
-export const LEFT_BUTTON_TEST_ID = "left-button-test-id";
-export const RIGHT_BUTTON_TEST_ID = "right-button-test-id";
+export const LEFT_BUTTON_TEST_ID = 'left-button-test-id';
+export const RIGHT_BUTTON_TEST_ID = 'right-button-test-id';
 
 export default function ScrollableSubsection({
   children,
@@ -16,7 +16,7 @@ export default function ScrollableSubsection({
   children: ReactNode;
 }) {
   const scrollableRef = useRef(null);
-  const t = useTranslations("scrollableSectionText");
+  const t = useTranslations('scrollableSectionText');
   const { handleHorizontalScroll } = useHandleHorizontalScroll();
   const [selectedSubsection, setSelectedSubsection] = useState(0);
   const { handleChildrenWithNewProps } = useHandleChildrenWithNewProps();
@@ -50,7 +50,7 @@ export default function ScrollableSubsection({
             }
           }}
           className="scrollable-subsection-buttons left-0 ltr:rotate-180 rtl:rotate-0"
-          aria-label={t("scrollLeft")}
+          aria-label={t('scrollLeft')}
           icon={<ArrowIconComponent />}
         />
       </div>
@@ -83,7 +83,7 @@ export default function ScrollableSubsection({
             }
           }}
           className="scrollable-subsection-buttons right-0 ltr:rotate-0 rtl:rotate-180"
-          aria-label={t("scrollRight")}
+          aria-label={t('scrollRight')}
           icon={<ArrowIconComponent />}
         />
       </div>
