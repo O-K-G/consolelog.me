@@ -1,14 +1,14 @@
+import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
+import { z } from 'zod';
 import {
   Dispatch,
   MouseEventHandler,
-  MutableRefObject,
   PropsWithChildren,
   ReactNode,
   RefObject,
   SetStateAction,
 } from 'react';
-import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
-import { z } from 'zod';
+
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
 export const CONTACT_FORM_SUBJECT_MIN_LENGTH = 1;
 export const CONTACT_FORM_SUBJECT_MAX_LENGTH = 100;
@@ -21,7 +21,7 @@ export interface ModalContextComponentProps {
 
 export interface ModalContextProps {
   onModalContentChange: Dispatch<SetStateAction<ReactNode>>;
-  modalRef: MutableRefObject<HTMLDialogElement | null>;
+  modalRef: RefObject<HTMLDialogElement | null>;
   modalContent: ReactNode;
   onCloseModal: (e: Event | React.MouseEvent<HTMLElement>) => void;
 }
@@ -174,13 +174,13 @@ export interface SideLinksProps {
 
 export interface HandleChildrenWithNewPropsProps {
   children: ReactNode;
-  scrollableRef: MutableRefObject<null>;
+  scrollableRef: RefObject<null>;
   onSubsectionSelectChange: Dispatch<SetStateAction<number>>;
 }
 
 export interface ChildWithNewProps {
   id: number;
-  ref: MutableRefObject<null>;
+  ref: RefObject<null>;
   onSubsectionSelectChange: Dispatch<SetStateAction<number>>;
 }
 

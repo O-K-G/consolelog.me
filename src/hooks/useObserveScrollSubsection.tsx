@@ -1,5 +1,5 @@
 import { UseObserveScrollSubsectionProps } from '@constants/interfaces';
-import { MutableRefObject, RefObject, useEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 
 export default function useObserveScrollSubsection({
   id,
@@ -24,8 +24,7 @@ export default function useObserveScrollSubsection({
 
     const observer = new IntersectionObserver(handleObserve, options);
     observer.observe(
-      (scrollableItemRef as unknown as MutableRefObject<HTMLDivElement>)
-        ?.current
+      (scrollableItemRef as unknown as RefObject<HTMLDivElement>)?.current
     );
 
     return () => observer.disconnect();

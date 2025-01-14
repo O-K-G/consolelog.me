@@ -1,7 +1,7 @@
 import {
-  type MutableRefObject,
-  type MouseEvent,
-  type ReactNode,
+  RefObject,
+  MouseEvent,
+  ReactNode,
   useCallback,
   useEffect,
 } from 'react';
@@ -11,7 +11,7 @@ export default function useHandleModal({
   modalContent,
   onModalChange: setModalContent,
 }: {
-  modalRef: MutableRefObject<null>;
+  modalRef: RefObject<null>;
   modalContent: ReactNode;
   onModalChange: (val: ReactNode | null) => void;
 }) {

@@ -3,7 +3,7 @@ import { useParams } from 'next/navigation';
 import getDirByLocale from '@utils/getDirByLocale';
 
 export default function useHandleHorizontalScroll() {
-  const { locale } = useParams() || {};
+  const { locale }: { locale: string } = useParams();
 
   const handleHorizontalScroll = ({
     num,
