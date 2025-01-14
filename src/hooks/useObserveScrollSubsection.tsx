@@ -1,5 +1,5 @@
-import type { UseObserveScrollSubsectionProps } from '@constants/interfaces';
-import { type MutableRefObject, useEffect } from 'react';
+import type { UseObserveScrollSubsectionProps } from "@constants/interfaces";
+import { type MutableRefObject, RefObject, useEffect } from "react";
 
 export default function useObserveScrollSubsection({
   id,
@@ -9,8 +9,8 @@ export default function useObserveScrollSubsection({
 }: UseObserveScrollSubsectionProps) {
   useEffect(() => {
     const options = {
-      root: (scrollableRef as MutableRefObject<HTMLDivElement>)?.current,
-      rootMargin: '0px',
+      root: (scrollableRef as RefObject<HTMLDivElement>)?.current,
+      rootMargin: "0px",
       threshold: 0.5,
     };
 

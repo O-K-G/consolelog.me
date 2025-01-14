@@ -1,6 +1,6 @@
-import { type MutableRefObject } from 'react';
-import { useParams } from 'next/navigation';
-import getDirByLocale from '@utils/getDirByLocale';
+import { RefObject } from "react";
+import { useParams } from "next/navigation";
+import getDirByLocale from "@utils/getDirByLocale";
 
 export default function useHandleHorizontalScroll() {
   const { locale } = useParams() || {};
@@ -10,15 +10,15 @@ export default function useHandleHorizontalScroll() {
     scrollableRef,
   }: {
     num: number;
-    scrollableRef: MutableRefObject<null>;
+    scrollableRef: RefObject<null>;
   }) => {
     const dir = getDirByLocale({ locale });
-    const numByDir = dir === 'ltr' ? num : -num;
+    const numByDir = dir === "ltr" ? num : -num;
 
     (scrollableRef.current as unknown as HTMLDivElement).scrollTo({
       top: 0,
       left: numByDir,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
