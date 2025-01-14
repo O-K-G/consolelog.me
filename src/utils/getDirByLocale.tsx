@@ -1,4 +1,4 @@
-import type { GetDirByLocaleProps } from '@constants/interfaces';
+import { GetDirByLocaleProps } from '@constants/interfaces';
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 
 export default function getDirByLocale({ locale }: GetDirByLocaleProps) {

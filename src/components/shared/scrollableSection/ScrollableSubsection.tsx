@@ -1,8 +1,8 @@
 import IconButton from '@components/shared/IconButton';
-import { useState, useRef, type ReactNode } from 'react';
+import { useState, useRef, ReactNode } from 'react';
 import useHandleHorizontalScroll from '@hooks/useHandleHorizontalScroll';
 import useHandleChildrenWithNewProps from '@hooks/useHandleChildrenWithNewProps';
-import type { PropsWithId } from '@constants/interfaces';
+import { PropsWithId } from '@constants/interfaces';
 import { ScrollableSubsectionItem } from '@components/shared/scrollableSection/ScrollableSubsectionItem';
 import ArrowIconComponent from '@components/icons/ArrowIconComponent';
 import { useTranslations } from 'next-intl';

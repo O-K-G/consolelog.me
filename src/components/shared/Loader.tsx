@@ -1,7 +1,7 @@
 'use client';
 
-import { type ReactNode, useEffect, useRef, useState } from 'react';
-import type {
+import { ReactNode, useEffect, useRef, useState } from 'react';
+import {
   BoltProps,
   CogwheelProps,
   LoaderProps,
@@ -40,8 +40,8 @@ function Cogwheel({
 
 function Bolt({ centerPointClassName = '' }: BoltProps) {
   return (
-    <div className='rounded-full bg-blue-200 size-1/3 center-elements'>
-      <div className='bg-black rounded-full size-3/4 center-elements p-1'>
+    <div className="rounded-full bg-blue-200 size-1/3 center-elements">
+      <div className="bg-black rounded-full size-3/4 center-elements p-1">
         <div
           className={`bg-white rounded-full size-full ${centerPointClassName}`}
         />
@@ -53,8 +53,8 @@ function Bolt({ centerPointClassName = '' }: BoltProps) {
 function LoaderText({ label, slot }: LoaderTextProps) {
   if (label ?? slot) {
     return (
-      <div className='flex justify-center items-start flex-col w-full sm:w-auto px-4 sm:px-0'>
-        <div className='font-mono w-full text-center text-base sm:text-xl animate-flash-loader-text text-sky-500'>
+      <div className="flex justify-center items-start flex-col w-full sm:w-auto px-4 sm:px-0">
+        <div className="font-mono w-full text-center text-base sm:text-xl animate-flash-loader-text text-sky-500">
           {label}
         </div>
         {slot}
@@ -65,7 +65,7 @@ function LoaderText({ label, slot }: LoaderTextProps) {
 
 function CogwheelsSeparator({ children }: { children: ReactNode }) {
   return (
-    <div className='flex flex-col items-start justify-center'>{children}</div>
+    <div className="flex flex-col items-start justify-center">{children}</div>
   );
 }
 
@@ -119,11 +119,11 @@ export default function Loader({
     <div
       data-open={!!(isLoderVisible || open)}
       ref={loaderRef}
-      className='data-[open=false]:opacity-0 data-[open=true]:opacity-100 transition-1000 fixed text-white text-lg center-elements flex-col gap-10 z-50 top-0 left-0 size-full bg-[#111111]'
+      className="data-[open=false]:opacity-0 data-[open=true]:opacity-100 transition-1000 fixed text-white text-lg center-elements flex-col gap-10 z-50 top-0 left-0 size-full bg-[#111111]"
     >
       <Cogwheel
         data-testid={LOADER_TEST_ID}
-        childrenClassName='flex items-start justify-center'
+        childrenClassName="flex items-start justify-center"
       >
         <CogwheelsSeparator>
           {[
@@ -146,7 +146,7 @@ export default function Loader({
             {
               bgClassName: 'bg-pink-200',
               sizeClassName: 'size-16',
-              bolt: <Bolt centerPointClassName='mt-1' />,
+              bolt: <Bolt centerPointClassName="mt-1" />,
             },
             {
               className: '-mt-3',

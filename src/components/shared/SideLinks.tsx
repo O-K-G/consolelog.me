@@ -1,4 +1,4 @@
-import type { AnchorLinkProps, SideLinksProps } from '@constants/interfaces';
+import { AnchorLinkProps, SideLinksProps } from '@constants/interfaces';
 import GHIcon from '@components/icons/GHIcon';
 import LIIcon from '@components/icons/LIIcon';
 import { URLs } from '@constants/urls';
@@ -17,15 +17,15 @@ function AnchorLink({
   'data-testid': dataTestId,
 }: AnchorLinkProps) {
   return (
-    <li data-rounded={isRounded} className='data-[rounded=true]:rounded-full'>
+    <li data-rounded={isRounded} className="data-[rounded=true]:rounded-full">
       <a
         data-testid={dataTestId}
         data-rounded={isRounded}
         href={url}
         aria-label={ariaLabel}
-        rel='noreferrer'
-        target='_blank'
-        className='data-[rounded=true]:rounded-full overflow-hidden transition-300 hover:scale-150 active:scale-150 focus:scale-150 center-elements group outline-none side-links-clickable-elements-size'
+        rel="noreferrer"
+        target="_blank"
+        className="data-[rounded=true]:rounded-full overflow-hidden transition-300 hover:scale-150 active:scale-150 focus:scale-150 center-elements group outline-none side-links-clickable-elements-size"
       >
         {icon}
       </a>
@@ -48,13 +48,13 @@ export default function SideLinks({
           data-testid={GH_TEST_ID}
           aria-label={t('ghLinkAriaLabel')}
           url={URLs.gitHub}
-          icon={<GHIcon className='side-links-icons' />}
+          icon={<GHIcon className="side-links-icons" />}
         />
         <AnchorLink
           data-testid={LI_TEST_ID}
           aria-label={t('liLinkAriaLabel')}
           url={URLs.linkedIn}
-          icon={<LIIcon className='side-links-icons' />}
+          icon={<LIIcon className="side-links-icons" />}
         />
         <ChangeLanguage hide={hideChangeLanguageButton} />
         <DownloadButton />

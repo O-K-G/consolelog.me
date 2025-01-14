@@ -3,7 +3,7 @@
 import nodemailer from 'nodemailer';
 import mailHTMLTemplate from '@utils/mailHTMLTemplate';
 import mailHTMLText from '@i18nEn/mailHTMLText.json';
-import type { MailHTMLTemplateProps } from '@constants/interfaces';
+import { MailHTMLTemplateProps } from '@constants/interfaces';
 
 export default async function mailConfig({
   dir,

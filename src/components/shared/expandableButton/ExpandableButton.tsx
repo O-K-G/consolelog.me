@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react';
 import AboutTargetIcon from '@components/shared/expandableButton/AboutTargetIcon';
-import type { ExpandableButtonProps } from '@constants/interfaces';
+import { ExpandableButtonProps } from '@constants/interfaces';
 import { useTranslations } from 'next-intl';
 
 export default function ExpandableButton({
@@ -31,14 +31,14 @@ export default function ExpandableButton({
   };
 
   return (
-    <div className='z-10 container-type-size p-6 h-full w-full sm:w-9/12 md:w-10/12 relative max-h-[80%] center-elements'>
+    <div className="z-10 container-type-size p-6 h-full w-full sm:w-9/12 md:w-10/12 relative max-h-[80%] center-elements">
       <div
         data-open={open}
-        className='transition-1000 group relative max-h-full center-elements w-1/2 h-[50cqw] lg:w-1/4 lg:h-[25cqw] data-[open=true]:expandable-button-size-container'
+        className="transition-1000 group relative max-h-full center-elements w-1/2 h-[50cqw] lg:w-1/4 lg:h-[25cqw] data-[open=true]:expandable-button-size-container"
       >
         <AboutTargetIcon open={open} />
         <div
-          role='button'
+          role="button"
           tabIndex={0}
           ref={buttonRef}
           aria-label={!open ? t('clickToOpen') : alternativeLabel}
@@ -52,7 +52,7 @@ export default function ExpandableButton({
           onClick={handleClick}
           onKeyDown={handleClick}
         >
-          <span className='my-auto'>
+          <span className="my-auto">
             {isAnimationEnd && (!open ? t('clickToOpen') : alternativeLabel)}
           </span>
         </div>

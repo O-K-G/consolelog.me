@@ -1,5 +1,5 @@
 import { handleA11y1000FirstNumbers } from '@utils/handleA11y1000FirstNumbers';
-import type { InputComponentProps } from '@constants/interfaces';
+import { InputComponentProps } from '@constants/interfaces';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import DOMPurify from 'dompurify';
@@ -50,19 +50,19 @@ export default function InputComponent({
       }`;
 
   return (
-    <div className='w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden'>
-      <div className='flex items-center justify-start sm:justify-end sm:mt-1.5 sm:w-2/12 md:w-3/12 md:max-w-24'>
+    <div className="w-full text-white sm:gap-6 flex flex-col items-start sm:flex-row justify-center overflow-hidden">
+      <div className="flex items-center justify-start sm:justify-end sm:mt-1.5 sm:w-2/12 md:w-3/12 md:max-w-24">
         <label
           htmlFor={id}
-          className='uppercase info-text-font-classNames text-sm sm:text-3xl w-12 sm:w-24'
+          className="uppercase info-text-font-classNames text-sm sm:text-3xl w-12 sm:w-24"
         >
           {label}:
         </label>
       </div>
-      <div className='center-elements flex-col w-full'>
-        <div className='w-full flex flex-col items-end justify-center'>
+      <div className="center-elements flex-col w-full">
+        <div className="w-full flex flex-col items-end justify-center">
           <Component
-            type='text'
+            type="text"
             onChange={({ target: { value } }) => {
               setValue(DOMPurify.sanitize(value));
               onChange?.();
@@ -86,10 +86,10 @@ export default function InputComponent({
             placeholder={placeholder}
             rows={rows}
           />
-          <div aria-live='assertive' className='sr-only'>
+          <div aria-live="assertive" className="sr-only">
             {isError ? ariaLabel : ''}
           </div>
-          <div aria-hidden className='font-bebas-neue text-base'>
+          <div aria-hidden className="font-bebas-neue text-base">
             {!value ? maxLength : maxLength - value.length}
           </div>
         </div>

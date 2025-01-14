@@ -1,8 +1,8 @@
 'use server';
 
-import type { MailHTMLTemplateProps } from '@constants/interfaces';
+import { MailHTMLTemplateProps } from '@constants/interfaces';
 import mailHTMLText from '@i18nEn/mailHTMLText.json';
-import { type ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 const STYLE = {
   main: {
@@ -66,13 +66,13 @@ export default async function mailHTMLTemplate({
   };
 
   const html = await getData(
-    <html lang='en'>
+    <html lang="en">
       {/* eslint-disable-next-line */}
       <head>
         {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
         {/* @ts-expect-error */}
-        <meta charset='UTF-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
       </head>
       <body dir={dir || 'ltr'}>
@@ -83,8 +83,8 @@ export default async function mailHTMLTemplate({
             <a
               style={STYLE.a}
               href={`mailto:${email}`}
-              rel='noreferrer'
-              target='_blank'
+              rel="noreferrer"
+              target="_blank"
             >
               {email}
             </a>

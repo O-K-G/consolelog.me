@@ -1,8 +1,8 @@
 'use client';
 
 import useHandleModal from '@hooks/useHandleModal';
-import { type ReactNode, createContext, useState, useRef } from 'react';
-import type {
+import { ReactNode, createContext, useState, useRef } from 'react';
+import {
   ModalContextProps,
   ModalContextComponentProps,
 } from '@constants/interfaces';

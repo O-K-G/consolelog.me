@@ -1,8 +1,5 @@
 import { SKILLS_LISTS } from '@constants/skillsLists';
-import type {
-  SkillBlockProps,
-  SkillsListRowProps,
-} from '@constants/interfaces';
+import { SkillBlockProps, SkillsListRowProps } from '@constants/interfaces';
 
 const CLASSNAME_BY_ROW = {
   row1: 'animate-skills-3 animate-skills-3-polyfill',
@@ -15,7 +12,7 @@ const CLASSNAME_BY_ROW = {
 function Row({ children, className = '' }: SkillsListRowProps) {
   return (
     <ul
-      dir='ltr'
+      dir="ltr"
       className={`animate-skills animate-skills-polyfill fixed top-[110vh] left-0 w-full center-elements gap-4 px-4 ${className}`}
     >
       {children}
@@ -30,7 +27,7 @@ function SkillBlock({
   return (
     <li
       data-visible-mobile={visibleMobile}
-      className='relative before:-z-10 before:bg-slate-800/70 shadow-sm shadow-black rounded-xl before:top-0 before:left-0 before:size-full text-fill-transparent before:absolute bg-gradient-skills bg-clip-text bg-[400%_auto] bg-[right_center] hover:bg-[left_center] hover:text-[#ef9671] last:hidden data-[visible-mobile=true]:last:flex last:sm:flex transition-1000 w-1/3 sm:w-1/4 lg:w-[10rem] h-10 sm:h-16 lg:h-20 center-elements overflow-hidden break-words text-center text-white font-montserrat text-sm sm:text-base md:text-xl'
+      className="relative before:-z-10 before:bg-slate-800/70 shadow-sm shadow-black rounded-xl before:top-0 before:left-0 before:size-full text-fill-transparent before:absolute bg-gradient-skills bg-clip-text bg-[400%_auto] bg-[right_center] hover:bg-[left_center] hover:text-[#ef9671] last:hidden data-[visible-mobile=true]:last:flex last:sm:flex transition-1000 w-1/3 sm:w-1/4 lg:w-[10rem] h-10 sm:h-16 lg:h-20 center-elements overflow-hidden break-words text-center text-white font-montserrat text-sm sm:text-base md:text-xl"
     >
       {str}
     </li>
