@@ -5,6 +5,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import handleFontsByLocale from '@utils/handleFontsByLocale';
 import getDirByLocale from '@utils/getDirByLocale';
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -55,17 +57,18 @@ export const viewport: Viewport = {
   interactiveWidget: 'resizes-content',
 };
 
-export default async function RootLayout(
-  props: Readonly<{
-    children: React.ReactNode;
-    params: { locale: string };
-  }>
-) {
-  const params = await props.params;
+export default async function RootLayout({
+  children,
+  params,
+}: Readonly<{
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}>) {
+  const { locale } = await params;
 
-  const { locale } = params;
-
-  const { children } = props;
+  if (!routing.locales.includes(locale as 'en' | 'he')) {
+    notFound();
+  }
 
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
