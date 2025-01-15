@@ -10,7 +10,7 @@ export default function BottomInputComponentButtons({
   leftSlot,
   onSubmit,
 }: BottomInputComponentButtonsProps) {
-  const { pending: isLoading } = useFormStatus(); // TODO: Experimental, revisit in the future.
+  const { pending: isLoading } = useFormStatus();
   const isBusy = isLoading ?? isSubmitDisabled;
   const t = useTranslations('inputComponentText');
   const isLTR = dir === 'ltr';
