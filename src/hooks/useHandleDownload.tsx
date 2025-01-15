@@ -1,4 +1,4 @@
-import type { handleDownloadProps } from '@constants/interfaces';
+import { handleDownloadProps } from '@constants/interfaces';
 import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import { useContext } from 'react';
 

@@ -1,4 +1,4 @@
-import type { CurrentSection } from '@constants/interfaces';
+import { CurrentSection } from '@constants/interfaces';
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { TAILWIND_SIZES } from '@constants/imagesConfig';
 
@@ -29,8 +29,8 @@ export default function SectionBackground({
           />
         ))}
         <img
-          className='object-cover animate-scroll animate-background-scale animate-scroll-polyfill animate-background-polyfill object-left h-screen w-screen bottom-0 left-0 fixed opacity-60'
-          alt=''
+          className="object-cover animate-scroll animate-background-scale animate-scroll-polyfill animate-background-polyfill object-left h-screen w-screen bottom-0 left-0 fixed opacity-60"
+          alt=""
           aria-hidden
           src={`/images/${currentSection}-2xl${SUFFIX}`}
         />

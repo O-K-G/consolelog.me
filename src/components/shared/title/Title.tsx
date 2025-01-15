@@ -1,4 +1,4 @@
-import type { MainTitleProps } from '@constants/interfaces';
+import { MainTitleProps } from '@constants/interfaces';
 import Border from '@components/shared/title/Border';
 
 export default function Title({

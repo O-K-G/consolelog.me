@@ -1,4 +1,4 @@
-import type { IconButtonProps } from '@constants/interfaces';
+import { IconButtonProps } from '@constants/interfaces';
 
 export default function IconButton({
   onClick,
@@ -16,7 +16,7 @@ export default function IconButton({
       data-pointer-events={dataPointerEvents}
       onClick={onClick}
       disabled={disabled}
-      type='button'
+      type="button"
       className={`group center-elements outline-none disabled:pointer-events-none disabled:select-none ${className}`}
       aria-label={ariaLabel}
       {...rest}

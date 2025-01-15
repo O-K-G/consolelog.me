@@ -4,10 +4,15 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { IntlProvider } from 'next-intl';
 import { default as messages } from '@i18nEn/scrollableSectionText.json';
+import { useParams } from 'next/navigation';
 import ScrollableSubsection, {
   LEFT_BUTTON_TEST_ID,
   RIGHT_BUTTON_TEST_ID,
 } from '@components/shared/scrollableSection/ScrollableSubsection';
+
+jest.mock('next/navigation', () => ({
+  useParams: jest.fn(),
+}));
 
 const DEFAULT_LOCALE = 'en';
 
@@ -19,11 +24,12 @@ beforeAll(() => {
     observe,
     unobserve,
     disconnect,
-  })) as any;
+  })) as never;
 });
 
 beforeEach(() => {
   global.HTMLDivElement.prototype.scrollTo = jest.fn();
+  (useParams as jest.Mock).mockReturnValue({ locale: DEFAULT_LOCALE });
 });
 
 describe('ScrollableSubsection', () => {

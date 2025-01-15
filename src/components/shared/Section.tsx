@@ -1,6 +1,6 @@
 'use client';
 
-import type { SectionProps } from '@constants/interfaces';
+import { SectionProps } from '@constants/interfaces';
 import SectionBackground from '@components/shared/SectionBackground';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
@@ -34,7 +34,7 @@ export default function Section({
         className ?? ''
       }`}
     >
-      <div className='absolute top-0 bottom-0 left-0 my-auto size-0 opacity-0 overflow-hidden' />
+      <div className="absolute top-0 bottom-0 left-0 my-auto size-0 opacity-0 overflow-hidden" />
       <SectionBackground currentSection={currentSection} />
       {children}
     </section>

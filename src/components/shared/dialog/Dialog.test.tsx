@@ -1,4 +1,4 @@
-import React, { type ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Dialog, { DIALOG_TEST_ID } from '@components/shared/dialog/Dialog';

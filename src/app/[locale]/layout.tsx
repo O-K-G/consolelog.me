@@ -1,10 +1,11 @@
 import '@locale/CSS/globals.css';
-import type { Metadata, Viewport } from 'next';
+import { Metadata, Viewport } from 'next';
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import handleFontsByLocale from '@utils/handleFontsByLocale';
 import getDirByLocale from '@utils/getDirByLocale';
+import { ReactNode } from 'react';
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -57,11 +58,12 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
-  children: React.ReactNode;
-  params: { locale: string };
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
   const dir = getDirByLocale({ locale: selectedLocale }) || 'ltr';

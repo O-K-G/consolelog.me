@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss';
 
 export const CACHE_VERSION = 1;
 
-const config: Config = {
+export default {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -97,5 +97,4 @@ const config: Config = {
     },
   },
   plugins: [],
-};
-export default config;
+} satisfies Config;

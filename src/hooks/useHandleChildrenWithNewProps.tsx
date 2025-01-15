@@ -1,5 +1,5 @@
 import { Children, cloneElement, isValidElement } from 'react';
-import type {
+import {
   ChildWithNewProps,
   HandleChildrenWithNewPropsProps,
 } from '@constants/interfaces';

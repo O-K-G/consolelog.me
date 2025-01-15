@@ -19,6 +19,7 @@ describe('InputComponent', () => {
     isError: false,
     bottomSlot: null,
     isReset: false,
+    label: '',
     onClick: jest.fn(),
   };
 
@@ -109,7 +110,7 @@ describe('InputComponent', () => {
   it('renders textarea when InputComponent is textarea', () => {
     render(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} component='textarea' />
+        <InputComponent {...defaultProps} component="textarea" />
       </IntlProvider>
     );
     const textarea = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
