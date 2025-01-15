@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import { z } from 'zod';
 import {

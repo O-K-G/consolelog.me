@@ -63,6 +63,6 @@ export default function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!_next/static|.well-known|fonts|icons|images|favicon.ico|apple-touch-icon.png|service-worker.js|version).*)',
+    '/((?!api|_next/static|_next/image|images|favicon.ico|icon.ico|apple-icon.png|manifest.webmanifest).*)',
   ],
 };

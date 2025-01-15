@@ -5,8 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import handleFontsByLocale from '@utils/handleFontsByLocale';
 import getDirByLocale from '@utils/getDirByLocale';
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
+import { ReactNode } from 'react';
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -61,7 +60,7 @@ export default async function RootLayout({
   children,
   params,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
