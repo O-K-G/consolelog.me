@@ -25,7 +25,7 @@ const SUBJECT_ID = 'subject';
 const CONTENT_ID = 'content';
 
 export default function ContactForm() {
-  const { locale } = useParams() || {};
+  const { locale }: { locale: string } = useParams() || {};
   const direction = getDirByLocale({ locale });
   const [dir, setDir] = useState<'ltr' | 'rtl'>(direction);
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
@@ -102,7 +102,7 @@ export default function ContactForm() {
         void handleValidation(formData);
       }}
     >
-      <div className='w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10'>
+      <div className="w-full md:w-8/12 flex flex-col justify-center items-start gap-2 sm:gap-10">
         {[
           {
             id: EMAIL_ID,
