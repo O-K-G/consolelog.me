@@ -27,26 +27,24 @@ export default function middleware(request: NextRequest) {
 
   // TODO: Check style-src 'self' ${prevEnv};
 
-  // const cspHeader = `
-  //   default-src 'self';
-  //   script-src 'self' 'unsafe-inline' http: https: 'nonce-${nonce}' ${
-  //   isPrevEnv ? '' : 'strict-dynamic'
-  // } ${devEnv} ${noNoncePrevEnv};
-  //   style-src 'self' ${ALLOWED_DOMAINS} 'unsafe-inline';
-  //   img-src 'self' blob: data: ${noNoncePrevEnv};
-  //   font-src 'self';
-  //   connect-src 'self' ${prevEnv};
-  //   frame-src 'self' ${prevEnv};
-  //   object-src 'none';
-  //   base-uri 'self';
-  //   form-action 'self';
-  //   frame-ancestors 'none';
-  //   ${!isDevEnv ? 'upgrade-insecure-requests;' : ''}
-  // `
-  //   .replace(/\s{2,}/g, ' ')
-  //   .trim();
-
-  const cspHeader = '';
+  const cspHeader = `
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' http: https: 'nonce-${nonce}' ${
+    isPrevEnv ? '' : 'strict-dynamic'
+  } ${devEnv} ${noNoncePrevEnv};
+    style-src 'self' ${ALLOWED_DOMAINS} 'unsafe-inline';
+    img-src 'self' blob: data: ${noNoncePrevEnv};
+    font-src 'self';
+    connect-src 'self' ${prevEnv};
+    frame-src 'self' ${prevEnv};
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    ${!isDevEnv ? 'upgrade-insecure-requests;' : ''}
+  `
+    .replace(/\s{2,}/g, ' ')
+    .trim();
 
   const cspWithNonce = cspHeader;
   const requestHeaders = new Headers(request.headers);
