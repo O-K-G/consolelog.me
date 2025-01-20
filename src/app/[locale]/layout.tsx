@@ -1,4 +1,4 @@
-import '@locale/CSS/globals.css';
+import './globals.css';
 import { Metadata, Viewport } from 'next';
 import { CACHE_VERSION } from '@root/tailwind.config';
 import { NextIntlClientProvider } from 'next-intl';
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     'Unit tests',
     'Web development',
   ],
-  manifest: '/manifest.json',
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: `/images/icon.png?cacheVersion=${CACHE_VERSION}`,
     shortcut: `/images/shortcut-icon.png?cacheVersion=${CACHE_VERSION}`,

@@ -8,7 +8,6 @@ import ModalContextComponent from '@components/shared/ModalContext';
 import Aside from '@components/shared/Aside';
 
 export default function Home() {
-  return <div>The page is currently under maintenance. </div>;
   return (
     <main className="min-h-svh lg:min-h-dvh overflow-hidden">
       <Loader />
