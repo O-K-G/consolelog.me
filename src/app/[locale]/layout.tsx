@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     'Unit tests',
     'Web development',
   ],
-  manifest: '/manifest.json',
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: `/images/icon.png?cacheVersion=${CACHE_VERSION}`,
     shortcut: `/images/shortcut-icon.png?cacheVersion=${CACHE_VERSION}`,
