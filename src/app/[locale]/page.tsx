@@ -9,6 +9,11 @@ import Aside from '@components/shared/Aside';
 
 export default function Home() {
   return (
+    <div>
+      This page went offline on January 20th 2025 and will be later replaced.
+    </div>
+  );
+  return (
     <main className="min-h-svh lg:min-h-dvh overflow-hidden">
       <Loader />
       <ModalContextComponent>
