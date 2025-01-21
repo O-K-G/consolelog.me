@@ -10,12 +10,12 @@ export default function useHandleHorizontalScroll() {
     scrollableRef,
   }: {
     num: number;
-    scrollableRef: RefObject<HTMLDivElement>;
+    scrollableRef: RefObject<HTMLDivElement | null>;
   }) => {
     const dir = getDirByLocale({ locale });
     const numByDir = dir === 'ltr' ? num : -num;
 
-    scrollableRef.current.scrollTo({
+    scrollableRef.current?.scrollTo({
       top: 0,
       left: numByDir,
       behavior: 'smooth',
