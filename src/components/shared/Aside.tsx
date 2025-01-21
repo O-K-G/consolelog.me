@@ -11,7 +11,6 @@ export default function Aside() {
   const t = useTranslations('contactGoBackButtonText');
   const [open, setOpen] = useState<boolean | null>(null);
   const pathname = usePathname();
-  const asideRef = useRef(null);
   const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
   const { locale }: { locale: string } = useParams() || {};
 
@@ -77,7 +76,6 @@ export default function Aside() {
           handleTransitionEnd as unknown as TransitionEventHandler<HTMLElement>
         }
         data-open={!!open}
-        ref={asideRef}
         aria-hidden={!open}
         className="data-[open=false]:aside-closed data-[open=true]:aside-open z-10 transition-all ease-in-out duration-700 lg:duration-1000 overflow-x-hidden fixed flex items-start justify-start h-screen top-0"
       >
