@@ -1,4 +1,4 @@
-import type {
+import {
   Dispatch,
   ForwardedRef,
   MouseEventHandler,
@@ -8,7 +8,7 @@ import type {
   RefObject,
   SetStateAction,
 } from 'react';
-import { type DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
+import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import { z } from 'zod';
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
 export const CONTACT_FORM_SUBJECT_MIN_LENGTH = 1;

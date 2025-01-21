@@ -1,5 +1,5 @@
-import type { UseObserveScrollSubsectionProps } from '@constants/interfaces';
-import { type MutableRefObject, useEffect } from 'react';
+import { UseObserveScrollSubsectionProps } from '@constants/interfaces';
+import { MutableRefObject, useEffect } from 'react';
 
 export default function useObserveScrollSubsection({
   id,

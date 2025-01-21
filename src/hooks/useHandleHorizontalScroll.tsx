@@ -1,4 +1,4 @@
-import { type MutableRefObject } from 'react';
+import { MutableRefObject } from 'react';
 import { useParams } from 'next/navigation';
 import getDirByLocale from '@utils/getDirByLocale';
 

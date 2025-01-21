@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import AlignLeftIcon from '@components/contactForm/AlignLeftIcon';
-import type { BottomInputComponentButtonsProps } from '@constants/interfaces';
+import { BottomInputComponentButtonsProps } from '@constants/interfaces';
 import { useFormStatus } from 'react-dom';
 
 export default function BottomInputComponentButtons({

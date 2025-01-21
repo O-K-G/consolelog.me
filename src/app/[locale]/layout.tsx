@@ -1,5 +1,5 @@
 import './globals.css';
-import type { Metadata, Viewport } from 'next';
+import { Metadata, Viewport } from 'next';
 import { CACHE_VERSION } from '@root/tailwind.config';
 import handleFontsByLocale from '@utils/handleFontsByLocale';
 import getDirByLocale from '@utils/getDirByLocale';

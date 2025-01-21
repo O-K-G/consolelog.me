@@ -1,11 +1,11 @@
 'use client';
 
 import useHandleModal from '@hooks/useHandleModal';
-import type {
+import {
   ModalContextProps,
   ModalContextComponentProps,
 } from '@constants/interfaces';
-import { type ReactNode, createContext, useState, useRef } from 'react';
+import { ReactNode, createContext, useState, useRef } from 'react';
 
 export const ModalContext = createContext({
   onModalContentChange: () => null,

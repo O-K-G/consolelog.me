@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import useObserveScrollSubsection from '@hooks/useObserveScrollSubsection';
-import type { ScrollableSubsectionItemProps } from '@constants/interfaces';
+import { ScrollableSubsectionItemProps } from '@constants/interfaces';
 
 export const SCROLLABLE_ITEM_TEST_ID = 'scrollable-item-test-id';
 
