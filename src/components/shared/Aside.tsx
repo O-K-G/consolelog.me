@@ -13,7 +13,7 @@ export default function Aside() {
   const pathname = usePathname();
   const asideRef = useRef(null);
   const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
-  const { locale } = useParams() || {};
+  const { locale }: { locale: string } = useParams() || {};
 
   useEffect(() => {
     if (open === null && pathname?.includes(`${locale as string}/contact`)) {
