@@ -1,6 +1,6 @@
 'use client';
 
-import { type RefObject, useEffect, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import Contact from '@components/byPage/Contact';
 import { usePathname, useParams } from 'next/navigation';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
@@ -13,7 +13,7 @@ export default function Aside() {
   const pathname = usePathname();
   const asideRef = useRef(null);
   const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
-  const { locale } = useParams() || {};
+  const { locale }: { locale: string } = useParams() || {};
 
   useEffect(() => {
     if (open === null && pathname?.includes(`${locale as string}/contact`)) {
@@ -23,7 +23,7 @@ export default function Aside() {
   }, [locale, open, pathname]);
 
   useEffect(() => {
-    const { current } = asideRef as RefObject<HTMLDivElement>;
+    const { current } = asideRef as RefObject<HTMLDivElement | null>;
 
     const handleTransition = () => {
       let touchX = 0;
@@ -80,7 +80,7 @@ export default function Aside() {
         data-open={!!open}
         ref={asideRef}
         aria-hidden={!open}
-        className='data-[open=false]:aside-closed data-[open=true]:aside-open z-10 transition-all ease-in-out duration-700 lg:duration-1000 overflow-x-hidden fixed flex items-start justify-start h-screen top-0'
+        className="data-[open=false]:aside-closed data-[open=true]:aside-open z-10 transition-all ease-in-out duration-700 lg:duration-1000 overflow-x-hidden fixed flex items-start justify-start h-screen top-0"
       >
         <Contact open={openAtTransitionEnd} onClick={() => setOpen(false)} />
       </aside>

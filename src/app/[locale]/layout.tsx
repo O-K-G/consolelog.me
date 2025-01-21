@@ -1,10 +1,11 @@
-import '@locale/CSS/globals.css';
-import type { Metadata, Viewport } from 'next';
+import './globals.css';
+import { Metadata, Viewport } from 'next';
 import { CACHE_VERSION } from '@root/tailwind.config';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
 import handleFontsByLocale from '@utils/handleFontsByLocale';
 import getDirByLocale from '@utils/getDirByLocale';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     'Unit tests',
     'Web development',
   ],
-  manifest: '/manifest.json',
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: `/images/icon.png?cacheVersion=${CACHE_VERSION}`,
     shortcut: `/images/shortcut-icon.png?cacheVersion=${CACHE_VERSION}`,
@@ -57,11 +58,12 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({
   children,
-  params: { locale },
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-  params: { locale: string };
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
   const dir = getDirByLocale({ locale: selectedLocale }) || 'ltr';

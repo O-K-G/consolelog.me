@@ -1,14 +1,16 @@
-import type {
+import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
+import { z } from 'zod';
+import {
   Dispatch,
   ForwardedRef,
   MouseEventHandler,
-  MutableRefObject,
   PropsWithChildren,
   ReactNode,
+  Ref,
+  RefObject,
   SetStateAction,
 } from 'react';
-import { type DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
-import { z } from 'zod';
+
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
 export const CONTACT_FORM_SUBJECT_MIN_LENGTH = 1;
 export const CONTACT_FORM_SUBJECT_MAX_LENGTH = 100;
@@ -21,7 +23,7 @@ export interface ModalContextComponentProps {
 
 export interface ModalContextProps {
   onModalContentChange: Dispatch<SetStateAction<ReactNode>>;
-  modalRef: MutableRefObject<HTMLDialogElement | null>;
+  modalRef: Ref<HTMLDialogElement | null>;
   modalContent: ReactNode;
   onCloseModal: (e: Event | React.MouseEvent<HTMLElement>) => void;
 }
@@ -174,13 +176,13 @@ export interface SideLinksProps {
 
 export interface HandleChildrenWithNewPropsProps {
   children: ReactNode;
-  scrollableRef: MutableRefObject<null>;
+  scrollableRef: Ref<null>;
   onSubsectionSelectChange: Dispatch<SetStateAction<number>>;
 }
 
 export interface ChildWithNewProps {
   id: number;
-  ref: MutableRefObject<null>;
+  ref: Ref<null>;
   onSubsectionSelectChange: Dispatch<SetStateAction<number>>;
 }
 
@@ -189,16 +191,17 @@ export interface PropsWithId extends PropsWithChildren {
 }
 
 export interface UseObserveScrollSubsectionProps {
-  scrollableRef: ForwardedRef<HTMLDivElement>;
+  scrollableRef?: RefObject<HTMLDivElement>;
   id?: number;
   onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
-  scrollableItemRef: MutableRefObject<null>;
+  scrollableItemRef: Ref<null>;
 }
 
 export interface ScrollableSubsectionItemProps {
   children: ReactNode;
   onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
   id?: number;
+  ref?: RefObject<HTMLDivElement>;
 }
 export interface ContactGoBackButtonProps {
   children: ReactNode;

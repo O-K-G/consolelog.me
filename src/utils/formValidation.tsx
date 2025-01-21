@@ -1,4 +1,4 @@
-import type { FormValidationProps } from '@constants/interfaces';
+import { FormValidationProps } from '@constants/interfaces';
 import { FormDataSchema } from '@constants/interfaces';
 
 export default function formValidation({

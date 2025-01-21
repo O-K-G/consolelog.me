@@ -8,7 +8,7 @@ import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
 import { useContext } from 'react';
-import type {
+import {
   ChangeLanguageProps,
   SelectLanguageButtonProps,
 } from '@constants/interfaces';
@@ -21,7 +21,7 @@ function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
   const { onCloseModal } = useContext(modalContext);
 
   return (
-    <li className='w-full'>
+    <li className="w-full">
       <button
         data-current-locale={isCurrentLocale}
         onClick={(e) => {
@@ -30,8 +30,8 @@ function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
             router.push(pathname.replace(`/${locale as string}`, `/${value}`));
           }
         }}
-        className='data-[current-locale=false]:text-white data-[current-locale=true]:text-title-purple px-4 py-2 hover:bg-white/30 text-center active:bg-white/50 focus:bg-white/30 w-full text-base outline-none'
-        type='button'
+        className="data-[current-locale=false]:text-white data-[current-locale=true]:text-title-purple px-4 py-2 hover:bg-white/30 text-center active:bg-white/50 focus:bg-white/30 w-full text-base outline-none"
+        type="button"
         value={value}
       >
         {label}
@@ -45,13 +45,13 @@ function LanguagesList() {
   const { onCloseModal } = useContext(modalContext);
 
   return (
-    <div className='bg-black/70 pb-4 text-white w-svw sm:w-[50svw] md:w-[25svw] center-elements flex-col regular-text-font-by-locale'>
+    <div className="bg-black/70 pb-4 text-white w-svw sm:w-[50svw] md:w-[25svw] center-elements flex-col regular-text-font-by-locale">
       <DialogTitle
-        className='text-xl'
+        className="text-xl"
         label={t('changeLanguage')}
         onClick={onCloseModal}
       />
-      <ul className='center-elements flex-col w-full'>
+      <ul className="center-elements flex-col w-full">
         {Object.keys(DIRECTION_BY_LANGUAGE).map((str: string) => (
           <SelectLanguageButton
             key={`${str}-language`}
@@ -71,9 +71,9 @@ export default function ChangeLanguage({ hide }: ChangeLanguageProps) {
   if (!hide) {
     return (
       <IconButton
-        className='rounded-full transition-300 hover:scale-150 active:scale-150 focus:scale-150 side-links-clickable-elements-size'
+        className="rounded-full transition-300 hover:scale-150 active:scale-150 focus:scale-150 side-links-clickable-elements-size"
         onClick={() => setModalContent(<LanguagesList />)}
-        icon={<LanguageIcon className='side-links-icons' />}
+        icon={<LanguageIcon className="side-links-icons" />}
         aria-label={t('changeLanguage')}
       />
     );
