@@ -8,6 +8,7 @@ import { default as messages } from '@i18nEn/inputComponentText.json';
 const PLACEHOLDER_TEST_VALUE = 'email - placeholder test value';
 const EMAIL_TEST_VALUE = 'test@test.test';
 const DEFAULT_LOCALE = 'en';
+const TEST_LABEL = 'Test';
 
 describe('InputComponent', () => {
   const defaultProps = {
@@ -25,7 +26,7 @@ describe('InputComponent', () => {
   it('renders InputComponent with the correct placeholder', () => {
     render(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} />
+        <InputComponent label={TEST_LABEL} {...defaultProps} />
       </IntlProvider>
     );
     expect(
@@ -36,7 +37,7 @@ describe('InputComponent', () => {
   it('updates value onChange', () => {
     render(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} />
+        <InputComponent label={TEST_LABEL} {...defaultProps} />
       </IntlProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
@@ -47,7 +48,7 @@ describe('InputComponent', () => {
   it('value changes when onChange is called ', () => {
     render(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} />
+        <InputComponent label={TEST_LABEL} {...defaultProps} />
       </IntlProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
@@ -58,7 +59,7 @@ describe('InputComponent', () => {
   it('isReset being true resets the value', () => {
     const { rerender } = render(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} />
+        <InputComponent label={TEST_LABEL} {...defaultProps} />
       </IntlProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
@@ -66,7 +67,7 @@ describe('InputComponent', () => {
     expect((input as HTMLInputElement).value).toBe(EMAIL_TEST_VALUE);
     rerender(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} isReset={true} />
+        <InputComponent label={TEST_LABEL} {...defaultProps} isReset={true} />
       </IntlProvider>
     );
     expect((input as HTMLInputElement).value).toBe('');
@@ -75,7 +76,7 @@ describe('InputComponent', () => {
   it('displays the correct aria-label based on error state and input length', () => {
     render(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} />
+        <InputComponent label={TEST_LABEL} {...defaultProps} />
       </IntlProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
@@ -87,7 +88,7 @@ describe('InputComponent', () => {
   it('displays an error aria-label if isError is true', () => {
     render(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} isError={true} />
+        <InputComponent label={TEST_LABEL} {...defaultProps} isError={true} />
       </IntlProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
@@ -98,7 +99,7 @@ describe('InputComponent', () => {
   it('fires onClick handler when the user click on an input', () => {
     render(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} />
+        <InputComponent label={TEST_LABEL} {...defaultProps} />
       </IntlProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
@@ -109,7 +110,11 @@ describe('InputComponent', () => {
   it('renders textarea when InputComponent is textarea', () => {
     render(
       <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <InputComponent {...defaultProps} component='textarea' />
+        <InputComponent
+          label={TEST_LABEL}
+          {...defaultProps}
+          component="textarea"
+        />
       </IntlProvider>
     );
     const textarea = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
