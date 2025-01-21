@@ -191,7 +191,7 @@ export interface PropsWithId extends PropsWithChildren {
 }
 
 export interface UseObserveScrollSubsectionProps {
-  scrollableRef: ForwardedRef<HTMLDivElement>;
+  scrollableRef?: RefObject<HTMLDivElement>;
   id?: number;
   onSubsectionSelectChange?: Dispatch<SetStateAction<number>>;
   scrollableItemRef: Ref<null>;
