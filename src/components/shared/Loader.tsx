@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import {
   BoltProps,
   CogwheelProps,
@@ -76,11 +76,8 @@ export default function Loader({
 }: LoaderProps) {
   const [isLoderVisible, setIsLoderVisible] = useState(true);
   const [isLoader, setIsLoader] = useState(true);
-  const loaderRef = useRef(null);
 
   useEffect(() => {
-    const { current } = loaderRef;
-
     const onLoad = () => {
       if (isLoderVisible) {
         setIsLoderVisible(false);
@@ -94,18 +91,7 @@ export default function Loader({
         window.addEventListener('load', onLoad);
       }
 
-      const handleTransitionEnd = () => setIsLoader(false);
-
-      (current as unknown as HTMLDivElement)?.addEventListener(
-        'transitionend',
-        handleTransitionEnd
-      );
-
       return () => {
-        (current as unknown as HTMLDivElement)?.removeEventListener(
-          'transitionend',
-          handleTransitionEnd
-        );
         window.removeEventListener('load', onLoad);
       };
     }
@@ -117,8 +103,8 @@ export default function Loader({
 
   return (
     <div
+      onTransitionEnd={() => setIsLoader(false)}
       data-open={!!(isLoderVisible || open)}
-      ref={loaderRef}
       className="data-[open=false]:opacity-0 data-[open=true]:opacity-100 transition-1000 fixed text-white text-lg center-elements flex-col gap-10 z-50 top-0 left-0 size-full bg-[#111111]"
     >
       <Cogwheel

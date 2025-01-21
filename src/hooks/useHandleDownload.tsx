@@ -32,7 +32,9 @@ export default function useHandleDownload() {
         el.download = `${fileName}.pdf`;
         el.click();
       } catch (err) {
-        setModalContent(errorModalContent);
+        if (err) {
+          setModalContent(errorModalContent);
+        }
       }
     })();
   };

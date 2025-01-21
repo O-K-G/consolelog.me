@@ -1,7 +1,12 @@
 import { useTranslations } from 'next-intl';
 import { ModalContext as modalContext } from '@components/shared/ModalContext';
 import DialogTitle from '@components/shared/dialog/DialogTitle';
-import { useContext, MouseEventHandler, ReactNode } from 'react';
+import {
+  useContext,
+  MouseEventHandler,
+  ReactNode,
+  KeyboardEventHandler,
+} from 'react';
 
 const COMPONENT_ID = 'shenanigans-id';
 
@@ -29,23 +34,17 @@ function ShenanigansComponent() {
   const { onCloseModal } = useContext(modalContext);
   const t = useTranslations('shenanigansText');
 
-  const handleClick = (
-    e:
-      | React.MouseEvent<HTMLElement, MouseEvent>
-      | React.KeyboardEvent<HTMLDivElement>
-  ) => {
-    const { id } = (e.target as unknown as { id: string }) || {};
+  const handleClick = (e: Event) => {
+    const { id } = (e.target as HTMLDivElement) || {};
     if (id === COMPONENT_ID) {
-      onCloseModal(
-        e as unknown as Event | React.MouseEvent<HTMLElement, MouseEvent>
-      );
+      onCloseModal(e);
     }
   };
 
   return (
     <div
-      onClick={handleClick}
-      onKeyDown={handleClick}
+      onClick={handleClick as unknown as MouseEventHandler<HTMLDivElement>}
+      onKeyDown={handleClick as unknown as KeyboardEventHandler<HTMLDivElement>}
       id={COMPONENT_ID}
       role="presentation"
       className="bg-[#4cae9a] lg:cursor-crosshair h-screen w-screen fixed top-0 left-0 center-elements"

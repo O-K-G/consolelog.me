@@ -12,12 +12,14 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.config({
     extends: ['next/core-web-vitals', 'next/typescript'],
+    env: { jest: true },
     rules: {
       'no-unused-vars': 'warn',
       '@typescript-eslint/no-unused-vars': 'warn',
       'no-undef': 'warn',
       'object-shorthand': ['warn'],
       'react/react-in-jsx-scope': 'off',
+      '@next/next/no-img-element': 'off',
     },
   }),
 ];

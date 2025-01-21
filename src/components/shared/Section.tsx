@@ -15,8 +15,9 @@ export default function Section({
 
   useEffect(() => {
     const isScroll =
-      ['skills', 'experience'].includes(currentSection as string) &&
-      pathname.includes(currentSection as string);
+      ['about', 'skills', 'experience', 'projects'].includes(
+        currentSection as string
+      ) && pathname.includes(currentSection as string);
 
     if (isScroll) {
       (sectionRef.current as unknown as HTMLElement).scrollIntoView({
