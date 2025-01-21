@@ -19,7 +19,7 @@ beforeAll(() => {
     observe,
     unobserve,
     disconnect,
-  })) as any;
+  })) as never;
 });
 
 beforeEach(() => {
