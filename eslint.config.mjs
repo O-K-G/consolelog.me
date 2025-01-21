@@ -18,6 +18,7 @@ const eslintConfig = [
       'no-undef': 'warn',
       'object-shorthand': ['warn'],
       'react/react-in-jsx-scope': 'off',
+      '@next/next/no-img-element': 'off',
     },
   }),
 ];
