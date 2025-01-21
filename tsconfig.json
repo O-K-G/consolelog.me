@@ -23,11 +23,12 @@
       "@/*": ["./src/*"],
       "@root/*": ["./*"],
       "@locale/*": ["./src/app/[locale]/*"],
-      "@locales/*": ["./src/i18n/*"],
+      "@locales/*": ["./messages/*"],
       "@components/*": ["./src/components/*"],
       "@constants/*": ["./src/constants/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@i18nEn/*": ["./src/i18n/en/*"],
+      "@i18nEn/*": ["./messages/en/*"],
+      "@i18n/*": ["./src/i18n/*"],
       "@utils/*": ["./src/utils/*"]
     }
   },

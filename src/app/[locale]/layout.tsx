@@ -1,10 +1,11 @@
 import './globals.css';
 import type { Metadata, Viewport } from 'next';
 import { CACHE_VERSION } from '@root/tailwind.config';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
 import handleFontsByLocale from '@utils/handleFontsByLocale';
 import getDirByLocale from '@utils/getDirByLocale';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -55,18 +56,14 @@ export const viewport: Viewport = {
   interactiveWidget: 'resizes-content',
 };
 
-export default async function RootLayout(
-  props: Readonly<{
-    children: React.ReactNode;
-    params: { locale: string };
-  }>
-) {
-  const params = await props.params;
-
-  const { locale } = params;
-
-  const { children } = props;
-
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
   const dir = getDirByLocale({ locale: selectedLocale }) || 'ltr';
