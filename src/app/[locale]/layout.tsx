@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     'Unit tests',
     'Web development',
   ],
-  manifest: '/manifest.json',
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: `/images/icon.png?cacheVersion=${CACHE_VERSION}`,
     shortcut: `/images/shortcut-icon.png?cacheVersion=${CACHE_VERSION}`,
@@ -55,13 +55,18 @@ export const viewport: Viewport = {
   interactiveWidget: 'resizes-content',
 };
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: Readonly<{
-  children: React.ReactNode;
-  params: { locale: string };
-}>) {
+export default async function RootLayout(
+  props: Readonly<{
+    children: React.ReactNode;
+    params: { locale: string };
+  }>
+) {
+  const params = await props.params;
+
+  const { locale } = params;
+
+  const { children } = props;
+
   const messages = await getMessages();
   const selectedLocale = locale || 'en';
   const dir = getDirByLocale({ locale: selectedLocale }) || 'ltr';

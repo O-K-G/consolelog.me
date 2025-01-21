@@ -29,22 +29,26 @@ export async function middleware(request: NextRequest) {
    * It's also ignored in CSP3 if there's 'strict-dynamic'.
    * http: and https: are also ignored in CSP3+ if there's 'strict-dynamic'. */
 
-  const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' http: https: 'nonce-${nonce}' ${
-    isPrevEnv ? '' : 'strict-dynamic'
-  } ${devEnv} ${noNoncePrevEnv};
-    style-src 'self' ${prevEnv};
-    img-src 'self' blob: data: ${noNoncePrevEnv};
-    font-src 'self';
-    connect-src 'self' ${prevEnv};
-    frame-src 'self' ${prevEnv};
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    ${!isDevEnv ? 'upgrade-insecure-requests;' : ''}
-  `;
+  // TODO: Check style-src 'self' ${prevEnv};
+
+  // const cspHeader = `
+  //   default-src 'self';
+  //   script-src 'self' 'unsafe-inline' http: https: 'nonce-${nonce}' ${
+  //   isPrevEnv ? '' : 'strict-dynamic'
+  // } ${devEnv} ${noNoncePrevEnv};
+  //   style-src 'self' 'unsafe-inline';
+  //   img-src 'self' blob: data: ${noNoncePrevEnv};
+  //   font-src 'self';
+  //   connect-src 'self' ${prevEnv};
+  //   frame-src 'self' ${prevEnv};
+  //   object-src 'none';
+  //   base-uri 'self';
+  //   form-action 'self';
+  //   frame-ancestors 'none';
+  //   ${!isDevEnv ? 'upgrade-insecure-requests;' : ''}
+  // `;
+
+  const cspHeader = '';
   const contentSecurityPolicyHeaderValue = cspHeader
     .replace(/\s{2,}/g, ' ')
     .trim();
