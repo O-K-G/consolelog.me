@@ -1,11 +1,11 @@
 'use client';
 
+import { ReactNode, createContext, useState, useRef, MouseEvent } from 'react';
 import useHandleModal from '@hooks/useHandleModal';
 import {
   ModalContextProps,
   ModalContextComponentProps,
 } from '@constants/interfaces';
-import { ReactNode, createContext, useState, useRef } from 'react';
 
 export const ModalContext = createContext({
   onModalContentChange: () => null,
@@ -28,7 +28,7 @@ export default function ModalContextComponent({
 
   const ModalContextData = {
     onModalContentChange: setModalContent,
-    onCloseModal: (e: Event | React.MouseEvent<HTMLElement>) =>
+    onCloseModal: (e: Event | MouseEvent<HTMLElement>) =>
       handleCloseModal(e, 'close'),
     modalRef,
     modalContent,

@@ -1,8 +1,9 @@
 import {
+  Dispatch,
   MouseEvent,
   ReactNode,
-  Ref,
   RefObject,
+  SetStateAction,
   useCallback,
   useEffect,
 } from 'react';
@@ -14,7 +15,7 @@ export default function useHandleModal({
 }: {
   modalRef: RefObject<null>;
   modalContent: ReactNode;
-  onModalChange: (val: ReactNode | null) => void;
+  onModalChange: Dispatch<SetStateAction<ReactNode>>;
 }) {
   const handleCloseModal = useCallback(
     (e: Event | MouseEvent<HTMLElement>, val?: 'close') => {

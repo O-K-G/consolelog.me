@@ -1,11 +1,11 @@
-import './globals.css';
+import '@locale/globals.css';
 import { Metadata, Viewport } from 'next';
 import { CACHE_VERSION } from '@root/tailwind.config';
 import handleFontsByLocale from '@utils/handleFontsByLocale';
 import getDirByLocale from '@utils/getDirByLocale';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
+import { ReactNode } from 'react';
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -60,7 +60,7 @@ export default async function RootLayout({
   children,
   params,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;

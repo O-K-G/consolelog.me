@@ -1,14 +1,15 @@
+/* eslint-disable no-unused-vars */
 import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
 import { z } from 'zod';
 import {
   Dispatch,
-  ForwardedRef,
   MouseEventHandler,
   PropsWithChildren,
   ReactNode,
   Ref,
   RefObject,
   SetStateAction,
+  MouseEvent,
 } from 'react';
 
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
@@ -25,7 +26,7 @@ export interface ModalContextProps {
   onModalContentChange: Dispatch<SetStateAction<ReactNode>>;
   modalRef: Ref<HTMLDialogElement | null>;
   modalContent: ReactNode;
-  onCloseModal: (e: Event | React.MouseEvent<HTMLElement>) => void;
+  onCloseModal: (e: Event | MouseEvent<HTMLElement>) => void;
 }
 
 export interface DialogTitleProps {
