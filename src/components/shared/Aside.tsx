@@ -1,6 +1,6 @@
 'use client';
 
-import { TransitionEventHandler, useEffect, useRef, useState } from 'react';
+import { TransitionEventHandler, useEffect, useState } from 'react';
 import Contact from '@components/byPage/Contact';
 import { usePathname, useParams } from 'next/navigation';
 import ContactGoBackButton from '@components/shared/ContactGoBackButton';
