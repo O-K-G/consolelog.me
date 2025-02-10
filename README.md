@@ -1,5 +1,26 @@
 The repo for my landing page at [http://consolelog.me](http://consolelog.me).
 
+You can run it either by:
+
+```bash
+npm run build
+```
+
+```bash
+npm start
+```
+
+Or with Docker:
+
+```bash
+docker compose up
+```
+
+### Version 1.0.1 changes
+
+- Bump to Next 15 and React 19
+- Dockerize
+
 ### Version 1.0.0 changes
 
 - Add base content
