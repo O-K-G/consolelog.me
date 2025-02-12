@@ -229,7 +229,9 @@ body {
       }
     }
 
-    /* The animations can be moved to tailwind.config once the polyfill is removed. */
+    /* The animations can be moved to tailwind.config once the polyfill is removed.
+     view(): breaks in Turbopack. */
+
     @supports (animation-timeline: scroll()) {
       .animate-scroll {
         animation: linear;
