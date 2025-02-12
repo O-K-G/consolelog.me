@@ -296,12 +296,6 @@ body {
         animation-range-end: 200svh;
         animation-name: skills;
       }
-
-      @media screen and (min-width: 1024px) {
-        .animate-skills {
-          animation-range-end: 200dvh;
-        }
-      }
     }
   }
 
@@ -336,6 +330,10 @@ body {
   }
 
   @media screen and (min-width: 1024px) {
+    .animate-skills {
+      animation-range-end: 200dvh;
+    }
+
     .row-1 {
       --top-var: 12dvh;
     }
