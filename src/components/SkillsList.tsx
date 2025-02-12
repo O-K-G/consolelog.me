@@ -1,15 +1,15 @@
-import { SKILLS_LISTS } from '@constants/skillsLists';
-import { SkillBlockProps, SkillsListRowProps } from '@constants/interfaces';
+import { SKILLS_LISTS } from "@constants/skillsLists";
+import { SkillBlockProps, SkillsListRowProps } from "@constants/interfaces";
 
 const CLASSNAME_BY_ROW = {
-  row1: 'animate-skills-3 animate-skills-3-polyfill',
-  row2: 'animate-skills-4 animate-skills-4-polyfill',
-  row3: 'animate-skills-5 animate-skills-5-polyfill',
-  row4: 'animate-skills-6 animate-skills-6-polyfill',
-  mobileRow: 'sm:hidden flex-wrap animate-skills-7 animate-skills-7-polyfill',
+  row1: "animate-skills row-3 row-3-polyfill",
+  row2: "animate-skills row-4 row-4-polyfill",
+  row3: "animate-skills row-5 row-5-polyfill",
+  row4: "animate-skills row-6 row-6-polyfill",
+  mobileRow: "sm:hidden flex-wrap animate-skills row-7 row-7-polyfill",
 } as const;
 
-function Row({ children, className = '' }: SkillsListRowProps) {
+function Row({ children, className = "" }: SkillsListRowProps) {
   return (
     <ul
       dir="ltr"
@@ -22,7 +22,7 @@ function Row({ children, className = '' }: SkillsListRowProps) {
 
 function SkillBlock({
   str,
-  'data-visible-mobile': visibleMobile,
+  "data-visible-mobile": visibleMobile,
 }: SkillBlockProps) {
   return (
     <li
@@ -44,7 +44,7 @@ export default function SkillsList() {
       <Row key={`skills-${key}`} className={rowClassName}>
         {rowItems.map((str: string) => (
           <SkillBlock
-            data-visible-mobile={key === 'mobileRow' && str === rowItems[3]}
+            data-visible-mobile={key === "mobileRow" && str === rowItems[3]}
             key={`skill-item-${str}`}
             str={str}
           />

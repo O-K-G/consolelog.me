@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
-import { z } from 'zod';
+import { DIRECTION_BY_LANGUAGE } from "@constants/LocaleDirection";
+import { z } from "zod";
 import {
   Dispatch,
   MouseEventHandler,
@@ -10,7 +10,7 @@ import {
   RefObject,
   SetStateAction,
   MouseEvent,
-} from 'react';
+} from "react";
 
 export const CONTACT_FORM_EMAIL_MAX_LENGTH = 100;
 export const CONTACT_FORM_SUBJECT_MIN_LENGTH = 1;
@@ -37,7 +37,7 @@ export interface DialogTitleProps {
 }
 
 export interface CurrentSection {
-  currentSection?: 'about' | 'projects' | 'skills' | 'experience' | 'contact';
+  currentSection?: "about" | "projects" | "skills" | "experience" | "contact";
   minHeightClassName?: string;
 }
 export interface SectionProps extends CurrentSection {
@@ -52,7 +52,7 @@ interface TitleLabels {
 
 export interface TitleProps extends TitleLabels {
   id?: number;
-  component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   label?: string;
   /** Must be in the following format: ' ... before:content-['some_string'] ',
    * as JIT mode can't handle template literals.
@@ -74,15 +74,15 @@ export interface AboutTargetIconProps {
 }
 
 export interface BottomInputComponentButtonsProps {
-  dir: 'ltr' | 'rtl';
-  onClick: (val: 'ltr' | 'rtl') => void;
+  dir: "ltr" | "rtl";
+  onClick: (val: "ltr" | "rtl") => void;
   isSubmitDisabled: boolean;
   leftSlot: ReactNode;
   onSubmit: () => void;
 }
 
 export interface InputComponentProps {
-  component?: 'input' | 'textarea';
+  component?: "input" | "textarea";
   id: string;
   placeholder: string;
   minLength?: number;
@@ -115,7 +115,7 @@ export const FormDataSchema = z.object({
 
 export type FormValidationProps = z.infer<typeof FormDataSchema>;
 
-export type Fields = 'email' | 'subject' | 'content';
+export type Fields = "email" | "subject" | "content";
 
 export type FormErrorNames = Fields[];
 
@@ -136,8 +136,8 @@ export interface AnchorLinkProps {
   url: string;
   icon: ReactNode;
   isRounded?: boolean;
-  'aria-label': string;
-  'data-testid': string;
+  "aria-label": string;
+  "data-testid": string;
 }
 
 export interface CogwheelProps {
@@ -146,7 +146,7 @@ export interface CogwheelProps {
   childrenClassName?: string;
   bgClassName?: string;
   className?: string;
-  'data-testid'?: string;
+  "data-testid"?: string;
 }
 
 export interface BoltProps {
@@ -161,9 +161,9 @@ export interface ArrowRightIconProps {
 
 export interface IconButtonProps {
   onClick: MouseEventHandler<HTMLButtonElement>;
-  'aria-label': string;
-  'data-testid'?: string;
-  'data-pointer-events'?: boolean;
+  "aria-label": string;
+  "data-testid"?: string;
+  "data-pointer-events"?: boolean;
   icon: ReactNode;
   className?: string;
   disabled?: boolean;
@@ -221,10 +221,10 @@ export interface ExpandableButtonProps {
 
 export interface MainTitleProps {
   children: ReactNode;
-  component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   className?: string;
   border?: boolean;
-  variant?: 'mainTitle' | 'subtitle';
+  variant?: "mainTitle" | "subtitle";
   topLabel?: string;
   bottomLabel?: string;
   subtitleFontClassName?: string;
@@ -277,14 +277,14 @@ export interface SkillsListRowProps {
 
 export interface SkillBlockProps {
   str: string;
-  'data-visible-mobile': boolean;
+  "data-visible-mobile": boolean;
 }
 
 export interface handleDownloadProps {
   url: string | URL | Request;
   init?: RequestInit | undefined;
   fileName?: string;
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  method?: "GET" | "POST" | "PUT" | "DELETE";
   headers?: Record<string, string>;
   errorModalContent: ReactNode;
 }

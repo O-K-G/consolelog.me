@@ -197,40 +197,34 @@ body {
       .animate-skills-polyfill {
         animation: 1s linear forwards;
         animation-play-state: paused;
+        animation-name: skills;
       }
 
-      .animate-skills-1-polyfill {
-        animation-name: skills-1;
+      .row-1-polyfill {
         animation-delay: calc(var(--scroll) * -4s);
       }
 
-      .animate-skills-2-polyfill {
-        animation-name: skills-2;
+      .row-2-polyfill {
         animation-delay: calc(var(--scroll) * -3.75s);
       }
 
-      .animate-skills-3-polyfill {
-        animation-name: skills-3;
+      .row-3-polyfill {
         animation-delay: calc(var(--scroll) * -3.5s);
       }
 
-      .animate-skills-4-polyfill {
-        animation-name: skills-4;
+      .row-4-polyfill {
         animation-delay: calc(var(--scroll) * -3.25s);
       }
 
-      .animate-skills-5-polyfill {
-        animation-name: skills-5;
+      .row-5-polyfill {
         animation-delay: calc(var(--scroll) * -3s);
       }
 
-      .animate-skills-6-polyfill {
-        animation-name: skills-6;
+      .row-6-polyfill {
         animation-delay: calc(var(--scroll) * -2.75s);
       }
 
-      .animate-skills-7-polyfill {
-        animation-name: skills-7;
+      .row-7-polyfill {
         animation-delay: calc(var(--scroll) * -2.5s);
       }
     }
@@ -266,12 +260,41 @@ body {
       }
     }
 
+    .row-1 {
+      --top-var: 12svh;
+    }
+
+    .row-2 {
+      --top-var: 25svh;
+    }
+
+    .row-3 {
+      --top-var: 32svh;
+    }
+
+    .row-4 {
+      --top-var: 40svh;
+    }
+
+    .row-5 {
+      --top-var: 48svh;
+    }
+
+    .row-6 {
+      --top-var: 56svh;
+    }
+
+    .row-7 {
+      --top-var: 64svh;
+    }
+
     @supports (animation-timeline: view()) {
       .animate-skills {
         animation: linear forwards;
         animation-timeline: view();
         animation-range-start: 0;
         animation-range-end: 200svh;
+        animation-name: skills;
       }
 
       @media screen and (min-width: 1024px) {
@@ -279,191 +302,75 @@ body {
           animation-range-end: 200dvh;
         }
       }
-
-      .animate-skills-1 {
-        animation-name: skills-1;
-      }
-
-      .animate-skills-2 {
-        animation-name: skills-2;
-      }
-
-      .animate-skills-3 {
-        animation-name: skills-3;
-      }
-
-      .animate-skills-4 {
-        animation-name: skills-4;
-      }
-
-      .animate-skills-5 {
-        animation-name: skills-5;
-      }
-
-      .animate-skills-6 {
-        animation-name: skills-6;
-      }
-
-      .animate-skills-7 {
-        animation-name: skills-7;
-      }
-    }
-  }
-
-  @keyframes skills-1 {
-    from {
-      top: 120svh;
-    }
-    to {
-      top: 12svh;
-    }
-  }
-
-  @keyframes skills-2 {
-    from {
-      top: 120svh;
-    }
-    to {
-      top: 25svh;
-    }
-  }
-
-  @keyframes skills-3 {
-    from {
-      top: 120svh;
-    }
-    to {
-      top: 32svh;
-    }
-  }
-
-  @keyframes skills-4 {
-    from {
-      top: 120svh;
-    }
-    to {
-      top: 40svh;
-    }
-  }
-
-  @keyframes skills-5 {
-    from {
-      top: 120svh;
-    }
-    to {
-      top: 48svh;
-    }
-  }
-
-  @keyframes skills-6 {
-    from {
-      top: 120svh;
-    }
-    to {
-      top: 56svh;
-    }
-  }
-
-  @keyframes skills-7 {
-    from {
-      top: 120svh;
-    }
-    to {
-      top: 64svh;
     }
   }
 
   @media screen and (min-width: 640px) {
-    @keyframes skills-3 {
-      from {
-        top: 120svh;
-      }
-      to {
-        top: 37svh;
-      }
+    .row-1 {
+      --top-var: 12svh;
     }
 
-    @keyframes skills-4 {
-      from {
-        top: 120svh;
-      }
-      to {
-        top: 49svh;
-      }
+    .row-2 {
+      --top-var: 25svh;
     }
 
-    @keyframes skills-5 {
-      from {
-        top: 120svh;
-      }
-      to {
-        top: 61svh;
-      }
+    .row-3 {
+      --top-var: 37svh;
     }
 
-    @keyframes skills-6 {
-      from {
-        top: 120svh;
-      }
-      to {
-        top: 73svh;
-      }
+    .row-4 {
+      --top-var: 49svh;
     }
 
-    @keyframes skills-7 {
-      from {
-        top: 120svh;
-      }
-      to {
-        top: 85svh;
-      }
+    .row-5 {
+      --top-var: 61svh;
+    }
+
+    .row-6 {
+      --top-var: 73svh;
+    }
+
+    .row-7 {
+      --top-var: 85svh;
     }
   }
 
   @media screen and (min-width: 1024px) {
-    @keyframes skills-3 {
-      from {
-        top: 120dvh;
-      }
-      to {
-        top: 37dvh;
-      }
+    .row-1 {
+      --top-var: 12dvh;
     }
 
-    @keyframes skills-4 {
-      from {
-        top: 120dvh;
-      }
-      to {
-        top: 49dvh;
-      }
+    .row-2 {
+      --top-var: 25dvh;
     }
 
-    @keyframes skills-5 {
-      from {
-        top: 120dvh;
-      }
-      to {
-        top: 61dvh;
-      }
+    .row-3 {
+      --top-var: 37dvh;
     }
 
-    @keyframes skills-6 {
-      from {
-        top: 120dvh;
-      }
-      to {
-        top: 73dvh;
-      }
+    .row-4 {
+      --top-var: 49dvh;
     }
 
-    @keyframes skills-7 {
-      from {
-        top: 120dvh;
-      }
-      to {
-        top: 85dvh;
-      }
+    .row-5 {
+      --top-var: 61dvh;
+    }
+
+    .row-6 {
+      --top-var: 73dvh;
+    }
+
+    .row-7 {
+      --top-var: 85dvh;
+    }
+  }
+
+  @keyframes skills {
+    from {
+      top: 120svh;
+    }
+    to {
+      top: var(--top-var);
     }
   }
 
