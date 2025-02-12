@@ -2,11 +2,11 @@ import { SKILLS_LISTS } from "@constants/skillsLists";
 import { SkillBlockProps, SkillsListRowProps } from "@constants/interfaces";
 
 const CLASSNAME_BY_ROW = {
-  row1: "animate-skills row-3 row-3-polyfill",
-  row2: "animate-skills row-4 row-4-polyfill",
-  row3: "animate-skills row-5 row-5-polyfill",
-  row4: "animate-skills row-6 row-6-polyfill",
-  mobileRow: "sm:hidden flex-wrap animate-skills row-7 row-7-polyfill",
+  row1: "row-3 row-3-polyfill",
+  row2: "row-4 row-4-polyfill",
+  row3: "row-5 row-5-polyfill",
+  row4: "row-6 row-6-polyfill",
+  mobileRow: "sm:hidden flex-wrap row-7 row-7-polyfill",
 } as const;
 
 function Row({ children, className = "" }: SkillsListRowProps) {
@@ -38,7 +38,9 @@ export default function SkillsList() {
   return SKILLS_LISTS.map((row) => {
     const key = Object.keys(row)[0];
     const rowItems = row[key as keyof typeof row] as string[];
-    const rowClassName = CLASSNAME_BY_ROW[key as keyof typeof CLASSNAME_BY_ROW];
+    const rowClassName = `animate-skills ${
+      CLASSNAME_BY_ROW[key as keyof typeof CLASSNAME_BY_ROW]
+    }`;
 
     return (
       <Row key={`skills-${key}`} className={rowClassName}>
