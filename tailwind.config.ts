@@ -36,8 +36,8 @@ export default {
           "100%": { background: "transparent" },
         },
         "border-subtitle-blink": {
-          "0%": { color: "#ceb7ff" },
-          "100%": { color: "transparent" },
+          "0%": { opacity: "0%" },
+          "100%": { opacity: "100%" },
         },
         "scroll-icon": {
           "0%, 100%": { top: "0.125rem" },
