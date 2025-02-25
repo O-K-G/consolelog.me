@@ -1,9 +1,10 @@
-import { BorderProps } from '@constants/interfaces';
+import { BorderProps } from "@constants/interfaces";
 
 export default function Border({
-  className = '',
+  className = "",
   leftLabel,
   rightLabel,
+  isTextBlink,
 }: BorderProps) {
   return (
     <div
@@ -14,7 +15,10 @@ export default function Border({
         className={`size-full border-[1.5px] border-title-purple drop-shadow-border-purple-glow ${className}`}
       />
       {(rightLabel ?? leftLabel) && (
-        <span className="border-font-classNames">
+        <span
+          data-blink={isTextBlink}
+          className="border-font-classNames data-[blink=true]:animate-border-subtitle-blink"
+        >
           {rightLabel ?? leftLabel}
         </span>
       )}
