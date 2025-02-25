@@ -10,6 +10,7 @@ export default function Title({
   topLabel,
   bottomLabel,
   subtitleFontClassName = "info-text-font-classNames",
+  isRightLabelBlink,
 }: MainTitleProps) {
   const selectedVariantClassName = {
     mainTitle: "text-transparent main-title-font-classNames purple-text-stroke",
@@ -18,7 +19,9 @@ export default function Title({
 
   return (
     <div className={`center-elements flex-col ${className}`}>
-      {border && <Border rightLabel={topLabel} />}
+      {border && (
+        <Border isTextBlink={isRightLabelBlink} rightLabel={topLabel} />
+      )}
       <Component
         className={`py-2 title-typing-animation sm:py-4 px-2 uppercase drop-shadow-purple-glow sm:drop-shadow-purple-glow-sm text-center ${selectedVariantClassName[variant]}`}
       >

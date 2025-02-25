@@ -228,12 +228,14 @@ export interface MainTitleProps {
   topLabel?: string;
   bottomLabel?: string;
   subtitleFontClassName?: string;
+  isRightLabelBlink?: boolean;
 }
 
 export interface BorderProps {
   className?: string;
   leftLabel?: string;
   rightLabel?: string;
+  isTextBlink?: boolean;
 }
 
 export interface LoaderProps {

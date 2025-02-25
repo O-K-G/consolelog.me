@@ -23,7 +23,8 @@ export default {
         "collapse-button": "collapse-button 1s linear forwards",
         "scroll-icon": "scroll-icon 2s linear 3 alternate",
         "title-type": "title-type 3.5s steps(40, end)",
-        "typing-caret": "typing-caret 0.75s 5",
+        "typing-caret": "typing-caret 0.5s 5",
+        "border-subtitle-blink": "border-subtitle-blink 0.75s 5",
       },
       keyframes: {
         "title-type": {
@@ -33,6 +34,10 @@ export default {
         "typing-caret": {
           "0%": { background: "#ceb7ff" },
           "100%": { background: "transparent" },
+        },
+        "border-subtitle-blink": {
+          "0%": { color: "#ceb7ff" },
+          "100%": { color: "transparent" },
         },
         "scroll-icon": {
           "0%, 100%": { top: "0.125rem" },
