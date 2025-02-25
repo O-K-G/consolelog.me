@@ -160,6 +160,10 @@ body {
     @apply w-full ltr:left-0 rtl:right-0 overflow-y-auto;
   }
 
+  .title-typing-animation {
+    @apply animate-title-type overflow-hidden mx-0 my-auto whitespace-nowrap;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     /* Animations polyfill, for cases in which 'animation-timeline' isn't supported. */
     @supports not (animation-timeline: scroll()) {
