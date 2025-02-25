@@ -160,8 +160,16 @@ body {
     @apply w-full ltr:left-0 rtl:right-0 overflow-y-auto;
   }
 
+  .title-typing-animation-by-language:lang(en) {
+    @apply before:right-0;
+  }
+
+  .title-typing-animation-by-language:lang(he) {
+    @apply before:left-0;
+  }
+
   .title-typing-animation {
-    @apply animate-title-type overflow-hidden mx-0 my-auto whitespace-nowrap;
+    @apply title-typing-animation-by-language animate-title-type overflow-hidden mx-0 my-auto whitespace-nowrap before:h-[80%] before:my-auto before:w-2 before:sm:w-3 before:md:w-4 before:absolute before:top-0 before:bottom-0 before:animate-typing-caret;
   }
 
   @media (prefers-reduced-motion: no-preference) {

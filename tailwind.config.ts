@@ -22,17 +22,17 @@ export default {
         "expand-button": "expand-button 1s linear forwards",
         "collapse-button": "collapse-button 1s linear forwards",
         "scroll-icon": "scroll-icon 2s linear 3 alternate",
-        "title-type":
-          "title-type 3.5s steps(40, end), type-right-border 0.75s 5",
+        "title-type": "title-type 3.5s steps(40, end)",
+        "typing-caret": "typing-caret 0.75s 5",
       },
       keyframes: {
         "title-type": {
           "0%": { width: "0%" },
           "100%": { width: "100%" },
         },
-        "type-right-border": {
-          "0%": { borderRight: "0.5rem solid orange" },
-          "100%": { borderRight: "0.5rem solid transparent" },
+        "typing-caret": {
+          "0%": { background: "orange" },
+          "100%": { background: "transparent" },
         },
         "scroll-icon": {
           "0%, 100%": { top: "0.125rem" },
