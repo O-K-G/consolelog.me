@@ -31,7 +31,7 @@ export default {
           "100%": { width: "100%" },
         },
         "typing-caret": {
-          "0%": { background: "orange" },
+          "0%": { background: "#ceb7ff" },
           "100%": { background: "transparent" },
         },
         "scroll-icon": {
