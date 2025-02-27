@@ -3,7 +3,8 @@
 @import "./styles/icons-scroll-animations.css";
 @import "./styles/expand-collapse-button-animations.css";
 @import "./styles/loader-animations.css";
-@import "./styles//planet-rotate-animations.css";
+@import "./styles/planet-rotate-animations.css";
+@import "./styles/background-animations.css";
 
 @theme {
   --drop-shadow-purple-glow: 0px 0px 0.125rem #b377ff;
@@ -45,14 +46,6 @@
   --background-image-contact-2xl: url("/images/contact-2xl.webp?cacheVersion=1");
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -192,15 +185,6 @@
   }
 }
 
-@utility animate-background-polyfill {
-  @media (prefers-reduced-motion: no-preference) {
-    @supports not (animation-timeline: scroll()) {
-      animation-name: background-scale;
-      scale: 1;
-    }
-  }
-}
-
 @utility animate-skills-polyfill {
   @media (prefers-reduced-motion: no-preference) {
     @supports not (animation-timeline: view()) {
@@ -272,15 +256,6 @@
     @supports (animation-timeline: scroll()) {
       animation: linear;
       animation-timeline: scroll();
-    }
-  }
-}
-
-@utility animate-background-scale {
-  @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: scroll()) {
-      animation-name: background-scale;
-      scale: 1;
     }
   }
 }
@@ -436,12 +411,6 @@
     }
     to {
       top: var(--top-var);
-    }
-  }
-
-  @keyframes background-scale {
-    to {
-      scale: 1.3;
     }
   }
 }

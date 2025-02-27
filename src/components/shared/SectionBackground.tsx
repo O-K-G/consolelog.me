@@ -29,7 +29,7 @@ export default function SectionBackground({
           />
         ))}
         <img
-          className="object-cover animate-scroll animate-background-scale animate-scroll-polyfill animate-background-polyfill object-left h-screen w-screen bottom-0 left-0 fixed opacity-60"
+          className="object-cover animate-scroll animate-background-scale animate-scroll-polyfill object-left h-screen w-screen bottom-0 left-0 fixed opacity-60"
           alt=""
           aria-hidden
           src={`/images/${currentSection}-2xl${SUFFIX}`}
