@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import "./title-typing-animations.css";
-@import "./icons-scroll-animations.css";
+@import "./styles/title-typing-animations.css";
+@import "./styles/icons-scroll-animations.css";
 
 @theme {
   --drop-shadow-purple-glow: 0px 0px 0.125rem #b377ff;
