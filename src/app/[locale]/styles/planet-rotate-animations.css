@@ -1,19 +1,9 @@
 @media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: scroll()) {
-    .animate-rotate {
-      animation-name: rotate;
+  .animate-rotate {
+    animation-name: rotate;
 
-      @media screen and (max-width: 768px) {
-        scale: 0.5;
-      }
-    }
-
-    .animate-rotate-polyfill {
-      animation-name: rotate;
-
-      @media screen and (max-width: 768px) {
-        scale: 0.5;
-      }
+    @media screen and (max-width: 768px) {
+      scale: 0.5;
     }
   }
 }
