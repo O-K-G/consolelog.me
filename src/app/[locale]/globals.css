@@ -181,16 +181,6 @@
   @apply w-full ltr:left-0 rtl:right-0 overflow-y-auto;
 }
 
-@utility title-typing-animation-by-language {
-  &:lang(en) {
-    @apply before:right-0;
-  }
-
-  &:lang(he) {
-    @apply before:left-0;
-  }
-}
-
 @utility animate-scroll-polyfill {
   @media (prefers-reduced-motion: no-preference) {
     @supports not (animation-timeline: scroll()) {
