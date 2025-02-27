@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import IconButton from '@components/shared/IconButton';
-import LanguageIcon from '@components/icons/LanguageIcon';
-import { usePathname, useRouter, useParams } from 'next/navigation';
-import { useTranslations } from 'next-intl';
-import { DIRECTION_BY_LANGUAGE } from '@constants/LocaleDirection';
-import { ModalContext as modalContext } from '@components/shared/ModalContext';
-import DialogTitle from '@components/shared/dialog/DialogTitle';
-import { useContext } from 'react';
+import IconButton from "@components/shared/IconButton";
+import LanguageIcon from "@components/icons/LanguageIcon";
+import { usePathname, useRouter, useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { DIRECTION_BY_LANGUAGE } from "@constants/LocaleDirection";
+import { ModalContext as modalContext } from "@components/shared/ModalContext";
+import DialogTitle from "@components/shared/dialog/DialogTitle";
+import { useContext } from "react";
 import {
   ChangeLanguageProps,
   SelectLanguageButtonProps,
-} from '@constants/interfaces';
+} from "@constants/interfaces";
 
 function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
   const { locale } = useParams() || {};
@@ -41,14 +41,14 @@ function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
 }
 
 function LanguagesList() {
-  const t = useTranslations('languageSelect');
+  const t = useTranslations("languageSelect");
   const { onCloseModal } = useContext(modalContext);
 
   return (
     <div className="bg-black/70 pb-4 text-white w-svw sm:w-[50svw] md:w-[25svw] center-elements flex-col regular-text-font-by-locale">
       <DialogTitle
         className="text-xl"
-        label={t('changeLanguage')}
+        label={t("changeLanguage")}
         onClick={onCloseModal}
       />
       <ul className="center-elements flex-col w-full">
@@ -66,7 +66,7 @@ function LanguagesList() {
 
 export default function ChangeLanguage({ hide }: ChangeLanguageProps) {
   const { onModalContentChange: setModalContent } = useContext(modalContext);
-  const t = useTranslations('languageSelect');
+  const t = useTranslations("languageSelect");
 
   if (!hide) {
     return (
@@ -74,7 +74,7 @@ export default function ChangeLanguage({ hide }: ChangeLanguageProps) {
         className="rounded-full transition-300 hover:scale-150 active:scale-150 focus:scale-150 side-links-clickable-elements-size"
         onClick={() => setModalContent(<LanguagesList />)}
         icon={<LanguageIcon className="side-links-icons" />}
-        aria-label={t('changeLanguage')}
+        aria-label={t("changeLanguage")}
       />
     );
   }
