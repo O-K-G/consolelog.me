@@ -3,6 +3,7 @@
 @import "./styles/icons-scroll-animations.css";
 @import "./styles/expand-collapse-button-animations.css";
 @import "./styles/loader-animations.css";
+@import "./styles//planet-rotate-animations.css";
 
 @theme {
   --drop-shadow-purple-glow: 0px 0px 0.125rem #b377ff;
@@ -191,18 +192,6 @@
   }
 }
 
-@utility animate-rotate-polyfill {
-  @media (prefers-reduced-motion: no-preference) {
-    @supports not (animation-timeline: scroll()) {
-      animation-name: rotate;
-
-      @media screen and (max-width: 768px) {
-        scale: 0.5;
-      }
-    }
-  }
-}
-
 @utility animate-background-polyfill {
   @media (prefers-reduced-motion: no-preference) {
     @supports not (animation-timeline: scroll()) {
@@ -283,18 +272,6 @@
     @supports (animation-timeline: scroll()) {
       animation: linear;
       animation-timeline: scroll();
-    }
-  }
-}
-
-@utility animate-rotate {
-  @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: scroll()) {
-      animation-name: rotate;
-
-      @media screen and (max-width: 768px) {
-        scale: 0.5;
-      }
     }
   }
 }
@@ -459,21 +436,6 @@
     }
     to {
       top: var(--top-var);
-    }
-  }
-
-  @keyframes rotate {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    @keyframes rotate {
-      to {
-        transform: rotate(360deg);
-        scale: 2;
-      }
     }
   }
 
