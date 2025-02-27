@@ -98,7 +98,7 @@
 @utility animate-scroll {
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: scroll()) {
-      animation: linear;
+      animation-timing-function: linear;
       animation-timeline: scroll();
     }
   }

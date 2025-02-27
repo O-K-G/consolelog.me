@@ -17,7 +17,8 @@
 .animate-skills {
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
-      animation: linear forwards;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
       animation-timeline: view();
       animation-range-start: 0;
       animation-range-end: 200svh;
@@ -33,7 +34,9 @@
 @utility animate-skills-polyfill {
   @media (prefers-reduced-motion: no-preference) {
     @supports not (animation-timeline: view()) {
-      animation: 1s linear forwards;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
       animation-play-state: paused;
       animation-name: skills;
     }
