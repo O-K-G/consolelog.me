@@ -74,7 +74,7 @@ export default function InputComponent({
             aria-label={ariaLabel}
             id={id}
             name={id}
-            className={`w-full placeholder:uppercase text-sm sm:text-xl placeholder:text-white/30 regular-text-font-by-locale outline-none ${placeholderFontClassName} ${
+            className={`w-full placeholder:uppercase text-sm sm:text-xl placeholder:text-white/30 regular-text-font-by-locale outline-hidden ${placeholderFontClassName} ${
               !isTextarea
                 ? 'h-[3.188rem] px-2 sm:px-4'
                 : 'p-2 sm:p-4 resize-none'

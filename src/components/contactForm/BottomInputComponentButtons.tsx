@@ -25,7 +25,7 @@ export default function BottomInputComponentButtons({
           disabled={isBusy}
           type="submit"
           onClick={onSubmit}
-          className={`relative h-full p-2 before:-z-10 before:size-full before:absolute before:hover:bg-black/70 before:active:bg-black/70 before:focus:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full info-text-font-classNames text-xl sm:text-3xl uppercase active:text-white outline-none ${
+          className={`relative h-full p-2 before:-z-10 before:size-full before:absolute hover:before:bg-black/70 active:before:bg-black/70 focus:before:bg-black/70 before:top-0 before:bottom-0 before:left-0 before:right-0 before:m-auto before:rounded-full info-text-font-classNames text-xl sm:text-3xl uppercase active:text-white outline-hidden ${
             isBusy
               ? 'text-white opacity-50 before:hidden cursor-not-allowed'
               : 'hover:text-title-purple focus:text-title-purple'
@@ -39,7 +39,7 @@ export default function BottomInputComponentButtons({
           aria-label={`${t('alignFormText')} ${t(isLTR ? 'right' : 'left')}`}
           onClick={() => onClick?.(isLTR ? 'rtl' : 'ltr')}
           type="button"
-          className="group size-8 shrink-0 hover:bg-black/70 active:bg-black/70 focus:bg-black/70 rounded-full center-elements outline-none"
+          className="group size-8 shrink-0 hover:bg-black/70 active:bg-black/70 focus:bg-black/70 rounded-full center-elements outline-hidden"
         >
           <AlignLeftIcon
             className={`size-full rounded-full fill-white group-hover:fill-title-purple group-active:fill-white group-focus:fill-title-purple ${

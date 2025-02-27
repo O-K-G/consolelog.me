@@ -25,7 +25,7 @@ function AnchorLink({
         aria-label={ariaLabel}
         rel="noreferrer"
         target="_blank"
-        className="data-[rounded=true]:rounded-full overflow-hidden transition-300 hover:scale-150 active:scale-150 focus:scale-150 center-elements group outline-none side-links-clickable-elements-size"
+        className="data-[rounded=true]:rounded-full overflow-hidden transition-300 hover:scale-150 active:scale-150 focus:scale-150 center-elements group outline-hidden side-links-clickable-elements-size"
       >
         {icon}
       </a>

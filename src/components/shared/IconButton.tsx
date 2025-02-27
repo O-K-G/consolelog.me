@@ -17,7 +17,7 @@ export default function IconButton({
       onClick={onClick}
       disabled={disabled}
       type="button"
-      className={`group center-elements outline-none disabled:pointer-events-none disabled:select-none ${className}`}
+      className={`group center-elements outline-hidden disabled:pointer-events-none disabled:select-none ${className}`}
       aria-label={ariaLabel}
       {...rest}
     >

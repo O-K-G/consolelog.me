@@ -57,7 +57,7 @@ export default function Attribution() {
   return (
     <button
       type='button'
-      className='z-10 uppercase outline-none font-bebas-neue text-white hover:text-title-purple active:text-title-purple-dark focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl'
+      className='z-10 uppercase outline-hidden font-bebas-neue text-white hover:text-title-purple active:text-title-purple-dark focus:text-title-purple text-base sm:text-xl md:text-4xl xl:text-6xl'
       onClick={() => setModalContent(<AttributionContent />)}
     >
       {t('title')}

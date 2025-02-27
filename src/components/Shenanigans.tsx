@@ -20,7 +20,7 @@ function OldschoolButton({
   return (
     <button
       onClick={onClick}
-      className="shadow-sm group hover:bg-gray-100 active:bg-blue-200 border font-bold border-black shadow-black outline-none center-elements p-4"
+      className="shadow-xs group hover:bg-gray-100 active:bg-blue-200 border font-bold border-black shadow-black outline-hidden center-elements p-4"
       type="button"
     >
       <span className="border border-transparent group-focus:border-dashed group-focus:border-black px-2">
@@ -97,7 +97,7 @@ export default function Shenanigans() {
   return (
     <button
       type="button"
-      className="z-10 uppercase outline-none info-text-font-classNames text-white hover:text-title-purple active:text-title-purple-dark focus:text-title-purple text-base sm:text-xl"
+      className="z-10 uppercase outline-hidden info-text-font-classNames text-white hover:text-title-purple active:text-title-purple-dark focus:text-title-purple text-base sm:text-xl"
       onClick={() => setModalContent(<ShenanigansComponent />)}
     >
       {t('shenanigansButton')}

@@ -30,7 +30,7 @@ function SelectLanguageButton({ label, value }: SelectLanguageButtonProps) {
             router.push(pathname.replace(`/${locale as string}`, `/${value}`));
           }
         }}
-        className="data-[current-locale=false]:text-white data-[current-locale=true]:text-title-purple px-4 py-2 hover:bg-white/30 text-center active:bg-white/50 focus:bg-white/30 w-full text-base outline-none"
+        className="data-[current-locale=false]:text-white data-[current-locale=true]:text-title-purple px-4 py-2 hover:bg-white/30 text-center active:bg-white/50 focus:bg-white/30 w-full text-base outline-hidden"
         type="button"
         value={value}
       >
