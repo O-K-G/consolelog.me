@@ -1,11 +1,15 @@
 @import "tailwindcss";
-@import "./styles/title-typing-animations.css";
+@import "./styles/main-title.css";
 @import "./styles/icons-scroll-animations.css";
-@import "./styles/expand-collapse-button-animations.css";
+@import "./styles/expand-collapse-button.css";
 @import "./styles/loader-animations.css";
 @import "./styles/planet-rotate-animations.css";
-@import "./styles/background-animations.css";
-@import "./styles/skills-animations.css";
+@import "./styles/backgrounds.css";
+@import "./styles/skills.css";
+@import "./styles/aside.css";
+@import "./styles/side-links.css";
+@import "./styles/contact-go-button.css";
+@import "./styles/attribution.css";
 
 @theme {
   --drop-shadow-purple-glow: 0px 0px 0.125rem #b377ff;
@@ -26,25 +30,6 @@
   --font-karantina-regular: var(--font-karantina-regular);
   --font-varela-round-regular: var(--font-varela-round-regular);
   --font-handjet: var(--font-handjet);
-
-  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
-  --background-image-gradient-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    var(--tw-gradient-stops)
-  );
-  --background-image-gradient-skills: linear-gradient(
-    90deg,
-    white 25%,
-    #fde071 37.5%,
-    #ef9671,
-    #996a6e 62.5%,
-    white 75%
-  );
-  --background-image-contact-sm: url("/images/contact-sm.webp?cacheVersion=1");
-  --background-image-contact-md: url("/images/contact-md.webp?cacheVersion=1");
-  --background-image-contact-lg: url("/images/contact-lg.webp?cacheVersion=1");
-  --background-image-contact-xl: url("/images/contact-xl.webp?cacheVersion=1");
-  --background-image-contact-2xl: url("/images/contact-2xl.webp?cacheVersion=1");
 }
 
 @layer base {
@@ -65,22 +50,6 @@
   }
 }
 
-@utility title-text-stroke-white {
-  -webkit-text-stroke: 0.125rem #ffffff;
-
-  @media screen and (max-width: 640px) {
-    -webkit-text-stroke: 0.05rem #ffffff;
-  }
-}
-
-@utility purple-text-stroke {
-  -webkit-text-stroke: 0.125rem #ceb7ff;
-
-  @media screen and (max-width: 640px) {
-    -webkit-text-stroke: 0.07rem #ceb7ff;
-  }
-}
-
 @utility center-elements {
   @apply flex items-center justify-center;
 }
@@ -93,29 +62,6 @@
   @apply transition-all ease-in-out duration-1000;
 }
 
-@utility clip-path-inset-0 {
-  clip-path: inset(0);
-}
-
-@utility container-type-size {
-  container-type: size;
-}
-
-@utility text-fill-transparent {
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
-}
-
-@utility main-title-font-classNames {
-  &:lang(en) {
-    @apply font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl;
-  }
-
-  &:lang(he) {
-    @apply font-stop-motion tracking-wider text-2xl sm:text-3xl md:text-5xl md:tracking-normal;
-  }
-}
-
 @utility info-text-font-classNames {
   &:lang(en) {
     @apply font-bebas-neue;
@@ -123,22 +69,6 @@
 
   &:lang(he) {
     @apply font-sans font-bold;
-  }
-}
-
-@utility contact-go-button-font-classNames {
-  &:lang(he) {
-    @apply font-sans font-bold leading-[1rem] sm:leading-5 md:leading-8;
-  }
-}
-
-@utility border-font-classNames {
-  &:lang(en) {
-    @apply font-star-date-81316 pt-[0.1rem] text-[135%] leading-[135%] md:text-[130%] md:leading-[130%];
-  }
-
-  &:lang(he) {
-    @apply font-karantina-regular pb-0.5 text-[130%] leading-[130%] md:text-[140%] md:leading-[140%];
   }
 }
 
@@ -150,30 +80,6 @@
   &:lang(he) {
     @apply font-varela-round-regular;
   }
-}
-
-@utility side-links-clickable-elements-size {
-  @apply size-8 sm:size-10 md:size-12 lg:size-14 xl:size-16 2xl:h-[4.5rem] 2xl:w-[4.5rem];
-}
-
-@utility side-links-icons {
-  @apply fill-title-purple group-hover:fill-white group-active:fill-title-purple-dark group-focus:fill-title-purple size-full;
-}
-
-@utility attribution-anchor-tag {
-  @apply outline-hidden focus:bg-white focus:rounded-md text-title-purple hover:text-title-purple-dark active:text-black focus:text-title-purple-dark;
-}
-
-@utility scrollable-subsection-buttons {
-  @apply z-10 h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30;
-}
-
-@utility aside-closed {
-  @apply w-0 ltr:-left-[100vw] rtl:-right-[100vw] overflow-y-hidden;
-}
-
-@utility aside-open {
-  @apply w-full ltr:left-0 rtl:right-0 overflow-y-auto;
 }
 
 @utility animate-scroll-polyfill {
@@ -192,31 +98,5 @@
       animation: linear;
       animation-timeline: scroll();
     }
-  }
-}
-
-@layer utilities {
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
-    }
-  }
-
-  body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
   }
 }

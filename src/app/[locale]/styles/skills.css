@@ -1,3 +1,19 @@
+@theme {
+  --background-image-gradient-skills: linear-gradient(
+    90deg,
+    white 25%,
+    #fde071 37.5%,
+    #ef9671,
+    #996a6e 62.5%,
+    white 75%
+  );
+}
+
+.text-fill-transparent {
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
 .animate-skills {
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
