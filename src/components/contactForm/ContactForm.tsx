@@ -1,14 +1,14 @@
-import InputComponent from '@components/contactForm/InputComponent';
-import { useState, useContext } from 'react';
-import { handleSubmit } from '@utils/handleSubmit';
-import formValidation from '@utils/formValidation';
-import ProgressIndicators from '@components/contactForm/ProgressIndicators';
-import BottomInputComponentButtons from '@components/contactForm/BottomInputComponentButtons';
-import ErrorDialogMeesage from '@components/shared/ErrorDialogMessage';
-import { ModalContext as modalContext } from '@components/shared/ModalContext';
-import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
-import getDirByLocale from '@utils/getDirByLocale';
+import InputComponent from "@components/contactForm/InputComponent";
+import { useState, useContext } from "react";
+import { handleSubmit } from "@utils/handleSubmit";
+import formValidation from "@utils/formValidation";
+import ProgressIndicators from "@components/contactForm/ProgressIndicators";
+import BottomInputComponentButtons from "@components/contactForm/BottomInputComponentButtons";
+import ErrorDialogMeesage from "@components/shared/ErrorDialogMessage";
+import { ModalContext as modalContext } from "@components/shared/ModalContext";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import getDirByLocale from "@utils/getDirByLocale";
 import {
   type FormErrorNames,
   type Fields,
@@ -18,28 +18,28 @@ import {
   CONTACT_FORM_CONTENT_MIN_LENGTH,
   CONTACT_FORM_CONTENT_MAX_LENGTH,
   BASE_STATUS_CODES,
-} from '@constants/interfaces';
+} from "@constants/interfaces";
 
-const EMAIL_ID = 'email';
-const SUBJECT_ID = 'subject';
-const CONTENT_ID = 'content';
+const EMAIL_ID = "email";
+const SUBJECT_ID = "subject";
+const CONTENT_ID = "content";
 
 export default function ContactForm() {
   const { locale }: { locale: string } = useParams() || {};
   const direction = getDirByLocale({ locale });
-  const [dir, setDir] = useState<'ltr' | 'rtl'>(direction);
+  const [dir, setDir] = useState<"ltr" | "rtl">(direction);
   const [errors, setErrors] = useState<[] | FormErrorNames>([]);
   const [isMessageSent, setMessageSent] = useState(false);
   const { onModalContentChange: setModalContent } = useContext(modalContext);
-  const t = useTranslations('contact');
+  const t = useTranslations("contact");
 
   const handleValidation = async (formData: FormData) => {
-    formData.append('dir', dir);
+    formData.append("dir", dir);
 
     const { isValidated, error } = formValidation({
       email: formData.get(EMAIL_ID) as string,
       subject: formData.get(SUBJECT_ID) as string,
-      content: formData.get('content') as string,
+      content: formData.get("content") as string,
     });
 
     if (error) {
@@ -47,14 +47,14 @@ export default function ContactForm() {
     } else if (isValidated) {
       try {
         const reqData = await handleSubmit(formData);
-        const { status } = reqData ?? { status: '' };
+        const { status } = reqData ?? { status: "" };
         if (status) {
           const ok =
             BASE_STATUS_CODES[
               status as unknown as keyof typeof BASE_STATUS_CODES
             ];
 
-          if (ok && status === '201') {
+          if (ok && status === "201") {
             setMessageSent(true);
           }
 
@@ -88,11 +88,11 @@ export default function ContactForm() {
     }
   };
 
-  const isLtr = dir === 'ltr' ? 'sm:pr-24' : 'sm:pl-36';
-  const isRtl = dir === 'rtl' ? 'sm:pl-36' : 'sm:pr-24';
+  const isLtr = dir === "ltr" ? "sm:pr-24" : "sm:pl-36";
+  const isRtl = dir === "rtl" ? "sm:pl-36" : "sm:pr-24";
 
-  const ltrPaddingClassName = direction === 'ltr' ? isLtr : '';
-  const rtlPaddingClassName = direction === 'rtl' ? isRtl : '';
+  const ltrPaddingClassName = direction === "ltr" ? isLtr : "";
+  const rtlPaddingClassName = direction === "rtl" ? isRtl : "";
 
   return (
     <form
@@ -106,43 +106,44 @@ export default function ContactForm() {
         {[
           {
             id: EMAIL_ID,
-            label: t('emailLabel'),
-            placeholder: t('emailPlaceholder'),
+            label: t("emailLabel"),
+            placeholder: t("emailPlaceholder"),
             maxLength: CONTACT_FORM_EMAIL_MAX_LENGTH,
             onChange: () => handleOnChange(EMAIL_ID),
             onClick: handleOnClick,
             isError: fieldError(EMAIL_ID),
-            placeholderFontClassName: 'placeholder:font-bebas-neue',
+            placeholderFontClassName: "placeholder:font-bebas-neue",
           },
           {
             id: SUBJECT_ID,
-            label: t('subjectLabel'),
-            placeholder: t('subjectPlaceholder'),
+            label: t("subjectLabel"),
+            placeholder: t("subjectPlaceholder"),
             minLength: CONTACT_FORM_SUBJECT_MIN_LENGTH,
             maxLength: CONTACT_FORM_SUBJECT_MAX_LENGTH,
             onChange: () => handleOnChange(SUBJECT_ID),
             onClick: handleOnClick,
             isError: fieldError(SUBJECT_ID),
+            placeholderFontClassName: "placeholder:font-bebas-neue",
           },
           {
             id: CONTENT_ID,
-            label: t('contentLabel'),
-            placeholder: t('contentPlaceholder'),
+            label: t("contentLabel"),
+            placeholder: t("contentPlaceholder"),
             minLength: CONTACT_FORM_CONTENT_MIN_LENGTH,
             maxLength: CONTACT_FORM_CONTENT_MAX_LENGTH,
             rows: 5,
-            component: 'textarea' as const,
+            component: "textarea" as const,
             bottomSlot: (
               <BottomInputComponentButtons
                 dir={dir}
                 isSubmitDisabled={!!errors.length}
                 onSubmit={() => setMessageSent(false)}
                 onClick={(val) => {
-                  if (dir === 'ltr' && val === 'rtl') {
-                    setDir('rtl');
+                  if (dir === "ltr" && val === "rtl") {
+                    setDir("rtl");
                   }
-                  if (dir === 'rtl' && val === 'ltr') {
-                    setDir('ltr');
+                  if (dir === "rtl" && val === "ltr") {
+                    setDir("ltr");
                   }
                 }}
                 leftSlot={<ProgressIndicators isMessageSent={isMessageSent} />}
@@ -151,6 +152,7 @@ export default function ContactForm() {
             onChange: () => handleOnChange(CONTENT_ID),
             onClick: handleOnClick,
             isError: fieldError(CONTENT_ID),
+            placeholderFontClassName: "placeholder:font-bebas-neue",
           },
         ].map(
           ({
