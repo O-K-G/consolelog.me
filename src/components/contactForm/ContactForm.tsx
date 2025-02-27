@@ -112,7 +112,6 @@ export default function ContactForm() {
             onChange: () => handleOnChange(EMAIL_ID),
             onClick: handleOnClick,
             isError: fieldError(EMAIL_ID),
-            placeholderFontClassName: "placeholder:font-bebas-neue",
           },
           {
             id: SUBJECT_ID,
@@ -123,7 +122,6 @@ export default function ContactForm() {
             onChange: () => handleOnChange(SUBJECT_ID),
             onClick: handleOnClick,
             isError: fieldError(SUBJECT_ID),
-            placeholderFontClassName: "placeholder:font-bebas-neue",
           },
           {
             id: CONTENT_ID,
@@ -152,7 +150,6 @@ export default function ContactForm() {
             onChange: () => handleOnChange(CONTENT_ID),
             onClick: handleOnClick,
             isError: fieldError(CONTENT_ID),
-            placeholderFontClassName: "placeholder:font-bebas-neue",
           },
         ].map(
           ({
@@ -164,7 +161,6 @@ export default function ContactForm() {
             rows,
             component,
             bottomSlot,
-            placeholderFontClassName,
             onChange,
             onClick,
             isError,
@@ -183,7 +179,7 @@ export default function ContactForm() {
               onChange={onChange}
               onClick={onClick}
               isError={isError}
-              placeholderFontClassName={placeholderFontClassName}
+              placeholderFontClassName="placeholder:font-bebas-neue"
             />
           )
         )}
