@@ -82,10 +82,13 @@
   }
 }
 
+/* Shorthand for animation breaks in production environment with FireFox after upgrade to Tailwind 4.0.9. */
 @utility animate-scroll-polyfill {
   @media (prefers-reduced-motion: no-preference) {
     @supports not (animation-timeline: scroll()) {
-      animation: 1s linear forwards;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+      animation-duration: 1s;
       animation-delay: calc(var(--scroll) * -1s);
       animation-play-state: paused;
     }
