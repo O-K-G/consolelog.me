@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "./styles/title-typing-animations.css";
 @import "./styles/icons-scroll-animations.css";
+@import "./styles/expand-collapse-button-animations.css";
+@import "./styles/loader-animations.css";
 
 @theme {
   --drop-shadow-purple-glow: 0px 0px 0.125rem #b377ff;
@@ -9,10 +11,6 @@
   --drop-shadow-border-purple-glow: 0px 0px 0.09rem #b377ff;
 
   --rotate-270: 270deg;
-
-  --animate-flash-loader-text: flash-loader-text 1s linear infinite;
-  --animate-expand-button: expand-button 1s linear forwards;
-  --animate-collapse-button: collapse-button 1s linear forwards;
 
   --color-title-purple: #ceb7ff;
   --color-title-purple-dark: #75629f;
@@ -44,46 +42,6 @@
   --background-image-contact-lg: url("/images/contact-lg.webp?cacheVersion=1");
   --background-image-contact-xl: url("/images/contact-xl.webp?cacheVersion=1");
   --background-image-contact-2xl: url("/images/contact-2xl.webp?cacheVersion=1");
-
-  @keyframes expand-button {
-    0% {
-      border-top: 1px solid transparent;
-      border-bottom: 1px solid transparent;
-      height: 100%;
-    }
-    50% {
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      height: 0%;
-    }
-    100% {
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      height: 100%;
-    }
-  }
-  @keyframes collapse-button {
-    0% {
-      border-top: 1px solid transparent;
-      border-bottom: 1px solid transparent;
-      height: 100%;
-    }
-    50% {
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      height: 0%;
-    }
-    100% {
-      border-top: 1px solid transparent;
-      border-bottom: 1px solid transparent;
-      height: 100%;
-    }
-  }
-  @keyframes flash-loader-text {
-    50% {
-      opacity: 0;
-    }
-  }
 }
 
 /*
@@ -197,28 +155,6 @@
   &:lang(he) {
     @apply font-varela-round-regular;
   }
-}
-
-@utility expandable-button-size-container {
-  @apply w-full h-[100cqw] md:w-[100cqh] md:h-full lg:w-3/4 lg:h-full;
-}
-
-@utility closed-expandable-button {
-  &:lang(en) {
-    @apply text-sm sm:text-2xl sm:leading-[3.5rem]! md:text-4xl text-transparent title-text-stroke-white animate-collapse-button font-just-in-the-firestorm uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)];
-  }
-
-  &:lang(he) {
-    @apply text-lg sm:text-3xl md:text-4xl sm:leading-[3.5rem]! text-transparent title-text-stroke-white animate-collapse-button font-stop-motion tracking-wider uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)];
-  }
-}
-
-@utility closed-expandable-button-focus {
-  @apply focus:before:bg-black/50 focus:drop-shadow-none focus:before:-z-10 focus:before:absolute focus:before:size-full focus:before:max-w-[100cqh] focus:before:rounded-full focus:before:top-0 focus:before:bottom-0 focus:before:left-0 focus:before:right-0 focus:before:m-auto;
-}
-
-@utility opened-expandable-button {
-  @apply text-white text-base text-center sm:text-xl p-2 focus:bg-black/50 animate-expand-button;
 }
 
 @utility side-links-clickable-elements-size {

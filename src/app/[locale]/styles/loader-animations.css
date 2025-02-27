@@ -1,0 +1,9 @@
+@theme {
+  --animate-flash-loader-text: flash-loader-text 1s linear infinite;
+}
+
+@keyframes flash-loader-text {
+  50% {
+    opacity: 0;
+  }
+}
