@@ -1,6 +1,8 @@
 {
   "projects": {
     "mainTitle": "my projects",
+    "dragAndDropTitle": "Drag and Drop",
+    "dragAndDropDescription": "A Proof of Concept (POC) Drag and Drop project for a financial Toronto based Startup.",
     "thisLandingPageTitle": "THIS LANDING PAGE",
     "thisLandingPageDescription": "This landing page highlights key projects I've worked on, showcasing my passion for web development and problem-solving. It represents a mix of experimentation, innovation, and practical solutions implemented during my career.",
     "i18nCoordinatorTitle": "INTERNATIONALIZATION LEAD",
