@@ -93,7 +93,13 @@ export default function ContactForm() {
 
   const ltrPaddingClassName = direction === "ltr" ? isLtr : "";
   const rtlPaddingClassName = direction === "rtl" ? isRtl : "";
-
+  const placeholderFontClassName = {
+    en: "placeholder:font-bebas-neue",
+    he: "placeholder:font-sans placeholder:font-bold",
+  };
+  console.log(
+    placeholderFontClassName[locale as keyof typeof placeholderFontClassName]
+  );
   return (
     <form
       dir={dir}
@@ -179,7 +185,11 @@ export default function ContactForm() {
               onChange={onChange}
               onClick={onClick}
               isError={isError}
-              placeholderFontClassName="ltr:placeholder:font-bebas-neue rtl:placeholder:font-sans rtl:placeholder:font-bold"
+              placeholderFontClassName={
+                placeholderFontClassName[
+                  locale as keyof typeof placeholderFontClassName
+                ]
+              }
             />
           )
         )}
