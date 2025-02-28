@@ -47,7 +47,7 @@ export default function ExpandableButton({
           className={`transition-300 lg:cursor-pointer flex justify-center text-center border-x border-transparent outline-hidden overflow-x-hidden data-[open=false]:overflow-y-hidden data-[open=true]:overflow-y-auto size-full data-[open=false]:closed-expandable-button data-[open=true]:opened-expandable-button data-[open=true]:regular-text-font-by-locale ${
             !isAnimationEnd
               ? ""
-              : "data-[open=true]:border-white data-[open=false]:items-center data-[open=true]:items-start data-[open=true]:break-words data-[open=false]:closed-expandable-button-focus"
+              : "data-[open=true]:border-white data-[open=false]:items-center data-[open=true]:items-start data-[open=true]:break-words data-[open=false]:closed-expandable-button-focus data-[open=false]:drop-shadow-[0px_0px_3px_rgba(175,25,255,1)] data-[open=false]:focus:drop-shadow-none"
           }`}
           onClick={handleClick}
           onKeyDown={handleClick}
