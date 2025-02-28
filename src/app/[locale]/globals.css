@@ -1,6 +1,108 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "./styles/main-title.css";
+@import "./styles/icons-scroll-animations.css";
+@import "./styles/expand-collapse-button.css";
+@import "./styles/loader-animations.css";
+@import "./styles/planet-rotate-animations.css";
+@import "./styles/backgrounds.css";
+@import "./styles/skills.css";
+@import "./styles/aside.css";
+@import "./styles/side-links.css";
+@import "./styles/contact-go-button.css";
+@import "./styles/attribution.css";
+
+@theme {
+  --drop-shadow-purple-glow: 0px 0px 0.125rem #b377ff;
+  --drop-shadow-white-glow-sm: 0px 0px 0.313rem #ffffff;
+  --drop-shadow-purple-glow-sm: 0px 0px 0.313rem #b377ff;
+  --drop-shadow-border-purple-glow: 0px 0px 0.09rem #b377ff;
+
+  --rotate-270: 270deg;
+
+  --color-title-purple: #ceb7ff;
+  --color-title-purple-dark: #75629f;
+
+  --font-just-in-the-firestorm: var(--font-just-in-the-firestorm);
+  --font-star-date-81316: var(--font-star-date-81316);
+  --font-bebas-neue: var(--font-bebas-neue);
+  --font-montserrat: var(--font-montserrat);
+  --font-stop-motion: var(--font-stop-motion);
+  --font-karantina-regular: var(--font-karantina-regular);
+  --font-varela-round-regular: var(--font-varela-round-regular);
+  --font-handjet: var(--font-handjet);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility hide-scrollbars {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility center-elements {
+  @apply flex items-center justify-center;
+}
+
+@utility transition-300 {
+  @apply transition-all ease-in-out duration-300;
+}
+
+@utility transition-1000 {
+  @apply transition-all ease-in-out duration-1000;
+}
+
+@utility info-text-font-classNames {
+  &:lang(en) {
+    @apply font-bebas-neue;
+  }
+
+  &:lang(he) {
+    @apply font-sans font-bold;
+  }
+}
+
+@utility regular-text-font-by-locale {
+  &:lang(en) {
+    @apply font-montserrat;
+  }
+
+  &:lang(he) {
+    @apply font-varela-round-regular;
+  }
+}
+
+/* Shorthand for animation breaks in production environment with FireFox after upgrade to Tailwind 4.0.9. */
+@utility animate-scroll-polyfill {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports not (animation-timeline: scroll()) {
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+      animation-duration: 1s;
+      animation-delay: calc(var(--scroll) * -1s);
+      animation-play-state: paused;
+    }
+  }
+}
+
+@utility animate-scroll {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      animation-timing-function: linear;
+      animation-timeline: scroll();
+    }
+  }
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -24,437 +126,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .hide-scrollbars {
-    scrollbar-width: none;
-  }
-
-  .hide-scrollbars::-webkit-scrollbar {
-    display: none;
-  }
-
-  .title-text-stroke-white {
-    -webkit-text-stroke: 0.125rem #ffffff;
-  }
-
-  .purple-text-stroke {
-    -webkit-text-stroke: 0.125rem #ceb7ff;
-  }
-
-  .center-elements {
-    @apply flex items-center justify-center;
-  }
-
-  .transition-300 {
-    @apply transition-all ease-in-out duration-300;
-  }
-
-  .transition-1000 {
-    @apply transition-all ease-in-out duration-1000;
-  }
-
-  .clip-path-inset-0 {
-    clip-path: inset(0);
-  }
-
-  .container-type-size {
-    container-type: size;
-  }
-
-  .text-fill-transparent {
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-  }
-
-  @media screen and (max-width: 640px) {
-    .purple-text-stroke {
-      -webkit-text-stroke: 0.07rem #ceb7ff;
-    }
-
-    .title-text-stroke-white {
-      -webkit-text-stroke: 0.05rem #ffffff;
-    }
-  }
-}
-
-@layer components {
-  .main-title-font-classNames:lang(en) {
-    @apply font-just-in-the-firestorm text-base sm:text-2xl md:text-3xl lg:text-4xl;
-  }
-
-  .main-title-font-classNames:lang(he) {
-    @apply font-stop-motion tracking-wider text-2xl sm:text-3xl md:text-5xl md:tracking-normal;
-  }
-
-  .info-text-font-classNames:lang(en) {
-    @apply font-bebas-neue;
-  }
-
-  .info-text-font-classNames:lang(he) {
-    @apply font-sans font-bold;
-  }
-
-  .contact-go-button-font-classNames:lang(he) {
-    @apply font-sans font-bold leading-[1rem] sm:leading-5 md:leading-8;
-  }
-
-  .border-font-classNames:lang(en) {
-    @apply font-star-date-81316 pt-[0.1rem] text-[135%] leading-[135%] md:text-[130%] md:leading-[130%];
-  }
-
-  .border-font-classNames:lang(he) {
-    @apply font-karantina-regular pb-0.5 text-[130%] leading-[130%] md:text-[140%] md:leading-[140%];
-  }
-
-  .regular-text-font-by-locale:lang(en) {
-    @apply font-montserrat;
-  }
-
-  .regular-text-font-by-locale:lang(he) {
-    @apply font-varela-round-regular;
-  }
-
-  .expandable-button-size-container {
-    @apply w-full h-[100cqw] md:w-[100cqh] md:h-full lg:w-3/4 lg:h-full;
-  }
-
-  .closed-expandable-button:lang(en) {
-    @apply text-sm sm:text-2xl sm:!leading-[3.5rem] md:text-4xl text-transparent title-text-stroke-white animate-collapse-button font-just-in-the-firestorm uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)];
-  }
-
-  .closed-expandable-button:lang(he) {
-    @apply text-lg sm:text-3xl md:text-4xl sm:!leading-[3.5rem] text-transparent title-text-stroke-white animate-collapse-button font-stop-motion tracking-wider uppercase drop-shadow-[0px_0px_3px_rgba(175,25,255,1)];
-  }
-
-  .closed-expandable-button-focus {
-    @apply focus:before:bg-black/50 focus:drop-shadow-none focus:before:-z-10 focus:before:absolute focus:before:size-full focus:before:max-w-[100cqh] focus:before:rounded-full focus:before:top-0 focus:before:bottom-0 focus:before:left-0 focus:before:right-0 focus:before:m-auto;
-  }
-
-  .opened-expandable-button {
-    @apply text-white text-base text-center sm:text-xl p-2 focus:bg-black/50 animate-expand-button;
-  }
-
-  .side-links-clickable-elements-size {
-    @apply size-8 sm:size-10 md:size-12 lg:size-14 xl:size-16 2xl:h-[4.5rem] 2xl:w-[4.5rem];
-  }
-
-  .side-links-icons {
-    @apply fill-title-purple group-hover:fill-white group-active:fill-title-purple-dark group-focus:fill-title-purple size-full;
-  }
-
-  .attribution-anchor-tag {
-    @apply outline-none focus:bg-white focus:rounded-md text-title-purple hover:text-title-purple-dark active:text-black focus:text-title-purple-dark;
-  }
-
-  .scrollable-subsection-buttons {
-    @apply z-10 h-14 lg:h-[6.375rem] absolute top-0 bottom-0 my-auto disabled:opacity-30;
-  }
-
-  .aside-closed {
-    @apply w-0 ltr:-left-[100vw] rtl:-right-[100vw] overflow-y-hidden;
-  }
-
-  .aside-open {
-    @apply w-full ltr:left-0 rtl:right-0 overflow-y-auto;
-  }
-
-  .title-typing-animation-by-language:lang(en) {
-    @apply before:right-0;
-  }
-
-  .title-typing-animation-by-language:lang(he) {
-    @apply before:left-0;
-  }
-
-  .title-typing-animation {
-    @apply title-typing-animation-by-language animate-title-type overflow-hidden mx-0 my-auto whitespace-nowrap before:h-[80%] before:my-auto before:w-2 before:sm:w-3 before:md:w-4 before:absolute before:top-0 before:bottom-0 before:animate-typing-caret;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    /* Animations polyfill, for cases in which 'animation-timeline' isn't supported. */
-    @supports not (animation-timeline: scroll()) {
-      .animate-scroll-polyfill {
-        animation: 1s linear forwards;
-        animation-delay: calc(var(--scroll) * -1s);
-        animation-play-state: paused;
-      }
-
-      .animate-rotate-polyfill {
-        animation-name: rotate;
-      }
-
-      @media screen and (max-width: 768px) {
-        .animate-rotate-polyfill {
-          scale: 0.5;
-        }
-      }
-
-      .animate-background-polyfill {
-        animation-name: background-scale;
-        scale: 1;
-      }
-
-      .animate-hide-components-polyfill {
-        animation-name: hide-components;
-      }
-
-      .animate-show-components-polyfill {
-        animation-name: show-components;
-      }
-    }
-
-    @supports not (animation-timeline: view()) {
-      .animate-skills-polyfill {
-        animation: 1s linear forwards;
-        animation-play-state: paused;
-        animation-name: skills;
-      }
-
-      .row-1-polyfill {
-        animation-delay: calc(var(--scroll) * -4s);
-      }
-
-      .row-2-polyfill {
-        animation-delay: calc(var(--scroll) * -3.75s);
-      }
-
-      .row-3-polyfill {
-        animation-delay: calc(var(--scroll) * -3.5s);
-      }
-
-      .row-4-polyfill {
-        animation-delay: calc(var(--scroll) * -3.25s);
-      }
-
-      .row-5-polyfill {
-        animation-delay: calc(var(--scroll) * -3s);
-      }
-
-      .row-6-polyfill {
-        animation-delay: calc(var(--scroll) * -2.75s);
-      }
-
-      .row-7-polyfill {
-        animation-delay: calc(var(--scroll) * -2.5s);
-      }
-    }
-
-    /* The animations can be moved to tailwind.config once the polyfill is removed.
-     view(): breaks in Turbopack. */
-
-    @supports (animation-timeline: scroll()) {
-      .animate-scroll {
-        animation: linear;
-        animation-timeline: scroll();
-      }
-
-      .animate-rotate {
-        animation-name: rotate;
-      }
-
-      @media screen and (max-width: 768px) {
-        .animate-rotate {
-          scale: 0.5;
-        }
-      }
-
-      .animate-background-scale {
-        animation-name: background-scale;
-        scale: 1;
-      }
-
-      .animate-hide-components {
-        animation-name: hide-components;
-      }
-
-      .animate-show-components {
-        animation-name: show-components;
-      }
-    }
-
-    .row-1 {
-      --top-var: 12svh;
-    }
-
-    .row-2 {
-      --top-var: 25svh;
-    }
-
-    .row-3 {
-      --top-var: 32svh;
-    }
-
-    .row-4 {
-      --top-var: 40svh;
-    }
-
-    .row-5 {
-      --top-var: 48svh;
-    }
-
-    .row-6 {
-      --top-var: 56svh;
-    }
-
-    .row-7 {
-      --top-var: 64svh;
-    }
-
-    @supports (animation-timeline: view()) {
-      .animate-skills {
-        animation: linear forwards;
-        animation-timeline: view();
-        animation-range-start: 0;
-        animation-range-end: 200svh;
-        animation-name: skills;
-      }
-    }
-  }
-
-  @media screen and (min-width: 640px) {
-    .row-1 {
-      --top-var: 12svh;
-    }
-
-    .row-2 {
-      --top-var: 25svh;
-    }
-
-    .row-3 {
-      --top-var: 37svh;
-    }
-
-    .row-4 {
-      --top-var: 49svh;
-    }
-
-    .row-5 {
-      --top-var: 61svh;
-    }
-
-    .row-6 {
-      --top-var: 73svh;
-    }
-
-    .row-7 {
-      --top-var: 85svh;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    .animate-skills {
-      animation-range-end: 200dvh;
-    }
-
-    .row-1 {
-      --top-var: 12dvh;
-    }
-
-    .row-2 {
-      --top-var: 25dvh;
-    }
-
-    .row-3 {
-      --top-var: 37dvh;
-    }
-
-    .row-4 {
-      --top-var: 49dvh;
-    }
-
-    .row-5 {
-      --top-var: 61dvh;
-    }
-
-    .row-6 {
-      --top-var: 73dvh;
-    }
-
-    .row-7 {
-      --top-var: 85dvh;
-    }
-  }
-
-  @keyframes skills {
-    from {
-      top: 120svh;
-    }
-    to {
-      top: var(--top-var);
-    }
-  }
-
-  @keyframes rotate {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    @keyframes rotate {
-      to {
-        transform: rotate(360deg);
-        scale: 2;
-      }
-    }
-  }
-
-  @keyframes background-scale {
-    to {
-      scale: 1.3;
-    }
-  }
-
-  @keyframes hide-components {
-    0% {
-      opacity: 1;
-    }
-
-    10% {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    to {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-
-  @keyframes show-components {
-    0% {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    10% {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    to {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .animate-scroll-icon {
-      --scroll-icon-top: -0.7rem;
-    }
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .animate-scroll-icon {
-      --scroll-icon-top: -0.95rem;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    .animate-scroll-icon {
-      --scroll-icon-top: -1.05rem;
-    }
-  }
 }
