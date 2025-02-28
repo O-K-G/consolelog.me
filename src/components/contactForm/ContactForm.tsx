@@ -179,7 +179,7 @@ export default function ContactForm() {
               onChange={onChange}
               onClick={onClick}
               isError={isError}
-              placeholderFontClassName="placeholder:font-bebas-neue"
+              placeholderFontClassName="ltr:placeholder:font-bebas-neue rtl:placeholder:font-karantina-regular"
             />
           )
         )}
