@@ -53,7 +53,7 @@
 }
 
 /* Animations polyfill, for cases in which 'animation-timeline' isn't supported. */
-/* view(): breaks in Turbopack. */
+
 @media (prefers-reduced-motion: no-preference) {
   .row-1 {
     --top-var: 12svh;
