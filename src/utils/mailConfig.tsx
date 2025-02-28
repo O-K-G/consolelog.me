@@ -1,9 +1,9 @@
-'use server';
+"use server";
 
-import nodemailer from 'nodemailer';
-import mailHTMLTemplate from '@utils/mailHTMLTemplate';
-import mailHTMLText from '@i18nEn/mailHTMLText.json';
-import { MailHTMLTemplateProps } from '@constants/interfaces';
+import nodemailer from "nodemailer";
+import mailHTMLTemplate from "@utils/mailHTMLTemplate";
+import mailHTMLText from "@i18nEn/mailHTMLText.json";
+import { MailHTMLTemplateProps } from "@constants/interfaces";
 
 export default async function mailConfig({
   dir,
@@ -12,15 +12,15 @@ export default async function mailConfig({
   content,
 }: MailHTMLTemplateProps) {
   const { env } = process;
-  const { HOST, HOST_PORT, SECURE, USER, PASS, TO } = env;
+  const { HOST, HOST_PORT, SECURE, ACCOUNT, PASS, TO } = env;
   const { subject: subjectText, website } = mailHTMLText;
 
   const transporter = nodemailer.createTransport({
     host: HOST,
     port: Number(HOST_PORT),
-    secure: SECURE === 'true',
+    secure: SECURE === "true",
     auth: {
-      user: USER,
+      user: ACCOUNT,
       pass: PASS,
     },
   });
