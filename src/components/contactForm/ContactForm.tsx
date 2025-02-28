@@ -93,6 +93,10 @@ export default function ContactForm() {
 
   const ltrPaddingClassName = direction === "ltr" ? isLtr : "";
   const rtlPaddingClassName = direction === "rtl" ? isRtl : "";
+  const placeholderFontClassName = {
+    en: "placeholder:font-bebas-neue",
+    he: "placeholder:font-sans placeholder:font-bold",
+  }[locale];
 
   return (
     <form
@@ -179,7 +183,7 @@ export default function ContactForm() {
               onChange={onChange}
               onClick={onClick}
               isError={isError}
-              placeholderFontClassName="placeholder:font-bebas-neue"
+              placeholderFontClassName={placeholderFontClassName}
             />
           )
         )}
