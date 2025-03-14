@@ -9,7 +9,7 @@ import Aside from "@components/shared/Aside";
 
 export default function Home() {
   return (
-    <main data-nosnippet className="min-h-svh lg:min-h-dvh overflow-hidden">
+    <main className="min-h-svh lg:min-h-dvh overflow-hidden">
       <Loader />
       <ModalContextComponent>
         <About />
