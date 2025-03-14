@@ -11,7 +11,8 @@ const { fontsByLocale } = handleFontsByLocale();
 
 export const metadata: Metadata = {
   title: "console.log(me)",
-  description: "My landing page",
+  description:
+    "This is my landing page to showcase some of my web development skills. ",
   applicationName: "consolelogme",
   keywords: [
     "console",

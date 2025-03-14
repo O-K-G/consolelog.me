@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from "react";
 import {
   BoltProps,
   CogwheelProps,
   LoaderProps,
   LoaderTextProps,
-} from '@constants/interfaces';
+} from "@constants/interfaces";
 
-export const LOADER_TEST_ID = 'loader-test';
+export const LOADER_TEST_ID = "loader-test";
 
 function Cogwheel({
-  sizeClassName = 'size-24',
+  sizeClassName = "size-24",
   children,
-  childrenClassName = 'center-elements',
-  bgClassName = 'bg-blue-300',
-  className = '',
-  'data-testid': dataTestId,
+  childrenClassName = "center-elements",
+  bgClassName = "bg-blue-300",
+  className = "",
+  "data-testid": dataTestId,
 }: CogwheelProps) {
   const cogwheelClassName =
-    'absolute top-0 bottom-0 left-0 right-0 m-auto size-full rounded-md';
+    "absolute top-0 bottom-0 left-0 right-0 m-auto size-full rounded-md";
 
   return (
     <div
@@ -38,7 +38,7 @@ function Cogwheel({
   );
 }
 
-function Bolt({ centerPointClassName = '' }: BoltProps) {
+function Bolt({ centerPointClassName = "" }: BoltProps) {
   return (
     <div className="rounded-full bg-blue-200 size-1/3 center-elements">
       <div className="bg-black rounded-full size-3/4 center-elements p-1">
@@ -85,14 +85,14 @@ export default function Loader({
     };
 
     if (isLoader) {
-      if (document.readyState === 'complete') {
+      if (document.readyState === "complete") {
         onLoad();
       } else {
-        window.addEventListener('load', onLoad);
+        window.addEventListener("load", onLoad);
       }
 
       return () => {
-        window.removeEventListener('load', onLoad);
+        window.removeEventListener("load", onLoad);
       };
     }
   }, [isLoader, isLoderVisible]);
@@ -103,6 +103,7 @@ export default function Loader({
 
   return (
     <div
+      data-nosnippet
       onTransitionEnd={() => setIsLoader(false)}
       data-open={!!(isLoderVisible || open)}
       className="data-[open=false]:opacity-0 data-[open=true]:opacity-100 transition-1000 fixed text-white text-lg center-elements flex-col gap-10 z-50 top-0 left-0 size-full bg-[#111111]"
@@ -114,12 +115,12 @@ export default function Loader({
         <CogwheelsSeparator>
           {[
             {
-              bgClassName: 'bg-emerald-100',
-              sizeClassName: 'size-12',
+              bgClassName: "bg-emerald-100",
+              sizeClassName: "size-12",
             },
             {
-              bgClassName: 'bg-red-200',
-              sizeClassName: 'size-10',
+              bgClassName: "bg-red-200",
+              sizeClassName: "size-10",
             },
           ].map((props: CogwheelProps) => (
             <Cogwheel key={`cog-1-${props.bgClassName}`} {...props}>
@@ -130,14 +131,14 @@ export default function Loader({
         <CogwheelsSeparator>
           {[
             {
-              bgClassName: 'bg-pink-200',
-              sizeClassName: 'size-16',
+              bgClassName: "bg-pink-200",
+              sizeClassName: "size-16",
               bolt: <Bolt centerPointClassName="mt-1" />,
             },
             {
-              className: '-mt-3',
-              bgClassName: 'bg-zinc-400',
-              sizeClassName: 'size-8',
+              className: "-mt-3",
+              bgClassName: "bg-zinc-400",
+              sizeClassName: "size-8",
               bolt: <Bolt />,
             },
           ].map(({ bolt, ...props }) => (
