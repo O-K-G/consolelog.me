@@ -7,6 +7,8 @@ import Dialog from "@components/shared/dialog/Dialog";
 import ModalContextComponent from "@components/shared/ModalContext";
 import Aside from "@components/shared/Aside";
 
+// TODO: Refactor Modal/Aside to be more global. Possibly with createportal.
+
 export default function Home() {
   return (
     <main className="min-h-svh lg:min-h-dvh overflow-hidden">
