@@ -32,15 +32,5 @@
 }
 
 @utility title-typing-animation {
-  @apply title-typing-animation-by-language animate-title-type overflow-hidden mx-0 my-auto whitespace-nowrap before:h-[80%] before:my-auto before:w-2 sm:before:w-3 md:before:w-4 before:absolute before:top-0 before:bottom-0 before:animate-typing-caret;
-}
-
-@utility title-typing-animation-by-language {
-  &:lang(en) {
-    @apply before:right-0;
-  }
-
-  &:lang(he) {
-    @apply before:left-0;
-  }
+  @apply ltr:before:right-0 rtl:before:left-0 animate-title-type overflow-hidden mx-0 my-auto whitespace-nowrap before:h-[80%] before:my-auto before:w-2 sm:before:w-3 md:before:w-4 before:absolute before:top-0 before:bottom-0 before:animate-typing-caret;
 }
