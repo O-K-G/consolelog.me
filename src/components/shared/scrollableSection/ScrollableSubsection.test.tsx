@@ -2,8 +2,8 @@ import React from "react";
 import { SCROLLABLE_ITEM_TEST_ID } from "@components/shared/scrollableSection/ScrollableSubsectionItem";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { IntlProvider } from "next-intl";
 import { default as messages } from "@i18nEn/scrollableSectionText.json";
+import { NextIntlClientProvider } from "next-intl";
 import ScrollableSubsection, {
   LEFT_BUTTON_TEST_ID,
   RIGHT_BUTTON_TEST_ID,
@@ -29,7 +29,7 @@ beforeEach(() => {
 describe("ScrollableSubsection", () => {
   test("renders children properly", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -41,7 +41,7 @@ describe("ScrollableSubsection", () => {
             <div>Item 3</div>
           </ScrollableSubsection.Item>
         </ScrollableSubsection>
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
 
     expect(screen.getByText("Item 1")).toBeInTheDocument();
@@ -51,7 +51,7 @@ describe("ScrollableSubsection", () => {
 
   test("Initially the left button is disabled and the right button is enabled", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -63,7 +63,7 @@ describe("ScrollableSubsection", () => {
             <div>Item 3</div>
           </ScrollableSubsection.Item>
         </ScrollableSubsection>
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
 
     const leftButton = screen.getByTestId(LEFT_BUTTON_TEST_ID);
@@ -75,7 +75,7 @@ describe("ScrollableSubsection", () => {
 
   test("updates selected subsection when clicking the right button and the left button is enabled", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -87,7 +87,7 @@ describe("ScrollableSubsection", () => {
             <div>Item 3</div>
           </ScrollableSubsection.Item>
         </ScrollableSubsection>
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
 
     const rightButton = screen.getByTestId(RIGHT_BUTTON_TEST_ID);
@@ -98,7 +98,7 @@ describe("ScrollableSubsection", () => {
 
   test("right button is enabled when clicking the left button and it updates the selected subsection", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -110,7 +110,7 @@ describe("ScrollableSubsection", () => {
             <div>Item 3</div>
           </ScrollableSubsection.Item>
         </ScrollableSubsection>
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
 
     const rightButton = screen.getByTestId(RIGHT_BUTTON_TEST_ID);
@@ -124,11 +124,11 @@ describe("ScrollableSubsection", () => {
 
   test("ScrollableSubsectionItem renders properly", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>Item 1</ScrollableSubsection.Item>
         </ScrollableSubsection>
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
 
     expect(screen.getByText("Item 1")).toBeInTheDocument();

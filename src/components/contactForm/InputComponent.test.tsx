@@ -2,8 +2,8 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import InputComponent from "@components/contactForm/InputComponent";
-import { IntlProvider } from "next-intl";
 import { default as messages } from "@i18nEn/inputComponentText.json";
+import { NextIntlClientProvider } from "next-intl";
 
 const PLACEHOLDER_TEST_VALUE = "email - placeholder test value";
 const EMAIL_TEST_VALUE = "test@test.test";
@@ -25,9 +25,9 @@ describe("InputComponent", () => {
 
   it("renders InputComponent with the correct placeholder", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
     expect(
       screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE)
@@ -36,9 +36,9 @@ describe("InputComponent", () => {
 
   it("updates value onChange", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
     fireEvent.change(input, { target: { value: EMAIL_TEST_VALUE } });
@@ -47,9 +47,9 @@ describe("InputComponent", () => {
 
   it("value changes when onChange is called ", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
     fireEvent.change(input, { target: { value: EMAIL_TEST_VALUE } });
@@ -58,26 +58,26 @@ describe("InputComponent", () => {
 
   it("isReset being true resets the value", () => {
     const { rerender } = render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
     fireEvent.change(input, { target: { value: EMAIL_TEST_VALUE } });
     expect((input as HTMLInputElement).value).toBe(EMAIL_TEST_VALUE);
     rerender(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent label={TEST_LABEL} {...defaultProps} isReset={true} />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
     expect((input as HTMLInputElement).value).toBe("");
   });
 
   it("displays the correct aria-label based on error state and input length", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
     fireEvent.change(input, { target: { value: "test" } });
@@ -87,9 +87,9 @@ describe("InputComponent", () => {
 
   it("displays an error aria-label if isError is true", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent label={TEST_LABEL} {...defaultProps} isError={true} />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
     const expectedAriaLabel = `Error - email is invalid`;
@@ -98,9 +98,9 @@ describe("InputComponent", () => {
 
   it("fires onClick handler when the user click on an input", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
     fireEvent.click(input);
@@ -109,13 +109,13 @@ describe("InputComponent", () => {
 
   it("renders textarea when InputComponent is textarea", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <InputComponent
           label={TEST_LABEL}
           {...defaultProps}
           component="textarea"
         />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
     const textarea = screen.getByPlaceholderText(PLACEHOLDER_TEST_VALUE);
     expect(textarea.tagName).toBe("TEXTAREA");

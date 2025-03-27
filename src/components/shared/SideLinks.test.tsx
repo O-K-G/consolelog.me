@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { URLs } from "@constants/urls";
 import { default as messages } from "@i18nEn/sideLinks.json";
-import { IntlProvider } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import SideLinks, {
   GH_TEST_ID,
   LI_TEST_ID,
@@ -16,9 +16,9 @@ const DEFAULT_LOCALE = "en";
 describe("SideLinks Component", () => {
   it("renders GitHub and LinkedIn links", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
         <SideLinks />
-      </IntlProvider>
+      </NextIntlClientProvider>
     );
 
     const ghLink = screen.getByTestId(GH_TEST_ID);
