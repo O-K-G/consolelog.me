@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 export default function Modal({ title, onClose, children, open }: ModalProps) {
   const ref = useRef<null | HTMLDialogElement>(null);
 
+  // TODO: Use this to replace modals.
+
   useEffect(() => {
     if (open) {
       return ref.current?.showModal();
