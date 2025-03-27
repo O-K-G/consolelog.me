@@ -32,5 +32,5 @@
 }
 
 @utility title-typing-animation {
-  @apply ltr:before:right-0 rtl:before:left-0 animate-title-type overflow-hidden mx-0 my-auto whitespace-nowrap before:h-[80%] before:my-auto before:w-2 sm:before:w-3 md:before:w-4 before:absolute before:top-0 before:bottom-0 before:animate-typing-caret;
+  @apply ltr:before:right-0 rtl:before:left-0 animate-title-type overflow-clip mx-0 my-auto whitespace-nowrap before:h-[80%] before:my-auto before:w-2 sm:before:w-3 md:before:w-4 before:absolute before:top-0 before:bottom-0 before:animate-typing-caret;
 }
