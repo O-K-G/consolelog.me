@@ -1,15 +1,15 @@
-import React from 'react';
-import { SCROLLABLE_ITEM_TEST_ID } from '@components/shared/scrollableSection/ScrollableSubsectionItem';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { IntlProvider } from 'next-intl';
-import { default as messages } from '@i18nEn/scrollableSectionText.json';
+import React from "react";
+import { SCROLLABLE_ITEM_TEST_ID } from "@components/shared/scrollableSection/ScrollableSubsectionItem";
+import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import { IntlProvider } from "next-intl";
+import { default as messages } from "@i18nEn/scrollableSectionText.json";
 import ScrollableSubsection, {
   LEFT_BUTTON_TEST_ID,
   RIGHT_BUTTON_TEST_ID,
-} from '@components/shared/scrollableSection/ScrollableSubsection';
+} from "@components/shared/scrollableSection/ScrollableSubsection";
 
-const DEFAULT_LOCALE = 'en';
+const DEFAULT_LOCALE = "en";
 
 beforeAll(() => {
   const observe = jest.fn();
@@ -26,10 +26,10 @@ beforeEach(() => {
   global.HTMLDivElement.prototype.scrollTo = jest.fn();
 });
 
-describe('ScrollableSubsection', () => {
-  test('renders children properly', () => {
+describe("ScrollableSubsection", () => {
+  test("renders children properly", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <IntlProvider locale={DEFAULT_LOCALE}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -44,14 +44,14 @@ describe('ScrollableSubsection', () => {
       </IntlProvider>
     );
 
-    expect(screen.getByText('Item 1')).toBeInTheDocument();
-    expect(screen.getByText('Item 2')).toBeInTheDocument();
-    expect(screen.getByText('Item 3')).toBeInTheDocument();
+    expect(screen.getByText("Item 1")).toBeInTheDocument();
+    expect(screen.getByText("Item 2")).toBeInTheDocument();
+    expect(screen.getByText("Item 3")).toBeInTheDocument();
   });
 
-  test('Initially the left button is disabled and the right button is enabled', () => {
+  test("Initially the left button is disabled and the right button is enabled", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <IntlProvider locale={DEFAULT_LOCALE}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -73,9 +73,9 @@ describe('ScrollableSubsection', () => {
     expect(rightButton).not.toBeDisabled();
   });
 
-  test('updates selected subsection when clicking the right button and the left button is enabled', () => {
+  test("updates selected subsection when clicking the right button and the left button is enabled", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <IntlProvider locale={DEFAULT_LOCALE}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -96,9 +96,9 @@ describe('ScrollableSubsection', () => {
     expect(screen.getByTestId(LEFT_BUTTON_TEST_ID)).not.toBeDisabled();
   });
 
-  test('right button is enabled when clicking the left button and it updates the selected subsection', () => {
+  test("right button is enabled when clicking the left button and it updates the selected subsection", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <IntlProvider locale={DEFAULT_LOCALE}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>
             <div>Item 1</div>
@@ -122,19 +122,19 @@ describe('ScrollableSubsection', () => {
     expect(leftButton).toBeDisabled();
   });
 
-  test('ScrollableSubsectionItem renders properly', () => {
+  test("ScrollableSubsectionItem renders properly", () => {
     render(
-      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <IntlProvider locale={DEFAULT_LOCALE}>
         <ScrollableSubsection>
           <ScrollableSubsection.Item>Item 1</ScrollableSubsection.Item>
         </ScrollableSubsection>
       </IntlProvider>
     );
 
-    expect(screen.getByText('Item 1')).toBeInTheDocument();
+    expect(screen.getByText("Item 1")).toBeInTheDocument();
     const item = screen.getByTestId(SCROLLABLE_ITEM_TEST_ID);
     expect(item).toHaveClass(
-      'relative h-full snap-center min-w-full flex justify-end gap-4 items-center flex-col'
+      "relative h-full snap-center min-w-full flex justify-end gap-4 items-center flex-col"
     );
   });
 });
