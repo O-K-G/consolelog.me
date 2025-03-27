@@ -9,6 +9,8 @@ import SideLinks, {
   LI_TEST_ID,
 } from "@components/shared/SideLinks";
 
+// FIXME: Tests / Next-intl
+
 const DEFAULT_LOCALE = "en";
 
 describe("SideLinks Component", () => {
