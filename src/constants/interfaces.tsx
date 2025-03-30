@@ -231,6 +231,13 @@ export interface MainTitleProps {
   isRightLabelBlink?: boolean;
 }
 
+export interface ModalProps {
+  title: string;
+  onClose: () => void;
+  children: ReactNode;
+  open: boolean;
+}
+
 export interface BorderProps {
   className?: string;
   leftLabel?: string;
