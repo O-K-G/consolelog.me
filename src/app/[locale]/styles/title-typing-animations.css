@@ -1,15 +1,18 @@
 @theme {
-  --animate-title-type: title-type 3.5s steps(40, end);
+  --animate-title-type: title-type 3.5s steps(40, end) forwards;
   --animate-border-subtitle-blink: border-subtitle-blink 0.75s 5;
   --animate-typing-caret: typing-caret 0.75s 5;
+  --animate-delayed-typing-caret: typing-caret 0.75s 5 5s;
 }
 
 @keyframes title-type {
   0% {
     width: 0%;
+    opacity: 100%;
   }
   100% {
     width: 100%;
+    opacity: 100%;
   }
 }
 
@@ -32,5 +35,5 @@
 }
 
 @utility title-typing-animation {
-  @apply ltr:before:right-0 rtl:before:left-0 animate-title-type overflow-clip mx-0 my-auto whitespace-nowrap before:h-[80%] before:my-auto before:w-2 sm:before:w-3 md:before:w-4 before:absolute before:top-0 before:bottom-0 before:animate-typing-caret;
+  @apply opacity-0 ltr:before:right-0 rtl:before:left-0 animate-title-type overflow-clip mx-0 my-auto whitespace-nowrap before:h-[80%] before:my-auto before:w-2 sm:before:w-3 md:before:w-4 before:absolute before:top-0 before:bottom-0;
 }

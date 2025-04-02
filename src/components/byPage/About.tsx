@@ -25,7 +25,7 @@ export default function About() {
         </Title>
       </header>
 
-      <Title>{t("subtitle")}</Title>
+      <Title animationClassName="delayed">{t("subtitle")}</Title>
 
       <ExpandableButton alternativeLabel={t("alternativeLabel")} />
     </Section>
