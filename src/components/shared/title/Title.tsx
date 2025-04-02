@@ -9,6 +9,7 @@ export default function Title({
   variant = "mainTitle",
   topLabel,
   bottomLabel,
+  animationClassName = "title-typing-animation",
   subtitleFontClassName = "info-text-font-classNames",
   isRightLabelBlink,
 }: MainTitleProps) {
@@ -23,7 +24,7 @@ export default function Title({
         <Border isTextBlink={isRightLabelBlink} rightLabel={topLabel} />
       )}
       <Component
-        className={`py-2 title-typing-animation sm:py-4 px-2 uppercase drop-shadow-purple-glow sm:drop-shadow-purple-glow-sm text-center ${selectedVariantClassName[variant]}`}
+        className={`py-2 sm:py-4 px-2 uppercase drop-shadow-purple-glow sm:drop-shadow-purple-glow-sm text-center ${animationClassName} ${selectedVariantClassName[variant]}`}
       >
         {children}
       </Component>

@@ -223,6 +223,7 @@ export interface MainTitleProps {
   children: ReactNode;
   component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   className?: string;
+  animationClassName?: string;
   border?: boolean;
   variant?: "mainTitle" | "subtitle";
   topLabel?: string;
