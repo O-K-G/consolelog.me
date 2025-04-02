@@ -3,9 +3,8 @@ import { Metadata, Viewport } from "next";
 import { CACHE_VERSION } from "@root/postcss.config.mjs";
 import handleFontsByLocale from "@utils/handleFontsByLocale";
 import getDirByLocale from "@utils/getDirByLocale";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
 import { ReactNode } from "react";
+import { NextIntlClientProvider } from "next-intl";
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -65,7 +64,6 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const messages = await getMessages();
   const selectedLocale = locale || "en";
   const dir = getDirByLocale({ locale: selectedLocale }) || "ltr";
 
@@ -74,7 +72,7 @@ export default async function RootLayout({
 
   return (
     <html dir={dir} lang={selectedLocale}>
-      <NextIntlClientProvider messages={messages}>
+      <NextIntlClientProvider>
         <body
           className={`has-[dialog[data-open=true]]:overflow-hidden has-[main_aside[data-open=true]]:overflow-hidden ${mainTitle} ${borderTitle} ${infoText} ${regularText} ${shenanigansText}`}
         >
