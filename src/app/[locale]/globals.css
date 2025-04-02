@@ -54,11 +54,6 @@
   @apply flex items-center justify-center;
 }
 
-@utility delayed {
-  @apply before:animate-delayed-typing-caret w-0;
-  animation-delay: 5s;
-}
-
 @utility transition-300 {
   @apply transition-all ease-in-out duration-300;
 }
