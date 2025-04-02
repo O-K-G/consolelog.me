@@ -4,19 +4,30 @@ import "@testing-library/jest-dom";
 import { URLs } from "@constants/urls";
 import { default as messages } from "@i18nEn/sideLinks.json";
 import { NextIntlClientProvider } from "next-intl";
+import { i18nFilenames } from "@constants/i18nFilenames";
 import SideLinks, {
   GH_TEST_ID,
   LI_TEST_ID,
 } from "@components/shared/SideLinks";
 
-// FIXME: Tests / Next-intl
-
 const DEFAULT_LOCALE = "en";
 
 describe("SideLinks Component", () => {
-  it("renders GitHub and LinkedIn links", () => {
+  it("renders GitHub and LinkedIn links", async () => {
+    const jsonFiles = await Promise.all(
+      i18nFilenames.map(
+        async (str) =>
+          (
+            await import(`../../../messages/${DEFAULT_LOCALE}/${str}.json`)
+          ).default
+      )
+    );
+
+    const messagesObject = Object.assign({}, ...jsonFiles);
+
+    console.log(messagesObject);
     render(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <SideLinks />
       </NextIntlClientProvider>
     );

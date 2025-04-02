@@ -2,13 +2,23 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import InputComponent from "@components/contactForm/InputComponent";
-import { default as messages } from "@i18nEn/inputComponentText.json";
+import { i18nFilenames } from "@constants/i18nFilenames";
 import { NextIntlClientProvider } from "next-intl";
 
 const PLACEHOLDER_TEST_VALUE = "email - placeholder test value";
 const EMAIL_TEST_VALUE = "test@test.test";
 const DEFAULT_LOCALE = "en";
 const TEST_LABEL = "Test";
+
+const jsonFiles = async () =>
+  await Promise.all(
+    i18nFilenames.map(
+      async (str) =>
+        (
+          await import(`../../../messages/${DEFAULT_LOCALE}/${str}.json`)
+        ).default
+    )
+  );
 
 describe("InputComponent", () => {
   const defaultProps = {
@@ -23,9 +33,12 @@ describe("InputComponent", () => {
     onClick: jest.fn(),
   };
 
-  it("renders InputComponent with the correct placeholder", () => {
+  it("renders InputComponent with the correct placeholder", async () => {
+    const messages = await jsonFiles();
+    const messagesObject = Object.assign({}, ...messages);
+
     render(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
       </NextIntlClientProvider>
     );
@@ -34,9 +47,12 @@ describe("InputComponent", () => {
     ).toBeInTheDocument();
   });
 
-  it("updates value onChange", () => {
+  it("updates value onChange", async () => {
+    const messages = await jsonFiles();
+    const messagesObject = Object.assign({}, ...messages);
+
     render(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
       </NextIntlClientProvider>
     );
@@ -45,9 +61,12 @@ describe("InputComponent", () => {
     expect((input as HTMLInputElement).value).toBe(EMAIL_TEST_VALUE);
   });
 
-  it("value changes when onChange is called ", () => {
+  it("value changes when onChange is called ", async () => {
+    const messages = await jsonFiles();
+    const messagesObject = Object.assign({}, ...messages);
+
     render(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
       </NextIntlClientProvider>
     );
@@ -56,9 +75,12 @@ describe("InputComponent", () => {
     expect(defaultProps.onChange).toHaveBeenCalled();
   });
 
-  it("isReset being true resets the value", () => {
+  it("isReset being true resets the value", async () => {
+    const messages = await jsonFiles();
+    const messagesObject = Object.assign({}, ...messages);
+
     const { rerender } = render(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
       </NextIntlClientProvider>
     );
@@ -66,16 +88,19 @@ describe("InputComponent", () => {
     fireEvent.change(input, { target: { value: EMAIL_TEST_VALUE } });
     expect((input as HTMLInputElement).value).toBe(EMAIL_TEST_VALUE);
     rerender(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <InputComponent label={TEST_LABEL} {...defaultProps} isReset={true} />
       </NextIntlClientProvider>
     );
     expect((input as HTMLInputElement).value).toBe("");
   });
 
-  it("displays the correct aria-label based on error state and input length", () => {
+  it("displays the correct aria-label based on error state and input length", async () => {
+    const messages = await jsonFiles();
+    const messagesObject = Object.assign({}, ...messages);
+
     render(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
       </NextIntlClientProvider>
     );
@@ -85,9 +110,12 @@ describe("InputComponent", () => {
     expect(input).toHaveAttribute("aria-label", expectedAriaLabel);
   });
 
-  it("displays an error aria-label if isError is true", () => {
+  it("displays an error aria-label if isError is true", async () => {
+    const messages = await jsonFiles();
+    const messagesObject = Object.assign({}, ...messages);
+
     render(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <InputComponent label={TEST_LABEL} {...defaultProps} isError={true} />
       </NextIntlClientProvider>
     );
@@ -96,9 +124,12 @@ describe("InputComponent", () => {
     expect(input).toHaveAttribute("aria-label", expectedAriaLabel);
   });
 
-  it("fires onClick handler when the user click on an input", () => {
+  it("fires onClick handler when the user click on an input", async () => {
+    const messages = await jsonFiles();
+    const messagesObject = Object.assign({}, ...messages);
+
     render(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <InputComponent label={TEST_LABEL} {...defaultProps} />
       </NextIntlClientProvider>
     );
@@ -107,9 +138,12 @@ describe("InputComponent", () => {
     expect(defaultProps.onClick).toHaveBeenCalled();
   });
 
-  it("renders textarea when InputComponent is textarea", () => {
+  it("renders textarea when InputComponent is textarea", async () => {
+    const messages = await jsonFiles();
+    const messagesObject = Object.assign({}, ...messages);
+
     render(
-      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <NextIntlClientProvider locale={DEFAULT_LOCALE} messages={messagesObject}>
         <InputComponent
           label={TEST_LABEL}
           {...defaultProps}

@@ -19,7 +19,14 @@ const config: Config = {
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   testEnvironment: "jsdom",
-  transformIgnorePatterns: ["node_modules/(?!next-intl)/"],
 };
 
-export default createJestConfig(config);
+async function customConfig() {
+  // https://stackoverflow.com/questions/50147915/jest-transformignorepatterns-not-working
+  const nextJestConfig = await createJestConfig(config)();
+  (nextJestConfig.transformIgnorePatterns as string[])[0] =
+    "node_modules/(?!next-intl)/";
+  return nextJestConfig;
+}
+
+export default customConfig;
